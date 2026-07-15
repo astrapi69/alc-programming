@@ -1,27 +1,90 @@
-# adaptive-learner-content-template
+# alc-programming
 
-[![content validation](https://github.com/astrapi69/adaptive-learner-content-template/actions/workflows/validate-content.yml/badge.svg)](https://github.com/astrapi69/adaptive-learner-content-template/actions/workflows/validate-content.yml)
+[![content validation](https://github.com/astrapi69/alc-programming/actions/workflows/validate-content.yml/badge.svg)](https://github.com/astrapi69/alc-programming/actions/workflows/validate-content.yml)
 [![engine on npm](https://img.shields.io/npm/v/learn-content-engine?label=engine%20on%20npm)](https://www.npmjs.com/package/learn-content-engine)
 
-A **GitHub template** for building your own [Adaptive Learner](https://github.com/astrapi69/adaptive-learner)
-content: a Git repository of plain lesson files that the app loads
-directly and no vendor can lock away.
+The [Adaptive Learner](https://github.com/astrapi69/adaptive-learner)
+content repository for **Programmierung** (programming): a Git repository
+of plain lesson files that the app loads directly and no vendor can lock
+away.
 
-> Click **“Use this template” → Create a new repository** (not *Fork*) to
-> get a fresh, independent copy under your own account, then clone it.
+It ships three German-language knowledge sets (domain `programming`,
+`domain_label` Programmierung) in ascending difficulty: a Python
+beginners course and a two-part React series. This repository was
+created from
+[adaptive-learner-content-template](https://github.com/astrapi69/adaptive-learner-content-template),
+which provides the schema mirror, validator, CI and authoring tooling
+described below.
 
-This template is the clean scaffold — schema, validator, CI, authoring
-templates, an AI generator, and **one** small example set. It ships **no**
-real content: you replace the example with your own.
+> **Herkunft:** Diese Sets lagen zuvor im offiziellen Content-Repo
+> [`adaptive-learner-content`](https://github.com/astrapi69/adaptive-learner-content)
+> (`python-basics`) und im Test-/Starter-Repo
+> [`adaptive-learner-content-test`](https://github.com/astrapi69/adaptive-learner-content-test)
+> (beide React-Sets) und wurden in dieses eigenständige Content-Repo
+> verschoben (siehe `adaptive-learner-content#144`).
+
+## Die Sets
+
+Drei Sets, 28 Lektionen, Quell- und Zielsprache Deutsch. Empfohlene
+Reihenfolge:
+
+### Teil 1 — `sets/de/python-basics` (A1, 15 Lektionen)
+
+Einführung in die Programmierung mit Python: von `print()` und Variablen
+über Strings, Listen, Bedingungen und Schleifen bis zu Funktionen,
+Dictionaries, Fehlerbehandlung, Modulen, Dateien und Comprehensions -
+mit lauffähigen Code-Beispielen und erwarteter Ausgabe.
+
+| # | Lesson | Titel |
+|---|--------|-------|
+| 01 | `01-erste-schritte.json` | Erste Schritte mit Python |
+| 02 | `02-variablen-und-datentypen.json` | Variablen und Datentypen |
+| 03 | `03-zahlen-und-operatoren.json` | Zahlen und Operatoren |
+| 04 | `04-strings.json` | Strings — mit Text arbeiten |
+| 05 | `05-listen.json` | Listen (Lists) |
+| 06 | `06-bedingungen.json` | Bedingungen (if / elif / else) |
+| 07 | `07-schleifen.json` | Schleifen (for & while) |
+| 08 | `08-funktionen.json` | Funktionen (def) |
+| 09 | `09-dictionaries.json` | Dictionaries (dict) |
+| 10 | `10-tupel-und-mengen.json` | Tupel und Mengen (tuple & set) |
+| 11 | `11-fehler-und-ausnahmen.json` | Fehler und Ausnahmen (try / except) |
+| 12 | `12-module-und-imports.json` | Module und Imports |
+| 13 | `13-dateien.json` | Dateien lesen und schreiben |
+| 14 | `14-comprehensions.json` | List Comprehensions |
+| 15 | `15-wiederholung.json` | Wiederholung und Festigung |
+
+### Teil 2 — `sets/de/react-grundlagen` (A2, 5 Lektionen)
+
+| # | Lesson | Titel |
+|---|--------|-------|
+| 01 | `01-was-ist-react.json` | Was ist React? Library, Komponenten & deklarative UI |
+| 02 | `02-jsx.json` | JSX verstehen: kein HTML, Ausdrücke in geschweiften Klammern |
+| 03 | `03-props.json` | Props: Daten von Eltern an Kind, read-only & unidirektionaler Fluss |
+| 04 | `04-state-usestate.json` | State mit useState: Re-Render statt direkter Mutation |
+| 05 | `05-events-und-grundprinzipien.json` | Events, Hooks & Grundprinzipien: Re-Render und Komposition |
+
+### Teil 3 — `sets/de/react-fortgeschritten` (B1, 8 Lektionen)
+
+| # | Lesson | Titel |
+|---|--------|-------|
+| 01 | `01-useeffect-verstehen.json` | useEffect verstehen |
+| 02 | `02-datenfetching.json` | Datenfetching-Grundmuster |
+| 03 | `03-usecontext.json` | useContext |
+| 04 | `04-useref.json` | useRef |
+| 05 | `05-performance.json` | Performance: Re-Render, useMemo, useCallback |
+| 06 | `06-listen-keys.json` | Listen und Keys |
+| 07 | `07-formulare.json` | Formulare: controlled vs. uncontrolled |
+| 08 | `08-komposition-patterns.json` | Komposition und Patterns |
 
 ## What's inside
 
-- `manifest.yaml` — the root manifest listing your sets (one example set to start).
-- `sets/en/es-a1/` — one minimal, valid example lesson + its set manifest.
+- `manifest.yaml` — the root manifest listing the sets.
+- `sets/de/python-basics/`, `sets/de/react-grundlagen/`,
+  `sets/de/react-fortgeschritten/` — the lesson sets.
 - `schema/` — the pinned [`learn-content-engine`](https://github.com/astrapi69/learn-content-engine)
   schema mirror; [`engine-version.txt`](schema/engine-version.txt) holds the
-  pinned engine version (currently `0.12.0`) and is the source of truth. This
-  is what your content is validated against — independent of the app.
+  pinned engine version and is the source of truth. This is what the content
+  is validated against — independent of the app.
 - `templates/` — starting-point lessons per domain (language / programming / knowledge).
 - `scripts/validate_content.py` — the local validator.
 - `scripts/generate_exercises.py` — an optional BYOK AI exercise generator.
@@ -38,15 +101,12 @@ You only need `make` and `python3`. The first `make validate` sets up a
 local environment for you (no manual `pip`, no virtualenv, no Poetry):
 
 ```bash
-# 1. Use this template -> your own repo -> clone it
-git clone https://github.com/<you>/<your-content-repo>.git
-cd <your-content-repo>
+git clone https://github.com/astrapi69/alc-programming.git
+cd alc-programming
 
-# 2. Validate the example set. First run creates .venv and installs deps;
-#    later runs reuse it. Exit 0 == all sets pass.
+# Validate the sets. First run creates .venv and installs deps;
+# later runs reuse it. Exit 0 == all sets pass.
 make validate
-
-# 3. Replace the example with your own lesson, then re-run make validate + commit.
 ```
 
 Before you push, `make lint` runs the same semantic engine gate as CI
@@ -78,16 +138,17 @@ YAML (or JSON) file so an AI assistant or a human can review the whole
 set in one pass (syntax, correctness, consistency across lessons):
 
 ```bash
-python3 scripts/export_set.py es-a1 --lang en
-# -> exports/es-a1-en-<timestamp>.yaml
-python3 scripts/export_set.py es-a1 --lang en --format json --out /tmp/review.json
+python3 scripts/export_set.py react-grundlagen
+# -> exports/react-grundlagen-de-<timestamp>.yaml
+python3 scripts/export_set.py react-grundlagen --format json --out /tmp/review.json
 ```
 
-The slug is the set id from the root `manifest.yaml` (`example-set`) or
-the folder name of the set path (`es-a1`); when the same folder name
-exists under several source-language directories, `--lang` (default
-`de`) picks the `sets/<lang>/` directory. Non-ASCII characters stay
-real UTF-8. An unknown slug aborts with a list of the available sets.
+The slug is the set id from the root `manifest.yaml`
+(`react-grundlagen-from-de`) or the folder name of the set path
+(`react-grundlagen`); when the same folder name exists under several
+source-language directories, `--lang` (default `de`) picks the
+`sets/<lang>/` directory. Non-ASCII characters stay real UTF-8. An
+unknown slug aborts with a list of the available sets.
 
 The export is self-contained: its first field `review_instructions`
 holds the complete review prompt from
@@ -137,9 +198,11 @@ on them directly (a runnable sample lives in
 lesson with a BYOK model (Anthropic / OpenAI / Gemini) and gates every
 draft through the validator before writing it into the `generated/`
 staging folder. It is language-focused (target and source differ). For a
-**knowledge set** (material written in the same language it teaches,
-source == target), the generator is not the right tool; hand-author from
-[`templates/knowledge/`](templates/knowledge/) instead.
+**knowledge set** like the ones in this repo (material written in the
+same language it teaches, source == target), the generator is not the
+right tool; hand-author from
+[`templates/knowledge/`](templates/knowledge/) or
+[`templates/programming/`](templates/programming/) instead.
 
 First set your provider key. It is read from the environment (BYOK) and
 never committed:
@@ -201,13 +264,12 @@ manifest, and re-run `make validate`.
 
 ## How it stays current
 
-Your content is validated against the **pinned** engine version in
+The content is validated against the **pinned** engine version in
 `schema/engine-version.txt` on every push and pull request (structural +
-semantic + drift gates in `.github/workflows/`). A green CI means your
+semantic + drift gates in `.github/workflows/`). A green CI means the
 content is valid for every consumer of that engine release. When the
 engine is bumped, it reaches this repository the same way it reaches the
 rest of the chain: a deliberate pin-bump PR that the drift gate guards.
 
-Background and prompt recipes: the blog post *Build Your Own Lessons for
-Adaptive Learner*. Licensed MIT (see [LICENSE](LICENSE)); your authored
-content may carry its own license via each set manifest's `metadata.license`.
+Licensed MIT (see [LICENSE](LICENSE)); the lesson content carries its own
+license via each set manifest's `metadata.license`.

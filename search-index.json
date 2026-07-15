@@ -1,0 +1,72 @@
+{
+  "repo": "astrapi69/alc-programming",
+  "generated": "2026-07-15T13:07:31Z",
+  "schema_version": "1.0",
+  "sets": [
+    {
+      "id": "python-basics-from-de",
+      "name": "Python — Grundlagen",
+      "description": "Fünfzehn Einführungslektionen Python, auf Deutsch erklärt — vom ersten print() bis zu List Comprehensions, mit lauffähigen Code-Beispielen und erwarteter Ausgabe.",
+      "source_language": "de",
+      "target_language": "de",
+      "level": "a1",
+      "domain": "programming",
+      "lesson_count": 15,
+      "card_count": 166,
+      "tags": [
+        "beginner",
+        "programming",
+        "python"
+      ],
+      "ai_validated": false,
+      "trust_level": 1,
+      "book": null,
+      "updated_at": "2026-07-15T15:07:31+02:00"
+    },
+    {
+      "id": "react-grundlagen-from-de",
+      "name": "React-Grundlagen (Einsteiger)",
+      "description": "React-Grundlagen auf Deutsch für Einsteiger: fünf Lektionen mit insgesamt 31 Karten, Theorieschritten und überwiegend Multiple-Choice-Übungen (picture_choice mit plausiblen Distraktoren) plus wenigen Lückentext-Items (cloze) zu React als Library, Komponenten, JSX, Props, State/useState, Events und Grundprinzipien.",
+      "source_language": "de",
+      "target_language": "de",
+      "level": "a2",
+      "domain": "programming",
+      "lesson_count": 5,
+      "card_count": 31,
+      "tags": [
+        "react",
+        "javascript",
+        "frontend",
+        "grundlagen"
+      ],
+      "ai_validated": false,
+      "trust_level": 1,
+      "book": null,
+      "updated_at": "2026-07-15T15:07:31+02:00"
+    },
+    {
+      "id": "react-fortgeschritten-from-de",
+      "name": "React Fortgeschritten (Teil 2)",
+      "description": "Teil 2 der React-Reihe (Fortgeschritten, B1): acht Lektionen mit überwiegend Multiple-Choice — Single-Answer als cloze select-mode und „Wähle alle zutreffenden\" als cloze multiselect — plus matching und kurze Lückentext-Items. Themen: useEffect, Datenfetching, useContext, useRef, Performance, Listen/Keys, Formulare, Komposition/Patterns. Distraktoren aus klassischen React-Irrtümern. React-18, Hooks-first.",
+      "source_language": "de",
+      "target_language": "de",
+      "level": "b1",
+      "domain": "programming",
+      "lesson_count": 8,
+      "card_count": 50,
+      "tags": [
+        "react",
+        "javascript",
+        "frontend",
+        "fortgeschritten",
+        "multiple-choice"
+      ],
+      "ai_validated": false,
+      "trust_level": 1,
+      "book": null,
+      "updated_at": "2026-07-15T15:07:31+02:00"
+    }
+  ],
+  "total_lessons": 28,
+  "total_cards": 247
+}
