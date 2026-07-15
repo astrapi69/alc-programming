@@ -1,30 +1,94 @@
-# Root manifest — lists the sets your repository offers.
+# Wurzel-Manifest von alc-programming — die Programmier-Reihe.
 #
-# This template ships ONE example set (sets/en/es-a1). Replace it
-# with your own:
-#   - point `path` at your set directory (convention: sets/<source-lang>/<set-id>)
-#   - keep `lesson_count` honest (it must match the lessons you ship)
-#   - a set needs at least: id, title, target_language, level, version, lesson_count
+# Adaptive-Learner-Content-Repo für Programmierung. Drei deutschsprachige
+# Sets (domain: programming) nach aufsteigendem Niveau:
 #
-# `schema_version` is optional and not strict.
-# Validate everything with:  python3 scripts/validate_content.py
+#   python-basics          Python — Grundlagen             (A1, 15 Lektionen)
+#   react-grundlagen       React-Grundlagen (Einsteiger)   (A2,  5 Lektionen)
+#   react-fortgeschritten  React Fortgeschritten (Teil 2)  (B1,  8 Lektionen)
+#
+# Vormals in astrapi69/adaptive-learner-content (python-basics) und
+# astrapi69/adaptive-learner-content-test (beide React-Sets); in dieses
+# eigenständige Content-Repo ausgelagert (siehe
+# adaptive-learner-content#144). Validieren mit:
+#
+#     python3 scripts/validate_content.py
+#     node scripts/validate_with_engine.mjs .
+#
+# Anleitung: docs/GETTING-STARTED.md
 schema_version: '1.5'
-name: My Adaptive Learner content
+name: Adaptive Learner — Programmierung
 description: >-
-  A content repository created from adaptive-learner-content-template.
-  Replace this example set with your own lessons.
+  Programmier-Inhalte für Adaptive Learner: Python-Grundlagen für
+  Einsteiger sowie eine zweiteilige React-Reihe (Grundlagen und
+  Fortgeschritten), alle auf Deutsch erklärt.
 sets:
-  - id: example-set
-    title: Spanish A1 (example)
-    title_native: Español A1 (ejemplo)
-    target_language: es
-    source_language: en
-    domain: language
+  - id: python-basics-from-de
+    title: Python — Grundlagen
+    title_native: Python — Basics
+    target_language: de
+    source_language: de
+    domain: programming
+    domain_label: Programmierung
     level: A1
-    path: sets/en/es-a1
+    path: sets/de/python-basics
     version: '1.0.0'
-    lesson_count: 1
+    lesson_count: 15
+    description: >-
+      Einführung in die Programmierung mit Python für
+      Deutschsprachige (15 Lektionen): von print() und Variablen
+      über Strings, Listen, Bedingungen und Schleifen bis zu
+      Funktionen, Dictionaries, Fehlerbehandlung, Modulen,
+      Dateien und Comprehensions. Erklärt auf Deutsch, mit
+      lauffähigen Code-Beispielen und erwarteter Ausgabe. Erstes
+      Programmier-Set (domain: programming, schema v1.3).
     tags:
-      - example
-      - spanish
-      - a1
+      - beginner
+      - programming
+      - python
+  - id: react-grundlagen-from-de
+    title: React-Grundlagen (Einsteiger)
+    title_native: React-Grundlagen (Einsteiger)
+    target_language: de
+    source_language: de
+    domain: programming
+    level: A2
+    path: sets/de/react-grundlagen
+    version: '1.0.0'
+    lesson_count: 5
+    domain_label: Programmierung
+    description: >-
+      React-Grundlagen auf Deutsch für Einsteiger: fünf Lektionen mit
+      überwiegend Multiple-Choice-Übungen (picture_choice mit plausiblen
+      Distraktoren) plus wenigen Lückentext-Items (cloze) zu React als
+      Library, Komponenten, JSX, Props, State/useState, Events und
+      Grundprinzipien.
+    tags:
+      - react
+      - javascript
+      - frontend
+      - grundlagen
+  - id: react-fortgeschritten-from-de
+    title: React Fortgeschritten (Teil 2)
+    title_native: React Fortgeschritten (Teil 2)
+    target_language: de
+    source_language: de
+    domain: programming
+    level: B1
+    path: sets/de/react-fortgeschritten
+    version: '1.0.0'
+    lesson_count: 8
+    domain_label: Programmierung
+    description: >-
+      Fortsetzung von „React-Grundlagen" (Teil 2, Fortgeschritten, B1): acht
+      Lektionen mit Schwerpunkt Multiple-Choice — Single-Answer als cloze
+      select-mode und „Wähle alle zutreffenden" als cloze multiselect — plus
+      matching und kurze Lückentext-Items. Themen: useEffect, Datenfetching,
+      useContext, useRef, Performance, Listen/Keys, Formulare, Komposition
+      und Patterns. React-18, Hooks-first, konzeptuell.
+    tags:
+      - react
+      - javascript
+      - frontend
+      - fortgeschritten
+      - multiple-choice
