@@ -254,11 +254,11 @@
       "exercise": {
         "id": "ex-cloze-library",
         "type": "cloze",
-        "prompt": "Ergänze: React ist eine ___ (Bibliothek), kein vollständiges Framework.",
+        "prompt": "Ergänze das fehlende Wort.",
         "card_ids": [
           "card-library"
         ],
-        "sentence": "React ist eine ___ zum Bauen von Benutzeroberflächen.",
+        "sentence": "React ist eine ___, kein vollständiges Framework.",
         "blanks": [
           {
             "accept": [
@@ -269,7 +269,7 @@
           }
         ],
         "cloze_mode": "type",
-        "hint": "Englisches Wort für Bibliothek."
+        "hint": "Der englische Fachbegriff ist auch im Deutschen gebräuchlich."
       }
     },
     {

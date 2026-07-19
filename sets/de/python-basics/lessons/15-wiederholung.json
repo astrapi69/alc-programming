@@ -208,7 +208,7 @@
       "exercise": {
         "id": "ex-cloze-for-schleife",
         "type": "cloze",
-        "prompt": "Ergänze das Schlüsselwort, das eine for-Schleife einleitet.",
+        "prompt": "Ergänze das Schlüsselwort, das diese Schleife einleitet.",
         "card_ids": ["rep-schleifen"],
         "sentence": "___ i in range(5): gibt die Zahlen 0 bis 4 aus.",
         "blanks": [
