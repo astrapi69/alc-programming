@@ -164,7 +164,7 @@
       "exercise": {
         "id": "ex-cloze-from-import",
         "type": "cloze",
-        "prompt": "Ergänze die beiden Schlüsselwörter für den selektiven Import.",
+        "prompt": "Ergänze die beiden Schlüsselwörter, um nur sqrt aus math zu laden.",
         "card_ids": ["mod-from-import"],
         "sentence": "___ math ___ sqrt lädt nur die Wurzel-Funktion.",
         "blanks": [
