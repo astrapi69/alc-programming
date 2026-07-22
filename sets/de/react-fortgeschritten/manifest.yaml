@@ -32,7 +32,6 @@ sets:
     path: sets/de/react-fortgeschritten
     version: '1.0.0'
     lesson_count: 8
-    domain_label: Programmierung
     description: >-
       Teil 2 der React-Reihe (Fortgeschritten, B1): acht Lektionen mit
       überwiegend Multiple-Choice — Single-Answer als cloze select-mode und
