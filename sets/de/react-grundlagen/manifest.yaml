@@ -27,7 +27,6 @@ sets:
     path: sets/de/react-grundlagen
     version: '1.0.0'
     lesson_count: 5
-    domain_label: Programmierung
     description: >-
       React-Grundlagen auf Deutsch für Einsteiger: fünf Lektionen mit
       insgesamt 31 Karten, Theorieschritten und überwiegend

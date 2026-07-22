@@ -33,7 +33,6 @@ sets:
     path: sets/de/python-basics
     version: '1.0.0'
     lesson_count: 15
-    domain_label: Programmierung
     description: >-
       Fünfzehn Einführungslektionen Python, auf Deutsch erklärt —
       vom ersten print() bis zu List Comprehensions, mit
