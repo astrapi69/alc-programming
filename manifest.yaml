@@ -29,7 +29,6 @@ sets:
     target_language: de
     source_language: de
     domain: programming
-    domain_label: Programmierung
     level: A1
     path: sets/de/python-basics
     version: '1.0.0'
@@ -56,7 +55,6 @@ sets:
     path: sets/de/react-grundlagen
     version: '1.0.0'
     lesson_count: 5
-    domain_label: Programmierung
     description: >-
       React-Grundlagen auf Deutsch für Einsteiger: fünf Lektionen mit
       überwiegend Multiple-Choice-Übungen (picture_choice mit plausiblen
@@ -78,7 +76,6 @@ sets:
     path: sets/de/react-fortgeschritten
     version: '1.0.0'
     lesson_count: 8
-    domain_label: Programmierung
     description: >-
       Fortsetzung von „React-Grundlagen" (Teil 2, Fortgeschritten, B1): acht
       Lektionen mit Schwerpunkt Multiple-Choice — Single-Answer als cloze
