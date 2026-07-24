@@ -8,8 +8,7 @@ content repository for **Programmierung** (programming): a Git repository
 of plain lesson files that the app loads directly and no vendor can lock
 away.
 
-It ships three German-language knowledge sets (domain `programming`,
-`domain_label` Programmierung) in ascending difficulty: a Python
+It ships three German-language knowledge sets (domain `programming`) in ascending difficulty: a Python
 beginners course and a two-part React series. This repository was
 created from
 [adaptive-learner-content-template](https://github.com/astrapi69/adaptive-learner-content-template),
@@ -28,7 +27,7 @@ described below.
 Drei Sets, 28 Lektionen, Quell- und Zielsprache Deutsch. Empfohlene
 Reihenfolge:
 
-### Teil 1 — `sets/de/python-basics` (A1, 15 Lektionen)
+### Teil 1: `sets/de/python-basics` (A1, 15 Lektionen)
 
 Einführung in die Programmierung mit Python: von `print()` und Variablen
 über Strings, Listen, Bedingungen und Schleifen bis zu Funktionen,
@@ -40,7 +39,7 @@ mit lauffähigen Code-Beispielen und erwarteter Ausgabe.
 | 01 | `01-erste-schritte.json` | Erste Schritte mit Python |
 | 02 | `02-variablen-und-datentypen.json` | Variablen und Datentypen |
 | 03 | `03-zahlen-und-operatoren.json` | Zahlen und Operatoren |
-| 04 | `04-strings.json` | Strings — mit Text arbeiten |
+| 04 | `04-strings.json` | Strings: mit Text arbeiten |
 | 05 | `05-listen.json` | Listen (Lists) |
 | 06 | `06-bedingungen.json` | Bedingungen (if / elif / else) |
 | 07 | `07-schleifen.json` | Schleifen (for & while) |
@@ -53,7 +52,7 @@ mit lauffähigen Code-Beispielen und erwarteter Ausgabe.
 | 14 | `14-comprehensions.json` | List Comprehensions |
 | 15 | `15-wiederholung.json` | Wiederholung und Festigung |
 
-### Teil 2 — `sets/de/react-grundlagen` (A2, 5 Lektionen)
+### Teil 2: `sets/de/react-grundlagen` (A2, 5 Lektionen)
 
 | # | Lesson | Titel |
 |---|--------|-------|
@@ -63,7 +62,7 @@ mit lauffähigen Code-Beispielen und erwarteter Ausgabe.
 | 04 | `04-state-usestate.json` | State mit useState: Re-Render statt direkter Mutation |
 | 05 | `05-events-und-grundprinzipien.json` | Events, Hooks & Grundprinzipien: Re-Render und Komposition |
 
-### Teil 3 — `sets/de/react-fortgeschritten` (B1, 8 Lektionen)
+### Teil 3: `sets/de/react-fortgeschritten` (B1, 8 Lektionen)
 
 | # | Lesson | Titel |
 |---|--------|-------|
@@ -78,19 +77,19 @@ mit lauffähigen Code-Beispielen und erwarteter Ausgabe.
 
 ## What's inside
 
-- `manifest.yaml` — the root manifest listing the sets.
+- `manifest.yaml`: the root manifest listing the sets.
 - `sets/de/python-basics/`, `sets/de/react-grundlagen/`,
-  `sets/de/react-fortgeschritten/` — the lesson sets.
-- `schema/` — the pinned [`learn-content-engine`](https://github.com/astrapi69/learn-content-engine)
+  `sets/de/react-fortgeschritten/`: the lesson sets.
+- `schema/`: the pinned [`learn-content-engine`](https://github.com/astrapi69/learn-content-engine)
   schema mirror; [`engine-version.txt`](schema/engine-version.txt) holds the
   pinned engine version and is the source of truth. This is what the content
-  is validated against — independent of the app.
-- `templates/` — starting-point lessons per domain (language / programming / knowledge).
-- `scripts/validate_content.py` — the local validator.
-- `scripts/generate_exercises.py` — an optional BYOK AI exercise generator.
-- `generated/` — staging area for AI drafts (never shipped directly).
-- `.github/workflows/` — CI that validates every push/PR against the pinned engine.
-- `docs/` — [GETTING-STARTED.md](docs/GETTING-STARTED.md) and a local
+  is validated against, independent of the app.
+- `templates/`: starting-point lessons per domain (language / programming / knowledge).
+- `scripts/validate_content.py`: the local validator.
+- `scripts/generate_exercises.py`: an optional BYOK AI exercise generator.
+- `generated/`: staging area for AI drafts (never shipped directly).
+- `.github/workflows/`: CI that validates every push/PR against the pinned engine.
+- `docs/`: [GETTING-STARTED.md](docs/GETTING-STARTED.md) and a local
   [LESSON-FORMAT.md](docs/LESSON-FORMAT.md). The **canonical, test-validated**
   format reference is the engine's
   [`docs/lesson-format.md`](https://github.com/astrapi69/learn-content-engine/blob/main/docs/lesson-format.md).
@@ -116,7 +115,7 @@ and npm) and checks every lesson and manifest with the engine's rule ids
 (`E-CARD-REF` & co.). `make lint-warnings` additionally prints the engine gate's warnings (`W-*`).
 
 No `make` (e.g. Windows without WSL)? Two options: run the validator in a
-virtualenv yourself —
+virtualenv yourself:
 
 ```bash
 python3 -m venv .venv && . .venv/bin/activate     # Windows: .venv\Scripts\activate
@@ -124,7 +123,7 @@ pip install -r requirements.txt
 python3 scripts/validate_content.py
 ```
 
-— or just commit and let the GitHub Actions CI validate (it runs the same
+Or just commit and let the GitHub Actions CI validate (it runs the same
 checks). Installing the deps globally with a bare `pip install` fails on
 modern Debian/Ubuntu/macOS (PEP 668, "externally-managed-environment");
 the virtualenv above is why.
