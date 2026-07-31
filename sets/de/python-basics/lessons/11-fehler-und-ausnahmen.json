@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "exc-ausnahme",
+      "stable_id": "card-ms942h7l053fz",
       "front": "Ausnahme (Exception)",
       "back": "Ein Fehler, der während der Programmausführung auftritt und den normalen Ablauf unterbricht.",
       "notes": "Python unterscheidet zwischen Syntaxfehlern (vor der Ausführung) und Ausnahmen (zur Laufzeit).",
@@ -18,6 +19,7 @@
     },
     {
       "id": "exc-try-except",
+      "stable_id": "card-ms942h7l0542l",
       "front": "try / except",
       "back": "Der try-Block enthält Code, der einen Fehler verursachen könnte. Der except-Block fängt den Fehler ab und reagiert darauf.",
       "code_snippet": "try:\n    x = int('abc')\nexcept ValueError:\n    print('Ungültige Zahl')",
@@ -30,6 +32,7 @@
     },
     {
       "id": "exc-valueerror",
+      "stable_id": "card-ms942h7l05529",
       "front": "ValueError",
       "back": "Wird ausgelöst, wenn ein Wert den richtigen Typ hat, aber einen unzulässigen Inhalt besitzt — z. B. int('abc').",
       "code_snippet": "try:\n    zahl = int('hallo')\nexcept ValueError:\n    print('Kein gültiger Zahlenwert')",
@@ -42,6 +45,7 @@
     },
     {
       "id": "exc-typeerror",
+      "stable_id": "card-ms942h7l0560w",
       "front": "TypeError",
       "back": "Wird ausgelöst, wenn eine Operation auf einem Objekt des falschen Typs angewendet wird — z. B. '2' + 2.",
       "code_snippet": "try:\n    ergebnis = '2' + 2\nexcept TypeError:\n    print('Typen passen nicht zusammen')",
@@ -54,6 +58,7 @@
     },
     {
       "id": "exc-zerodivision",
+      "stable_id": "card-ms942h7l057x0",
       "front": "ZeroDivisionError",
       "back": "Wird ausgelöst, wenn man durch null teilt.",
       "code_snippet": "try:\n    x = 10 / 0\nexcept ZeroDivisionError:\n    print('Division durch null!')",
@@ -66,6 +71,7 @@
     },
     {
       "id": "exc-keyerror",
+      "stable_id": "card-ms942h7l058p7",
       "front": "KeyError",
       "back": "Wird ausgelöst, wenn auf einen Schlüssel (Key) in einem Dictionary zugegriffen wird, der nicht existiert.",
       "code_snippet": "d = {'a': 1}\ntry:\n    print(d['b'])\nexcept KeyError:\n    print('Schlüssel nicht gefunden')",
@@ -78,6 +84,7 @@
     },
     {
       "id": "exc-indexerror",
+      "stable_id": "card-ms942h7l059b8",
       "front": "IndexError",
       "back": "Wird ausgelöst, wenn auf einen Index zugegriffen wird, der außerhalb des gültigen Bereichs einer Liste liegt.",
       "code_snippet": "liste = [1, 2, 3]\ntry:\n    print(liste[10])\nexcept IndexError:\n    print('Index außerhalb des Bereichs')",
@@ -90,6 +97,7 @@
     },
     {
       "id": "exc-else",
+      "stable_id": "card-ms942h7l05a5m",
       "front": "else-Zweig im try / except",
       "back": "Der else-Block wird ausgeführt, wenn im try-Block kein Fehler aufgetreten ist.",
       "code_snippet": "try:\n    x = int('42')\nexcept ValueError:\n    print('Fehler')\nelse:\n    print('Erfolgreich:', x)",
@@ -102,6 +110,7 @@
     },
     {
       "id": "exc-finally",
+      "stable_id": "card-ms942h7l05bx6",
       "front": "finally",
       "back": "Der finally-Block wird immer ausgeführt — egal ob ein Fehler aufgetreten ist oder nicht. Er eignet sich zum Aufräumen von Ressourcen.",
       "code_snippet": "try:\n    x = 10 / 2\nexcept ZeroDivisionError:\n    print('Fehler')\nfinally:\n    print('Fertig')",
@@ -114,6 +123,7 @@
     },
     {
       "id": "exc-raise",
+      "stable_id": "card-ms942h7l05c0k",
       "front": "raise",
       "back": "Mit raise löst man bewusst eine Ausnahme aus — z. B. um ungültige Eingaben abzulehnen.",
       "code_snippet": "def nur_positiv(n):\n    if n <= 0:\n        raise ValueError('Zahl muss positiv sein')\n    return n\n\ntry:\n    nur_positiv(-3)\nexcept ValueError as e:\n    print(e)",
@@ -126,6 +136,7 @@
     },
     {
       "id": "exc-except-as",
+      "stable_id": "card-ms942h7l05d2p",
       "front": "except ExceptionTyp as e",
       "back": "Mit 'as e' speichert man das Ausnahme-Objekt in einer Variable und kann seine Fehlermeldung ausgeben.",
       "code_snippet": "try:\n    x = int('xyz')\nexcept ValueError as e:\n    print('Fehlerdetail:', e)",
@@ -138,6 +149,7 @@
     },
     {
       "id": "exc-mehrere-except",
+      "stable_id": "card-ms942h7l05euh",
       "front": "Mehrere except-Blöcke",
       "back": "Man kann mehrere except-Blöcke schreiben, um verschiedene Fehlertypen unterschiedlich zu behandeln.",
       "notes": "Python prüft die except-Blöcke von oben nach unten und führt den ersten passenden aus.",
@@ -172,6 +184,7 @@
       "title": "try und except ergänzen",
       "exercise": {
         "id": "ex-cloze-try",
+        "stable_id": "ex-ms942h7l05fap",
         "type": "cloze",
         "prompt": "Ergänze die beiden Schlüsselwörter, die einen Fehler-Schutzblock einleiten.",
         "card_ids": ["exc-try-except"],
@@ -191,6 +204,7 @@
       "title": "Ausnahmetypen zuordnen",
       "exercise": {
         "id": "ex-match-ausnahmen",
+        "stable_id": "ex-ms942h7l05ggm",
         "type": "matching",
         "prompt": "Ordne jeden Ausnahmetyp der Situation zu, in der er auftritt.",
         "card_ids": ["exc-valueerror", "exc-typeerror", "exc-zerodivision", "exc-keyerror", "exc-indexerror"],
@@ -211,6 +225,7 @@
       "title": "Was macht finally?",
       "exercise": {
         "id": "ex-free-finally",
+        "stable_id": "ex-ms942h7l05huj",
         "type": "free_text",
         "prompt": "Wann wird der finally-Block ausgeführt?",
         "card_ids": ["exc-finally"],
@@ -237,6 +252,7 @@
       "title": "Eigenen Fehler auslösen",
       "exercise": {
         "id": "ex-cloze-raise",
+        "stable_id": "ex-ms942h7l05irp",
         "type": "cloze",
         "prompt": "Ergänze das Schlüsselwort, mit dem man bewusst eine Ausnahme auslöst.",
         "card_ids": ["exc-raise"],
@@ -255,6 +271,7 @@
       "title": "try / except-Block zusammensetzen",
       "exercise": {
         "id": "ex-tiles-try-except",
+        "stable_id": "ex-ms942h7l05jtd",
         "type": "word_tiles",
         "prompt": "Setze den try / except-Block zusammen, der einen ValueError abfängt.",
         "card_ids": ["exc-try-except", "exc-valueerror"],
@@ -270,6 +287,7 @@
       "title": "else im try-Block",
       "exercise": {
         "id": "ex-free-else-except",
+        "stable_id": "ex-ms942h7l05kfl",
         "type": "free_text",
         "prompt": "Wann wird der else-Zweig eines try / except-Blocks ausgeführt?",
         "card_ids": ["exc-else"],
@@ -296,6 +314,7 @@
       "title": "try-Blöcke und ihre Bedeutung",
       "exercise": {
         "id": "ex-match-blöcke",
+        "stable_id": "ex-ms942h7l05lco",
         "type": "matching",
         "prompt": "Ordne jeden Block seiner Funktion zu.",
         "card_ids": ["exc-try-except", "exc-else", "exc-finally", "exc-raise"],
@@ -316,6 +335,7 @@
       "title": "ZeroDivisionError erkennen",
       "exercise": {
         "id": "ex-cloze-zerodiv",
+        "stable_id": "ex-ms942h7l05m41",
         "type": "cloze",
         "prompt": "Ergänze den richtigen Ausnahmetyp für eine Division durch null.",
         "card_ids": ["exc-zerodivision"],

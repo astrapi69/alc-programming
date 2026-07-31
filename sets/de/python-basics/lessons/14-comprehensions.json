@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "py-list-comp-basis",
+      "stable_id": "card-ms942h7m06p03",
       "front": "List Comprehension (Grundform)",
       "back": "Eine kompakte Schreibweise, um aus einer bestehenden Liste eine neue zu erzeugen: [Ausdruck for Element in Iterable].",
       "code_snippet": "zahlen = [1, 2, 3, 4]\ndoppelt = [x * 2 for x in zahlen]\nprint(doppelt)",
@@ -21,6 +22,7 @@
     },
     {
       "id": "py-list-comp-bedingung",
+      "stable_id": "card-ms942h7m06qy1",
       "front": "List Comprehension mit Bedingung (if)",
       "back": "Mit einem optionalen if-Teil filtert man Elemente: [Ausdruck for Element in Iterable if Bedingung].",
       "code_snippet": "zahlen = [1, 2, 3, 4, 5, 6]\ngerade = [x for x in zahlen if x % 2 == 0]\nprint(gerade)",
@@ -33,6 +35,7 @@
     },
     {
       "id": "py-list-comp-vs-for",
+      "stable_id": "card-ms942h7m06rk2",
       "front": "List Comprehension vs. for-Schleife",
       "back": "Beide erzeugen eine neue Liste. Die Comprehension ist kürzer und oft lesbarer; die klassische for-Schleife ist flexibler bei komplexer Logik.",
       "code_snippet": "zahlen = [1, 2, 3]\n# klassisch:\nquadrate = []\nfor x in zahlen:\n    quadrate.append(x ** 2)\n# Comprehension:\nquadrate2 = [x ** 2 for x in zahlen]\nprint(quadrate)\nprint(quadrate2)",
@@ -45,6 +48,7 @@
     },
     {
       "id": "py-list-comp-string",
+      "stable_id": "card-ms942h7m06sql",
       "front": "List Comprehension mit Strings",
       "back": "Man kann auch über eine Liste von Strings iterieren und jeden Eintrag umwandeln, z. B. in Großbuchstaben.",
       "code_snippet": "woerter = ['hallo', 'welt', 'python']\ngross = [w.upper() for w in woerter]\nprint(gross)",
@@ -57,6 +61,7 @@
     },
     {
       "id": "py-dict-comp",
+      "stable_id": "card-ms942h7m06tmv",
       "front": "Dict Comprehension",
       "back": "Wie eine List Comprehension, aber für Dictionaries: {Schlüssel: Wert for Element in Iterable}.",
       "code_snippet": "zahlen = [1, 2, 3]\nquadrate = {x: x ** 2 for x in zahlen}\nprint(quadrate)",
@@ -69,6 +74,7 @@
     },
     {
       "id": "py-comp-iterable",
+      "stable_id": "card-ms942h7m06u8t",
       "front": "Iterable (in Comprehensions)",
       "back": "Jedes Objekt, über das man mit for iterieren kann: Listen, Strings, range() usw.",
       "notes": "In [x*2 for x in zahlen] ist zahlen das Iterable.",
@@ -78,6 +84,7 @@
     },
     {
       "id": "py-comp-range",
+      "stable_id": "card-ms942h7m06vx9",
       "front": "List Comprehension mit range()",
       "back": "range() lässt sich direkt als Iterable in einer Comprehension nutzen.",
       "code_snippet": "quadrate = [x ** 2 for x in range(1, 6)]\nprint(quadrate)",
@@ -90,6 +97,7 @@
     },
     {
       "id": "py-comp-filter-string",
+      "stable_id": "card-ms942h7m06wsv",
       "front": "List Comprehension: Strings filtern",
       "back": "Mit einer if-Bedingung filtert man Elemente nach einer Eigenschaft, z. B. nur lange Wörter behalten.",
       "code_snippet": "woerter = ['Hi', 'Python', 'ist', 'toll']\nlang = [w for w in woerter if len(w) > 3]\nprint(lang)",
@@ -102,6 +110,7 @@
     },
     {
       "id": "py-comp-vorteil",
+      "stable_id": "card-ms942h7m06xwb",
       "front": "Vorteile von Comprehensions",
       "back": "Kürzerer Code, oft bessere Lesbarkeit und in der Regel etwas schneller als eine gleichwertige for-Schleife.",
       "notes": "Bei sehr komplexer Logik ist die klassische Schleife verständlicher.",
@@ -111,6 +120,7 @@
     },
     {
       "id": "py-comp-ergebnis-typ",
+      "stable_id": "card-ms942h7m06yk1",
       "front": "Ergebnistyp einer List Comprehension",
       "back": "Eine List Comprehension gibt immer eine neue Liste (list) zurück — unabhängig vom Typ des Iterables.",
       "code_snippet": "ergebnis = [c for c in 'abc']\nprint(ergebnis)\nprint(type(ergebnis))",
@@ -142,6 +152,7 @@
       "title": "Grundform der Comprehension",
       "exercise": {
         "id": "ex-cloze-comp-basis",
+        "stable_id": "ex-ms942h7m06znf",
         "type": "cloze",
         "prompt": "Ergänze das Schlüsselwort, das in jeder List Comprehension steht.",
         "card_ids": ["py-list-comp-basis"],
@@ -160,6 +171,7 @@
       "title": "Filtern mit Bedingung",
       "exercise": {
         "id": "ex-cloze-comp-bedingung",
+        "stable_id": "ex-ms942h7m070lh",
         "type": "cloze",
         "prompt": "Ergänze das Schlüsselwort, mit dem man in einer Comprehension Elemente filtert.",
         "card_ids": ["py-list-comp-bedingung"],
@@ -178,6 +190,7 @@
       "title": "Welchen Typ gibt eine List Comprehension zurück?",
       "exercise": {
         "id": "ex-free-comp-ergebnis",
+        "stable_id": "ex-ms942h7m071po",
         "type": "free_text",
         "prompt": "Welchen Datentyp gibt eine List Comprehension immer zurück?",
         "card_ids": ["py-comp-ergebnis-typ"],
@@ -194,6 +207,7 @@
       "title": "Dict Comprehension erkennen",
       "exercise": {
         "id": "ex-free-dict-comp",
+        "stable_id": "ex-ms942h7m0725e",
         "type": "free_text",
         "prompt": "Welche Art von Klammern verwendet man bei einer Dict Comprehension?",
         "card_ids": ["py-dict-comp"],
@@ -210,6 +224,7 @@
       "title": "Comprehension mit Filter zusammensetzen",
       "exercise": {
         "id": "ex-tiles-comp-gerade",
+        "stable_id": "ex-ms942h7m073te",
         "type": "word_tiles",
         "prompt": "Setze die List Comprehension zusammen, die nur gerade Zahlen aus 'zahlen' auswählt.",
         "card_ids": ["py-list-comp-bedingung"],
@@ -225,6 +240,7 @@
       "title": "Comprehension-Arten zuordnen",
       "exercise": {
         "id": "ex-match-comp-typen",
+        "stable_id": "ex-ms942h7m074w8",
         "type": "matching",
         "prompt": "Ordne jede Comprehension-Schreibweise dem richtigen Ergebnistyp zu.",
         "card_ids": ["py-list-comp-basis", "py-dict-comp", "py-comp-ergebnis-typ"],
@@ -243,6 +259,7 @@
       "title": "Begriffe der Comprehension zuordnen",
       "exercise": {
         "id": "ex-match-comp-begriffe",
+        "stable_id": "ex-ms942h7m075ww",
         "type": "matching",
         "prompt": "Ordne jeden Begriff seiner Rolle in einer List Comprehension zu.",
         "card_ids": ["py-list-comp-basis", "py-list-comp-bedingung", "py-comp-iterable"],

@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "dict-erstellen",
+      "stable_id": "card-ms942h7j043f2",
       "front": "Dictionary erstellen (dict)",
       "back": "Ein Dictionary speichert Schlüssel-Wert-Paare in geschweiften Klammern.",
       "code_snippet": "alter = {'Anna': 28, 'Ben': 34}\nprint(alter)",
@@ -21,6 +22,7 @@
     },
     {
       "id": "dict-zugriff",
+      "stable_id": "card-ms942h7j044oj",
       "front": "Wert abrufen — d['schluessel']",
       "back": "Mit eckigen Klammern und dem Schlüssel greift man auf den zugehörigen Wert zu.",
       "code_snippet": "alter = {'Anna': 28, 'Ben': 34}\nprint(alter['Anna'])",
@@ -33,6 +35,7 @@
     },
     {
       "id": "dict-get",
+      "stable_id": "card-ms942h7j045no",
       "front": ".get() — sicherer Zugriff",
       "back": ".get(schluessel) gibt den Wert zurück oder None, wenn der Schlüssel nicht existiert — kein Fehler.",
       "code_snippet": "alter = {'Anna': 28}\nprint(alter.get('Ben'))",
@@ -45,6 +48,7 @@
     },
     {
       "id": "dict-hinzufuegen",
+      "stable_id": "card-ms942h7j046l6",
       "front": "Neuen Schlüssel hinzufügen",
       "back": "Mit d['neuer_schluessel'] = wert fügt man ein neues Schlüssel-Wert-Paar hinzu oder überschreibt einen bestehenden Wert.",
       "code_snippet": "alter = {'Anna': 28}\nalter['Ben'] = 34\nprint(alter['Ben'])",
@@ -57,6 +61,7 @@
     },
     {
       "id": "dict-keys",
+      "stable_id": "card-ms942h7j047ui",
       "front": ".keys() — alle Schlüssel",
       "back": ".keys() gibt eine Ansicht aller Schlüssel im Dictionary zurück.",
       "code_snippet": "alter = {'Anna': 28, 'Ben': 34}\nprint(list(alter.keys()))",
@@ -69,6 +74,7 @@
     },
     {
       "id": "dict-values",
+      "stable_id": "card-ms942h7j048zg",
       "front": ".values() — alle Werte",
       "back": ".values() gibt eine Ansicht aller Werte im Dictionary zurück.",
       "code_snippet": "alter = {'Anna': 28, 'Ben': 34}\nprint(list(alter.values()))",
@@ -81,6 +87,7 @@
     },
     {
       "id": "dict-items",
+      "stable_id": "card-ms942h7j049ab",
       "front": ".items() — Schlüssel-Wert-Paare",
       "back": ".items() gibt alle Schlüssel-Wert-Paare als Tupel-Liste zurück — nützlich für Schleifen.",
       "code_snippet": "alter = {'Anna': 28}\nfor name, a in alter.items():\n    print(name, a)",
@@ -93,6 +100,7 @@
     },
     {
       "id": "dict-in-test",
+      "stable_id": "card-ms942h7j04aaw",
       "front": "in-Test auf Schlüssel",
       "back": "Mit dem in-Operator prüft man, ob ein Schlüssel im Dictionary vorhanden ist.",
       "code_snippet": "alter = {'Anna': 28, 'Ben': 34}\nprint('Anna' in alter)",
@@ -105,6 +113,7 @@
     },
     {
       "id": "dict-keyerror",
+      "stable_id": "card-ms942h7j04by4",
       "front": "KeyError",
       "back": "Fehlermeldung, die auftritt, wenn man mit d['schluessel'] auf einen nicht vorhandenen Schlüssel zugreift.",
       "notes": "Vermeidbar mit .get() oder einem vorherigen in-Test.",
@@ -114,6 +123,7 @@
     },
     {
       "id": "dict-leer",
+      "stable_id": "card-ms942h7j04ci6",
       "front": "Leeres Dictionary",
       "back": "Ein leeres Dictionary wird mit {} oder dict() erstellt.",
       "code_snippet": "d = {}\nd['x'] = 10\nprint(d['x'])",
@@ -126,6 +136,7 @@
     },
     {
       "id": "dict-len",
+      "stable_id": "card-ms942h7j04da2",
       "front": "len() bei Dictionaries",
       "back": "len(d) gibt die Anzahl der Schlüssel-Wert-Paare im Dictionary zurück.",
       "code_snippet": "alter = {'Anna': 28, 'Ben': 34, 'Clara': 22}\nprint(len(alter))",
@@ -157,6 +168,7 @@
       "title": "Dictionary-Klammern",
       "exercise": {
         "id": "ex-cloze-dict-erstellen",
+        "stable_id": "ex-ms942h7j04e77",
         "type": "cloze",
         "prompt": "Ergänze die Klammern, in denen ein Dictionary steht.",
         "card_ids": ["dict-erstellen"],
@@ -175,6 +187,7 @@
       "title": "Sicherer Schlüsselzugriff",
       "exercise": {
         "id": "ex-cloze-get",
+        "stable_id": "ex-ms942h7j04f8v",
         "type": "cloze",
         "prompt": "Ergänze die Methode, die einen Wert zurückgibt ohne einen Fehler zu werfen, wenn der Schlüssel fehlt.",
         "card_ids": ["dict-get"],
@@ -193,6 +206,7 @@
       "title": "Fehler bei fehlendem Schlüssel",
       "exercise": {
         "id": "ex-free-keyerror",
+        "stable_id": "ex-ms942h7j04g8f",
         "type": "free_text",
         "prompt": "Welchen Fehler wirft Python, wenn man mit d['x'] auf einen nicht vorhandenen Schlüssel zugreift?",
         "card_ids": ["dict-keyerror"],
@@ -209,6 +223,7 @@
       "title": "Schlüssel prüfen",
       "exercise": {
         "id": "ex-free-in-test",
+        "stable_id": "ex-ms942h7j04hlc",
         "type": "free_text",
         "prompt": "Mit welchem Operator prüft man, ob ein Schlüssel in einem Dictionary vorhanden ist?",
         "card_ids": ["dict-in-test"],
@@ -225,6 +240,7 @@
       "title": "Wert aus Dictionary abrufen",
       "exercise": {
         "id": "ex-tiles-zugriff",
+        "stable_id": "ex-ms942h7j04i3s",
         "type": "word_tiles",
         "prompt": "Setze die Zeile zusammen, die den Wert zum Schlüssel 'Anna' aus dem Dictionary 'alter' ausgibt.",
         "card_ids": ["dict-zugriff"],
@@ -240,6 +256,7 @@
       "title": "Dictionary-Methoden zuordnen",
       "exercise": {
         "id": "ex-match-methoden",
+        "stable_id": "ex-ms942h7j04jvf",
         "type": "matching",
         "prompt": "Ordne jede Methode ihrer Beschreibung zu.",
         "card_ids": ["dict-keys", "dict-values", "dict-items", "dict-get"],
@@ -259,6 +276,7 @@
       "title": "Neuen Eintrag hinzufügen",
       "exercise": {
         "id": "ex-tiles-hinzufuegen",
+        "stable_id": "ex-ms942h7j04kpq",
         "type": "word_tiles",
         "prompt": "Setze die Zeile zusammen, die dem Dictionary 'alter' den Schlüssel 'Clara' mit Wert 22 hinzufügt.",
         "card_ids": ["dict-hinzufuegen"],

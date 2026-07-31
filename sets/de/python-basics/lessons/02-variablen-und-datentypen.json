@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "py-variable",
+      "stable_id": "card-ms942h7f00inq",
       "front": "Variable",
       "back": "Ein benannter Speicherplatz, der einen Wert enthält. Mit = wird ihr ein Wert zugewiesen.",
       "notes": "Der Name einer Variablen ist frei wählbar — solange er den Namensregeln folgt.",
@@ -18,6 +19,7 @@
     },
     {
       "id": "py-zuweisung",
+      "stable_id": "card-ms942h7f00jp9",
       "front": "Zuweisung (=)",
       "back": "Der Operator = weist einer Variablen einen Wert zu: name = 'Anna' speichert den String 'Anna'.",
       "code_snippet": "name = 'Anna'\nprint(name)",
@@ -30,6 +32,7 @@
     },
     {
       "id": "py-int",
+      "stable_id": "card-ms942h7f00klb",
       "front": "int (Ganzzahl)",
       "back": "Datentyp für ganze Zahlen ohne Nachkommastellen, z. B. 42 oder -7.",
       "code_snippet": "alter = 25\nprint(alter)",
@@ -42,6 +45,7 @@
     },
     {
       "id": "py-float",
+      "stable_id": "card-ms942h7f00lrv",
       "front": "float (Kommazahl)",
       "back": "Datentyp für Zahlen mit Nachkommastellen, z. B. 3.14 oder -0.5. Der Dezimaltrenner ist ein Punkt.",
       "code_snippet": "preis = 9.99\nprint(preis)",
@@ -54,6 +58,7 @@
     },
     {
       "id": "py-str-typ",
+      "stable_id": "card-ms942h7f00m1q",
       "front": "str (Zeichenkette)",
       "back": "Datentyp für Text. Strings stehen in einfachen oder doppelten Anführungszeichen.",
       "code_snippet": "begruessung = 'Hallo'\nprint(begruessung)",
@@ -66,6 +71,7 @@
     },
     {
       "id": "py-bool",
+      "stable_id": "card-ms942h7f00ns9",
       "front": "bool (Wahrheitswert)",
       "back": "Datentyp mit genau zwei Werten: True (wahr) oder False (falsch).",
       "code_snippet": "ist_angemeldet = True\nprint(ist_angemeldet)",
@@ -78,6 +84,7 @@
     },
     {
       "id": "py-type-funktion",
+      "stable_id": "card-ms942h7f00o0p",
       "front": "type()",
       "back": "Gibt den Datentyp eines Wertes zurück, z. B. <class 'int'> oder <class 'str'>.",
       "code_snippet": "print(type(42))\nprint(type('Hallo'))",
@@ -90,6 +97,7 @@
     },
     {
       "id": "py-namensregeln",
+      "stable_id": "card-ms942h7f00p8r",
       "front": "Namensregeln für Variablen",
       "back": "Variablennamen bestehen aus Buchstaben, Ziffern und _ . Sie dürfen nicht mit einer Ziffer beginnen und keine Leerzeichen enthalten.",
       "notes": "Python unterscheidet Groß- und Kleinschreibung: alter und Alter sind zwei verschiedene Variablen.",
@@ -99,6 +107,7 @@
     },
     {
       "id": "py-ueberschreiben",
+      "stable_id": "card-ms942h7f00qhd",
       "front": "Wert überschreiben",
       "back": "Man kann einer Variablen jederzeit einen neuen Wert zuweisen. Der alte Wert wird dabei ersetzt.",
       "code_snippet": "x = 10\nx = 20\nprint(x)",
@@ -111,6 +120,7 @@
     },
     {
       "id": "py-snake-case",
+      "stable_id": "card-ms942h7f00r94",
       "front": "Snake Case",
       "back": "Schreibweise für mehrteilige Variablennamen in Python: Wörter werden mit Unterstrichen verbunden, alles klein geschrieben.",
       "notes": "Beispiel: mein_name, hoechste_punktzahl. Python-Stil bevorzugt snake_case gegenüber camelCase.",
@@ -120,6 +130,7 @@
     },
     {
       "id": "py-mehrere-typen",
+      "stable_id": "card-ms942h7f00st8",
       "front": "Vier Grundtypen im Überblick",
       "back": "int = ganze Zahl, float = Kommazahl, str = Text, bool = True/False.",
       "code_snippet": "print(type(5))\nprint(type(3.14))\nprint(type('Hi'))\nprint(type(False))",
@@ -157,6 +168,7 @@
       "title": "Zuweisung ergänzen",
       "exercise": {
         "id": "ex-cloze-zuweisung",
+        "stable_id": "ex-ms942h7f00tcl",
         "type": "cloze",
         "prompt": "Ergänze den Operator, mit dem man in Python einer Variablen einen Wert zuweist.",
         "card_ids": ["py-zuweisung"],
@@ -175,6 +187,7 @@
       "title": "type() kennenlernen",
       "exercise": {
         "id": "ex-cloze-type",
+        "stable_id": "ex-ms942h7f00ube",
         "type": "cloze",
         "prompt": "Welche Funktion gibt den Datentyp eines Wertes zurück? Ergänze den Namen.",
         "card_ids": ["py-type-funktion"],
@@ -193,6 +206,7 @@
       "title": "Datentyp ganzer Zahlen",
       "exercise": {
         "id": "ex-free-int",
+        "stable_id": "ex-ms942h7f00vca",
         "type": "free_text",
         "prompt": "Wie heißt der Python-Datentyp für ganze Zahlen wie 42 oder -7?",
         "card_ids": ["py-int"],
@@ -209,6 +223,7 @@
       "title": "Wahrheitswerte",
       "exercise": {
         "id": "ex-free-bool",
+        "stable_id": "ex-ms942h7f00wvu",
         "type": "free_text",
         "prompt": "Welche zwei Werte kann eine Variable vom Typ bool annehmen?",
         "card_ids": ["py-bool"],
@@ -225,6 +240,7 @@
       "title": "Variable anlegen",
       "exercise": {
         "id": "ex-tiles-variable",
+        "stable_id": "ex-ms942h7f00xom",
         "type": "word_tiles",
         "prompt": "Setze die Zeile zusammen, die der Variablen 'alter' den Wert 25 zuweist.",
         "card_ids": ["py-int"],
@@ -240,6 +256,7 @@
       "title": "Datentypen zuordnen",
       "exercise": {
         "id": "ex-match-datentypen",
+        "stable_id": "ex-ms942h7f00yyg",
         "type": "matching",
         "prompt": "Ordne jeden Wert seinem Datentyp zu.",
         "card_ids": ["py-int", "py-float", "py-str-typ", "py-bool"],
@@ -259,6 +276,7 @@
       "title": "Namensregeln prüfen",
       "exercise": {
         "id": "ex-match-regeln",
+        "stable_id": "ex-ms942h7f00z23",
         "type": "matching",
         "prompt": "Ordne jeden Variablennamen dem richtigen Urteil zu.",
         "card_ids": ["py-namensregeln", "py-snake-case"],

@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "card-jsx",
+      "stable_id": "card-ms942h7s0ba8w",
       "front": "JSX",
       "back": "Eine Syntaxerweiterung von JavaScript, mit der man UI-Struktur HTML-ähnlich im Code beschreibt.",
       "notes": "JSX wird vor der Ausführung zu JavaScript-Aufrufen kompiliert (z. B. React.createElement).",
@@ -21,6 +22,7 @@
     },
     {
       "id": "card-kein-html",
+      "stable_id": "card-ms942h7s0bb4h",
       "front": "Ist JSX HTML?",
       "back": "Nein. JSX sieht HTML ähnlich, ist aber JavaScript und wird zu JavaScript-Code kompiliert.",
       "notes": "Deshalb gelten JavaScript-Regeln, z. B. className statt class.",
@@ -33,6 +35,7 @@
     },
     {
       "id": "card-ausdruck",
+      "stable_id": "card-ms942h7s0bc0k",
       "front": "Ausdrücke in {}",
       "back": "In geschweiften Klammern { } bettet man beliebige JavaScript-Ausdrücke in JSX ein.",
       "notes": "Beispiel: <p>Hallo {name}</p> setzt den Wert der Variablen name ein.",
@@ -47,6 +50,7 @@
     },
     {
       "id": "card-classname",
+      "stable_id": "card-ms942h7s0bdiu",
       "front": "className statt class",
       "back": "Weil JSX JavaScript ist und class dort ein reserviertes Wort ist, schreibt man className.",
       "notes": "Ähnlich: htmlFor statt for. Attribute werden in camelCase geschrieben (z. B. onClick).",
@@ -59,6 +63,7 @@
     },
     {
       "id": "card-ein-wurzelelement",
+      "stable_id": "card-ms942h7s0be85",
       "front": "Ein Wurzelelement",
       "back": "JSX, das eine Komponente zurückgibt, muss genau ein umschließendes Wurzelelement haben.",
       "notes": "Mehrere Elemente umschließt man mit einem Tag oder einem Fragment <>…</>.",
@@ -71,6 +76,7 @@
     },
     {
       "id": "card-curly-vs-string",
+      "stable_id": "card-ms942h7s0bfc5",
       "front": "{} gegen Anführungszeichen",
       "back": "{ } werten einen JavaScript-Ausdruck aus; Anführungszeichen liefern einen festen Text-String.",
       "notes": "title=\"Hallo\" ist fester Text, title={gruss} setzt den Wert der Variablen gruss ein.",
@@ -101,6 +107,7 @@
       "title": "Was ist JSX?",
       "exercise": {
         "id": "ex-mc-was-ist-jsx",
+        "stable_id": "ex-ms942h7s0bgfl",
         "type": "cloze",
         "prompt": "Was ist JSX?",
         "card_ids": [
@@ -130,6 +137,7 @@
       "title": "JSX und HTML",
       "exercise": {
         "id": "ex-mc-jsx-kein-html",
+        "stable_id": "ex-ms942h7s0bhsx",
         "type": "cloze",
         "prompt": "Welche Aussage über JSX und HTML ist korrekt?",
         "card_ids": [
@@ -159,6 +167,7 @@
       "title": "Ausdrücke einbetten",
       "exercise": {
         "id": "ex-mc-ausdruck",
+        "stable_id": "ex-ms942h7s0biyq",
         "type": "cloze",
         "prompt": "Wie bettet man in JSX den Wert einer Variablen name in den Text ein?",
         "card_ids": [
@@ -188,6 +197,7 @@
       "title": "Code lesen: Was wird angezeigt?",
       "exercise": {
         "id": "ex-mc-code-ausgabe",
+        "stable_id": "ex-ms942h7s0bju4",
         "type": "cloze",
         "prompt": "Was zeigt dieses JSX an?  const n = 3; const el = <p>Summe: {n + 2}</p>;",
         "card_ids": [
@@ -216,6 +226,7 @@
       "title": "Attribute in JSX",
       "exercise": {
         "id": "ex-mc-classname",
+        "stable_id": "ex-ms942h7s0bkyf",
         "type": "cloze",
         "prompt": "Wie gibt man in JSX einem Element eine CSS-Klasse?",
         "card_ids": [
@@ -244,6 +255,7 @@
       "title": "Lückentext: Klassenattribut",
       "exercise": {
         "id": "ex-cloze-curly",
+        "stable_id": "ex-ms942h7s0bl76",
         "type": "cloze",
         "prompt": "Ergänze das in JSX korrekte Attribut für eine CSS-Klasse.",
         "card_ids": [
@@ -268,6 +280,7 @@
       "title": "Begriffe zuordnen",
       "exercise": {
         "id": "ex-match-begriffe",
+        "stable_id": "ex-ms942h7s0bmf1",
         "type": "matching",
         "prompt": "Ordne jedem Begriff die passende Kurzbeschreibung zu.",
         "card_ids": [

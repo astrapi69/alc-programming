@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "key",
+      "stable_id": "card-ms942h7q09pf5",
       "front": "Key",
       "back": "Ein Attribut an Listenelementen, mit dem React ein Element über Renders hinweg wiedererkennt.",
       "notes": "<li key={item.id}>.",
@@ -21,6 +22,7 @@
     },
     {
       "id": "stabil-eindeutig",
+      "stable_id": "card-ms942h7q09qpd",
       "front": "Stabil und eindeutig",
       "back": "Ein guter Key ist stabil (ändert sich nicht) und eindeutig unter den Geschwistern.",
       "notes": "Meist eine ID aus den Daten.",
@@ -33,6 +35,7 @@
     },
     {
       "id": "index-problem",
+      "stable_id": "card-ms942h7q09rd8",
       "front": "Index als Key",
       "back": "Der Array-Index als Key führt bei Umsortieren, Einfügen oder Löschen zu falscher State-Zuordnung.",
       "notes": "Ein Irrtum ist, der Index sei immer sicher.",
@@ -45,6 +48,7 @@
     },
     {
       "id": "nur-geschwister",
+      "stable_id": "card-ms942h7q09s16",
       "front": "Nur unter Geschwistern",
       "back": "Keys müssen nur innerhalb derselben Liste eindeutig sein, nicht global in der App.",
       "notes": "Zwei verschiedene Listen dürfen denselben Key nutzen.",
@@ -57,6 +61,7 @@
     },
     {
       "id": "reconciliation",
+      "stable_id": "card-ms942h7q09t2h",
       "front": "Zuordnung (Reconciliation)",
       "back": "React nutzt Keys, um alte und neue Listenelemente einander zuzuordnen und nur das Nötige zu ändern.",
       "notes": "Falsche Keys führen zu falschem oder unnötigem Update.",
@@ -69,6 +74,7 @@
     },
     {
       "id": "index-ok",
+      "stable_id": "card-ms942h7q09uuq",
       "front": "Index vertretbar",
       "back": "Der Index ist nur vertretbar, wenn die Liste statisch ist und sich Reihenfolge/Anzahl nie ändern.",
       "notes": "Sobald sortiert oder gelöscht wird: eine echte ID nehmen.",
@@ -120,7 +126,7 @@
           "Damit die Liste sortiert wird"
         ],
         "hint": "Zuordnung alt ↔ neu.",
-        "id": "ex-mc-wozu"
+        "id": "ex-mc-wozu", "stable_id": "ex-ms942h7q09v5s"
       }
     },
     {
@@ -149,7 +155,7 @@
           "Der Index ist technisch verboten"
         ],
         "hint": "Klassischer Irrtum: „immer sicher\".",
-        "id": "ex-mc-index"
+        "id": "ex-mc-index", "stable_id": "ex-ms942h7q09w6l"
       }
     },
     {
@@ -178,7 +184,7 @@
           "Der angezeigte Text"
         ],
         "hint": "Stabil + eindeutig.",
-        "id": "ex-mc-gut"
+        "id": "ex-mc-gut", "stable_id": "ex-ms942h7q09xsx"
       }
     },
     {
@@ -207,7 +213,7 @@
           "Nur beim ersten Render"
         ],
         "hint": "Nicht global.",
-        "id": "ex-mc-wo"
+        "id": "ex-mc-wo", "stable_id": "ex-ms942h7q09yj2"
       }
     },
     {
@@ -234,7 +240,7 @@
           "Keys müssen global eindeutig sein"
         ],
         "hint": "Stabil, zuordnend, nur unter Geschwistern.",
-        "id": "ex-ms-keys"
+        "id": "ex-ms-keys", "stable_id": "ex-ms942h7q09z0n"
       }
     },
     {
@@ -259,7 +265,7 @@
           "Wenn Einträge gelöscht werden"
         ],
         "hint": "Nur bei unveränderlichen Listen.",
-        "id": "ex-ms-index-ok"
+        "id": "ex-ms-index-ok", "stable_id": "ex-ms942h7q0a0ze"
       }
     },
     {
@@ -290,7 +296,7 @@
           }
         ],
         "direction": "target_to_source",
-        "id": "ex-match-keys"
+        "id": "ex-match-keys", "stable_id": "ex-ms942h7q0a1os"
       }
     },
     {
@@ -315,7 +321,7 @@
         ],
         "cloze_mode": "type",
         "hint": "Englisch für 'Schlüssel'.",
-        "id": "ex-tip-key"
+        "id": "ex-tip-key", "stable_id": "ex-ms942h7q0a22y"
       }
     }
   ]

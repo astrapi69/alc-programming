@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "children",
+      "stable_id": "card-ms942h7s0ahol",
       "front": "children-Prop",
       "back": "Die besondere Prop, über die eine Komponente den zwischen ihren Tags verschachtelten Inhalt erhält.",
       "notes": "Grundlage der Komposition: <Card>Inhalt</Card>.",
@@ -21,6 +22,7 @@
     },
     {
       "id": "lifting",
+      "stable_id": "card-ms942h7s0aito",
       "front": "Lifting State Up",
       "back": "Gemeinsamen State in die nächste gemeinsame Elternkomponente verschieben, wenn mehrere Kinder ihn brauchen.",
       "notes": "So gibt es eine einzige Quelle der Wahrheit.",
@@ -33,6 +35,7 @@
     },
     {
       "id": "custom-hook",
+      "stable_id": "card-ms942h7s0ajvj",
       "front": "Custom Hook",
       "back": "Eine Funktion, die mit „use\" beginnt und wiederverwendbare Hook-Logik bündelt.",
       "notes": "Sie darf andere Hooks aufrufen und rendert selbst keine UI.",
@@ -45,6 +48,7 @@
     },
     {
       "id": "error-boundary",
+      "stable_id": "card-ms942h7s0ak37",
       "front": "Error Boundary",
       "back": "Ein Baustein, der Render-Fehler in seinem Teilbaum abfängt und einen Fallback statt eines Absturzes zeigt.",
       "notes": "Konzeptuell: „Auffangnetz\" für Fehler beim Rendern.",
@@ -57,6 +61,7 @@
     },
     {
       "id": "komposition",
+      "stable_id": "card-ms942h7s0alky",
       "front": "Komposition",
       "back": "UI aus kleinen Bausteinen zusammensetzen — Inhalte per children verschachteln statt alles zu vererben.",
       "notes": "React bevorzugt Komposition.",
@@ -69,6 +74,7 @@
     },
     {
       "id": "use-praefix",
+      "stable_id": "card-ms942h7s0ambk",
       "front": "use-Präfix",
       "back": "Custom Hooks beginnen per Konvention mit „use\", damit React die Hook-Regeln prüfen kann.",
       "notes": "z. B. useOnlineStatus, useFormField.",
@@ -81,6 +87,7 @@
     },
     {
       "id": "single-truth",
+      "stable_id": "card-ms942h7s0anbu",
       "front": "Eine Quelle der Wahrheit",
       "back": "Geteilter State lebt an genau einer Stelle (dem gemeinsamen Elternteil), nicht doppelt in mehreren Kindern.",
       "notes": "Verhindert widersprüchliche Zustände.",
@@ -132,7 +139,7 @@
           "Daten zu laden"
         ],
         "hint": "<Card>Inhalt</Card>.",
-        "id": "ex-mc-children"
+        "id": "ex-mc-children", "stable_id": "ex-ms942h7s0aowz"
       }
     },
     {
@@ -162,7 +169,7 @@
           "State ganz vermeiden"
         ],
         "hint": "Eine Quelle der Wahrheit.",
-        "id": "ex-mc-lifting"
+        "id": "ex-mc-lifting", "stable_id": "ex-ms942h7s0apz8"
       }
     },
     {
@@ -192,7 +199,7 @@
           "Ein Ersatz für den Provider"
         ],
         "hint": "Beginnt mit „use\".",
-        "id": "ex-mc-customhook"
+        "id": "ex-mc-customhook", "stable_id": "ex-ms942h7s0aqws"
       }
     },
     {
@@ -221,7 +228,7 @@
           "State global speichern"
         ],
         "hint": "Auffangnetz beim Rendern.",
-        "id": "ex-mc-boundary"
+        "id": "ex-mc-boundary", "stable_id": "ex-ms942h7s0arei"
       }
     },
     {
@@ -248,7 +255,7 @@
           "Sie ersetzen Komponenten vollständig"
         ],
         "hint": "use-Präfix, Logik, Hooks erlaubt.",
-        "id": "ex-ms-customhook"
+        "id": "ex-ms-customhook", "stable_id": "ex-ms942h7s0astt"
       }
     },
     {
@@ -274,7 +281,7 @@
           "Um jeden Re-Render zu verbieten"
         ],
         "hint": "Geteilter Bedarf, eine Quelle.",
-        "id": "ex-ms-lifting"
+        "id": "ex-ms-lifting", "stable_id": "ex-ms942h7s0at8g"
       }
     },
     {
@@ -310,7 +317,7 @@
           }
         ],
         "direction": "target_to_source",
-        "id": "ex-match-patterns"
+        "id": "ex-match-patterns", "stable_id": "ex-ms942h7s0auo9"
       }
     },
     {
@@ -336,7 +343,7 @@
         ],
         "cloze_mode": "type",
         "hint": "Englischer Fachbegriff.",
-        "id": "ex-tip-hook"
+        "id": "ex-tip-hook", "stable_id": "ex-ms942h7s0av1x"
       }
     }
   ]

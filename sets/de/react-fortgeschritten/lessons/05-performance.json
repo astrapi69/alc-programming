@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "rerender-ausloeser",
+      "stable_id": "card-ms942h7q09bt5",
       "front": "Re-Render-Auslöser",
       "back": "Eine Komponente rendert neu, wenn sich ihr State oder ihre Props ändern (oder ihr Elternteil neu rendert).",
       "notes": "Eine ref.current-Änderung gehört NICHT dazu.",
@@ -21,6 +22,7 @@
     },
     {
       "id": "usememo",
+      "stable_id": "card-ms942h7q09c5x",
       "front": "useMemo",
       "back": "Cached das ERGEBNIS einer teuren Berechnung zwischen Renders, solange die Dependencies gleich bleiben.",
       "notes": "Nur für wirklich teure Berechnungen sinnvoll.",
@@ -33,6 +35,7 @@
     },
     {
       "id": "usecallback",
+      "stable_id": "card-ms942h7q09dtw",
       "front": "useCallback",
       "back": "Cached eine FUNKTIONSREFERENZ zwischen Renders, solange die Dependencies gleich bleiben.",
       "notes": "Nützlich, wenn ein memoisiertes Kind eine stabile Funktion braucht.",
@@ -45,6 +48,7 @@
     },
     {
       "id": "react-memo",
+      "stable_id": "card-ms942h7q09em5",
       "front": "React.memo",
       "back": "Umhüllt eine Komponente, die ihren Re-Render überspringt, solange ihre Props gleich bleiben.",
       "notes": "Wirkt nur mit stabilen Props zusammen.",
@@ -57,6 +61,7 @@
     },
     {
       "id": "premature",
+      "stable_id": "card-ms942h7q09fcg",
       "front": "Voreilige Optimierung",
       "back": "Alles zu memoisieren bringt oft nichts und macht den Code komplizierter.",
       "notes": "Erst messen, dann gezielt optimieren.",
@@ -69,6 +74,7 @@
     },
     {
       "id": "props-stabil",
+      "stable_id": "card-ms942h7q09g7b",
       "front": "Stabile Props",
       "back": "Damit React.memo greift, müssen die übergebenen Props (auch Funktionen) stabil bleiben.",
       "notes": "Hier hilft useCallback.",
@@ -119,7 +125,7 @@
           "Ein Kommentar im Code"
         ],
         "hint": "State/Props (oder das Elternteil).",
-        "id": "ex-mc-ausloeser"
+        "id": "ex-mc-ausloeser", "stable_id": "ex-ms942h7q09hnp"
       }
     },
     {
@@ -148,7 +154,7 @@
           "Den DOM-Knoten"
         ],
         "hint": "Ergebnis, nicht Funktion.",
-        "id": "ex-mc-usememo"
+        "id": "ex-mc-usememo", "stable_id": "ex-ms942h7q09ixg"
       }
     },
     {
@@ -177,7 +183,7 @@
           "Den State"
         ],
         "hint": "Funktion, nicht Ergebnis.",
-        "id": "ex-mc-usecallback"
+        "id": "ex-mc-usecallback", "stable_id": "ex-ms942h7q09jzk"
       }
     },
     {
@@ -206,7 +212,7 @@
           "Es lädt Daten"
         ],
         "hint": "Gleiche Props → kein Re-Render.",
-        "id": "ex-mc-reactmemo"
+        "id": "ex-mc-reactmemo", "stable_id": "ex-ms942h7q09kh7"
       }
     },
     {
@@ -234,7 +240,7 @@
           "Man sollte grundsätzlich alles memoisieren"
         ],
         "hint": "Zwei cachen, eine Übertreibung meiden.",
-        "id": "ex-ms-memo"
+        "id": "ex-ms-memo", "stable_id": "ex-ms942h7q09l5k"
       }
     },
     {
@@ -260,7 +266,7 @@
           "Um jeden Re-Render zu verbieten"
         ],
         "hint": "Gezielt, nicht pauschal.",
-        "id": "ex-ms-wann"
+        "id": "ex-ms-wann", "stable_id": "ex-ms942h7q09mjx"
       }
     },
     {
@@ -291,7 +297,7 @@
           }
         ],
         "direction": "target_to_source",
-        "id": "ex-match-perf"
+        "id": "ex-match-perf", "stable_id": "ex-ms942h7q09na7"
       }
     },
     {
@@ -315,7 +321,7 @@
         ],
         "cloze_mode": "type",
         "hint": "Beginnt mit „use\", cachet einen Wert.",
-        "id": "ex-tip-memo"
+        "id": "ex-tip-memo", "stable_id": "ex-ms942h7q09oac"
       }
     }
   ]

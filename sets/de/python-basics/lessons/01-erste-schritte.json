@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "py-was-ist-python",
+      "stable_id": "card-ms942h7d001ly",
       "front": "Python",
       "back": "Eine beliebte, gut lesbare Programmiersprache für Einsteiger und Profis.",
       "notes": "Benannt nach der Komikertruppe Monty Python, nicht nach der Schlange.",
@@ -18,6 +19,7 @@
     },
     {
       "id": "py-interpreter",
+      "stable_id": "card-ms942h7d0024y",
       "front": "Interpreter",
       "back": "Programm, das Python-Code Zeile für Zeile liest und sofort ausführt.",
       "notes": "Deshalb braucht man bei Python keinen separaten Kompilier-Schritt wie in C oder Java.",
@@ -27,6 +29,7 @@
     },
     {
       "id": "py-print",
+      "stable_id": "card-ms942h7d0035p",
       "front": "print()",
       "back": "Gibt Text auf der Konsole aus.",
       "code_snippet": "print('Hallo Welt')",
@@ -40,6 +43,7 @@
     },
     {
       "id": "py-hello-world",
+      "stable_id": "card-ms942h7d004oq",
       "front": "Hallo-Welt-Programm",
       "back": "Das traditionelle erste Programm in jeder Programmiersprache.",
       "code_snippet": "print('Hallo Welt')",
@@ -53,6 +57,7 @@
     },
     {
       "id": "py-print-mehrere",
+      "stable_id": "card-ms942h7d005yp",
       "front": "print() mit mehreren Werten",
       "back": "print() trennt mehrere Argumente automatisch mit einem Leerzeichen.",
       "code_snippet": "print('Hallo', 'Welt')",
@@ -66,6 +71,7 @@
     },
     {
       "id": "py-string",
+      "stable_id": "card-ms942h7d006vw",
       "front": "String (str)",
       "back": "Eine Zeichenkette — Text, der in Anführungszeichen steht.",
       "code_snippet": "name = 'Anna'\nprint(name)",
@@ -79,6 +85,7 @@
     },
     {
       "id": "py-comment",
+      "stable_id": "card-ms942h7d007vc",
       "front": "Kommentar (#)",
       "back": "Text nach einem # wird vom Interpreter ignoriert — er dient nur dem Menschen.",
       "code_snippet": "# Das ist ein Kommentar\nprint('Hi')",
@@ -92,6 +99,7 @@
     },
     {
       "id": "py-quotes",
+      "stable_id": "card-ms942h7d008h1",
       "front": "Anführungszeichen",
       "back": "Strings stehen in einfachen ' ' oder doppelten \" \" Anführungszeichen — Hauptsache, beide Seiten sind gleich.",
       "code_snippet": "print(\"Tschüss\")",
@@ -105,6 +113,7 @@
     },
     {
       "id": "py-syntaxerror",
+      "stable_id": "card-ms942h7d0098l",
       "front": "SyntaxError",
       "back": "Fehlermeldung, wenn der Code grammatikalisch falsch ist, z. B. bei einer fehlenden Klammer.",
       "notes": "Python zeigt die Zeile mit dem Problem an — sehr hilfreich beim Suchen.",
@@ -114,6 +123,7 @@
     },
     {
       "id": "py-einrueckung",
+      "stable_id": "card-ms942h7d00avb",
       "front": "Einrückung (Indentation)",
       "back": "Leerzeichen am Zeilenanfang, mit denen Python zusammengehörige Code-Blöcke strukturiert.",
       "notes": "Andere Sprachen nutzen { }, Python nutzt die Einrückung. Üblich sind 4 Leerzeichen.",
@@ -148,6 +158,7 @@
       "title": "Die Ausgabe-Funktion",
       "exercise": {
         "id": "ex-cloze-print",
+        "stable_id": "ex-ms942h7d00bxc",
         "type": "cloze",
         "prompt": "Ergänze den Namen der Funktion, die Text auf der Konsole ausgibt.",
         "card_ids": ["py-print"],
@@ -166,6 +177,7 @@
       "title": "Welche Funktion gibt aus?",
       "exercise": {
         "id": "ex-free-output",
+        "stable_id": "ex-ms942h7d00cxe",
         "type": "free_text",
         "prompt": "Welche Funktion gibt Text auf der Konsole aus?",
         "card_ids": ["py-print"],
@@ -182,6 +194,7 @@
       "title": "Das Hallo-Welt-Programm zusammensetzen",
       "exercise": {
         "id": "ex-tiles-hello",
+        "stable_id": "ex-ms942h7d00d19",
         "type": "word_tiles",
         "prompt": "Setze die Code-Zeile zusammen, die 'Hallo Welt' ausgibt.",
         "card_ids": ["py-hello-world"],
@@ -197,6 +210,7 @@
       "title": "Begriffe zuordnen",
       "exercise": {
         "id": "ex-match-begriffe",
+        "stable_id": "ex-ms942h7d00efn",
         "type": "matching",
         "prompt": "Ordne jeden Begriff seiner Beschreibung zu.",
         "card_ids": ["py-interpreter", "py-string", "py-comment", "py-print"],
@@ -216,6 +230,7 @@
       "title": "Kommentare einleiten",
       "exercise": {
         "id": "ex-cloze-comment",
+        "stable_id": "ex-ms942h7d00fgt",
         "type": "cloze",
         "prompt": "Ergänze das Zeichen, mit dem ein Kommentar beginnt.",
         "card_ids": ["py-comment"],
@@ -234,6 +249,7 @@
       "title": "Das Kommentarzeichen",
       "exercise": {
         "id": "ex-free-comment",
+        "stable_id": "ex-ms942h7d00gvf",
         "type": "free_text",
         "prompt": "Welches Zeichen leitet in Python einen Kommentar ein?",
         "card_ids": ["py-comment"],
@@ -250,6 +266,7 @@
       "title": "Zwei Wörter ausgeben",
       "exercise": {
         "id": "ex-tiles-print-mehrere",
+        "stable_id": "ex-ms942h7d00hx8",
         "type": "word_tiles",
         "prompt": "Setze die Zeile zusammen, die 'Hallo' und 'Welt' als zwei Argumente ausgibt.",
         "card_ids": ["py-print-mehrere"],
