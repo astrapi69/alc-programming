@@ -1,6 +1,6 @@
 {
   "repo": "astrapi69/alc-programming",
-  "generated": "2026-07-31T15:48:40Z",
+  "generated": "2026-07-31T16:08:57Z",
   "schema_version": "1.0",
   "sets": [
     {
@@ -19,6 +19,7 @@
         "python"
       ],
       "visibility": "visible",
+      "review_status": "authored",
       "ai_validated": false,
       "trust_level": 1,
       "book": null,
@@ -41,6 +42,7 @@
         "grundlagen"
       ],
       "visibility": "visible",
+      "review_status": "authored",
       "ai_validated": false,
       "trust_level": 1,
       "book": null,
@@ -64,6 +66,7 @@
         "multiple-choice"
       ],
       "visibility": "visible",
+      "review_status": "authored",
       "ai_validated": false,
       "trust_level": 1,
       "book": null,
