@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "py-if",
+      "stable_id": "card-ms942h7i02jnr",
       "front": "if-Anweisung",
       "back": "Führt einen Codeblock nur aus, wenn eine Bedingung wahr (True) ist.",
       "code_snippet": "alter = 18\nif alter >= 18:\n    print('Volljährig')",
@@ -21,6 +22,7 @@
     },
     {
       "id": "py-elif",
+      "stable_id": "card-ms942h7i02k5z",
       "front": "elif-Zweig",
       "back": "Steht nach einem if und prüft eine weitere Bedingung, wenn das vorherige if falsch war.",
       "code_snippet": "note = 2\nif note == 1:\n    print('Sehr gut')\nelif note == 2:\n    print('Gut')",
@@ -33,6 +35,7 @@
     },
     {
       "id": "py-else",
+      "stable_id": "card-ms942h7i02lmw",
       "front": "else-Zweig",
       "back": "Wird ausgeführt, wenn keine der vorherigen if- oder elif-Bedingungen wahr war.",
       "code_snippet": "x = 5\nif x > 10:\n    print('groß')\nelse:\n    print('klein')",
@@ -45,6 +48,7 @@
     },
     {
       "id": "py-vergleich-gleich",
+      "stable_id": "card-ms942h7i02mgi",
       "front": "== (Gleichheit)",
       "back": "Vergleichsoperator: prüft, ob zwei Werte gleich sind. Ergibt True oder False.",
       "code_snippet": "print(3 == 3)\nprint(3 == 4)",
@@ -57,6 +61,7 @@
     },
     {
       "id": "py-vergleich-ungleich",
+      "stable_id": "card-ms942h7i02num",
       "front": "!= (Ungleichheit)",
       "back": "Vergleichsoperator: prüft, ob zwei Werte ungleich sind.",
       "code_snippet": "print(3 != 4)",
@@ -69,6 +74,7 @@
     },
     {
       "id": "py-vergleich-kleiner-groesser",
+      "stable_id": "card-ms942h7i02o3z",
       "front": "< > <= >= (Größenvergleich)",
       "back": "Vergleichsoperatoren: < (kleiner), > (größer), <= (kleiner oder gleich), >= (größer oder gleich).",
       "code_snippet": "print(5 < 10)\nprint(10 >= 10)",
@@ -81,6 +87,7 @@
     },
     {
       "id": "py-and",
+      "stable_id": "card-ms942h7i02p5e",
       "front": "and (logisches Und)",
       "back": "Boolescher Operator: beide Bedingungen müssen True sein, damit das Ergebnis True ist.",
       "code_snippet": "alter = 20\nnuechtern = True\nif alter >= 18 and nuechtern:\n    print('Fahren erlaubt')",
@@ -93,6 +100,7 @@
     },
     {
       "id": "py-or",
+      "stable_id": "card-ms942h7i02qqf",
       "front": "or (logisches Oder)",
       "back": "Boolescher Operator: mindestens eine der Bedingungen muss True sein.",
       "code_snippet": "tag = 'Samstag'\nif tag == 'Samstag' or tag == 'Sonntag':\n    print('Wochenende')",
@@ -105,6 +113,7 @@
     },
     {
       "id": "py-not",
+      "stable_id": "card-ms942h7i02rh6",
       "front": "not (logisches Nicht)",
       "back": "Boolescher Operator: kehrt einen Wahrheitswert um. not True ergibt False.",
       "code_snippet": "regen = False\nif not regen:\n    print('Spaziergang möglich')",
@@ -117,6 +126,7 @@
     },
     {
       "id": "py-einrueckung-block",
+      "stable_id": "card-ms942h7i02sef",
       "front": "Einrückung (Indentation) im if-Block",
       "back": "Der Code innerhalb eines if/elif/else-Blocks muss eingerückt sein (4 Leerzeichen). Die Einrückung zeigt Python, was zum Block gehört.",
       "notes": "Falsche oder fehlende Einrückung führt zu einem IndentationError.",
@@ -126,6 +136,7 @@
     },
     {
       "id": "py-if-elif-else-kette",
+      "stable_id": "card-ms942h7i02tpa",
       "front": "if / elif / else — komplette Kette",
       "back": "Mit if, beliebig vielen elif und einem abschließenden else deckt man alle Fälle ab.",
       "code_snippet": "punkte = 75\nif punkte >= 90:\n    print('Sehr gut')\nelif punkte >= 60:\n    print('Bestanden')\nelse:\n    print('Nicht bestanden')",
@@ -138,6 +149,7 @@
     },
     {
       "id": "py-bool-ausdruck",
+      "stable_id": "card-ms942h7i02uex",
       "front": "Boolescher Ausdruck (Boolean Expression)",
       "back": "Ein Ausdruck, der True oder False ergibt — z. B. 5 > 3 oder alter >= 18.",
       "media_type": "text",
@@ -171,6 +183,7 @@
       "title": "if-Syntax ergänzen",
       "exercise": {
         "id": "ex-cloze-if-syntax",
+        "stable_id": "ex-ms942h7i02vb6",
         "type": "cloze",
         "prompt": "Ergänze das Zeichen, das nach der Bedingung eines if-Ausdrucks stehen muss.",
         "card_ids": ["py-if"],
@@ -189,6 +202,7 @@
       "title": "Gleichheitsoperator",
       "exercise": {
         "id": "ex-cloze-vergleich",
+        "stable_id": "ex-ms942h7i02w7d",
         "type": "cloze",
         "prompt": "Ergänze den Operator, der prüft, ob zwei Werte gleich sind.",
         "card_ids": ["py-vergleich-gleich"],
@@ -207,6 +221,7 @@
       "title": "Was macht elif?",
       "exercise": {
         "id": "ex-free-elif",
+        "stable_id": "ex-ms942h7i02x5w",
         "type": "free_text",
         "prompt": "Was bedeutet elif in Python?",
         "card_ids": ["py-elif"],
@@ -223,6 +238,7 @@
       "title": "and-Operator",
       "exercise": {
         "id": "ex-free-and",
+        "stable_id": "ex-ms942h7i02ymt",
         "type": "free_text",
         "prompt": "Wann ergibt eine Bedingung mit and den Wert True?",
         "card_ids": ["py-and"],
@@ -239,6 +255,7 @@
       "title": "if-Block zusammensetzen",
       "exercise": {
         "id": "ex-tiles-if-block",
+        "stable_id": "ex-ms942h7i02z15",
         "type": "word_tiles",
         "prompt": "Setze eine if-Anweisung zusammen, die prüft ob x größer als 0 ist.",
         "card_ids": ["py-if"],
@@ -254,6 +271,7 @@
       "title": "and-Bedingung zusammensetzen",
       "exercise": {
         "id": "ex-tiles-and",
+        "stable_id": "ex-ms942h7i0306d",
         "type": "word_tiles",
         "prompt": "Setze eine Bedingung zusammen, die prüft ob x größer als 0 UND kleiner als 10 ist.",
         "card_ids": ["py-and"],
@@ -269,6 +287,7 @@
       "title": "Vergleichsoperatoren zuordnen",
       "exercise": {
         "id": "ex-match-operatoren",
+        "stable_id": "ex-ms942h7i031zn",
         "type": "matching",
         "prompt": "Ordne jeden Operator seiner Bedeutung zu.",
         "card_ids": ["py-vergleich-gleich", "py-vergleich-ungleich", "py-vergleich-kleiner-groesser"],
@@ -288,6 +307,7 @@
       "title": "Boolesche Operatoren zuordnen",
       "exercise": {
         "id": "ex-match-bool-op",
+        "stable_id": "ex-ms942h7i032nm",
         "type": "matching",
         "prompt": "Ordne jeden booleschen Operator seiner Beschreibung zu.",
         "card_ids": ["py-and", "py-or", "py-not"],

@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "usecontext",
+      "stable_id": "card-ms942h7o08jrl",
       "front": "useContext",
       "back": "Der Hook, der den Wert des nächstgelegenen Providers liest.",
       "notes": "Ersetzt tiefes Durchreichen von Props.",
@@ -21,6 +22,7 @@
     },
     {
       "id": "provider",
+      "stable_id": "card-ms942h7o08kuw",
       "front": "Provider",
       "back": "Die Komponente, die einen Context-Wert für ihren Teilbaum bereitstellt.",
       "notes": "z. B. <ThemeContext.Provider value={theme}>.",
@@ -33,6 +35,7 @@
     },
     {
       "id": "prop-drilling",
+      "stable_id": "card-ms942h7o08lzf",
       "front": "Prop-Drilling",
       "back": "Props durch viele Zwischenebenen reichen, nur um sie tief unten zu nutzen.",
       "notes": "Genau das Problem, das Context löst.",
@@ -45,6 +48,7 @@
     },
     {
       "id": "when-context",
+      "stable_id": "card-ms942h7o08mqf",
       "front": "Wann Context?",
       "back": "Für Daten, die viele, tief verschachtelte Komponenten brauchen (Theme, Sprache, angemeldeter Nutzer).",
       "notes": "Für rein lokalen State ist Context überflüssig.",
@@ -57,6 +61,7 @@
     },
     {
       "id": "context-rerender",
+      "stable_id": "card-ms942h7o08n4y",
       "front": "Re-Render bei Context",
       "back": "Ändert sich der Context-Wert, rendern alle konsumierenden Komponenten neu.",
       "notes": "Deshalb den Wert bewusst gestalten.",
@@ -69,6 +74,7 @@
     },
     {
       "id": "consumer",
+      "stable_id": "card-ms942h7o08opt",
       "front": "Konsument",
       "back": "Eine Komponente, die den Context-Wert per useContext liest.",
       "notes": "Sie bekommt den Wert des nächsten Providers oberhalb.",
@@ -120,7 +126,7 @@
           "Falsche Listen-Keys"
         ],
         "hint": "Kein Durchreichen über viele Ebenen.",
-        "id": "ex-mc-wogegen"
+        "id": "ex-mc-wogegen", "stable_id": "ex-ms942h7o08p2d"
       }
     },
     {
@@ -149,7 +155,7 @@
           "Ein ref"
         ],
         "hint": "…Context.Provider value={...}.",
-        "id": "ex-mc-provider"
+        "id": "ex-mc-provider", "stable_id": "ex-ms942h7o08q0g"
       }
     },
     {
@@ -179,7 +185,7 @@
           "Mit einem Provider"
         ],
         "hint": "Der Consumer-Hook.",
-        "id": "ex-mc-liest"
+        "id": "ex-mc-liest", "stable_id": "ex-ms942h7o08r3q"
       }
     },
     {
@@ -208,7 +214,7 @@
           "Die App startet neu"
         ],
         "hint": "Konsumenten reagieren auf den neuen Wert.",
-        "id": "ex-mc-rerender"
+        "id": "ex-mc-rerender", "stable_id": "ex-ms942h7o08sfx"
       }
     },
     {
@@ -233,7 +239,7 @@
           "Um Re-Renders generell zu verhindern"
         ],
         "hint": "Global und tief geteilt.",
-        "id": "ex-ms-wann"
+        "id": "ex-ms-wann", "stable_id": "ex-ms942h7o08to1"
       }
     },
     {
@@ -259,7 +265,7 @@
           "Es verhindert jeden Re-Render"
         ],
         "hint": "Provider-Wert lesen, Drilling vermeiden.",
-        "id": "ex-ms-context"
+        "id": "ex-ms-context", "stable_id": "ex-ms942h7o08uiz"
       }
     },
     {
@@ -290,7 +296,7 @@
           }
         ],
         "direction": "target_to_source",
-        "id": "ex-match-context"
+        "id": "ex-match-context", "stable_id": "ex-ms942h7o08vg0"
       }
     },
     {
@@ -314,7 +320,7 @@
         ],
         "cloze_mode": "type",
         "hint": "Beginnt mit „use\".",
-        "id": "ex-tip-hook"
+        "id": "ex-tip-hook", "stable_id": "ex-ms942h7o08wb9"
       }
     }
   ]

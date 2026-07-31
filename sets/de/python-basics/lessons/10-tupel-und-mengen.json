@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "tuple-erstellen",
+      "stable_id": "card-ms942h7k04llb",
       "front": "Tupel erstellen (tuple)",
       "back": "Ein Tupel speichert mehrere Werte in runden Klammern. Es ist unveränderlich — nach der Erstellung können keine Elemente hinzugefügt oder entfernt werden.",
       "code_snippet": "punkt = (3, 7)\nprint(punkt)",
@@ -21,6 +22,7 @@
     },
     {
       "id": "tuple-index",
+      "stable_id": "card-ms942h7k04m6z",
       "front": "Tupel-Element abrufen",
       "back": "Auf Tupel-Elemente greift man wie bei Listen per Index zu. Der erste Index ist 0.",
       "code_snippet": "punkt = (3, 7)\nprint(punkt[0])",
@@ -33,6 +35,7 @@
     },
     {
       "id": "tuple-unveraenderlich",
+      "stable_id": "card-ms942h7k04n54",
       "front": "Unveränderlichkeit (immutable)",
       "back": "Ein Tupel kann nach der Erstellung nicht verändert werden. Der Versuch, ein Element zu ändern, führt zu einem TypeError.",
       "notes": "Das macht Tupel sicherer als Listen, wenn die Daten konstant bleiben sollen.",
@@ -42,6 +45,7 @@
     },
     {
       "id": "tuple-vs-liste",
+      "stable_id": "card-ms942h7k04oxv",
       "front": "Tupel vs. Liste",
       "back": "Listen sind veränderlich (mutable) und stehen in [ ]. Tupel sind unveränderlich (immutable) und stehen in ( ). Beide sind geordnet und erlauben doppelte Werte.",
       "media_type": "text",
@@ -50,6 +54,7 @@
     },
     {
       "id": "set-erstellen",
+      "stable_id": "card-ms942h7k04phb",
       "front": "Menge erstellen (set)",
       "back": "Eine Menge speichert eindeutige Elemente ohne feste Reihenfolge. Sie wird mit geschweiften Klammern oder set() erstellt.",
       "code_snippet": "farben = {'rot', 'gruen', 'blau'}\nprint(len(farben))",
@@ -62,6 +67,7 @@
     },
     {
       "id": "set-duplikate",
+      "stable_id": "card-ms942h7k04q9t",
       "front": "Duplikate entfernen mit set()",
       "back": "set() aus einer Liste erstellt eine Menge und entfernt dabei alle doppelten Werte automatisch.",
       "code_snippet": "zahlen = [1, 2, 2, 3, 3, 3]\neindeutig = set(zahlen)\nprint(len(eindeutig))",
@@ -74,6 +80,7 @@
     },
     {
       "id": "set-in-test",
+      "stable_id": "card-ms942h7k04rrv",
       "front": "Mengenzugehörigkeit prüfen",
       "back": "Mit dem in-Operator prüft man sehr effizient, ob ein Element in einer Menge enthalten ist.",
       "code_snippet": "farben = {'rot', 'gruen', 'blau'}\nprint('rot' in farben)",
@@ -86,6 +93,7 @@
     },
     {
       "id": "set-vereinigung",
+      "stable_id": "card-ms942h7k04s5q",
       "front": "Vereinigung (|) — set union",
       "back": "Der Operator | gibt eine neue Menge zurück, die alle Elemente beider Mengen enthält.",
       "code_snippet": "a = {1, 2, 3}\nb = {3, 4, 5}\nprint(len(a | b))",
@@ -98,6 +106,7 @@
     },
     {
       "id": "set-schnittmenge",
+      "stable_id": "card-ms942h7k04tph",
       "front": "Schnittmenge (&) — set intersection",
       "back": "Der Operator & gibt eine Menge zurück, die nur die Elemente enthält, die in beiden Mengen vorkommen.",
       "code_snippet": "a = {1, 2, 3}\nb = {2, 3, 4}\nprint(a & b == {2, 3})",
@@ -110,6 +119,7 @@
     },
     {
       "id": "set-ungeordnet",
+      "stable_id": "card-ms942h7k04uy7",
       "front": "Mengen sind ungeordnet",
       "back": "Elemente in einer Menge haben keine feste Reihenfolge. Man kann nicht mit einem Index auf ein einzelnes Element zugreifen.",
       "notes": "Deshalb sind Mengenelemente nicht über einen Index abrufbar — dafür gibt es keine Garantie für die Reihenfolge.",
@@ -119,6 +129,7 @@
     },
     {
       "id": "set-len",
+      "stable_id": "card-ms942h7k04vpf",
       "front": "Anzahl der Mengenelemente",
       "back": "len(menge) gibt die Anzahl der eindeutigen Elemente in der Menge zurück.",
       "code_snippet": "s = {1, 1, 2, 3}\nprint(len(s))",
@@ -156,6 +167,7 @@
       "title": "Tupel-Klammern",
       "exercise": {
         "id": "ex-cloze-tuple",
+        "stable_id": "ex-ms942h7k04wyx",
         "type": "cloze",
         "prompt": "Ergänze die Klammern, in denen ein Tupel steht.",
         "card_ids": ["tuple-erstellen"],
@@ -174,6 +186,7 @@
       "title": "Duplikate entfernen",
       "exercise": {
         "id": "ex-cloze-set-duplikate",
+        "stable_id": "ex-ms942h7k04x7g",
         "type": "cloze",
         "prompt": "Ergänze die Funktion, die aus einer Liste eine Menge ohne Duplikate erstellt.",
         "card_ids": ["set-duplikate"],
@@ -192,6 +205,7 @@
       "title": "Tupel-Eigenschaft",
       "exercise": {
         "id": "ex-free-unveraenderlich",
+        "stable_id": "ex-ms942h7k04y48",
         "type": "free_text",
         "prompt": "Welche Eigenschaft unterscheidet ein Tupel von einer Liste — Tupel können nicht verändert werden?",
         "card_ids": ["tuple-unveraenderlich", "tuple-vs-liste"],
@@ -208,6 +222,7 @@
       "title": "Mengeneigenschaft",
       "exercise": {
         "id": "ex-free-set-eigenschaft",
+        "stable_id": "ex-ms942h7k04zix",
         "type": "free_text",
         "prompt": "Was ist das besondere Merkmal einer Menge (set) in Bezug auf ihre Elemente?",
         "card_ids": ["set-erstellen", "set-duplikate"],
@@ -224,6 +239,7 @@
       "title": "Menge aus Liste erstellen",
       "exercise": {
         "id": "ex-tiles-set-erstellen",
+        "stable_id": "ex-ms942h7k050s8",
         "type": "word_tiles",
         "prompt": "Setze die Zeile zusammen, die aus der Liste 'zahlen' eine Menge erstellt und deren Länge ausgibt.",
         "card_ids": ["set-duplikate"],
@@ -239,6 +255,7 @@
       "title": "Datenstrukturen zuordnen",
       "exercise": {
         "id": "ex-match-datenstrukturen",
+        "stable_id": "ex-ms942h7k051jz",
         "type": "matching",
         "prompt": "Ordne jede Beschreibung der richtigen Datenstruktur zu.",
         "card_ids": ["tuple-erstellen", "tuple-unveraenderlich", "set-erstellen", "set-ungeordnet"],
@@ -258,6 +275,7 @@
       "title": "Mengenvereinigung",
       "exercise": {
         "id": "ex-tiles-vereinigung",
+        "stable_id": "ex-ms942h7k052yk",
         "type": "word_tiles",
         "prompt": "Setze den Ausdruck zusammen, der die Vereinigung der Mengen a und b bildet und deren Länge ausgibt.",
         "card_ids": ["set-vereinigung"],

@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "py-for-liste",
+      "stable_id": "card-ms942h7i033i0",
       "front": "for-Schleife über eine Liste",
       "back": "Die for-Schleife wiederholt einen Codeblock für jedes Element einer Liste.",
       "code_snippet": "farben = ['rot', 'gruen', 'blau']\nfor farbe in farben:\n    print(farbe)",
@@ -21,6 +22,7 @@
     },
     {
       "id": "py-for-range",
+      "stable_id": "card-ms942h7i034dk",
       "front": "for-Schleife mit range()",
       "back": "range(n) erzeugt eine Folge von ganzen Zahlen von 0 bis n-1. Ideal zum Wiederholen einer festen Anzahl von Schritten.",
       "code_snippet": "for i in range(3):\n    print(i)",
@@ -33,6 +35,7 @@
     },
     {
       "id": "py-range-start-stop",
+      "stable_id": "card-ms942h7i0353o",
       "front": "range(start, stop)",
       "back": "range(start, stop) erzeugt Zahlen von start bis stop-1. Der stop-Wert selbst ist nicht enthalten.",
       "code_snippet": "for i in range(2, 5):\n    print(i)",
@@ -45,6 +48,7 @@
     },
     {
       "id": "py-while",
+      "stable_id": "card-ms942h7i036r3",
       "front": "while-Schleife",
       "back": "Die while-Schleife wiederholt einen Block, solange die Bedingung True ist.",
       "code_snippet": "zaehler = 0\nwhile zaehler < 3:\n    print(zaehler)\n    zaehler = zaehler + 1",
@@ -57,6 +61,7 @@
     },
     {
       "id": "py-break",
+      "stable_id": "card-ms942h7i037tj",
       "front": "break — Schleife abbrechen",
       "back": "break beendet die Schleife sofort, egal ob die Bedingung noch True wäre.",
       "code_snippet": "for i in range(5):\n    if i == 3:\n        break\n    print(i)",
@@ -69,6 +74,7 @@
     },
     {
       "id": "py-continue",
+      "stable_id": "card-ms942h7i038ov",
       "front": "continue — Iteration überspringen",
       "back": "continue überspringt den Rest des aktuellen Schleifendurchlaufs und springt zum nächsten.",
       "code_snippet": "for i in range(5):\n    if i == 2:\n        continue\n    print(i)",
@@ -81,6 +87,7 @@
     },
     {
       "id": "py-zaehlen-schleife",
+      "stable_id": "card-ms942h7i039yn",
       "front": "Zählschleife — Summe berechnen",
       "back": "Ein typisches Muster: Variable vor der Schleife auf 0 setzen, in der Schleife aufaddieren.",
       "code_snippet": "summe = 0\nfor zahl in [1, 2, 3, 4, 5]:\n    summe = summe + zahl\nprint(summe)",
@@ -93,6 +100,7 @@
     },
     {
       "id": "py-schleife-einrueckung",
+      "stable_id": "card-ms942h7i03aa5",
       "front": "Einrückung in Schleifen",
       "back": "Der Körper einer Schleife (alles, was wiederholt werden soll) muss eingerückt sein — genau wie bei if-Blöcken.",
       "notes": "Ohne korrekte Einrückung gehört der Code nicht zum Schleifenkörper und wird nur einmal ausgeführt.",
@@ -102,6 +110,7 @@
     },
     {
       "id": "py-for-vs-while",
+      "stable_id": "card-ms942h7i03buy",
       "front": "for vs. while — Wann was?",
       "back": "for: wenn man die Anzahl der Wiederholungen kennt oder über eine Sammlung iteriert. while: wenn man wiederholen will, bis eine Bedingung eintritt.",
       "media_type": "text",
@@ -110,6 +119,7 @@
     },
     {
       "id": "py-range-step",
+      "stable_id": "card-ms942h7i03cvv",
       "front": "range(start, stop, step)",
       "back": "Mit einem dritten Argument legt man die Schrittweite fest. range(0, 10, 2) erzeugt 0, 2, 4, 6, 8.",
       "code_snippet": "for i in range(0, 6, 2):\n    print(i)",
@@ -147,6 +157,7 @@
       "title": "range() verstehen",
       "exercise": {
         "id": "ex-cloze-range",
+        "stable_id": "ex-ms942h7i03dfl",
         "type": "cloze",
         "prompt": "Ergänze den Startpunkt von range().",
         "card_ids": ["py-for-range"],
@@ -165,6 +176,7 @@
       "title": "for-Syntax",
       "exercise": {
         "id": "ex-cloze-for-syntax",
+        "stable_id": "ex-ms942h7i03ew8",
         "type": "cloze",
         "prompt": "Ergänze das Schlüsselwort, das in einer for-Schleife die Sammlung einleitet.",
         "card_ids": ["py-for-liste"],
@@ -183,6 +195,7 @@
       "title": "Was macht break?",
       "exercise": {
         "id": "ex-free-break",
+        "stable_id": "ex-ms942h7i03f6q",
         "type": "free_text",
         "prompt": "Was bewirkt das Schlüsselwort break innerhalb einer Schleife?",
         "card_ids": ["py-break"],
@@ -199,6 +212,7 @@
       "title": "while-Schleife",
       "exercise": {
         "id": "ex-free-while",
+        "stable_id": "ex-ms942h7i03gf7",
         "type": "free_text",
         "prompt": "Wann hört eine while-Schleife auf zu laufen?",
         "card_ids": ["py-while"],
@@ -215,6 +229,7 @@
       "title": "for-range-Schleife zusammensetzen",
       "exercise": {
         "id": "ex-tiles-for-range",
+        "stable_id": "ex-ms942h7i03hgk",
         "type": "word_tiles",
         "prompt": "Setze eine for-Schleife zusammen, die 5 Mal von 0 bis 4 durchläuft.",
         "card_ids": ["py-for-range"],
@@ -230,6 +245,7 @@
       "title": "Summenvariable initialisieren",
       "exercise": {
         "id": "ex-tiles-summe",
+        "stable_id": "ex-ms942h7i03ij7",
         "type": "word_tiles",
         "prompt": "Setze die Zeile zusammen, die eine Summenvariable auf 0 setzt — bevor die Schleife startet.",
         "card_ids": ["py-zaehlen-schleife"],
@@ -245,6 +261,7 @@
       "title": "Schleifenbegriffe zuordnen",
       "exercise": {
         "id": "ex-match-schleifen",
+        "stable_id": "ex-ms942h7i03jpv",
         "type": "matching",
         "prompt": "Ordne jeden Begriff seiner Beschreibung zu.",
         "card_ids": ["py-for-range", "py-while", "py-break", "py-continue"],

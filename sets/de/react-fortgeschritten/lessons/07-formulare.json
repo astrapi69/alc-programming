@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "controlled",
+      "stable_id": "card-ms942h7r0a3cp",
       "front": "Controlled Input",
       "back": "Ein Eingabefeld, dessen Wert aus dem State kommt (value) und über onChange den State aktualisiert.",
       "notes": "Der State ist die einzige Quelle der Wahrheit.",
@@ -21,6 +22,7 @@
     },
     {
       "id": "uncontrolled",
+      "stable_id": "card-ms942h7r0a4ps",
       "front": "Uncontrolled Input",
       "back": "Ein Eingabefeld, dessen Wert im DOM lebt und bei Bedarf per ref ausgelesen wird.",
       "notes": "Oft mit defaultValue als Startwert.",
@@ -33,6 +35,7 @@
     },
     {
       "id": "value-onchange",
+      "stable_id": "card-ms942h7r0a5d0",
       "front": "value + onChange",
       "back": "Das Paar, das einen Input controlled macht: value bindet an den State, onChange schreibt zurück.",
       "notes": "Ohne onChange wäre das Feld schreibgeschützt.",
@@ -45,6 +48,7 @@
     },
     {
       "id": "single-source",
+      "stable_id": "card-ms942h7r0a6k6",
       "front": "Einzige Quelle der Wahrheit",
       "back": "Bei controlled Inputs kennt der State den aktuellen Wert — genau eine Stelle, nicht das DOM zusätzlich.",
       "notes": "Erleichtert Validierung und abhängige Felder.",
@@ -57,6 +61,7 @@
     },
     {
       "id": "defaultvalue",
+      "stable_id": "card-ms942h7r0a7iq",
       "front": "defaultValue",
       "back": "Setzt bei einem uncontrolled Input nur den Startwert; danach lebt der Wert im DOM.",
       "notes": "Nicht mit value verwechseln (das bindet dauerhaft).",
@@ -69,6 +74,7 @@
     },
     {
       "id": "ref-auslesen",
+      "stable_id": "card-ms942h7r0a8gs",
       "front": "Auslesen per ref",
       "back": "Den Wert eines uncontrolled Inputs holt man bei Bedarf über ein ref (z. B. beim Absenden).",
       "notes": "z. B. inputRef.current.value.",
@@ -120,7 +126,7 @@
           "Er hat keinen onChange-Handler"
         ],
         "hint": "State steuert den Wert.",
-        "id": "ex-mc-controlled"
+        "id": "ex-mc-controlled", "stable_id": "ex-ms942h7r0a9x8"
       }
     },
     {
@@ -150,7 +156,7 @@
           "Er rendert bei jedem Tastendruck neu"
         ],
         "hint": "Wert im DOM, Zugriff per ref.",
-        "id": "ex-mc-uncontrolled"
+        "id": "ex-mc-uncontrolled", "stable_id": "ex-ms942h7r0aajj"
       }
     },
     {
@@ -179,7 +185,7 @@
           "Ein ref allein"
         ],
         "hint": "Binden + zurückschreiben.",
-        "id": "ex-mc-macht"
+        "id": "ex-mc-macht", "stable_id": "ex-ms942h7r0abkr"
       }
     },
     {
@@ -208,7 +214,7 @@
           "Mit dem Dependency-Array"
         ],
         "hint": "z. B. inputRef.current.value.",
-        "id": "ex-mc-auslesen"
+        "id": "ex-mc-auslesen", "stable_id": "ex-ms942h7r0acf4"
       }
     },
     {
@@ -236,7 +242,7 @@
           "Man liest ihn nur per ref aus"
         ],
         "hint": "State steuert, State weiß Bescheid.",
-        "id": "ex-ms-controlled"
+        "id": "ex-ms-controlled", "stable_id": "ex-ms942h7r0adsz"
       }
     },
     {
@@ -264,7 +270,7 @@
           "onChange ist bei jedem Tastendruck nötig"
         ],
         "hint": "DOM-Wert, ref, defaultValue.",
-        "id": "ex-ms-uncontrolled"
+        "id": "ex-ms-uncontrolled", "stable_id": "ex-ms942h7r0aen9"
       }
     },
     {
@@ -295,7 +301,7 @@
           }
         ],
         "direction": "target_to_source",
-        "id": "ex-match-form"
+        "id": "ex-match-form", "stable_id": "ex-ms942h7r0af4a"
       }
     },
     {
@@ -319,7 +325,7 @@
         ],
         "cloze_mode": "type",
         "hint": "Gegenteil von „uncontrolled\".",
-        "id": "ex-tip-controlled"
+        "id": "ex-tip-controlled", "stable_id": "ex-ms942h7r0agwt"
       }
     }
   ]

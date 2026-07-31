@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "card-props",
+      "stable_id": "card-ms942h7t0bn97",
       "front": "Props",
       "back": "Daten, die eine Elternkomponente an eine Kindkomponente übergibt, um sie zu konfigurieren.",
       "notes": "Kurz für „properties“. Werden wie Attribute geschrieben: <Profil name=\"Ana\" />.",
@@ -23,6 +24,7 @@
     },
     {
       "id": "card-readonly",
+      "stable_id": "card-ms942h7t0bot4",
       "front": "Props sind read-only",
       "back": "Eine Komponente darf ihre eigenen Props nicht verändern; sie liest sie nur.",
       "notes": "Props gehören der Elternkomponente. Ändern lässt sich der Wert nur dort, wo er entsteht.",
@@ -35,6 +37,7 @@
     },
     {
       "id": "card-unidirektional",
+      "stable_id": "card-ms942h7t0bpgn",
       "front": "Unidirektionaler Datenfluss",
       "back": "Daten fließen in React in eine Richtung: von der Eltern- zur Kindkomponente.",
       "notes": "Auch „one-way data flow“. Das macht nachvollziehbar, woher ein Wert kommt.",
@@ -47,6 +50,7 @@
     },
     {
       "id": "card-props-vs-state",
+      "stable_id": "card-ms942h7t0bqyl",
       "front": "Props gegen State",
       "back": "Props kommen von außen (vom Elternteil) und sind read-only; State gehört der Komponente selbst und ist veränderbar.",
       "notes": "Faustregel: Bekommt die Komponente den Wert übergeben? -> Props. Verwaltet sie ihn selbst? -> State.",
@@ -60,6 +64,7 @@
     },
     {
       "id": "card-props-uebergeben",
+      "stable_id": "card-ms942h7t0brpd",
       "front": "Props übergeben",
       "back": "Beim Verwenden der Komponente schreibt man Props wie Attribute: <Begruessung name=\"Ana\" />.",
       "notes": "Werte aus Variablen übergibt man mit { }: name={benutzer}.",
@@ -74,6 +79,7 @@
     },
     {
       "id": "card-children",
+      "stable_id": "card-ms942h7t0bspn",
       "front": "props.children",
       "back": "Der Inhalt zwischen Öffnungs- und Schluss-Tag einer Komponente steht im Kind als props.children bereit.",
       "notes": "Ermöglicht Komposition: <Karte>Inhalt</Karte> reicht „Inhalt“ als children hinein.",
@@ -104,6 +110,7 @@
       "title": "Was sind Props?",
       "exercise": {
         "id": "ex-mc-was-sind-props",
+        "stable_id": "ex-ms942h7t0btfh",
         "type": "cloze",
         "prompt": "Wofür dienen Props in React?",
         "card_ids": [
@@ -133,6 +140,7 @@
       "title": "Darf ein Kind seine Props ändern?",
       "exercise": {
         "id": "ex-mc-readonly",
+        "stable_id": "ex-ms942h7t0bufc",
         "type": "cloze",
         "prompt": "Was gilt für eine Komponente in Bezug auf ihre eigenen Props?",
         "card_ids": [
@@ -161,6 +169,7 @@
       "title": "Richtung des Datenflusses",
       "exercise": {
         "id": "ex-mc-datenfluss",
+        "stable_id": "ex-ms942h7t0bv1i",
         "type": "cloze",
         "prompt": "In welche Richtung fließen Daten beim unidirektionalen Datenfluss?",
         "card_ids": [
@@ -189,6 +198,7 @@
       "title": "Props oder State?",
       "exercise": {
         "id": "ex-mc-props-vs-state",
+        "stable_id": "ex-ms942h7t0bwpb",
         "type": "cloze",
         "prompt": "Worin unterscheiden sich Props und State?",
         "card_ids": [
@@ -217,6 +227,7 @@
       "title": "Code lesen: Props auslesen",
       "exercise": {
         "id": "ex-mc-code-props",
+        "stable_id": "ex-ms942h7t0bxly",
         "type": "cloze",
         "prompt": "Was zeigt <Profil name=\"Ana\" /> mit  function Profil(props) { return <p>Hallo {props.name}</p>; }  an?",
         "card_ids": [
@@ -246,6 +257,7 @@
       "title": "Lückentext: Eigenschaft von Props",
       "exercise": {
         "id": "ex-cloze-readonly",
+        "stable_id": "ex-ms942h7t0byf1",
         "type": "cloze",
         "prompt": "Ergänze das englische Fachwort: Eine Komponente darf ihre Props nicht ändern – sie sind ___.",
         "card_ids": [
@@ -271,6 +283,7 @@
       "title": "Begriffe zuordnen",
       "exercise": {
         "id": "ex-match-begriffe",
+        "stable_id": "ex-ms942h7t0bzcb",
         "type": "matching",
         "prompt": "Ordne jedem Begriff die passende Kurzbeschreibung zu.",
         "card_ids": [

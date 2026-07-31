@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "py-str-verkettung",
+      "stable_id": "card-ms942h7g01i8n",
       "front": "String-Verkettung (+)",
       "back": "Zwei Strings lassen sich mit + zu einem neuen String zusammenfügen.",
       "code_snippet": "vorname = 'Anna'\nnachname = 'Müller'\nprint(vorname + ' ' + nachname)",
@@ -21,6 +22,7 @@
     },
     {
       "id": "py-fstring",
+      "stable_id": "card-ms942h7g01jms",
       "front": "f-String (f\"...{variable}...\")",
       "back": "Ein formatierter String, bei dem Variablen direkt in geschweifte Klammern eingesetzt werden. Eingeleitet durch f vor dem Anführungszeichen.",
       "code_snippet": "name = 'Lena'\nalter = 22\nprint(f'Ich heiße {name} und bin {alter} Jahre alt.')",
@@ -33,6 +35,7 @@
     },
     {
       "id": "py-len",
+      "stable_id": "card-ms942h7g01kao",
       "front": "len()",
       "back": "Gibt die Länge (Anzahl der Zeichen) eines Strings zurück.",
       "code_snippet": "wort = 'Python'\nprint(len(wort))",
@@ -45,6 +48,7 @@
     },
     {
       "id": "py-upper-lower",
+      "stable_id": "card-ms942h7g01ltj",
       "front": ".upper() / .lower()",
       "back": ".upper() wandelt alle Buchstaben in Großbuchstaben um, .lower() in Kleinbuchstaben.",
       "code_snippet": "s = 'Hallo Welt'\nprint(s.upper())\nprint(s.lower())",
@@ -57,6 +61,7 @@
     },
     {
       "id": "py-replace",
+      "stable_id": "card-ms942h7g01mdi",
       "front": ".replace(alt, neu)",
       "back": "Ersetzt alle Vorkommen eines Teilstrings durch einen anderen und gibt den neuen String zurück.",
       "code_snippet": "satz = 'Ich mag Katzen'\nprint(satz.replace('Katzen', 'Hunde'))",
@@ -69,6 +74,7 @@
     },
     {
       "id": "py-indexing",
+      "stable_id": "card-ms942h7g01nt6",
       "front": "String-Indexing (s[i])",
       "back": "Mit eckigen Klammern und einem Index greift man auf ein einzelnes Zeichen zu. Der Index beginnt bei 0.",
       "code_snippet": "s = 'Python'\nprint(s[0])\nprint(s[3])",
@@ -81,6 +87,7 @@
     },
     {
       "id": "py-slicing",
+      "stable_id": "card-ms942h7g01ooc",
       "front": "String-Slicing (s[start:stop])",
       "back": "Gibt einen Teilstring zurück. s[1:4] liefert die Zeichen an den Positionen 1, 2 und 3 (stop ist nicht enthalten).",
       "code_snippet": "s = 'Python'\nprint(s[0:3])\nprint(s[2:5])",
@@ -93,6 +100,7 @@
     },
     {
       "id": "py-in-operator",
+      "stable_id": "card-ms942h7g01pok",
       "front": "in-Operator bei Strings",
       "back": "Mit in prüft man, ob ein Teilstring in einem anderen String enthalten ist. Das Ergebnis ist True oder False.",
       "code_snippet": "print('Py' in 'Python')\nprint('Java' in 'Python')",
@@ -105,6 +113,7 @@
     },
     {
       "id": "py-str-unveraenderlich",
+      "stable_id": "card-ms942h7g01q83",
       "front": "Strings sind unveränderlich (immutable)",
       "back": "Strings können nach ihrer Erstellung nicht geändert werden. Methoden wie .upper() geben immer einen neuen String zurück.",
       "notes": "Das ist ein wichtiger Unterschied zu Listen, die veränderbar (mutable) sind.",
@@ -114,6 +123,7 @@
     },
     {
       "id": "py-str-index-null",
+      "stable_id": "card-ms942h7g01r1b",
       "front": "Index 0 beim ersten Zeichen",
       "back": "Python zählt Zeichen in einem String ab 0. Das erste Zeichen ist s[0], das zweite s[1] usw.",
       "notes": "Diese Zählweise gilt auch für Listen und andere Sequenzen in Python.",
@@ -123,6 +133,7 @@
     },
     {
       "id": "py-str-methoden-uebersicht",
+      "stable_id": "card-ms942h7g01sgm",
       "front": "Wichtige String-Methoden",
       "back": ".upper() → Großbuchstaben, .lower() → Kleinbuchstaben, .replace(alt, neu) → ersetzen, len(s) → Länge.",
       "media_type": "text",
@@ -156,6 +167,7 @@
       "title": "f-String-Präfix",
       "exercise": {
         "id": "ex-cloze-fstring",
+        "stable_id": "ex-ms942h7g01tpg",
         "type": "cloze",
         "prompt": "Ergänze den Buchstaben, der vor dem Anführungszeichen eines f-Strings steht.",
         "card_ids": ["py-fstring"],
@@ -175,6 +187,7 @@
       "title": "Länge eines Strings ermitteln",
       "exercise": {
         "id": "ex-cloze-len",
+        "stable_id": "ex-ms942h7g01ub6",
         "type": "cloze",
         "prompt": "Ergänze die Funktion, die die Anzahl der Zeichen in einem String zurückgibt.",
         "card_ids": ["py-len"],
@@ -193,6 +206,7 @@
       "title": "Indexing: erstes Zeichen",
       "exercise": {
         "id": "ex-free-indexing",
+        "stable_id": "ex-ms942h7g01vt4",
         "type": "free_text",
         "prompt": "Welchen Index hat das erste Zeichen eines Strings in Python?",
         "card_ids": ["py-indexing", "py-str-index-null"],
@@ -209,6 +223,7 @@
       "title": "Der in-Operator",
       "exercise": {
         "id": "ex-free-in-operator",
+        "stable_id": "ex-ms942h7g01w6a",
         "type": "free_text",
         "prompt": "Was gibt 'Py' in 'Python' zurück?",
         "card_ids": ["py-in-operator"],
@@ -225,6 +240,7 @@
       "title": "upper()-Aufruf zusammensetzen",
       "exercise": {
         "id": "ex-tiles-upper",
+        "stable_id": "ex-ms942h7g01xxt",
         "type": "word_tiles",
         "prompt": "Setze die Zeile zusammen, die den String 'hallo' in Großbuchstaben ausgibt.",
         "card_ids": ["py-upper-lower"],
@@ -240,6 +256,7 @@
       "title": "String-Methoden zuordnen",
       "exercise": {
         "id": "ex-match-methoden",
+        "stable_id": "ex-ms942h7g01ye3",
         "type": "matching",
         "prompt": "Ordne jede Methode oder Funktion ihrer Wirkung zu.",
         "card_ids": ["py-upper-lower", "py-replace", "py-len"],
@@ -259,6 +276,7 @@
       "title": "String-Konzepte zuordnen",
       "exercise": {
         "id": "ex-match-konzepte",
+        "stable_id": "ex-ms942h7g01zi8",
         "type": "matching",
         "prompt": "Ordne jeden Begriff seinem Beispiel zu.",
         "card_ids": ["py-str-verkettung", "py-fstring", "py-slicing", "py-in-operator"],

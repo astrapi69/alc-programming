@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "fetch-effect",
+      "stable_id": "card-ms942h7o084bg",
       "front": "Fetch im Effekt",
       "back": "Einen Datenabruf startet man in einer Funktionskomponente üblicherweise in useEffect.",
       "notes": "So läuft er nach dem Render und lässt sich sauber aufräumen.",
@@ -21,6 +22,7 @@
     },
     {
       "id": "loading",
+      "stable_id": "card-ms942h7o085iy",
       "front": "Ladezustand",
       "back": "Während der Abruf läuft, zeigt man einen Ladezustand (z. B. einen Spinner).",
       "notes": "Englisch: loading.",
@@ -33,6 +35,7 @@
     },
     {
       "id": "error",
+      "stable_id": "card-ms942h7o086ne",
       "front": "Fehlerzustand",
       "back": "Schlägt der Abruf fehl, zeigt man eine Fehlermeldung statt der Daten.",
       "notes": "Fehler immer behandeln — Netzwerke sind unzuverlässig.",
@@ -45,6 +48,7 @@
     },
     {
       "id": "success",
+      "stable_id": "card-ms942h7o087jb",
       "front": "Erfolgszustand",
       "back": "Bei Erfolg zeigt man die geladenen Daten an.",
       "notes": "Die drei Zustände loading/error/success decken den Ablauf ab.",
@@ -57,6 +61,7 @@
     },
     {
       "id": "race",
+      "stable_id": "card-ms942h7o088lj",
       "front": "Race-Condition",
       "back": "Zwei Abrufe überholen sich: eine ältere Antwort überschreibt eine neuere und zeigt veraltete Daten.",
       "notes": "Passiert leicht, wenn sich ein Suchbegriff schnell ändert.",
@@ -69,6 +74,7 @@
     },
     {
       "id": "abbruch",
+      "stable_id": "card-ms942h7o089bx",
       "front": "Abbruch/Ignorieren",
       "back": "Im Cleanup markiert man ein Ergebnis als veraltet (ignore-Flag) oder bricht mit AbortController ab.",
       "notes": "So überschreibt keine alte Antwort die neue.",
@@ -81,6 +87,7 @@
     },
     {
       "id": "kein-mutieren",
+      "stable_id": "card-ms942h7o08an9",
       "front": "Kein direktes Mutieren",
       "back": "Geladene Daten setzt man über die State-Setter-Funktion, nicht durch direktes Verändern.",
       "notes": "Direkte Mutation löst keinen Re-Render aus.",
@@ -131,7 +138,7 @@
           "Gar nicht in der Komponente"
         ],
         "hint": "Nach dem Render, sauber aufräumbar.",
-        "id": "ex-mc-wo"
+        "id": "ex-mc-wo", "stable_id": "ex-ms942h7o08bwi"
       }
     },
     {
@@ -160,7 +167,7 @@
           "Zwei Komponenten teilen sich einen Key"
         ],
         "hint": "Veraltete Daten trotz neuerer Anfrage.",
-        "id": "ex-mc-race"
+        "id": "ex-mc-race", "stable_id": "ex-ms942h7o08ct7"
       }
     },
     {
@@ -189,7 +196,7 @@
           "Das Dependency-Array weglassen"
         ],
         "hint": "ignore-Flag oder AbortController.",
-        "id": "ex-mc-abbruch"
+        "id": "ex-mc-abbruch", "stable_id": "ex-ms942h7o08di2"
       }
     },
     {
@@ -218,7 +225,7 @@
           "Gar nicht, useEffect setzt selbst"
         ],
         "hint": "Direkte Mutation löst keinen Re-Render aus.",
-        "id": "ex-mc-mutieren"
+        "id": "ex-mc-mutieren", "stable_id": "ex-ms942h7o08e26"
       }
     },
     {
@@ -246,7 +253,7 @@
           "Kompiliert (compiling)"
         ],
         "hint": "Drei Zustände decken den Ablauf ab.",
-        "id": "ex-ms-zustaende"
+        "id": "ex-ms-zustaende", "stable_id": "ex-ms942h7o08fao"
       }
     },
     {
@@ -274,7 +281,7 @@
           "Den Effekt vor dem Render ausführen"
         ],
         "hint": "Laden, Fehler, Aufräumen.",
-        "id": "ex-ms-robust"
+        "id": "ex-ms-robust", "stable_id": "ex-ms942h7o08gf1"
       }
     },
     {
@@ -305,7 +312,7 @@
           }
         ],
         "direction": "target_to_source",
-        "id": "ex-match-zustand"
+        "id": "ex-match-zustand", "stable_id": "ex-ms942h7o08hri"
       }
     },
     {
@@ -329,7 +336,7 @@
         ],
         "cloze_mode": "type",
         "hint": "Der Hook für Seiteneffekte.",
-        "id": "ex-tip-hook"
+        "id": "ex-tip-hook", "stable_id": "ex-ms942h7o08ij9"
       }
     }
   ]

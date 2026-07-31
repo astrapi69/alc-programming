@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "fn-def",
+      "stable_id": "card-ms942h7j03kau",
       "front": "def",
       "back": "Schlüsselwort, das eine Funktionsdefinition einleitet.",
       "code_snippet": "def begruesse():\n    print('Hallo!')\n\nbegruesse()",
@@ -22,6 +23,7 @@
     },
     {
       "id": "fn-parameter",
+      "stable_id": "card-ms942h7j03lki",
       "front": "Parameter",
       "back": "Platzhaltervariable im Funktionskopf, die beim Aufruf einen Wert erhält.",
       "code_snippet": "def begruesse(name):\n    print('Hallo', name)\n\nbegruesse('Anna')",
@@ -35,6 +37,7 @@
     },
     {
       "id": "fn-argument",
+      "stable_id": "card-ms942h7j03mrc",
       "front": "Argument",
       "back": "Der konkrete Wert, der beim Funktionsaufruf übergeben wird.",
       "notes": "Unterschied: Parameter ist der Name in der Definition; Argument ist der Wert beim Aufruf.",
@@ -44,6 +47,7 @@
     },
     {
       "id": "fn-return",
+      "stable_id": "card-ms942h7j03ni8",
       "front": "return",
       "back": "Beendet eine Funktion und gibt einen Wert an den Aufrufer zurück.",
       "code_snippet": "def addiere(a, b):\n    return a + b\n\nergebnis = addiere(3, 4)\nprint(ergebnis)",
@@ -57,6 +61,7 @@
     },
     {
       "id": "fn-default-arg",
+      "stable_id": "card-ms942h7j03okp",
       "front": "Default-Argument (Standardwert)",
       "back": "Ein Parameter mit einem vordefinierten Wert, der verwendet wird, wenn beim Aufruf kein Argument übergeben wird.",
       "code_snippet": "def begruesse(name='Welt'):\n    print('Hallo', name)\n\nbegruesse()\nbegruesse('Max')",
@@ -69,6 +74,7 @@
     },
     {
       "id": "fn-aufruf",
+      "stable_id": "card-ms942h7j03pwi",
       "front": "Funktionsaufruf",
       "back": "Das Ausführen einer Funktion durch ihren Namen gefolgt von runden Klammern (ggf. mit Argumenten).",
       "code_snippet": "def quadrat(x):\n    return x * x\n\nprint(quadrat(5))",
@@ -81,6 +87,7 @@
     },
     {
       "id": "fn-docstring",
+      "stable_id": "card-ms942h7j03qjl",
       "front": "Docstring",
       "back": "Ein Dokumentations-String direkt nach dem def-Kopf, der in dreifachen Anführungszeichen steht und die Funktion beschreibt.",
       "code_snippet": "def berechne(x):\n    \"\"\"Gibt das Doppelte von x zurueck.\"\"\"\n    return x * 2\n\nprint(berechne(6))",
@@ -94,6 +101,7 @@
     },
     {
       "id": "fn-print-vs-return",
+      "stable_id": "card-ms942h7j03r56",
       "front": "print() vs. return",
       "back": "print() gibt einen Wert auf der Konsole aus, ohne ihn zurückzugeben. return gibt den Wert an den Aufrufer zurück, ohne ihn anzuzeigen.",
       "notes": "Eine Funktion mit nur print() liefert None als Rückgabewert.",
@@ -103,6 +111,7 @@
     },
     {
       "id": "fn-none",
+      "stable_id": "card-ms942h7j03ssd",
       "front": "None (Rückgabewert)",
       "back": "Der Wert, den Python zurückgibt, wenn eine Funktion kein return enthält.",
       "code_snippet": "def nichts():\n    pass\n\nprint(nichts())",
@@ -115,6 +124,7 @@
     },
     {
       "id": "fn-mehrere-parameter",
+      "stable_id": "card-ms942h7j03tyn",
       "front": "Mehrere Parameter",
       "back": "Eine Funktion kann beliebig viele Parameter durch Kommas getrennt im Funktionskopf haben.",
       "code_snippet": "def summe(a, b, c):\n    return a + b + c\n\nprint(summe(1, 2, 3))",
@@ -127,6 +137,7 @@
     },
     {
       "id": "fn-scope",
+      "stable_id": "card-ms942h7j03u41",
       "front": "Lokaler Geltungsbereich (Scope)",
       "back": "Variablen, die innerhalb einer Funktion definiert werden, existieren nur dort — außerhalb sind sie nicht sichtbar.",
       "notes": "Das verhindert, dass Hilfsvariablen in der Funktion globale Namen überschreiben.",
@@ -155,6 +166,7 @@
       "title": "Funktion definieren",
       "exercise": {
         "id": "ex-cloze-def",
+        "stable_id": "ex-ms942h7j03v1a",
         "type": "cloze",
         "prompt": "Ergänze das Schlüsselwort, das eine Funktionsdefinition einleitet.",
         "card_ids": ["fn-def"],
@@ -173,6 +185,7 @@
       "title": "Rückgabewert angeben",
       "exercise": {
         "id": "ex-cloze-return",
+        "stable_id": "ex-ms942h7j03wqs",
         "type": "cloze",
         "prompt": "Ergänze das Schlüsselwort, das einen Wert aus einer Funktion zurückgibt.",
         "card_ids": ["fn-return"],
@@ -191,6 +204,7 @@
       "title": "Parameter vs. Argument",
       "exercise": {
         "id": "ex-free-parameter",
+        "stable_id": "ex-ms942h7j03xxl",
         "type": "free_text",
         "prompt": "Wie nennt man die Platzhaltervariable im Funktionskopf (nicht den Wert beim Aufruf)?",
         "card_ids": ["fn-parameter"],
@@ -207,6 +221,7 @@
       "title": "print() vs. return",
       "exercise": {
         "id": "ex-free-print-vs-return",
+        "stable_id": "ex-ms942h7j03yoe",
         "type": "free_text",
         "prompt": "Was gibt eine Funktion zurück, wenn sie kein return enthält?",
         "card_ids": ["fn-none", "fn-print-vs-return"],
@@ -223,6 +238,7 @@
       "title": "Funktionsdefinition zusammensetzen",
       "exercise": {
         "id": "ex-tiles-def-funktion",
+        "stable_id": "ex-ms942h7j03zy1",
         "type": "word_tiles",
         "prompt": "Setze eine Funktionsdefinition zusammen, die einen Parameter 'x' hat und x*2 zurückgibt.",
         "card_ids": ["fn-def", "fn-return"],
@@ -238,6 +254,7 @@
       "title": "Begriffe rund um Funktionen zuordnen",
       "exercise": {
         "id": "ex-match-funktionen",
+        "stable_id": "ex-ms942h7j040a3",
         "type": "matching",
         "prompt": "Ordne jeden Begriff seiner Erklärung zu.",
         "card_ids": ["fn-def", "fn-parameter", "fn-return", "fn-docstring", "fn-default-arg"],
@@ -258,6 +275,7 @@
       "title": "Standardwert definieren",
       "exercise": {
         "id": "ex-cloze-default",
+        "stable_id": "ex-ms942h7j041vp",
         "type": "cloze",
         "prompt": "Ergänze den Standardwert so, dass die Funktion ohne Argument 'Welt' als Namen verwendet.",
         "card_ids": ["fn-default-arg"],
@@ -276,6 +294,7 @@
       "title": "Funktionsaufruf zusammensetzen",
       "exercise": {
         "id": "ex-tiles-aufruf",
+        "stable_id": "ex-ms942h7j04250",
         "type": "word_tiles",
         "prompt": "Setze den Funktionsaufruf zusammen, der quadrat mit dem Argument 5 aufruft und das Ergebnis ausgibt.",
         "card_ids": ["fn-aufruf"],

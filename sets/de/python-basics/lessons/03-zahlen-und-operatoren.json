@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "py-addition",
+      "stable_id": "card-ms942h7g0109b",
       "front": "Addition (+)",
       "back": "Addiert zwei Zahlen. Funktioniert mit int und float.",
       "code_snippet": "print(3 + 5)\nprint(1.5 + 2.5)",
@@ -21,6 +22,7 @@
     },
     {
       "id": "py-subtraktion",
+      "stable_id": "card-ms942h7g011fc",
       "front": "Subtraktion (-)",
       "back": "Zieht den rechten Wert vom linken ab.",
       "code_snippet": "print(10 - 3)",
@@ -33,6 +35,7 @@
     },
     {
       "id": "py-multiplikation",
+      "stable_id": "card-ms942h7g012rx",
       "front": "Multiplikation (*)",
       "back": "Multipliziert zwei Zahlen. In Python schreibt man * statt ×.",
       "code_snippet": "print(4 * 7)",
@@ -45,6 +48,7 @@
     },
     {
       "id": "py-division",
+      "stable_id": "card-ms942h7g0138a",
       "front": "Division (/)",
       "back": "Dividiert zwei Zahlen. Das Ergebnis ist immer ein float, auch wenn beide Zahlen int sind.",
       "code_snippet": "print(10 / 4)\nprint(8 / 2)",
@@ -57,6 +61,7 @@
     },
     {
       "id": "py-ganzzahldivision",
+      "stable_id": "card-ms942h7g014td",
       "front": "Ganzzahldivision (//)",
       "back": "Dividiert und schneidet die Nachkommastellen ab. Das Ergebnis ist ein int (wenn beide Operanden int sind).",
       "code_snippet": "print(10 // 3)\nprint(7 // 2)",
@@ -69,6 +74,7 @@
     },
     {
       "id": "py-modulo",
+      "stable_id": "card-ms942h7g0151n",
       "front": "Modulo (%)",
       "back": "Gibt den Rest einer ganzzahligen Division zurück. Nützlich z. B. um zu prüfen, ob eine Zahl gerade ist.",
       "code_snippet": "print(10 % 3)\nprint(8 % 2)",
@@ -81,6 +87,7 @@
     },
     {
       "id": "py-potenz",
+      "stable_id": "card-ms942h7g016gb",
       "front": "Potenz (**)",
       "back": "Berechnet eine Potenz: a ** b bedeutet a hoch b.",
       "code_snippet": "print(2 ** 8)\nprint(3 ** 2)",
@@ -93,6 +100,7 @@
     },
     {
       "id": "py-rangfolge",
+      "stable_id": "card-ms942h7g017ai",
       "front": "Operatorrangfolge (Precedence)",
       "back": "Python rechnet nach der Regel Punkt vor Strich: erst **, dann * / // %, dann + -. Klammern ändern die Reihenfolge.",
       "code_snippet": "print(2 + 3 * 4)\nprint((2 + 3) * 4)",
@@ -105,6 +113,7 @@
     },
     {
       "id": "py-int-float-division",
+      "stable_id": "card-ms942h7g018v0",
       "front": "int vs. float bei Division",
       "back": "Mit / erhält man immer einen float. Mit // erhält man einen int (bei int-Operanden), ohne Nachkommastellen.",
       "code_snippet": "print(type(8 / 2))\nprint(type(8 // 2))",
@@ -117,6 +126,7 @@
     },
     {
       "id": "py-klammern",
+      "stable_id": "card-ms942h7g019gy",
       "front": "Klammern in Rechenausdrücken",
       "back": "Runde Klammern () erzwingen eine andere Berechnungsreihenfolge und machen den Code lesbarer.",
       "notes": "Klammern sind in Python auch für Funktionsaufrufe zuständig — der Kontext macht den Unterschied.",
@@ -126,6 +136,7 @@
     },
     {
       "id": "py-operatoren-uebersicht",
+      "stable_id": "card-ms942h7g01afe",
       "front": "Arithmetische Operatoren im Überblick",
       "back": "+ Addition, - Subtraktion, * Multiplikation, / Division (float), // Ganzzahldivision, % Modulo, ** Potenz.",
       "media_type": "text",
@@ -159,6 +170,7 @@
       "title": "Divisionsoperator ergänzen",
       "exercise": {
         "id": "ex-cloze-division",
+        "stable_id": "ex-ms942h7g01bnf",
         "type": "cloze",
         "prompt": "Ergänze den Operator für die normale Division, die immer einen float zurückgibt.",
         "card_ids": ["py-division"],
@@ -177,6 +189,7 @@
       "title": "Modulo-Operator",
       "exercise": {
         "id": "ex-cloze-modulo",
+        "stable_id": "ex-ms942h7g01com",
         "type": "cloze",
         "prompt": "Ergänze den Operator, der den Rest einer Division zurückgibt.",
         "card_ids": ["py-modulo"],
@@ -195,6 +208,7 @@
       "title": "Potenz-Operator",
       "exercise": {
         "id": "ex-free-potenz",
+        "stable_id": "ex-ms942h7g01dss",
         "type": "free_text",
         "prompt": "Welches Ergebnis liefert 2 ** 8 in Python?",
         "card_ids": ["py-potenz"],
@@ -211,6 +225,7 @@
       "title": "Operatorrangfolge",
       "exercise": {
         "id": "ex-free-rangfolge",
+        "stable_id": "ex-ms942h7g01edg",
         "type": "free_text",
         "prompt": "Was gibt print(2 + 3 * 4) aus?",
         "card_ids": ["py-rangfolge"],
@@ -227,6 +242,7 @@
       "title": "Ganzzahldivision zusammensetzen",
       "exercise": {
         "id": "ex-tiles-ganzzahldivision",
+        "stable_id": "ex-ms942h7g01fve",
         "type": "word_tiles",
         "prompt": "Setze die Zeile zusammen, die die Ganzzahldivision von 10 durch 3 ausgibt.",
         "card_ids": ["py-ganzzahldivision"],
@@ -242,6 +258,7 @@
       "title": "Operatoren zuordnen",
       "exercise": {
         "id": "ex-match-operatoren",
+        "stable_id": "ex-ms942h7g01gw6",
         "type": "matching",
         "prompt": "Ordne jeden Operator seiner Bedeutung zu.",
         "card_ids": ["py-ganzzahldivision", "py-modulo", "py-potenz"],
@@ -260,6 +277,7 @@
       "title": "Rechenergebnisse zuordnen",
       "exercise": {
         "id": "ex-match-ergebnisse",
+        "stable_id": "ex-ms942h7g01h3d",
         "type": "matching",
         "prompt": "Ordne jeden Ausdruck dem richtigen Ergebnis zu.",
         "card_ids": ["py-addition", "py-multiplikation", "py-ganzzahldivision", "py-modulo"],

@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "card-react",
+      "stable_id": "card-ms942h7s0awbq",
       "front": "React",
       "back": "Eine JavaScript-Library zum Bauen von Benutzeroberflächen aus wiederverwendbaren Komponenten.",
       "notes": "React kümmert sich um die UI-Schicht. Routing, Datenabruf usw. ergänzt man mit weiteren Bibliotheken.",
@@ -21,6 +22,7 @@
     },
     {
       "id": "card-library",
+      "stable_id": "card-ms942h7s0axo4",
       "front": "Library statt Framework",
       "back": "React ist eine Library (Bibliothek), kein vollständiges Framework – es deckt vor allem die Benutzeroberfläche ab.",
       "notes": "Eine Library ruft man aus dem eigenen Code auf; ein Framework gibt dagegen die gesamte Struktur vor.",
@@ -33,6 +35,7 @@
     },
     {
       "id": "card-komponente",
+      "stable_id": "card-ms942h7s0ayez",
       "front": "Komponente",
       "back": "Ein eigenständiger, wiederverwendbarer Baustein der Benutzeroberfläche.",
       "notes": "Komponenten lassen sich verschachteln und kombinieren – daraus entsteht die ganze Oberfläche.",
@@ -44,6 +47,7 @@
     },
     {
       "id": "card-funktionskomponente",
+      "stable_id": "card-ms942h7s0azrq",
       "front": "Funktionskomponente",
       "back": "Eine JavaScript-Funktion, die JSX zurückgibt und damit ein Stück Oberfläche beschreibt.",
       "notes": "Moderne React-Komponenten sind Funktionen. Sie beginnen mit einem Großbuchstaben (z. B. Profil).",
@@ -57,6 +61,7 @@
     },
     {
       "id": "card-deklarativ",
+      "stable_id": "card-ms942h7s0b02u",
       "front": "Deklarativ",
       "back": "Du beschreibst, wie die UI bei einem bestimmten Zustand aussehen soll; React sorgt für die nötigen DOM-Änderungen.",
       "notes": "Gegenstück: imperativ, wo man jeden DOM-Schritt selbst anweist.",
@@ -68,6 +73,7 @@
     },
     {
       "id": "card-komponentenbasiert",
+      "stable_id": "card-ms942h7s0b1px",
       "front": "Komponentenbasiert",
       "back": "Oberflächen werden aus kleinen, kombinierbaren Komponenten zusammengesetzt.",
       "notes": "Eine Seite besteht typischerweise aus vielen verschachtelten Komponenten.",
@@ -80,6 +86,7 @@
     },
     {
       "id": "card-rueckgabe",
+      "stable_id": "card-ms942h7s0b27o",
       "front": "Was gibt eine Funktionskomponente zurück?",
       "back": "JSX – eine Beschreibung der anzuzeigenden Oberfläche.",
       "notes": "Eine Komponente gibt genau ein Wurzelelement zurück (ggf. ein Fragment <>…</>).",
@@ -110,6 +117,7 @@
       "title": "Was ist React?",
       "exercise": {
         "id": "ex-mc-was-ist-react",
+        "stable_id": "ex-ms942h7s0b3rc",
         "type": "cloze",
         "prompt": "Was beschreibt React am besten?",
         "card_ids": [
@@ -139,6 +147,7 @@
       "title": "Was ist eine Komponente?",
       "exercise": {
         "id": "ex-mc-komponente",
+        "stable_id": "ex-ms942h7s0b46c",
         "type": "cloze",
         "prompt": "Was ist eine Komponente in React?",
         "card_ids": [
@@ -168,6 +177,7 @@
       "title": "Rückgabewert einer Funktionskomponente",
       "exercise": {
         "id": "ex-mc-rueckgabe",
+        "stable_id": "ex-ms942h7s0b51c",
         "type": "cloze",
         "prompt": "Was gibt eine Funktionskomponente typischerweise zurück?",
         "card_ids": [
@@ -197,6 +207,7 @@
       "title": "Deklaratives UI-Modell",
       "exercise": {
         "id": "ex-mc-deklarativ",
+        "stable_id": "ex-ms942h7s0b6l0",
         "type": "cloze",
         "prompt": "Was bedeutet es, dass React „deklarativ“ arbeitet?",
         "card_ids": [
@@ -225,6 +236,7 @@
       "title": "Code lesen: gültige Komponente",
       "exercise": {
         "id": "ex-mc-code-komponente",
+        "stable_id": "ex-ms942h7s0b78o",
         "type": "cloze",
         "prompt": "Welche dieser Funktionen ist eine gültige React-Funktionskomponente?",
         "card_ids": [
@@ -253,6 +265,7 @@
       "title": "Lückentext: Library",
       "exercise": {
         "id": "ex-cloze-library",
+        "stable_id": "ex-ms942h7s0b8n9",
         "type": "cloze",
         "prompt": "Ergänze das fehlende Wort.",
         "card_ids": [
@@ -278,6 +291,7 @@
       "title": "Begriffe zuordnen",
       "exercise": {
         "id": "ex-match-begriffe",
+        "stable_id": "ex-ms942h7s0b9l2",
         "type": "matching",
         "prompt": "Ordne jedem Begriff die passende Kurzbeschreibung zu.",
         "card_ids": [

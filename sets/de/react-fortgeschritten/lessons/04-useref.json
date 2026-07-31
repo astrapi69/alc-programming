@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "useref",
+      "stable_id": "card-ms942h7p08x5b",
       "front": "useRef",
       "back": "Ein Hook, der ein veränderliches Objekt mit der Eigenschaft .current liefert.",
       "notes": "Nützlich für DOM-Zugriff und für Werte, die keinen Re-Render auslösen sollen.",
@@ -21,6 +22,7 @@
     },
     {
       "id": "dom-ref",
+      "stable_id": "card-ms942h7p08yll",
       "front": "DOM-Referenz",
       "back": "Über ein ref am JSX-Element greift man direkt auf den DOM-Knoten zu (z. B. Fokus setzen).",
       "notes": "ref={inputRef} und dann inputRef.current.focus().",
@@ -33,6 +35,7 @@
     },
     {
       "id": "kein-rerender",
+      "stable_id": "card-ms942h7p08zxf",
       "front": "Kein Re-Render",
       "back": "Eine Änderung von ref.current löst KEINEN Re-Render aus.",
       "notes": "Ein häufiger Irrtum: dass ref-Änderungen neu rendern.",
@@ -45,6 +48,7 @@
     },
     {
       "id": "mutable",
+      "stable_id": "card-ms942h7p0901l",
       "front": "Veränderlicher Wert",
       "back": "Ein ref speichert einen Wert stabil über Renders hinweg, ohne ihn anzuzeigen.",
       "notes": "z. B. eine Timer-ID oder der vorige Wert.",
@@ -57,6 +61,7 @@
     },
     {
       "id": "current",
+      "stable_id": "card-ms942h7p0914o",
       "front": "ref.current",
       "back": "Über die Eigenschaft .current liest und schreibt man den Ref-Wert.",
       "notes": "const r = useRef(0); r.current = 5;",
@@ -69,6 +74,7 @@
     },
     {
       "id": "state-vs-ref",
+      "stable_id": "card-ms942h7p092xw",
       "front": "State vs. ref",
       "back": "State-Änderung rendert neu und zeigt sich in der UI; ref-Änderung nicht.",
       "notes": "Sichtbares → State, Kulisse → ref.",
@@ -120,7 +126,7 @@
           "Ein erneutes Mounten"
         ],
         "hint": "Ein häufiger Irrtum ist das Gegenteil.",
-        "id": "ex-mc-rerender"
+        "id": "ex-mc-rerender", "stable_id": "ex-ms942h7p093lc"
       }
     },
     {
@@ -149,7 +155,7 @@
           "Um Props durchzureichen"
         ],
         "hint": "z. B. Fokus setzen.",
-        "id": "ex-mc-dom"
+        "id": "ex-mc-dom", "stable_id": "ex-ms942h7p0948n"
       }
     },
     {
@@ -178,7 +184,7 @@
           "Über ref()"
         ],
         "hint": "Die Eigenschaft heißt current.",
-        "id": "ex-mc-current"
+        "id": "ex-mc-current", "stable_id": "ex-ms942h7p095ex"
       }
     },
     {
@@ -207,7 +213,7 @@
           "ref rendert neu, State nicht"
         ],
         "hint": "Sichtbares → State.",
-        "id": "ex-mc-vs"
+        "id": "ex-mc-vs", "stable_id": "ex-ms942h7p096ks"
       }
     },
     {
@@ -234,7 +240,7 @@
           "Jede Änderung triggert ein Update"
         ],
         "hint": "current + kein Re-Render.",
-        "id": "ex-ms-useref"
+        "id": "ex-ms-useref", "stable_id": "ex-ms942h7p097d5"
       }
     },
     {
@@ -260,7 +266,7 @@
           "Absichtlich einen Re-Render auslösen"
         ],
         "hint": "DOM und Kulissen-Werte.",
-        "id": "ex-ms-wofuer"
+        "id": "ex-ms-wofuer", "stable_id": "ex-ms942h7p098yt"
       }
     },
     {
@@ -291,7 +297,7 @@
           }
         ],
         "direction": "target_to_source",
-        "id": "ex-match-refstate"
+        "id": "ex-match-refstate", "stable_id": "ex-ms942h7p099om"
       }
     },
     {
@@ -315,7 +321,7 @@
         ],
         "cloze_mode": "type",
         "hint": "Beginnt mit „use\".",
-        "id": "ex-tip-name"
+        "id": "ex-tip-name", "stable_id": "ex-ms942h7p09aa8"
       }
     }
   ]

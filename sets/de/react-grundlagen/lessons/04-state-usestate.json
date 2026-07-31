@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "card-state",
+      "stable_id": "card-ms942h7u0c06r",
       "front": "State",
       "back": "Veränderliche Daten, die eine Komponente selbst verwaltet und die ihre Darstellung beeinflussen.",
       "notes": "Ändert sich der State, rendert React die Komponente neu.",
@@ -21,6 +22,7 @@
     },
     {
       "id": "card-usestate",
+      "stable_id": "card-ms942h7u0c1ks",
       "front": "useState",
       "back": "Der Hook, mit dem eine Funktionskomponente lokalen State erhält.",
       "notes": "Gibt ein Paar zurück: den aktuellen Wert und eine Setter-Funktion zum Ändern.",
@@ -35,6 +37,7 @@
     },
     {
       "id": "card-setter",
+      "stable_id": "card-ms942h7u0c2wp",
       "front": "Setter-Funktion",
       "back": "Die von useState gelieferte Funktion (z. B. setZaehler), mit der man den State aktualisiert.",
       "notes": "Nur über den Setter ändern – das teilt React mit, dass neu gerendert werden muss.",
@@ -49,6 +52,7 @@
     },
     {
       "id": "card-keine-mutation",
+      "stable_id": "card-ms942h7u0c3x3",
       "front": "State nicht direkt mutieren",
       "back": "Man verändert State nicht direkt (z. B. zaehler++ oder array.push), sondern immer über die Setter-Funktion.",
       "notes": "Direktes Mutieren löst kein Re-Render aus; React bemerkt die Änderung nicht.",
@@ -61,6 +65,7 @@
     },
     {
       "id": "card-rerender",
+      "stable_id": "card-ms942h7u0c4q8",
       "front": "State-Änderung -> Re-Render",
       "back": "Ruft man die Setter-Funktion auf, plant React ein erneutes Rendern der Komponente mit dem neuen Wert.",
       "notes": "So bleibt die Anzeige immer im Einklang mit dem aktuellen State.",
@@ -73,6 +78,7 @@
     },
     {
       "id": "card-initialwert",
+      "stable_id": "card-ms942h7u0c54c",
       "front": "Anfangswert von useState",
       "back": "Das Argument von useState(...) ist der Startwert des States beim ersten Rendern.",
       "notes": "useState(0) startet bei 0, useState('') bei einem leeren String.",
@@ -103,6 +109,7 @@
       "title": "Was ist State?",
       "exercise": {
         "id": "ex-mc-was-ist-state",
+        "stable_id": "ex-ms942h7u0c6n1",
         "type": "cloze",
         "prompt": "Was ist State in React?",
         "card_ids": [
@@ -131,6 +138,7 @@
       "title": "Wofür useState?",
       "exercise": {
         "id": "ex-mc-usestate-zweck",
+        "stable_id": "ex-ms942h7u0c71c",
         "type": "cloze",
         "prompt": "Welcher Hook verwaltet lokalen State in einer Funktionskomponente?",
         "card_ids": [
@@ -159,6 +167,7 @@
       "title": "Rückgabe von useState",
       "exercise": {
         "id": "ex-mc-rueckgabe-usestate",
+        "stable_id": "ex-ms942h7u0c84o",
         "type": "cloze",
         "prompt": "Was liefert const [wert, setWert] = useState(0); zurück?",
         "card_ids": [
@@ -189,6 +198,7 @@
       "title": "State korrekt ändern",
       "exercise": {
         "id": "ex-mc-keine-mutation",
+        "stable_id": "ex-ms942h7u0c90t",
         "type": "cloze",
         "prompt": "Du hast const [zaehler, setZaehler] = useState(0);. Wie erhöhst du den Zähler korrekt um 1?",
         "card_ids": [
@@ -218,6 +228,7 @@
       "title": "Warum die Setter-Funktion?",
       "exercise": {
         "id": "ex-mc-warum-setter",
+        "stable_id": "ex-ms942h7u0caw2",
         "type": "cloze",
         "prompt": "Warum darf man State nicht direkt mutieren, sondern muss die Setter-Funktion nutzen?",
         "card_ids": [
@@ -247,6 +258,7 @@
       "title": "Lückentext: State-Hook",
       "exercise": {
         "id": "ex-cloze-usestate",
+        "stable_id": "ex-ms942h7u0cbwi",
         "type": "cloze",
         "prompt": "Ergänze den Hook, der einer Funktionskomponente lokalen State gibt.",
         "card_ids": [
@@ -270,6 +282,7 @@
       "title": "Begriffe zuordnen",
       "exercise": {
         "id": "ex-match-begriffe",
+        "stable_id": "ex-ms942h7u0cci7",
         "type": "matching",
         "prompt": "Ordne jedem Begriff die passende Kurzbeschreibung zu.",
         "card_ids": [

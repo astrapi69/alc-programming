@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "useeffect",
+      "stable_id": "card-ms942h7o07qzv",
       "front": "useEffect",
       "back": "Der Hook für Seiteneffekte in Funktionskomponenten (z. B. Daten laden, Timer, Abos).",
       "notes": "Englisch: side effect. Läuft nach dem Render, nicht währenddessen.",
@@ -21,6 +22,7 @@
     },
     {
       "id": "zeitpunkt",
+      "stable_id": "card-ms942h7o07rup",
       "front": "Ausführungszeitpunkt",
       "back": "useEffect läuft NACH dem Render (nachdem der Bildschirm aktualisiert wurde) — nicht davor.",
       "notes": "Ein häufiger Irrtum ist, useEffect laufe vor dem Render.",
@@ -33,6 +35,7 @@
     },
     {
       "id": "dep-leer",
+      "stable_id": "card-ms942h7o07sqp",
       "front": "Leeres Dependency-Array []",
       "back": "Der Effekt läuft nur einmal nach dem ersten Render (Mount).",
       "notes": "Ideal für einmalige Initialisierung.",
@@ -45,6 +48,7 @@
     },
     {
       "id": "dep-mit",
+      "stable_id": "card-ms942h7o07tuo",
       "front": "Dependency-Array mit Werten",
       "back": "Der Effekt läuft erneut, wenn sich einer der aufgeführten Werte ändert.",
       "notes": "z. B. [count] — läuft, wenn sich count ändert.",
@@ -57,6 +61,7 @@
     },
     {
       "id": "dep-ohne",
+      "stable_id": "card-ms942h7o07uyb",
       "front": "Kein Dependency-Array",
       "back": "Lässt man das zweite Argument weg, läuft der Effekt nach JEDEM Render.",
       "notes": "Selten gewollt; führt leicht zu Endlosschleifen.",
@@ -69,6 +74,7 @@
     },
     {
       "id": "cleanup",
+      "stable_id": "card-ms942h7o07vvv",
       "front": "Cleanup-Funktion",
       "back": "Die vom Effekt zurückgegebene Funktion räumt auf: sie läuft vor dem nächsten Effekt und beim Unmount.",
       "notes": "z. B. Timer stoppen, Abo abmelden.",
@@ -126,7 +132,7 @@
           "Nur beim Klick"
         ],
         "hint": "Der Effekt sieht das fertige Render.",
-        "id": "ex-mc-zeitpunkt"
+        "id": "ex-mc-zeitpunkt", "stable_id": "ex-ms942h7o07whq"
       }
     },
     {
@@ -155,7 +161,7 @@
           "Der Effekt läuft vor dem Render"
         ],
         "hint": "„Einmalig nach dem Mount.\"",
-        "id": "ex-mc-leer"
+        "id": "ex-mc-leer", "stable_id": "ex-ms942h7o07xwh"
       }
     },
     {
@@ -184,7 +190,7 @@
           "Nur beim Unmount"
         ],
         "hint": "Fehlt das Array, gibt es keine Begrenzung.",
-        "id": "ex-mc-ohne"
+        "id": "ex-mc-ohne", "stable_id": "ex-ms942h7o07yf7"
       }
     },
     {
@@ -213,7 +219,7 @@
           "Um einen Re-Render zu erzwingen"
         ],
         "hint": "Timer stoppen, Abo abmelden.",
-        "id": "ex-mc-cleanup"
+        "id": "ex-mc-cleanup", "stable_id": "ex-ms942h7o07z32"
       }
     },
     {
@@ -241,7 +247,7 @@
           "Er blockiert das Rendern der Oberfläche"
         ],
         "hint": "Denke an Zeitpunkt, Cleanup und Deps.",
-        "id": "ex-ms-useeffect"
+        "id": "ex-ms-useeffect", "stable_id": "ex-ms942h7o080tw"
       }
     },
     {
@@ -266,7 +272,7 @@
           "Nie"
         ],
         "hint": "Nur der Wert count steuert die Wiederholung.",
-        "id": "ex-ms-deps"
+        "id": "ex-ms-deps", "stable_id": "ex-ms942h7o081ij"
       }
     },
     {
@@ -297,7 +303,7 @@
           }
         ],
         "direction": "target_to_source",
-        "id": "ex-match-deps"
+        "id": "ex-match-deps", "stable_id": "ex-ms942h7o082gb"
       }
     },
     {
@@ -321,7 +327,7 @@
         ],
         "cloze_mode": "type",
         "hint": "Beginnt mit „use\".",
-        "id": "ex-tip-name"
+        "id": "ex-tip-name", "stable_id": "ex-ms942h7o08356"
       }
     }
   ]

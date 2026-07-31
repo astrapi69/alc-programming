@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "mod-modul",
+      "stable_id": "card-ms942h7l05n0k",
       "front": "Modul (Module)",
       "back": "Eine Python-Datei, die Funktionen, Klassen und Variablen enthält und in andere Programme eingebunden werden kann.",
       "notes": "Jede .py-Datei ist ein Modul. Die Standardbibliothek liefert viele fertige Module.",
@@ -18,6 +19,7 @@
     },
     {
       "id": "mod-import",
+      "stable_id": "card-ms942h7l05ong",
       "front": "import modul",
       "back": "Bindet ein ganzes Modul ein. Auf Inhalte greift man mit modul.name zu.",
       "code_snippet": "import math\nprint(math.pi)",
@@ -30,6 +32,7 @@
     },
     {
       "id": "mod-from-import",
+      "stable_id": "card-ms942h7l05p09",
       "front": "from modul import name",
       "back": "Importiert einen einzelnen Namen direkt in den aktuellen Namensraum — kein Modulpräfix nötig.",
       "code_snippet": "from math import sqrt\nprint(sqrt(25))",
@@ -42,6 +45,7 @@
     },
     {
       "id": "mod-alias",
+      "stable_id": "card-ms942h7l05qli",
       "front": "import ... as (Alias)",
       "back": "Gibt einem Modul oder Namen beim Import einen kürzeren Alternativnamen (Alias).",
       "code_snippet": "import math as m\nprint(m.sqrt(9))",
@@ -54,6 +58,7 @@
     },
     {
       "id": "mod-math-sqrt",
+      "stable_id": "card-ms942h7l05r86",
       "front": "math.sqrt()",
       "back": "Berechnet die Quadratwurzel einer Zahl. Gibt immer einen float zurück.",
       "code_snippet": "import math\nprint(math.sqrt(16))",
@@ -66,6 +71,7 @@
     },
     {
       "id": "mod-math-pi",
+      "stable_id": "card-ms942h7l05sql",
       "front": "math.pi",
       "back": "Die mathematische Konstante π (Pi) als float — ungefähr 3,14159.",
       "code_snippet": "import math\nprint(math.pi)",
@@ -78,6 +84,7 @@
     },
     {
       "id": "mod-random-modul",
+      "stable_id": "card-ms942h7l05t2i",
       "front": "random-Modul",
       "back": "Standardmodul für Zufallszahlen und zufällige Auswahl. Wichtige Funktion: random.randint(a, b) liefert eine zufällige ganze Zahl von a bis b (einschließlich).",
       "notes": "Da die Ergebnisse nicht deterministisch sind, prüft man random-Ausgaben nur manuell oder mit Seed.",
@@ -87,6 +94,7 @@
     },
     {
       "id": "mod-standardbibliothek",
+      "stable_id": "card-ms942h7l05ufh",
       "front": "Standardbibliothek (Standard Library)",
       "back": "Eine umfangreiche Sammlung von Modulen, die mit Python ausgeliefert wird — kein separater Install nötig.",
       "notes": "Beispiele: math, random, os, datetime, json, csv.",
@@ -96,6 +104,7 @@
     },
     {
       "id": "mod-paket",
+      "stable_id": "card-ms942h7l05v74",
       "front": "Paket (Package)",
       "back": "Eine Sammlung von Modulen in einem Verzeichnis. Wird genauso importiert wie ein Modul.",
       "notes": "Ein Verzeichnis wird zum Paket, wenn es eine __init__.py-Datei enthält (in modernem Python oft nicht mehr nötig).",
@@ -105,6 +114,7 @@
     },
     {
       "id": "mod-from-import-mehrere",
+      "stable_id": "card-ms942h7l05wqo",
       "front": "from modul import name1, name2",
       "back": "Mehrere Namen aus einem Modul auf einmal importieren — durch Kommas getrennt.",
       "code_snippet": "from math import sqrt, pi\nprint(sqrt(4))\nprint(pi)",
@@ -117,6 +127,7 @@
     },
     {
       "id": "mod-namensraum",
+      "stable_id": "card-ms942h7l05xno",
       "front": "Namensraum (Namespace)",
       "back": "Der Bereich, in dem ein Name (Variable, Funktion) gültig ist. Module haben einen eigenen Namensraum, der Namenskonflikte vermeidet.",
       "notes": "Deshalb ist math.sqrt sicher, auch wenn man selbst eine Funktion sqrt definiert.",
@@ -145,6 +156,7 @@
       "title": "Das import-Schlüsselwort",
       "exercise": {
         "id": "ex-cloze-import",
+        "stable_id": "ex-ms942h7l05yzv",
         "type": "cloze",
         "prompt": "Ergänze das Schlüsselwort, das ein Modul einbindet.",
         "card_ids": ["mod-import"],
@@ -163,6 +175,7 @@
       "title": "from ... import ergänzen",
       "exercise": {
         "id": "ex-cloze-from-import",
+        "stable_id": "ex-ms942h7l05zrb",
         "type": "cloze",
         "prompt": "Ergänze die beiden Schlüsselwörter, um nur sqrt aus math zu laden.",
         "card_ids": ["mod-from-import"],
@@ -182,6 +195,7 @@
       "title": "Import-Formen zuordnen",
       "exercise": {
         "id": "ex-match-importsyntax",
+        "stable_id": "ex-ms942h7l060dg",
         "type": "matching",
         "prompt": "Ordne jede Import-Form ihrer Beschreibung zu.",
         "card_ids": ["mod-import", "mod-from-import", "mod-alias"],
@@ -200,6 +214,7 @@
       "title": "Quadratwurzel mit math",
       "exercise": {
         "id": "ex-free-sqrt",
+        "stable_id": "ex-ms942h7l061ay",
         "type": "free_text",
         "prompt": "Welchen Wert gibt math.sqrt(16) zurück?",
         "card_ids": ["mod-math-sqrt"],
@@ -216,6 +231,7 @@
       "title": "Import-Zeile zusammensetzen",
       "exercise": {
         "id": "ex-tiles-import-math",
+        "stable_id": "ex-ms942h7l062r6",
         "type": "word_tiles",
         "prompt": "Setze die Zeile zusammen, die sqrt direkt aus math importiert.",
         "card_ids": ["mod-from-import"],
@@ -231,6 +247,7 @@
       "title": "Was ist ein Alias?",
       "exercise": {
         "id": "ex-free-alias",
+        "stable_id": "ex-ms942h7l063a0",
         "type": "free_text",
         "prompt": "Welches Schlüsselwort gibt einem importierten Modul einen anderen Namen?",
         "card_ids": ["mod-alias"],
@@ -247,6 +264,7 @@
       "title": "Modulbegriffe zuordnen",
       "exercise": {
         "id": "ex-match-module-begriffe",
+        "stable_id": "ex-ms942h7l064ti",
         "type": "matching",
         "prompt": "Ordne jeden Begriff seiner Erklärung zu.",
         "card_ids": ["mod-modul", "mod-standardbibliothek", "mod-paket", "mod-namensraum"],
@@ -266,6 +284,7 @@
       "title": "Auf math.pi zugreifen",
       "exercise": {
         "id": "ex-cloze-mathpi",
+        "stable_id": "ex-ms942h7l065bp",
         "type": "cloze",
         "prompt": "Ergänze den Ausdruck, der die Kreiszahl Pi aus dem math-Modul liefert.",
         "card_ids": ["mod-math-pi"],

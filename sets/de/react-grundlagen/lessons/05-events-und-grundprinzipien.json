@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "card-onclick",
+      "stable_id": "card-ms942h7v0cdo6",
       "front": "onClick",
       "back": "Das JSX-Attribut (in camelCase), mit dem man eine Funktion auf einen Klick reagieren lässt.",
       "notes": "React-Event-Attribute werden in camelCase geschrieben: onClick, onChange, onSubmit.",
@@ -23,6 +24,7 @@
     },
     {
       "id": "card-handler-referenz",
+      "stable_id": "card-ms942h7v0ceto",
       "front": "Handler als Funktionsreferenz",
       "back": "Man übergibt die Funktion selbst (onClick={handleKlick}), nicht ihr Ergebnis (onClick={handleKlick()}).",
       "notes": "Mit Klammern würde die Funktion sofort beim Rendern laufen statt erst beim Klick.",
@@ -37,6 +39,7 @@
     },
     {
       "id": "card-hook",
+      "stable_id": "card-ms942h7v0cfij",
       "front": "Hook",
       "back": "Eine spezielle Funktion (Name beginnt mit „use“), die Funktionskomponenten Zusatzfähigkeiten wie State gibt.",
       "notes": "Beispiele: useState, useEffect. Hooks ruft man nur auf oberster Ebene der Komponente auf.",
@@ -49,6 +52,7 @@
     },
     {
       "id": "card-rerender-ausloeser",
+      "stable_id": "card-ms942h7v0cge1",
       "front": "Was löst ein Re-Render aus?",
       "back": "Eine Änderung des eigenen States oder neue Props von der Elternkomponente.",
       "notes": "Rendert ein Elternteil neu, rendern in der Regel auch seine Kinder neu.",
@@ -61,6 +65,7 @@
     },
     {
       "id": "card-komposition",
+      "stable_id": "card-ms942h7v0ch3h",
       "front": "Komponenten-Komposition",
       "back": "Größere Oberflächen entstehen, indem man kleinere Komponenten ineinander verschachtelt.",
       "notes": "Statt einer riesigen Komponente kombiniert man viele kleine, wiederverwendbare.",
@@ -73,6 +78,7 @@
     },
     {
       "id": "card-eltern-kind-fluss",
+      "stable_id": "card-ms942h7v0cigd",
       "front": "Eltern-zu-Kind-Datenfluss",
       "back": "Daten reicht man über Props von Eltern an Kinder weiter; ein Kind meldet Ereignisse über Callback-Props zurück.",
       "notes": "Der State liegt oft beim Elternteil; das Kind bekommt Werte als Props und ruft übergebene Funktionen auf.",
@@ -103,6 +109,7 @@
       "title": "Klick behandeln",
       "exercise": {
         "id": "ex-mc-onclick",
+        "stable_id": "ex-ms942h7v0cj55",
         "type": "cloze",
         "prompt": "Wie lässt man in React eine Funktion auf einen Klick reagieren?",
         "card_ids": [
@@ -131,6 +138,7 @@
       "title": "Handler richtig übergeben",
       "exercise": {
         "id": "ex-mc-handler-referenz",
+        "stable_id": "ex-ms942h7v0ckmk",
         "type": "cloze",
         "prompt": "Was ist der Unterschied zwischen onClick={handleKlick} und onClick={handleKlick()}?",
         "card_ids": [
@@ -159,6 +167,7 @@
       "title": "Was ist ein Hook?",
       "exercise": {
         "id": "ex-mc-hook",
+        "stable_id": "ex-ms942h7v0clyy",
         "type": "cloze",
         "prompt": "Was ist ein Hook in React?",
         "card_ids": [
@@ -187,6 +196,7 @@
       "title": "Auslöser für ein Re-Render",
       "exercise": {
         "id": "ex-mc-rerender-ausloeser",
+        "stable_id": "ex-ms942h7v0cmmb",
         "type": "cloze",
         "prompt": "Wodurch wird ein erneutes Rendern (Re-Render) einer Komponente typischerweise ausgelöst?",
         "card_ids": [
@@ -215,6 +225,7 @@
       "title": "Komponenten-Komposition",
       "exercise": {
         "id": "ex-mc-komposition",
+        "stable_id": "ex-ms942h7v0cnsc",
         "type": "cloze",
         "prompt": "Was bedeutet Komponenten-Komposition?",
         "card_ids": [
@@ -244,6 +255,7 @@
       "title": "Lückentext: Hook-Namen",
       "exercise": {
         "id": "ex-cloze-hook-praefix",
+        "stable_id": "ex-ms942h7v0comk",
         "type": "cloze",
         "prompt": "Ergänze das Präfix, mit dem die Namen aller Hooks beginnen.",
         "card_ids": [
@@ -267,6 +279,7 @@
       "title": "Begriffe zuordnen",
       "exercise": {
         "id": "ex-match-begriffe",
+        "stable_id": "ex-ms942h7v0cpsk",
         "type": "matching",
         "prompt": "Ordne jedem Begriff die passende Kurzbeschreibung zu.",
         "card_ids": [

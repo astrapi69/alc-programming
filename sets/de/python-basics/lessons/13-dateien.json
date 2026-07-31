@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "dat-open",
+      "stable_id": "card-ms942h7m0663t",
       "front": "open(dateiname, modus)",
       "back": "Öffnet eine Datei und gibt ein Datei-Objekt zurück. Der Modus bestimmt, ob man liest ('r'), schreibt ('w') oder anhängt ('a').",
       "notes": "Standardmodus ist 'r' (lesen). Wichtig: Die Datei sollte immer geschlossen werden.",
@@ -18,6 +19,7 @@
     },
     {
       "id": "dat-modus-r",
+      "stable_id": "card-ms942h7m067df",
       "front": "Modus 'r' (read)",
       "back": "Öffnet eine Datei zum Lesen. Die Datei muss bereits existieren, sonst gibt es einen FileNotFoundError.",
       "media_type": "text",
@@ -26,6 +28,7 @@
     },
     {
       "id": "dat-modus-w",
+      "stable_id": "card-ms942h7m068h9",
       "front": "Modus 'w' (write)",
       "back": "Öffnet eine Datei zum Schreiben. Existiert die Datei bereits, wird ihr Inhalt überschrieben. Existiert sie nicht, wird sie neu erstellt.",
       "media_type": "text",
@@ -34,6 +37,7 @@
     },
     {
       "id": "dat-modus-a",
+      "stable_id": "card-ms942h7m069zj",
       "front": "Modus 'a' (append)",
       "back": "Öffnet eine Datei zum Anhängen. Neuer Text wird am Ende eingefügt; vorhandener Inhalt bleibt erhalten.",
       "media_type": "text",
@@ -42,6 +46,7 @@
     },
     {
       "id": "dat-read",
+      "stable_id": "card-ms942h7m06a0t",
       "front": ".read()",
       "back": "Liest den gesamten Inhalt einer Datei als einen einzigen String.",
       "notes": "Bei großen Dateien kann .read() viel Arbeitsspeicher belegen.",
@@ -51,6 +56,7 @@
     },
     {
       "id": "dat-readline",
+      "stable_id": "card-ms942h7m06b9w",
       "front": ".readline()",
       "back": "Liest eine einzelne Zeile aus der Datei (inklusive dem Zeilenumbruch am Ende).",
       "notes": "Jeder Aufruf von readline() liest die nächste Zeile.",
@@ -60,6 +66,7 @@
     },
     {
       "id": "dat-readlines",
+      "stable_id": "card-ms942h7m06cmc",
       "front": ".readlines()",
       "back": "Liest alle Zeilen und gibt sie als Liste von Strings zurück. Jede Zeile enthält am Ende einen Zeilenumbruch (\\n).",
       "notes": "Praktisch, wenn man alle Zeilen auf einmal in einer Liste haben möchte.",
@@ -69,6 +76,7 @@
     },
     {
       "id": "dat-write",
+      "stable_id": "card-ms942h7m06dkj",
       "front": ".write(text)",
       "back": "Schreibt einen String in die Datei. Zeilenumbrüche müssen manuell mit \\n eingefügt werden.",
       "notes": ".write() gibt die Anzahl der geschriebenen Zeichen zurück.",
@@ -78,6 +86,7 @@
     },
     {
       "id": "dat-with",
+      "stable_id": "card-ms942h7m06eml",
       "front": "with open(...) as f:",
       "back": "Das with-Statement öffnet eine Datei als Context Manager. Die Datei wird automatisch geschlossen, sobald der with-Block endet — auch bei einem Fehler.",
       "code_snippet": "with open('notiz.txt', 'w') as f:\n    f.write('Hallo Datei')\nprint('Datei geschlossen')",
@@ -90,6 +99,7 @@
     },
     {
       "id": "dat-context-manager",
+      "stable_id": "card-ms942h7m06fhi",
       "front": "Context Manager",
       "back": "Ein Objekt, das mit dem with-Statement zusammenarbeitet und automatisch Auf- und Abbau-Aktionen ausführt — z. B. eine Datei sicher schließen.",
       "notes": "open() gibt einen Context Manager zurück. Eigene Context Manager kann man mit __enter__ und __exit__ erstellen.",
@@ -99,6 +109,7 @@
     },
     {
       "id": "dat-iteration",
+      "stable_id": "card-ms942h7m06glh",
       "front": "Über Zeilen einer Datei iterieren",
       "back": "Mit einer for-Schleife kann man direkt über ein geöffnetes Datei-Objekt iterieren — Python liefert dabei Zeile für Zeile.",
       "code_snippet": "with open('liste.txt', 'w') as f:\n    f.write('Apfel\\nBanane\\nKirsche')\n\nwith open('liste.txt', 'r') as f:\n    for zeile in f:\n        print(zeile.strip())",
@@ -111,6 +122,7 @@
     },
     {
       "id": "dat-close",
+      "stable_id": "card-ms942h7m06hxb",
       "front": ".close()",
       "back": "Schließt eine geöffnete Datei manuell. Mit dem with-Statement ist .close() nicht mehr nötig, da es automatisch aufgerufen wird.",
       "notes": "Nicht geschlossene Dateien können zu Datenverlust oder Speicherfehlern führen.",
@@ -145,6 +157,7 @@
       "title": "Dateimodi zuordnen",
       "exercise": {
         "id": "ex-match-modi",
+        "stable_id": "ex-ms942h7m06ias",
         "type": "matching",
         "prompt": "Ordne jeden Modus seiner Bedeutung zu.",
         "card_ids": ["dat-modus-r", "dat-modus-w", "dat-modus-a"],
@@ -163,6 +176,7 @@
       "title": "with-Statement ergänzen",
       "exercise": {
         "id": "ex-cloze-with",
+        "stable_id": "ex-ms942h7m06jc5",
         "type": "cloze",
         "prompt": "Ergänze das Schlüsselwort für das sichere Öffnen von Dateien.",
         "card_ids": ["dat-with"],
@@ -181,6 +195,7 @@
       "title": "Vorteil des with-Statements",
       "exercise": {
         "id": "ex-free-with-vorteil",
+        "stable_id": "ex-ms942h7m06k2f",
         "type": "free_text",
         "prompt": "Was ist der wichtigste Vorteil des with-Statements beim Öffnen von Dateien?",
         "card_ids": ["dat-with", "dat-context-manager"],
@@ -207,6 +222,7 @@
       "title": "Datei schreiben zusammensetzen",
       "exercise": {
         "id": "ex-tiles-write",
+        "stable_id": "ex-ms942h7m06lkj",
         "type": "word_tiles",
         "prompt": "Setze die Zeile zusammen, die eine Datei zum Schreiben öffnet.",
         "card_ids": ["dat-with", "dat-modus-w"],
@@ -222,6 +238,7 @@
       "title": "Lese-Methoden zuordnen",
       "exercise": {
         "id": "ex-match-lese-methoden",
+        "stable_id": "ex-ms942h7m06mrw",
         "type": "matching",
         "prompt": "Ordne jede Methode ihrem Rückgabewert zu.",
         "card_ids": ["dat-read", "dat-readline", "dat-readlines"],
@@ -240,6 +257,7 @@
       "title": "Den Schreibmodus kennen",
       "exercise": {
         "id": "ex-cloze-modus-w",
+        "stable_id": "ex-ms942h7m06no2",
         "type": "cloze",
         "prompt": "Ergänze den Modus, der eine Datei zum Schreiben öffnet (und vorhandenen Inhalt überschreibt).",
         "card_ids": ["dat-modus-w"],
@@ -258,6 +276,7 @@
       "title": "Was gibt readlines() zurück?",
       "exercise": {
         "id": "ex-free-readlines",
+        "stable_id": "ex-ms942h7m06owc",
         "type": "free_text",
         "prompt": "Was gibt die Methode .readlines() zurück?",
         "card_ids": ["dat-readlines"],

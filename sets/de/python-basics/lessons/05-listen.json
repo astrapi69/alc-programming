@@ -9,6 +9,7 @@
   "cards": [
     {
       "id": "py-list-erstellen",
+      "stable_id": "card-ms942h7h020po",
       "front": "Liste erstellen (List)",
       "back": "Eine Liste speichert mehrere Werte in eckigen Klammern, getrennt durch Kommas.",
       "code_snippet": "farben = ['rot', 'gruen', 'blau']\nprint(farben)",
@@ -21,6 +22,7 @@
     },
     {
       "id": "py-list-index",
+      "stable_id": "card-ms942h7h021xo",
       "front": "Indexing — liste[0]",
       "back": "Mit einem Index in eckigen Klammern greift man auf ein einzelnes Element zu. Der erste Index ist 0.",
       "code_snippet": "farben = ['rot', 'gruen', 'blau']\nprint(farben[0])",
@@ -33,6 +35,7 @@
     },
     {
       "id": "py-list-neg-index",
+      "stable_id": "card-ms942h7h022v8",
       "front": "Negativer Index — liste[-1]",
       "back": "Negative Indizes zählen vom Ende der Liste. -1 ist das letzte Element.",
       "code_snippet": "farben = ['rot', 'gruen', 'blau']\nprint(farben[-1])",
@@ -45,6 +48,7 @@
     },
     {
       "id": "py-list-slicing",
+      "stable_id": "card-ms942h7h023j8",
       "front": "Slicing — liste[1:3]",
       "back": "Mit Slicing schneidet man einen Teil einer Liste heraus. liste[start:stop] gibt Elemente von Index start bis stop-1 zurück.",
       "code_snippet": "zahlen = [10, 20, 30, 40, 50]\nprint(zahlen[1:3])",
@@ -57,6 +61,7 @@
     },
     {
       "id": "py-list-len",
+      "stable_id": "card-ms942h7h02474",
       "front": "len() — Länge einer Liste",
       "back": "len(liste) gibt die Anzahl der Elemente in der Liste zurück.",
       "code_snippet": "farben = ['rot', 'gruen', 'blau']\nprint(len(farben))",
@@ -69,6 +74,7 @@
     },
     {
       "id": "py-list-aendern",
+      "stable_id": "card-ms942h7h025pv",
       "front": "Element ändern",
       "back": "Mit liste[index] = neuer_wert ersetzt man ein Element an einem bestimmten Index.",
       "code_snippet": "farben = ['rot', 'gruen', 'blau']\nfarben[1] = 'gelb'\nprint(farben)",
@@ -81,6 +87,7 @@
     },
     {
       "id": "py-list-append",
+      "stable_id": "card-ms942h7h026qx",
       "front": ".append() — Element hinzufügen",
       "back": ".append(element) fügt ein Element ans Ende der Liste an.",
       "code_snippet": "farben = ['rot', 'gruen']\nfarben.append('blau')\nprint(farben)",
@@ -93,6 +100,7 @@
     },
     {
       "id": "py-list-remove",
+      "stable_id": "card-ms942h7h027mg",
       "front": ".remove() — Element entfernen",
       "back": ".remove(wert) entfernt das erste Vorkommen des angegebenen Werts aus der Liste.",
       "code_snippet": "farben = ['rot', 'gruen', 'blau']\nfarben.remove('gruen')\nprint(farben)",
@@ -105,6 +113,7 @@
     },
     {
       "id": "py-list-insert",
+      "stable_id": "card-ms942h7h028g9",
       "front": ".insert() — Element einfügen",
       "back": ".insert(index, wert) fügt ein Element an einer bestimmten Position ein.",
       "code_snippet": "farben = ['rot', 'blau']\nfarben.insert(1, 'gruen')\nprint(farben)",
@@ -117,6 +126,7 @@
     },
     {
       "id": "py-list-in",
+      "stable_id": "card-ms942h7h029sg",
       "front": "in-Test — Element prüfen",
       "back": "Mit dem Operator in prüft man, ob ein Wert in einer Liste enthalten ist. Das Ergebnis ist True oder False.",
       "code_snippet": "farben = ['rot', 'gruen', 'blau']\nprint('gruen' in farben)",
@@ -129,6 +139,7 @@
     },
     {
       "id": "py-list-leer",
+      "stable_id": "card-ms942h7h02a9q",
       "front": "Leere Liste",
       "back": "Eine leere Liste wird mit [] erzeugt. Man kann später Elemente mit .append() hinzufügen.",
       "code_snippet": "meine_liste = []\nmeine_liste.append(42)\nprint(meine_liste)",
@@ -160,6 +171,7 @@
       "title": "Den ersten Index kennen",
       "exercise": {
         "id": "ex-cloze-index",
+        "stable_id": "ex-ms942h7h02bf3",
         "type": "cloze",
         "prompt": "Ergänze den Index, um das erste Element einer Liste abzurufen.",
         "card_ids": ["py-list-index"],
@@ -178,6 +190,7 @@
       "title": "Länge einer Liste bestimmen",
       "exercise": {
         "id": "ex-cloze-len",
+        "stable_id": "ex-ms942h7h02cxq",
         "type": "cloze",
         "prompt": "Ergänze die Funktion, die die Anzahl der Listenelemente zurückgibt.",
         "card_ids": ["py-list-len"],
@@ -196,6 +209,7 @@
       "title": "Element anhängen",
       "exercise": {
         "id": "ex-free-append",
+        "stable_id": "ex-ms942h7h02dkr",
         "type": "free_text",
         "prompt": "Welche Methode fügt ein Element ans Ende einer Liste an?",
         "card_ids": ["py-list-append"],
@@ -212,6 +226,7 @@
       "title": "Negativer Index",
       "exercise": {
         "id": "ex-free-neg-index",
+        "stable_id": "ex-ms942h7h02ec8",
         "type": "free_text",
         "prompt": "Welchen Index verwendet man, um das letzte Element einer Liste abzurufen?",
         "card_ids": ["py-list-neg-index"],
@@ -228,6 +243,7 @@
       "title": "append-Aufruf zusammensetzen",
       "exercise": {
         "id": "ex-tiles-append",
+        "stable_id": "ex-ms942h7h02f25",
         "type": "word_tiles",
         "prompt": "Setze den Code zusammen, der 'blau' an die Liste 'farben' anhängt.",
         "card_ids": ["py-list-append"],
@@ -243,6 +259,7 @@
       "title": "Listenmethoden zuordnen",
       "exercise": {
         "id": "ex-match-methoden",
+        "stable_id": "ex-ms942h7h02g11",
         "type": "matching",
         "prompt": "Ordne jede Listenmethode ihrer Funktion zu.",
         "card_ids": ["py-list-append", "py-list-remove", "py-list-insert", "py-list-len"],
@@ -262,6 +279,7 @@
       "title": "Letztes Element abrufen",
       "exercise": {
         "id": "ex-tiles-index",
+        "stable_id": "ex-ms942h7h02hmz",
         "type": "word_tiles",
         "prompt": "Setze den Ausdruck zusammen, der das letzte Element der Liste 'farben' ausgibt.",
         "card_ids": ["py-list-neg-index"],
@@ -277,6 +295,7 @@
       "title": "in-Operator",
       "exercise": {
         "id": "ex-cloze-in",
+        "stable_id": "ex-ms942h7h02ixg",
         "type": "cloze",
         "prompt": "Ergänze den Operator, um zu prüfen, ob ein Element in einer Liste vorhanden ist.",
         "card_ids": ["py-list-in"],
