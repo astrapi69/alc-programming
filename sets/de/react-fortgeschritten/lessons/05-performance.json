@@ -132,7 +132,7 @@
       "id": "ex-mc-usememo",
       "type": "exercise",
       "theory_ref": "step-memo",
-      "title": "Was cached useMemo?",
+      "title": "useMemo",
       "exercise": {
         "type": "cloze",
         "prompt": "Was cached useMemo?",
@@ -161,7 +161,7 @@
       "id": "ex-mc-usecallback",
       "type": "exercise",
       "theory_ref": "step-memo",
-      "title": "Was cached useCallback?",
+      "title": "useCallback",
       "exercise": {
         "type": "cloze",
         "prompt": "Was cached useCallback?",

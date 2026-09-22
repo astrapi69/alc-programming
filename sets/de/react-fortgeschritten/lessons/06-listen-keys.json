@@ -223,7 +223,7 @@
       "title": "Aussagen über Keys",
       "exercise": {
         "type": "cloze",
-        "prompt": "Welche Aussagen über Keys treffen zu?",
+        "prompt": "Wähle alle zutreffenden Aussagen.",
         "card_ids": [
           "stabil-eindeutig",
           "key",

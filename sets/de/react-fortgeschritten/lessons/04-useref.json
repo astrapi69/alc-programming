@@ -223,7 +223,7 @@
       "title": "Aussagen zu useRef",
       "exercise": {
         "type": "cloze",
-        "prompt": "Welche Aussagen über useRef treffen zu?",
+        "prompt": "Wähle alle zutreffenden Aussagen.",
         "card_ids": [
           "useref",
           "kein-rerender",
@@ -250,7 +250,7 @@
       "title": "Wofür useRef?",
       "exercise": {
         "type": "cloze",
-        "prompt": "Wofür eignet sich useRef?",
+        "prompt": "Wähle alle zutreffenden Aussagen.",
         "card_ids": [
           "dom-ref",
           "mutable"
