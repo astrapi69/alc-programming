@@ -1,0 +1,346 @@
+{
+  "id": "07-useeffectevent-activity",
+  "title": "useEffectEvent und Activity",
+  "description": "Ein Chatraum, der bei jedem Themenwechsel die Verbindung neu aufbaute. useEffectEvent trennt das Reaktive vom Ereignishaften, Activity haelt den Raum im Hintergrund am Leben.",
+  "target_language": "de",
+  "source_language": "de",
+  "domain": "programming",
+  "estimated_minutes": 16,
+  "requires_extensions": [
+    "ext:al-reading-comprehension@1",
+    "ext:al-error-correction@1",
+    "ext:al-parsons@1",
+    "ext:al-categorization@1",
+    "ext:al-ordering@1"
+  ],
+  "cards": [
+    {
+      "id": "effectevent-regeln",
+      "stable_id": "card-mue1psns03oqj",
+      "front": "Regeln von useEffectEvent",
+      "back": "Im selben Bauteil oder Hook deklarieren wie der zugehoerige Effekt, und NICHT in die Abhaengigkeitsliste aufnehmen. Gedacht fuer Funktionen, die wie Ereignisse aus einem Effekt heraus ausgeloest werden.",
+      "notes": "Stabil seit React 19.2.",
+      "media_type": "text",
+      "difficulty": 4,
+      "tags": [
+        "react",
+        "effekte"
+      ]
+    },
+    {
+      "id": "activity-zustand",
+      "stable_id": "card-mue1psns03pdt",
+      "front": "Activity im Modus hidden",
+      "back": "React versteckt die Kinder mit display none, raeumt ihre Effekte ab und behaelt ihren State. Beim Zurueckschalten stellt es den State wieder her und legt die Effekte neu an.",
+      "notes": "Beim ersten Rendern im Zustand hidden wird vorgerendert, mit niedrigerer Prioritaet und ohne Effekte.",
+      "media_type": "text",
+      "difficulty": 4,
+      "tags": [
+        "react",
+        "activity"
+      ]
+    },
+    {
+      "id": "compiler-1-0",
+      "stable_id": "card-mue1psns03qgw",
+      "front": "React Compiler 1.0",
+      "back": "Seit Oktober 2025 stabil. Er memoisiert automatisch, wo es sich lohnt, und macht die meisten Handgriffe mit useMemo und useCallback ueberfluessig. Beide bleiben gueltig.",
+      "notes": "Er ersetzt keine falsche Abhaengigkeitsliste.",
+      "media_type": "text",
+      "difficulty": 3,
+      "tags": [
+        "react",
+        "compiler"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "type": "theory",
+      "title": "Reaktiv oder ereignishaft",
+      "body": "# useEffectEvent\n\nEin Effekt laeuft neu, wenn sich eine seiner Abhaengigkeiten aendert. Genau das ist das Problem, wenn er etwas benutzt, das er nur **liest**: steht `thema` in der Liste, baut jeder Themenwechsel die Chatverbindung neu auf.\n\n`useEffectEvent` zieht diesen Teil heraus. Die umhuellte Funktion sieht immer die **neuesten** Werte, ist aber selbst **nicht reaktiv**. Zwei Regeln:\n\n1. Sie wird im selben Bauteil oder Hook deklariert wie ihr Effekt.\n2. Sie gehoert **nicht** in die Abhaengigkeitsliste.\n\nStabil seit React 19.2."
+    },
+    {
+      "id": "artefakt",
+      "type": "theory",
+      "title": "Der Chatraum",
+      "body": "# Das Artefakt\n\n```jsx\nimport { Activity, useEffect, useEffectEvent, useState } from \"react\";\n\nfunction ChatRaum({ raumId, thema }) {\n  const [verbunden, setVerbunden] = useState(false);\n\n  const beiVerbindung = useEffectEvent(() => {\n    zeigeHinweis(\"Verbunden mit \" + raumId, thema);\n    setVerbunden(true);\n  });\n\n  useEffect(() => {\n    const verbindung = baueVerbindung(raumId);\n    verbindung.on(\"connected\", () => beiVerbindung());\n    verbindung.verbinde();\n    return () => verbindung.trenne();\n  }, [raumId]);\n\n  return <p>{verbunden ? \"verbunden\" : \"verbinde ...\"}</p>;\n}\n\nexport function Arbeitsflaeche({ raumId, thema, sichtbar }) {\n  return (\n    <Activity mode={sichtbar ? \"visible\" : \"hidden\"}>\n      <ChatRaum raumId={raumId} thema={thema} />\n    </Activity>\n  );\n}\n```\n\nDer Effekt haengt nur an `raumId`. `thema` wird im Hinweis benutzt, loest aber keinen Neuaufbau aus, weil es in der Ereignisfunktion steht.\n\n`<Activity mode=\"hidden\">` versteckt den Raum mit `display: none`, **raeumt seine Effekte ab** und **behaelt seinen State**. Beim Zurueckschalten stellt React den State wieder her und legt die Effekte neu an. Beim allerersten Rendern im Zustand `hidden` wird der Inhalt vorgerendert, mit niedrigerer Prioritaet und ohne Effekte."
+    },
+    {
+      "id": "theorie-compiler",
+      "type": "theory",
+      "title": "Wozu dann noch useMemo",
+      "body": "# Der Compiler\n\nDer **React Compiler** ist seit Oktober 2025 bei Version 1.0 und nicht mehr experimentell. Er memoisiert automatisch, wo es sich lohnt, und macht die meisten Aufrufe von `useMemo` und `useCallback` ueberfluessig. Beide bleiben gueltig und sind kein Fehler.\n\nWas er **nicht** ersetzt: eine falsche Abhaengigkeitsliste, einen Effekt, der eigentlich ein Ereignis ist, und eine Grenze, die zu weit oben sitzt. Der Compiler beschleunigt korrekten Code, er repariert keinen falschen."
+    },
+    {
+      "id": "ex-chatraum-lesen",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Den Chatraum lesen",
+      "exercise": {
+        "id": "ex-chatraum-lesen",
+        "stable_id": "ex-mue1psns03rnl",
+        "type": "ext:al-reading-comprehension",
+        "prompt": "Beantworte drei Fragen zu diesem Bauteil.",
+        "ext_payload": {
+          "passage": "import { Activity, useEffect, useEffectEvent, useState } from \"react\";\n\nfunction ChatRaum({ raumId, thema }) {\n  const [verbunden, setVerbunden] = useState(false);\n\n  const beiVerbindung = useEffectEvent(() => {\n    zeigeHinweis(\"Verbunden mit \" + raumId, thema);\n    setVerbunden(true);\n  });\n\n  useEffect(() => {\n    const verbindung = baueVerbindung(raumId);\n    verbindung.on(\"connected\", () => beiVerbindung());\n    verbindung.verbinde();\n    return () => verbindung.trenne();\n  }, [raumId]);\n\n  return <p>{verbunden ? \"verbunden\" : \"verbinde ...\"}</p>;\n}\n\nexport function Arbeitsflaeche({ raumId, thema, sichtbar }) {\n  return (\n    <Activity mode={sichtbar ? \"visible\" : \"hidden\"}>\n      <ChatRaum raumId={raumId} thema={thema} />\n    </Activity>\n  );\n}",
+          "questions": [
+            {
+              "prompt": "Das Prop thema wechselt von hell auf dunkel, raumId bleibt gleich. Was passiert mit der Verbindung?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "Nichts, der Effekt laeuft nicht neu: thema steht nur in der Ereignisfunktion",
+                  "correct": true
+                },
+                {
+                  "text": "Sie wird getrennt und neu aufgebaut, weil sich ein Prop geaendert hat"
+                },
+                {
+                  "text": "Sie wird getrennt und nicht wieder aufgebaut"
+                },
+                {
+                  "text": "React warnt zur Laufzeit, weil thema in der Abhaengigkeitsliste fehlt"
+                }
+              ]
+            },
+            {
+              "prompt": "sichtbar wechselt auf false. Was geschieht mit dem Zustand verbunden?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "Er bleibt erhalten, nur die Effekte werden abgeraeumt",
+                  "correct": true
+                },
+                {
+                  "text": "Er geht verloren, weil der Teilbaum ausgehaengt wird"
+                },
+                {
+                  "text": "Er bleibt erhalten und die Verbindung bleibt offen"
+                },
+                {
+                  "text": "Er wird auf den Startwert zurueckgesetzt, sobald sichtbar wieder true ist"
+                }
+              ]
+            },
+            {
+              "prompt": "Welchen Wert enthaelt die Abhaengigkeitsliste des Effekts?",
+              "type": "free_text",
+              "accept": [
+                "raumId",
+                "[raumId]",
+                "raumid"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-dependency-fehler",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Die Ereignisfunktion in der Liste",
+      "exercise": {
+        "id": "ex-dependency-fehler",
+        "stable_id": "ex-mue1psns03s5h",
+        "type": "ext:al-error-correction",
+        "prompt": "Eine Marke in dieser Abhaengigkeitsliste ist falsch. Markiere sie und schreibe hin, was dort stehen muss.",
+        "ext_payload": {
+          "tokens": [
+            "}, ",
+            "[raumId,",
+            "beiVerbindung]);"
+          ],
+          "error_index": 2,
+          "accept": [
+            "]);",
+            "[raumId]);",
+            "raumId]);"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-effekt-zusammensetzen",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Den Effekt zusammensetzen",
+      "exercise": {
+        "id": "ex-effekt-zusammensetzen",
+        "stable_id": "ex-mue1psns03thg",
+        "type": "ext:al-parsons",
+        "prompt": "Setze den Effekt so zusammen, dass die Verbindung beim Verlassen wieder getrennt wird.",
+        "ext_payload": {
+          "language": "javascript",
+          "lines": [
+            {
+              "code": "useEffect(() => {",
+              "indent": 0
+            },
+            {
+              "code": "const verbindung = baueVerbindung(raumId);",
+              "indent": 1
+            },
+            {
+              "code": "verbindung.on(\"connected\", () => beiVerbindung());",
+              "indent": 1
+            },
+            {
+              "code": "verbindung.verbinde();",
+              "indent": 1
+            },
+            {
+              "code": "return () => verbindung.trenne();",
+              "indent": 1
+            },
+            {
+              "code": "}, [raumId]);",
+              "indent": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-reaktiv-oder-nicht",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Reaktiv oder nicht",
+      "exercise": {
+        "id": "ex-reaktiv-oder-nicht",
+        "stable_id": "ex-mue1psns03u45",
+        "type": "ext:al-categorization",
+        "prompt": "Ordne jeden Wert danach ein, ob er den Effekt dieses Chatraums neu starten soll.",
+        "ext_payload": {
+          "categories": [
+            {
+              "name": "gehoert in die Abhaengigkeitsliste",
+              "items": [
+                "raumId, weil eine andere Kennung eine andere Verbindung bedeutet",
+                "die Adresse des Servers, wenn sie als Prop hereinkommt"
+              ]
+            },
+            {
+              "name": "gehoert in die Ereignisfunktion",
+              "items": [
+                "thema, das nur im Hinweis benutzt wird",
+                "der Name der Person, der im Hinweis auftaucht",
+                "eine Zaehlung, die beim Verbinden hochgezaehlt wird"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-activity-wechsel",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Der Wechsel auf sichtbar",
+      "exercise": {
+        "id": "ex-activity-wechsel",
+        "stable_id": "ex-mue1psns03vd0",
+        "type": "ext:al-ordering",
+        "prompt": "Bringe die Schritte in die Reihenfolge, in der sie ablaufen, wenn sichtbar von false auf true wechselt.",
+        "ext_payload": {
+          "items": [
+            "React nimmt display none von den Kindern",
+            "Der vorher bewahrte State des Chatraums gilt wieder",
+            "React legt die Effekte der Kinder neu an",
+            "Der Effekt baut die Verbindung erneut auf",
+            "Die Ereignisfunktion meldet die Verbindung und setzt verbunden"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-effectevent-zeile",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Die Zeile, die das Reaktive abschneidet",
+      "exercise": {
+        "id": "ex-effectevent-zeile",
+        "stable_id": "ex-mue1psns03w6c",
+        "type": "cloze",
+        "cloze_mode": "type",
+        "prompt": "Ergaenze den Aufruf, der die Hinweisfunktion nicht reaktiv macht.",
+        "card_ids": [
+          "effectevent-regeln"
+        ],
+        "sentence": "const beiVerbindung = ___(() => zeigeHinweis(\"Verbunden mit \" + raumId, thema));",
+        "blanks": [
+          {
+            "accept": [
+              "useEffectEvent"
+            ], "stable_id": "blank-mue1psns03xjl"
+          }
+        ],
+        "hint": "Stabil seit 19.2, gehoert nie in die Abhaengigkeitsliste."
+      }
+    },
+    {
+      "id": "ex-activity-vorrendern",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Was hidden beim ersten Rendern tut",
+      "exercise": {
+        "id": "ex-activity-vorrendern",
+        "stable_id": "ex-mue1psns03y1y",
+        "type": "multiple_choice",
+        "prompt": "Eine Activity wird gleich beim ersten Rendern im Modus hidden angelegt. Was tut React mit ihren Kindern?",
+        "card_ids": [
+          "activity-zustand"
+        ],
+        "options": [
+          {
+            "text": "Es rendert sie vor, mit niedrigerer Prioritaet und ohne ihre Effekte anzulegen",
+            "correct": true, "stable_id": "opt-mue1psns03zns"
+          },
+          {
+            "text": "Es ueberspringt sie vollstaendig, bis der Modus wechselt", "stable_id": "opt-mue1psns040o1"
+          },
+          {
+            "text": "Es rendert sie mit voller Prioritaet, versteckt aber das Ergebnis", "stable_id": "opt-mue1psns041ib"
+          },
+          {
+            "text": "Es rendert sie samt Effekten, damit Abonnements schon laufen", "stable_id": "opt-mue1psns0424x"
+          }
+        ],
+        "explanation": "Genau darin liegt der Nutzen: Code und Daten sind da, bevor die Person hinschaut, ohne dass Abonnements im Hintergrund laufen."
+      }
+    },
+    {
+      "id": "ex-compiler-grenze",
+      "type": "exercise",
+      "theory_ref": "theorie-compiler",
+      "title": "Was der Compiler nicht abnimmt",
+      "exercise": {
+        "id": "ex-compiler-grenze",
+        "stable_id": "ex-mue1psns043z0",
+        "type": "multiple_choice",
+        "prompt": "Welches Problem dieses Chatraums wuerde der React Compiler nicht loesen?",
+        "card_ids": [
+          "compiler-1-0"
+        ],
+        "options": [
+          {
+            "text": "Einen Effekt, der wegen thema in der Liste die Verbindung neu aufbaut",
+            "correct": true, "stable_id": "opt-mue1psns044lf"
+          },
+          {
+            "text": "Eine Funktion, die bei jedem Render neu entsteht", "stable_id": "opt-mue1psns045ti"
+          },
+          {
+            "text": "Ein Objekt, das als Prop weitergegeben wird und jedes Mal neu ist", "stable_id": "opt-mue1psns046w8"
+          },
+          {
+            "text": "Eine teure Berechnung, deren Eingaben gleich bleiben", "stable_id": "opt-mue1psns047u8"
+          }
+        ],
+        "explanation": "Der Compiler memoisiert. Eine Abhaengigkeitsliste, die etwas Nichtreaktives enthaelt, beschreibt aber eine andere Absicht, als der Code haben soll: das ist eine Entwurfsfrage, keine Optimierung."
+      }
+    }
+  ]
+}

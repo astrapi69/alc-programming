@@ -1,0 +1,342 @@
+{
+  "id": "04-ref-als-prop",
+  "title": "ref als Prop, forwardRef auf dem Weg hinaus",
+  "description": "Seit React 19 nimmt eine Funktionskomponente ref wie jedes andere Prop entgegen. forwardRef laeuft weiter, ist aber als kuenftig veraltet dokumentiert.",
+  "target_language": "de",
+  "source_language": "de",
+  "domain": "programming",
+  "estimated_minutes": 13,
+  "requires_extensions": [
+    "ext:al-reading-comprehension@1",
+    "ext:al-parsons@1",
+    "ext:al-error-correction@1",
+    "ext:al-categorization@1"
+  ],
+  "cards": [
+    {
+      "id": "ref-als-prop",
+      "stable_id": "card-mue1psnq01wn9",
+      "front": "ref als Prop",
+      "back": "Funktionskomponenten nehmen ref seit React 19 als gewoehnliches Prop entgegen. forwardRef ist dafuer nicht mehr noetig.",
+      "notes": "Fuer Klassenkomponenten gilt das nicht: dort bleibt ref ausserhalb der Props.",
+      "media_type": "text",
+      "difficulty": 2,
+      "tags": [
+        "react",
+        "refs"
+      ]
+    },
+    {
+      "id": "forwardref-status",
+      "stable_id": "card-mue1psnq01xjr",
+      "front": "Status von forwardRef",
+      "back": "forwardRef funktioniert weiter und ist als kuenftig veraltet dokumentiert. Fuer den Umstieg gibt es ein Codemod.",
+      "notes": "Nicht entfernt, nur nicht mehr noetig.",
+      "media_type": "text",
+      "difficulty": 2,
+      "tags": [
+        "react",
+        "refs"
+      ]
+    },
+    {
+      "id": "ref-current-render",
+      "stable_id": "card-mue1psnq01y56",
+      "front": "ref.current und Re-Render",
+      "back": "Eine Aenderung an ref.current loest keinen Re-Render aus. Refs halten Werte ueber Renders hinweg, ohne die Oberflaeche zu benachrichtigen.",
+      "notes": "Deshalb gehoert Anzeigezustand in State, nicht in eine ref.",
+      "media_type": "text",
+      "difficulty": 2,
+      "tags": [
+        "react",
+        "refs"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "type": "theory",
+      "title": "Was sich geaendert hat",
+      "body": "# ref als Prop\n\nVor React 19 kam ein `ref` nicht in den Props an: eine Komponente musste in `forwardRef` eingewickelt werden, um ihn entgegenzunehmen. Seit React 19 ist `ref` **ein Prop wie jedes andere**:\n\n```jsx\nfunction SuchFeld({ platzhalter, ref }) {\n  return <input ref={ref} placeholder={platzhalter} />;\n}\n```\n\n`forwardRef` laeuft weiter und ist als **kuenftig veraltet** dokumentiert; fuer den Umstieg gibt es ein Codemod. Fuer **Klassenkomponenten** gilt die Neuerung nicht: dort bleibt `ref` ausserhalb der Props.\n\nUnveraendert bleibt: eine Aenderung an `ref.current` loest **keinen** Re-Render aus."
+    },
+    {
+      "id": "artefakt",
+      "type": "theory",
+      "title": "Die Suchleiste",
+      "body": "# Das Artefakt\n\n```jsx\nimport { useRef } from \"react\";\n\n// React 19: ref ist ein gewoehnliches Prop, kein forwardRef noetig.\nfunction SuchFeld({ platzhalter, ref }) {\n  return <input ref={ref} placeholder={platzhalter} type=\"search\" />;\n}\n\nexport function Suchleiste() {\n  const feld = useRef(null);\n\n  function leeren() {\n    feld.current.value = \"\";\n    feld.current.focus();\n  }\n\n  return (\n    <div>\n      <SuchFeld ref={feld} platzhalter=\"Suchen ...\" />\n      <button onClick={leeren}>Leeren</button>\n    </div>\n  );\n}\n```\n\nDie Suchleiste haelt die `ref`, gibt sie an `SuchFeld` weiter und greift im Knopf auf den DOM-Knoten zu. Das Feld selbst bleibt unkontrolliert: `leeren()` schreibt direkt in `feld.current.value` und setzt danach den Fokus."
+    },
+    {
+      "id": "ex-suchleiste-lesen",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Die Suchleiste lesen",
+      "exercise": {
+        "id": "ex-suchleiste-lesen",
+        "stable_id": "ex-mue1psnq01zpf",
+        "type": "ext:al-reading-comprehension",
+        "prompt": "Beantworte drei Fragen zu dieser Suchleiste.",
+        "ext_payload": {
+          "passage": "import { useRef } from \"react\";\n\n// React 19: ref ist ein gewoehnliches Prop, kein forwardRef noetig.\nfunction SuchFeld({ platzhalter, ref }) {\n  return <input ref={ref} placeholder={platzhalter} type=\"search\" />;\n}\n\nexport function Suchleiste() {\n  const feld = useRef(null);\n\n  function leeren() {\n    feld.current.value = \"\";\n    feld.current.focus();\n  }\n\n  return (\n    <div>\n      <SuchFeld ref={feld} platzhalter=\"Suchen ...\" />\n      <button onClick={leeren}>Leeren</button>\n    </div>\n  );\n}",
+          "questions": [
+            {
+              "prompt": "Worauf zeigt feld.current, nachdem die Suchleiste gerendert wurde?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "Auf den DOM-Knoten des input-Elements",
+                  "correct": true
+                },
+                {
+                  "text": "Auf die Komponente SuchFeld"
+                },
+                {
+                  "text": "Auf das umgebende div"
+                },
+                {
+                  "text": "Auf null, bis leeren() einmal aufgerufen wurde"
+                }
+              ]
+            },
+            {
+              "prompt": "Was passiert nach einem Klick auf Leeren mit der Anzahl der Renders?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "Nichts, der Zugriff auf ref.current loest keinen Re-Render aus",
+                  "correct": true
+                },
+                {
+                  "text": "Suchleiste rendert neu, weil sich der Wert des Feldes geaendert hat"
+                },
+                {
+                  "text": "SuchFeld rendert neu, weil die ref neu gesetzt wird"
+                },
+                {
+                  "text": "Der ganze Baum rendert neu, weil der DOM veraendert wurde"
+                }
+              ]
+            },
+            {
+              "prompt": "Welches Prop gibt die Suchleiste neben ref an SuchFeld weiter?",
+              "type": "free_text",
+              "accept": [
+                "platzhalter",
+                "platzhalter=\"Suchen ...\"",
+                "Platzhalter"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-forwardref-umbauen",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Von forwardRef nach ref-Prop",
+      "exercise": {
+        "id": "ex-forwardref-umbauen",
+        "stable_id": "ex-mue1psnq020i0",
+        "type": "ext:al-parsons",
+        "prompt": "Setze die Fassung ohne forwardRef zusammen.",
+        "ext_payload": {
+          "language": "javascript",
+          "lines": [
+            {
+              "code": "function SuchFeld({ platzhalter, ref }) {",
+              "indent": 0
+            },
+            {
+              "code": "return <input ref={ref} placeholder={platzhalter} type=\"search\" />;",
+              "indent": 1
+            },
+            {
+              "code": "}",
+              "indent": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-ref-fehlt",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Der vergessene Durchgriff",
+      "exercise": {
+        "id": "ex-ref-fehlt",
+        "stable_id": "ex-mue1psnq021n5",
+        "type": "ext:al-error-correction",
+        "prompt": "Eine Marke in dieser Zeile ist falsch, feld.current bliebe sonst null. Markiere sie und schreibe die richtige hin.",
+        "ext_payload": {
+          "tokens": [
+            "return",
+            "<input",
+            "placeholder={platzhalter}",
+            "/>;"
+          ],
+          "error_index": 1,
+          "accept": [
+            "<input ref={ref}",
+            "<input ref={ref} ",
+            "ref={ref}"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-signatur",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Die Signatur der Komponente",
+      "exercise": {
+        "id": "ex-signatur",
+        "stable_id": "ex-mue1psnq022jo",
+        "type": "cloze",
+        "cloze_mode": "type",
+        "prompt": "Ergaenze das Prop, das den DOM-Knoten nach oben reicht.",
+        "card_ids": [
+          "ref-als-prop"
+        ],
+        "sentence": "function SuchFeld({ platzhalter, ___ }) {",
+        "blanks": [
+          {
+            "accept": [
+              "ref"
+            ], "stable_id": "blank-mue1psnq023p0"
+          }
+        ],
+        "hint": "Es steht genauso im input-Element darunter."
+      }
+    },
+    {
+      "id": "ex-gilt-wo",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Wo die Neuerung gilt",
+      "exercise": {
+        "id": "ex-gilt-wo",
+        "stable_id": "ex-mue1psnq0249q",
+        "type": "ext:al-categorization",
+        "prompt": "Ordne jede Aussage der Gruppe zu, fuer die sie zutrifft.",
+        "ext_payload": {
+          "categories": [
+            {
+              "name": "gilt seit React 19",
+              "items": [
+                "Funktionskomponenten nehmen ref in den Props entgegen",
+                "Neue Bauteile brauchen forwardRef nicht mehr",
+                "Ein Codemod stellt bestehende Bauteile um"
+              ]
+            },
+            {
+              "name": "gilt unveraendert",
+              "items": [
+                "Klassenkomponenten bekommen ref nicht als Prop",
+                "Eine Aenderung an ref.current loest keinen Re-Render aus",
+                "forwardRef funktioniert weiterhin"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-forwardref-status",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Der Stand von forwardRef",
+      "exercise": {
+        "id": "ex-forwardref-status",
+        "stable_id": "ex-mue1psnq025lu",
+        "type": "multiple_choice",
+        "prompt": "Ein bestehendes Bauteil benutzt forwardRef. Was ist unter React 19 zu tun?",
+        "card_ids": [
+          "forwardref-status"
+        ],
+        "options": [
+          {
+            "text": "Nichts Dringendes: es laeuft weiter, der Umstieg ist dokumentiert und per Codemod moeglich",
+            "correct": true, "stable_id": "opt-mue1psnq026kl"
+          },
+          {
+            "text": "Sofort umbauen, forwardRef ist in 19 entfernt", "stable_id": "opt-mue1psnq027bd"
+          },
+          {
+            "text": "Das Bauteil in eine Klassenkomponente umschreiben", "stable_id": "opt-mue1psnq0282r"
+          },
+          {
+            "text": "ref in einen anderen Prop-Namen umbenennen, sonst kommt er doppelt an", "stable_id": "opt-mue1psnq029v3"
+          }
+        ],
+        "explanation": "forwardRef ist als kuenftig veraltet dokumentiert, nicht entfernt. Ein Umbau lohnt sich, wenn ein Bauteil ohnehin angefasst wird."
+      }
+    },
+    {
+      "id": "ex-ref-oder-state",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "ref oder State",
+      "exercise": {
+        "id": "ex-ref-oder-state",
+        "stable_id": "ex-mue1psnq02aus",
+        "type": "multiple_choice",
+        "prompt": "In der Suchleiste soll neben dem Feld stehen, wie viele Zeichen getippt wurden. Wohin gehoert dieser Wert?",
+        "card_ids": [
+          "ref-current-render"
+        ],
+        "options": [
+          {
+            "text": "In State, denn nur eine State-Aenderung rendert die Anzeige neu",
+            "correct": true, "stable_id": "opt-mue1psnq02bqf"
+          },
+          {
+            "text": "In feld.current.dataset, das rendert React automatisch neu", "stable_id": "opt-mue1psnq02ciz"
+          },
+          {
+            "text": "In eine zweite ref, das ist billiger als State", "stable_id": "opt-mue1psnq02dre"
+          },
+          {
+            "text": "In eine Variable der Komponente, sie ueberlebt den Render", "stable_id": "opt-mue1psnq02ed2"
+          }
+        ],
+        "explanation": "Eine ref haelt einen Wert ueber Renders hinweg, benachrichtigt die Oberflaeche aber nicht. Angezeigte Werte gehoeren deshalb in State."
+      }
+    },
+    {
+      "id": "ex-zuordnung",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Stelle und Wirkung",
+      "exercise": {
+        "id": "ex-zuordnung",
+        "stable_id": "ex-mue1psnq02fys",
+        "type": "matching",
+        "prompt": "Ordne jeder Stelle aus der Suchleiste ihre Wirkung zu.",
+        "card_ids": [
+          "ref-als-prop",
+          "ref-current-render"
+        ],
+        "pairs": [
+          {
+            "left": "useRef(null)",
+            "right": "legt den Behaelter an, der spaeter auf den DOM-Knoten zeigt", "stable_id": "pair-mue1psnq02gta"
+          },
+          {
+            "left": "ref={feld} an SuchFeld",
+            "right": "gibt den Behaelter als Prop weiter", "stable_id": "pair-mue1psnq02hk2"
+          },
+          {
+            "left": "ref={ref} am input",
+            "right": "haengt den Behaelter an den DOM-Knoten", "stable_id": "pair-mue1psnq02i66"
+          },
+          {
+            "left": "feld.current.focus()",
+            "right": "setzt den Fokus ohne Re-Render", "stable_id": "pair-mue1psnq02jmn"
+          }
+        ]
+      }
+    }
+  ]
+}

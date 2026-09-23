@@ -1,0 +1,349 @@
+{
+  "id": "03-use-promises-context",
+  "title": "use: Promises und Context lesen",
+  "description": "use liest ein Promise im Render und haelt die Komponente an, bis es aufgeloest ist. Dasselbe use liest auch Context, und darf dabei hinter einem fruehen return stehen.",
+  "target_language": "de",
+  "source_language": "de",
+  "domain": "programming",
+  "estimated_minutes": 15,
+  "requires_extensions": [
+    "ext:al-reading-comprehension@1",
+    "ext:al-error-correction@1",
+    "ext:al-ordering@1",
+    "ext:al-categorization@1",
+    "ext:al-parsons@1"
+  ],
+  "cards": [
+    {
+      "id": "use-promise-herkunft",
+      "stable_id": "card-mue1psnp01ccf",
+      "front": "Woher das Promise kommt",
+      "back": "use liest ein Promise, das ausserhalb des Renders entstanden ist: aus einer Server-Komponente, einem Cache oder dem Props-Baum. Ein im Render erzeugtes Promise ist bei jedem Render ein neues.",
+      "notes": "use(ladeNutzer()) im Render ist der klassische Fehler.",
+      "media_type": "text",
+      "difficulty": 3,
+      "tags": [
+        "react",
+        "suspense"
+      ]
+    },
+    {
+      "id": "use-bedingt",
+      "stable_id": "card-mue1psnp01dev",
+      "front": "use darf bedingt stehen",
+      "back": "Anders als useState oder useContext darf use nach einem fruehen return und innerhalb einer Bedingung aufgerufen werden.",
+      "notes": "Es ist eine API, kein Hook im Sinne der Hook-Regeln.",
+      "media_type": "text",
+      "difficulty": 2,
+      "tags": [
+        "react",
+        "hooks"
+      ]
+    },
+    {
+      "id": "suspense-grenze",
+      "stable_id": "card-mue1psnp01e9b",
+      "front": "Welche Grenze den Fallback zeigt",
+      "back": "Die naechste Suspense-Grenze oberhalb der angehaltenen Komponente. Sie zeigt ihren fallback, bis das Promise aufgeloest ist.",
+      "notes": "Ohne Grenze oberhalb haengt der ganze Teilbaum.",
+      "media_type": "text",
+      "difficulty": 3,
+      "tags": [
+        "react",
+        "suspense"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "type": "theory",
+      "title": "Eine API, zwei Quellen",
+      "body": "# use\n\n`use(promise)` liest ein Promise **im Render**. Ist es noch offen, haelt React die Komponente an und zeigt den `fallback` der naechsten `<Suspense>`-Grenze oberhalb. Ist es aufgeloest, gibt `use` den Wert zurueck.\n\nDas Promise darf **nicht im Render entstehen**: `use(ladeNutzer())` erzeugt bei jedem Render ein neues Promise und kommt nie zur Ruhe. Es kommt von aussen - aus einer Server-Komponente, aus einem Cache, ueber Props.\n\n`use(Context)` liest denselben Wert wie `useContext(Context)`. Der Unterschied ist die Stelle: `use` darf **bedingt** aufgerufen werden, auch hinter einem fruehen `return`."
+    },
+    {
+      "id": "artefakt",
+      "type": "theory",
+      "title": "Das Profil-Panel",
+      "body": "# Das Artefakt\n\n```jsx\nimport { use, Suspense, createContext } from \"react\";\n\nconst ThemaContext = createContext(\"hell\");\n\nfunction Profil({ nutzerPromise, kompakt }) {\n  const nutzer = use(nutzerPromise);\n  if (kompakt) {\n    return <span>{nutzer.name}</span>;\n  }\n  const thema = use(ThemaContext);\n  return <p className={thema}>{nutzer.name} ({nutzer.rolle})</p>;\n}\n\nexport function ProfilPanel({ nutzerPromise }) {\n  return (\n    <Suspense fallback={<p>Laedt ...</p>}>\n      <Profil nutzerPromise={nutzerPromise} kompakt={false} />\n    </Suspense>\n  );\n}\n```\n\nBeachte die Stelle von `use(ThemaContext)`: sie steht **hinter** dem fruehen `return` fuer den kompakten Fall. Mit `useContext` waere das ein Verstoss gegen die Hook-Regeln, mit `use` ist es erlaubt - und im kompakten Fall wird der Context gar nicht gelesen."
+    },
+    {
+      "id": "ex-panel-lesen",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Das Panel lesen",
+      "exercise": {
+        "id": "ex-panel-lesen",
+        "stable_id": "ex-mue1psnp01fzj",
+        "type": "ext:al-reading-comprehension",
+        "prompt": "Beantworte drei Fragen zu diesem Bauteil.",
+        "ext_payload": {
+          "passage": "import { use, Suspense, createContext } from \"react\";\n\nconst ThemaContext = createContext(\"hell\");\n\nfunction Profil({ nutzerPromise, kompakt }) {\n  const nutzer = use(nutzerPromise);\n  if (kompakt) {\n    return <span>{nutzer.name}</span>;\n  }\n  const thema = use(ThemaContext);\n  return <p className={thema}>{nutzer.name} ({nutzer.rolle})</p>;\n}\n\nexport function ProfilPanel({ nutzerPromise }) {\n  return (\n    <Suspense fallback={<p>Laedt ...</p>}>\n      <Profil nutzerPromise={nutzerPromise} kompakt={false} />\n    </Suspense>\n  );\n}",
+          "questions": [
+            {
+              "prompt": "Profil wird mit kompakt={true} gerendert. Welche Zeilen laufen, waehrend nutzerPromise noch offen ist?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "Keine ueber use hinaus: die Komponente haelt schon an der ersten use-Zeile an",
+                  "correct": true
+                },
+                {
+                  "text": "Alle bis zum fruehen return, danach wartet React"
+                },
+                {
+                  "text": "Die ganze Komponente laeuft durch, nutzer ist undefined"
+                },
+                {
+                  "text": "Nur die Zeile mit use(ThemaContext)"
+                }
+              ]
+            },
+            {
+              "prompt": "Was zeigt der Bildschirm, solange nutzerPromise offen ist?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "Laedt ..., den fallback der Suspense-Grenze in ProfilPanel",
+                  "correct": true
+                },
+                {
+                  "text": "Eine leere Seite, weil Profil nichts zurueckgibt"
+                },
+                {
+                  "text": "Den Namen mit einem leeren Klammerpaar dahinter"
+                },
+                {
+                  "text": "Eine Fehlermeldung, weil use kein Promise annehmen darf"
+                }
+              ]
+            },
+            {
+              "prompt": "Wie heisst der Context, den die Komponente im nicht kompakten Fall liest?",
+              "type": "free_text",
+              "accept": [
+                "ThemaContext",
+                "ThemaContext ",
+                "thema"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-promise-im-render",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Das Promise aus dem Render",
+      "exercise": {
+        "id": "ex-promise-im-render",
+        "stable_id": "ex-mue1psnp01ger",
+        "type": "ext:al-error-correction",
+        "prompt": "Eine Marke in dieser Zeile ist falsch. Markiere sie und schreibe die richtige hin.",
+        "ext_payload": {
+          "tokens": [
+            "const",
+            "nutzer",
+            "=",
+            "use(ladeNutzer())"
+          ],
+          "error_index": 3,
+          "accept": [
+            "use(nutzerPromise)",
+            "use(nutzerPromise);",
+            "nutzerPromise"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-use-zeile",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Die Zeile, die anhaelt",
+      "exercise": {
+        "id": "ex-use-zeile",
+        "stable_id": "ex-mue1psnp01ho9",
+        "type": "cloze",
+        "cloze_mode": "type",
+        "prompt": "Ergaenze den Aufruf, der das Promise im Render liest.",
+        "card_ids": [
+          "use-promise-herkunft"
+        ],
+        "sentence": "const nutzer = ___(nutzerPromise);",
+        "blanks": [
+          {
+            "accept": [
+              "use"
+            ], "stable_id": "blank-mue1psnp01iyu"
+          }
+        ],
+        "hint": "Dieselbe API liest Promise und Context."
+      }
+    },
+    {
+      "id": "ex-ablauf-suspense",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Der Ablauf beim ersten Rendern",
+      "exercise": {
+        "id": "ex-ablauf-suspense",
+        "stable_id": "ex-mue1psnp01jce",
+        "type": "ext:al-ordering",
+        "prompt": "Bringe die Schritte in die Reihenfolge, in der sie beim ersten Rendern mit offenem Promise ablaufen.",
+        "ext_payload": {
+          "items": [
+            "ProfilPanel rendert und stellt die Suspense-Grenze auf",
+            "Profil beginnt zu rendern und trifft auf use(nutzerPromise)",
+            "React haelt Profil an und zeigt den fallback der Grenze",
+            "Das Promise loest sich auf",
+            "React rendert Profil erneut, use gibt den Nutzer zurueck"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-aufrufstellen",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Wo was stehen darf",
+      "exercise": {
+        "id": "ex-aufrufstellen",
+        "stable_id": "ex-mue1psnp01kiv",
+        "type": "ext:al-categorization",
+        "prompt": "Ordne jede Aussage der Regel zu, unter der sie steht.",
+        "ext_payload": {
+          "categories": [
+            {
+              "name": "darf bedingt aufgerufen werden",
+              "items": [
+                "use(ThemaContext) hinter einem fruehen return",
+                "use(nutzerPromise) innerhalb eines if-Blocks"
+              ]
+            },
+            {
+              "name": "nur auf oberster Ebene der Komponente",
+              "items": [
+                "useContext(ThemaContext)",
+                "useState(0)",
+                "useEffect mit Abhaengigkeitsliste"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-profil-zusammensetzen",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Profil zusammensetzen",
+      "exercise": {
+        "id": "ex-profil-zusammensetzen",
+        "stable_id": "ex-mue1psnp01lbb",
+        "type": "ext:al-parsons",
+        "prompt": "Setze die Komponente so zusammen, dass der kompakte Fall den Context gar nicht erst liest.",
+        "ext_payload": {
+          "language": "javascript",
+          "lines": [
+            {
+              "code": "function Profil({ nutzerPromise, kompakt }) {",
+              "indent": 0
+            },
+            {
+              "code": "const nutzer = use(nutzerPromise);",
+              "indent": 1
+            },
+            {
+              "code": "if (kompakt) {",
+              "indent": 1
+            },
+            {
+              "code": "return <span>{nutzer.name}</span>;",
+              "indent": 2
+            },
+            {
+              "code": "}",
+              "indent": 1
+            },
+            {
+              "code": "const thema = use(ThemaContext);",
+              "indent": 1
+            },
+            {
+              "code": "return <p className={thema}>{nutzer.name}</p>;",
+              "indent": 1
+            },
+            {
+              "code": "}",
+              "indent": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-grenze-waehlen",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Welche Grenze antwortet",
+      "exercise": {
+        "id": "ex-grenze-waehlen",
+        "stable_id": "ex-mue1psnp01ms3",
+        "type": "multiple_choice",
+        "prompt": "Zwei Suspense-Grenzen liegen uebereinander, eine in ProfilPanel, eine weiter oben im Seitenlayout. Welcher fallback erscheint, wenn Profil anhaelt?",
+        "card_ids": [
+          "suspense-grenze"
+        ],
+        "options": [
+          {
+            "text": "Der von ProfilPanel, weil es die naechste Grenze oberhalb ist",
+            "correct": true, "stable_id": "opt-mue1psnp01nny"
+          },
+          {
+            "text": "Der des Seitenlayouts, weil aeussere Grenzen Vorrang haben", "stable_id": "opt-mue1psnp01o19"
+          },
+          {
+            "text": "Beide gleichzeitig", "stable_id": "opt-mue1psnp01piz"
+          },
+          {
+            "text": "Keiner, solange nur eine Komponente anhaelt", "stable_id": "opt-mue1psnp01q62"
+          }
+        ],
+        "explanation": "React sucht von der angehaltenen Komponente nach oben und nimmt die erste Suspense-Grenze, die es findet. Die aeussere bleibt unberuehrt, solange die innere den Fall abfaengt."
+      }
+    },
+    {
+      "id": "ex-use-vs-usecontext",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "use gegen useContext",
+      "exercise": {
+        "id": "ex-use-vs-usecontext",
+        "stable_id": "ex-mue1psnp01rdg",
+        "type": "multiple_choice",
+        "prompt": "Was gilt fuer use(ThemaContext) im Vergleich zu useContext(ThemaContext)?",
+        "card_ids": [
+          "use-bedingt"
+        ],
+        "options": [
+          {
+            "text": "Beide liefern denselben Wert, aber use darf hinter einer Bedingung stehen",
+            "correct": true, "stable_id": "opt-mue1psnp01suc"
+          },
+          {
+            "text": "use liefert den Standardwert des Context, useContext den naechsten Provider", "stable_id": "opt-mue1psnp01t1b"
+          },
+          {
+            "text": "use haelt die Komponente an, useContext nicht", "stable_id": "opt-mue1psnp01upn"
+          },
+          {
+            "text": "use funktioniert nur in Server-Komponenten", "stable_id": "opt-mue1psnp01v86"
+          }
+        ],
+        "explanation": "Beim Lesen von Context unterscheiden sich die beiden nur in den Aufrufregeln. Anhalten tut use nur bei einem Promise, nicht bei einem Context."
+      }
+    }
+  ]
+}

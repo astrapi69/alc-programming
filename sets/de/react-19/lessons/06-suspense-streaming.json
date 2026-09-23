@@ -1,0 +1,349 @@
+{
+  "id": "06-suspense-streaming",
+  "title": "Suspense-Grenzen, Streaming und gebuendelte Enthuellung",
+  "description": "Zwei Grenzen auf einer Seite, zwei unterschiedlich schnelle Datenquellen. Seit React 19.2 werden Enthuellungen beim Server-Rendern gebuendelt, statt einzeln durchzuschlagen.",
+  "target_language": "de",
+  "source_language": "de",
+  "domain": "programming",
+  "estimated_minutes": 15,
+  "requires_extensions": [
+    "ext:al-reading-comprehension@1",
+    "ext:al-ordering@1",
+    "ext:al-parsons@1",
+    "ext:al-error-correction@1",
+    "ext:al-categorization@1"
+  ],
+  "cards": [
+    {
+      "id": "grenze-granularitaet",
+      "stable_id": "card-mue1psns034hf",
+      "front": "Wie fein eine Grenze sitzt",
+      "back": "Eine Suspense-Grenze bestimmt, welcher Teil der Seite wartet. Je weiter oben sie sitzt, desto mehr haelt sie zurueck.",
+      "notes": "Zwei Grenzen nebeneinander lassen die schnelle Haelfte frueher erscheinen.",
+      "media_type": "text",
+      "difficulty": 3,
+      "tags": [
+        "react",
+        "suspense"
+      ]
+    },
+    {
+      "id": "streaming-reihenfolge",
+      "stable_id": "card-mue1psns035dv",
+      "front": "Streaming und Reihenfolge",
+      "back": "Der Server schickt die Seite in Stuecken. Ein Stueck kann fertig sein, waehrend ein anderes noch wartet, und erreicht den Browser frueher.",
+      "notes": "Die Markup-Reihenfolge der Seite bleibt davon unberuehrt.",
+      "media_type": "text",
+      "difficulty": 3,
+      "tags": [
+        "react",
+        "ssr"
+      ]
+    },
+    {
+      "id": "gebuendelte-enthuellung",
+      "stable_id": "card-mue1psns036yl",
+      "front": "Gebuendelte Enthuellung (19.2)",
+      "back": "Beim Server-Rendern buendelt React Enthuellungen von Suspense-Grenzen, die kurz nacheinander fertig werden, statt jede einzeln durchschlagen zu lassen.",
+      "notes": "Das gleicht das Verhalten an den Client an und macht View Transitions moeglich.",
+      "media_type": "text",
+      "difficulty": 4,
+      "tags": [
+        "react",
+        "ssr"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "type": "theory",
+      "title": "Was eine Grenze zurueckhaelt",
+      "body": "# Grenzen und Stuecke\n\nEine `<Suspense>`-Grenze umschliesst den Teil der Seite, der auf Daten wartet. Alles ausserhalb erscheint sofort. Beim **Server-Rendern** wird daraus Streaming: der Server schickt die fertigen Teile, laesst fuer wartende Teile den `fallback` stehen und liefert den Rest nach, sobald die Daten da sind.\n\nZwei Grenzen nebeneinander machen die Seite unabhaengig: die schnelle Liste erscheint, waehrend die langsamen Empfehlungen noch laden. Eine einzige Grenze um beide wuerde auf das langsamere Stueck warten."
+    },
+    {
+      "id": "buendelung",
+      "type": "theory",
+      "title": "Gebuendelte Enthuellung seit 19.2",
+      "body": "# Buendelung\n\nBis React 19.1 schlug beim Server-Rendern **jedes** fertige Stueck sofort durch. Wurden zwei Grenzen im Abstand von Millisekunden fertig, sprang das Layout zweimal.\n\nSeit **React 19.2** buendelt React diese Enthuellungen: Grenzen, die kurz nacheinander fertig werden, erscheinen zusammen. Das gleicht das Server-Verhalten an das an, was im Browser laengst galt, und ist die Voraussetzung dafuer, dass `<ViewTransition>` ueber eine Enthuellung hinweg sauber animieren kann.\n\nNicht verwechseln mit `useDeferredValue` oder `startTransition`: die entscheiden, **welche** Aktualisierung Vorrang hat. Die Buendelung entscheidet, **wann** fertige Stuecke sichtbar werden."
+    },
+    {
+      "id": "ex-seite-lesen",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Die Seite mit zwei Grenzen",
+      "exercise": {
+        "id": "ex-seite-lesen",
+        "stable_id": "ex-mue1psns037n2",
+        "type": "ext:al-reading-comprehension",
+        "prompt": "Beantworte drei Fragen zu diesem Aufbau.",
+        "ext_payload": {
+          "passage": "import { Suspense } from \"react\";\n\nfunction Seite({ kopfPromise, listePromise, empfehlungenPromise }) {\n  return (\n    <main>\n      <Kopf datenPromise={kopfPromise} />\n      <Suspense fallback={<p>Liste laedt ...</p>}>\n        <Liste datenPromise={listePromise} />\n      </Suspense>\n      <Suspense fallback={<p>Empfehlungen laden ...</p>}>\n        <Empfehlungen datenPromise={empfehlungenPromise} />\n      </Suspense>\n    </main>\n  );\n}",
+          "questions": [
+            {
+              "prompt": "kopfPromise ist noch offen. Was zeigt die Seite?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "Nichts von dieser Seite: Kopf liegt ausserhalb jeder Grenze und haelt den ganzen Teilbaum an",
+                  "correct": true
+                },
+                {
+                  "text": "Den Kopf als leeres Element, die beiden Fallbacks darunter"
+                },
+                {
+                  "text": "Beide Fallbacks, der Kopf erscheint spaeter von selbst"
+                },
+                {
+                  "text": "Eine Fehlermeldung, weil Kopf keinen eigenen fallback hat"
+                }
+              ]
+            },
+            {
+              "prompt": "listePromise ist nach 100 ms fertig, empfehlungenPromise nach 3 Sekunden. Was sieht die Person dazwischen?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "Die fertige Liste und darunter weiterhin Empfehlungen laden ...",
+                  "correct": true
+                },
+                {
+                  "text": "Beide Fallbacks, bis auch die Empfehlungen fertig sind"
+                },
+                {
+                  "text": "Die Liste erst, wenn die Empfehlungen nachgezogen sind"
+                },
+                {
+                  "text": "Die Empfehlungen zuerst, weil sie weiter unten stehen"
+                }
+              ]
+            },
+            {
+              "prompt": "Wie viele Suspense-Grenzen stehen in diesem Ausschnitt?",
+              "type": "free_text",
+              "accept": [
+                "zwei",
+                "2",
+                "Zwei"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-streaming-ablauf",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Der Ablauf beim Server-Rendern",
+      "exercise": {
+        "id": "ex-streaming-ablauf",
+        "stable_id": "ex-mue1psns038xd",
+        "type": "ext:al-ordering",
+        "prompt": "Bringe die Schritte in die Reihenfolge, in der der Server diese Seite ausliefert.",
+        "ext_payload": {
+          "items": [
+            "Der Server rendert alles, was ohne die offenen Daten geht",
+            "Er schickt dieses erste Stueck samt beider Fallbacks",
+            "Die Daten der Liste treffen ein, der Server rendert sie nach",
+            "Das nachgelieferte Stueck ersetzt den Fallback der Liste",
+            "Die Empfehlungen folgen als letztes Stueck"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-grenze-setzen",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Die Grenze enger setzen",
+      "exercise": {
+        "id": "ex-grenze-setzen",
+        "stable_id": "ex-mue1psns039dw",
+        "type": "ext:al-parsons",
+        "prompt": "Setze den Ausschnitt so zusammen, dass nur die Empfehlungen warten, der Rest der Seite aber sofort steht.",
+        "ext_payload": {
+          "language": "javascript",
+          "lines": [
+            {
+              "code": "<main>",
+              "indent": 0
+            },
+            {
+              "code": "<Liste eintraege={eintraege} />",
+              "indent": 1
+            },
+            {
+              "code": "<Suspense fallback={<p>Empfehlungen laden ...</p>}>",
+              "indent": 1
+            },
+            {
+              "code": "<Empfehlungen datenPromise={empfehlungenPromise} />",
+              "indent": 2
+            },
+            {
+              "code": "</Suspense>",
+              "indent": 1
+            },
+            {
+              "code": "</main>",
+              "indent": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-fallback-falsch",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Der Fallback an der falschen Stelle",
+      "exercise": {
+        "id": "ex-fallback-falsch",
+        "stable_id": "ex-mue1psns03adn",
+        "type": "ext:al-error-correction",
+        "prompt": "Eine Marke in dieser Zeile ist falsch, der Ladehinweis erschiene sonst dauerhaft neben dem Inhalt. Markiere sie und schreibe die richtige hin.",
+        "ext_payload": {
+          "tokens": [
+            "<Suspense>",
+            "<p>Liste",
+            "laedt",
+            "...</p>",
+            "<Liste",
+            "/></Suspense>"
+          ],
+          "error_index": 0,
+          "accept": [
+            "<Suspense fallback={<p>Liste laedt ...</p>}>",
+            "fallback={<p>Liste laedt ...</p>}",
+            "<Suspense fallback={...}>"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-grenzenzahl",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Eine Grenze oder zwei",
+      "exercise": {
+        "id": "ex-grenzenzahl",
+        "stable_id": "ex-mue1psns03bi1",
+        "type": "multiple_choice",
+        "prompt": "Was aendert sich, wenn man beide Bereiche in EINE gemeinsame Suspense-Grenze steckt?",
+        "card_ids": [
+          "grenze-granularitaet"
+        ],
+        "options": [
+          {
+            "text": "Die Liste bleibt unsichtbar, bis auch die Empfehlungen fertig sind",
+            "correct": true, "stable_id": "opt-mue1psns03cyh"
+          },
+          {
+            "text": "Beide Bereiche laden schneller, weil React die Anfragen buendelt", "stable_id": "opt-mue1psns03d0j"
+          },
+          {
+            "text": "Der Fallback wird zweimal gezeigt", "stable_id": "opt-mue1psns03e0x"
+          },
+          {
+            "text": "Nichts, die Grenze wirkt pro Kindelement", "stable_id": "opt-mue1psns03f71"
+          }
+        ],
+        "explanation": "Eine Grenze enthuellt ihren Inhalt als Ganzes. Umschliesst sie beide Bereiche, wartet der schnelle auf den langsamen."
+      }
+    },
+    {
+      "id": "ex-buendelung-wirkung",
+      "type": "exercise",
+      "theory_ref": "buendelung",
+      "title": "Was die Buendelung aendert",
+      "exercise": {
+        "id": "ex-buendelung-wirkung",
+        "stable_id": "ex-mue1psns03gom",
+        "type": "multiple_choice",
+        "prompt": "Zwei Grenzen werden beim Server-Rendern 30 Millisekunden nacheinander fertig. Was tut React 19.2 anders als 19.1?",
+        "card_ids": [
+          "gebuendelte-enthuellung"
+        ],
+        "options": [
+          {
+            "text": "Es enthuellt beide zusammen, statt das Layout zweimal springen zu lassen",
+            "correct": true, "stable_id": "opt-mue1psns03hqm"
+          },
+          {
+            "text": "Es wartet, bis alle Grenzen der Seite fertig sind", "stable_id": "opt-mue1psns03it9"
+          },
+          {
+            "text": "Es laedt die Daten beider Grenzen in einer Anfrage", "stable_id": "opt-mue1psns03j3y"
+          },
+          {
+            "text": "Es verschiebt die zweite Grenze in eine Transition", "stable_id": "opt-mue1psns03kcd"
+          }
+        ],
+        "explanation": "Die Buendelung betrifft den Zeitpunkt der Enthuellung, nicht das Laden. Sie gleicht das Server-Verhalten an das des Browsers an und ist die Grundlage fuer Animationen ueber eine Enthuellung hinweg."
+      }
+    },
+    {
+      "id": "ex-zustaendig",
+      "type": "exercise",
+      "theory_ref": "buendelung",
+      "title": "Wer entscheidet was",
+      "exercise": {
+        "id": "ex-zustaendig",
+        "stable_id": "ex-mue1psns03l78",
+        "type": "ext:al-categorization",
+        "prompt": "Ordne jede Aussage dem Mechanismus zu, der sie bestimmt.",
+        "ext_payload": {
+          "categories": [
+            {
+              "name": "Suspense-Grenze",
+              "items": [
+                "welcher Teil der Seite wartet",
+                "welcher Ladehinweis erscheint"
+              ]
+            },
+            {
+              "name": "Streaming",
+              "items": [
+                "dass fertige Stuecke vor den unfertigen ankommen",
+                "dass der Server die Seite in Teilen schickt"
+              ]
+            },
+            {
+              "name": "Buendelung seit 19.2",
+              "items": [
+                "dass zwei kurz nacheinander fertige Grenzen zusammen erscheinen"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-grenze-ergaenzen",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Die fehlende Grenze",
+      "exercise": {
+        "id": "ex-grenze-ergaenzen",
+        "stable_id": "ex-mue1psns03mts",
+        "type": "cloze",
+        "cloze_mode": "type",
+        "prompt": "Ergaenze das Element, das den Ladehinweis fuer diesen Abschnitt stellt.",
+        "card_ids": [
+          "streaming-reihenfolge",
+          "grenze-granularitaet"
+        ],
+        "sentence": "<___ fallback={<p>Empfehlungen laden ...</p>}>",
+        "blanks": [
+          {
+            "accept": [
+              "Suspense"
+            ], "stable_id": "blank-mue1psns03nm4"
+          }
+        ],
+        "hint": "Es kommt aus react und umschliesst den wartenden Teil."
+      }
+    }
+  ]
+}

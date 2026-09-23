@@ -1,0 +1,353 @@
+{
+  "id": "02-useformstatus-useoptimistic",
+  "title": "useFormStatus und useOptimistic",
+  "description": "Ein Kommentarbereich, der den neuen Eintrag sofort zeigt und den Knopf waehrend des Absendens abschaltet. Zwei Hooks, die nur im richtigen Baumabschnitt funktionieren.",
+  "target_language": "de",
+  "source_language": "de",
+  "domain": "programming",
+  "estimated_minutes": 14,
+  "requires_extensions": [
+    "ext:al-reading-comprehension@1",
+    "ext:al-error-correction@1",
+    "ext:al-categorization@1",
+    "ext:al-parsons@1"
+  ],
+  "cards": [
+    {
+      "id": "useformstatus-ort",
+      "stable_id": "card-mue1psnp00op9",
+      "front": "Wo useFormStatus steht",
+      "back": "In einer Komponente INNERHALB des Formulars. Im selben Bauteil, das <form> rendert, meldet es nichts: es liest das Formular oberhalb wie einen Context.",
+      "notes": "Deshalb ist der Absendeknopf ein eigenes Bauteil.",
+      "media_type": "text",
+      "difficulty": 3,
+      "tags": [
+        "react",
+        "formulare"
+      ]
+    },
+    {
+      "id": "useoptimistic-rueckfall",
+      "stable_id": "card-mue1psnp00pxp",
+      "front": "useOptimistic und der Rueckfall",
+      "back": "Der optimistische Wert gilt nur, solange die Action laeuft. Danach zeigt React wieder den echten Stand, egal ob die Action erfolgreich war oder fehlschlug.",
+      "notes": "Ein Fehlschlag laesst den vorgezogenen Eintrag verschwinden.",
+      "media_type": "text",
+      "difficulty": 3,
+      "tags": [
+        "react",
+        "formulare"
+      ]
+    },
+    {
+      "id": "optimistic-reducer",
+      "stable_id": "card-mue1psnp00qur",
+      "front": "Der zweite Parameter von useOptimistic",
+      "back": "Eine reine Funktion (bisherigerStand, wert) => neuerStand. Sie darf den bisherigen Stand nicht veraendern, sondern gibt einen neuen zurueck.",
+      "notes": "push() statt Spread ist der klassische Fehler.",
+      "media_type": "text",
+      "difficulty": 3,
+      "tags": [
+        "react",
+        "formulare"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "type": "theory",
+      "title": "Zwei Hooks, zwei Bedingungen",
+      "body": "# Zustand waehrend des Absendens\n\n`useFormStatus()` liest das **umgebende** Formular, so wie `useContext` einen Context liest. Es gibt unter anderem `pending` zurueck. Die Bedingung: der Hook muss in einer Komponente stehen, die **innerhalb** des `<form>` gerendert wird. Im selben Bauteil, das das Formular selbst rendert, meldet er nie `pending: true`.\n\n`useOptimistic(stand, reduzierer)` gibt `[anzeige, hinzufuegen]` zurueck. Ruft man `hinzufuegen(wert)` in einer Action auf, zeigt React sofort den vorgezogenen Stand und faellt automatisch auf den echten zurueck, sobald die Action fertig ist - **auch im Fehlerfall**."
+    },
+    {
+      "id": "artefakt",
+      "type": "theory",
+      "title": "Der Kommentarbereich",
+      "body": "# Das Artefakt\n\n```jsx\nimport { useOptimistic, useRef } from \"react\";\nimport { useFormStatus } from \"react-dom\";\n\nfunction SendeKnopf() {\n  const { pending } = useFormStatus();\n  return <button disabled={pending}>{pending ? \"Sende ...\" : \"Abschicken\"}</button>;\n}\n\nexport function Kommentare({ kommentare, sendeKommentar }) {\n  const formular = useRef(null);\n  const [anzeige, fuegeOptimistischHinzu] = useOptimistic(\n    kommentare,\n    (bisher, neuerText) => [...bisher, { id: \"temp\", text: neuerText, schwebend: true }]\n  );\n\n  return (\n    <>\n      <ul>\n        {anzeige.map((k) => (\n          <li key={k.id} style={{ opacity: k.schwebend ? 0.5 : 1 }}>{k.text}</li>\n        ))}\n      </ul>\n      <form\n        ref={formular}\n        action={async (formData) => {\n          const text = formData.get(\"text\");\n          fuegeOptimistischHinzu(text);\n          formular.current.reset();\n          await sendeKommentar(text);\n        }}\n      >\n        <input name=\"text\" />\n        <SendeKnopf />\n      </form>\n    </>\n  );\n}\n```\n\nDrei Details, die die Uebungen aufgreifen: der Absendeknopf ist ein **eigenes Bauteil**, der Reduzierer baut ein **neues Array**, und `formular.current.reset()` leert das Feld, bevor das Netz antwortet."
+    },
+    {
+      "id": "ex-kommentarbereich-lesen",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Den Kommentarbereich lesen",
+      "exercise": {
+        "id": "ex-kommentarbereich-lesen",
+        "stable_id": "ex-mue1psnp00rjf",
+        "type": "ext:al-reading-comprehension",
+        "prompt": "Beantworte drei Fragen zu diesem Bauteil.",
+        "ext_payload": {
+          "passage": "import { useOptimistic, useRef } from \"react\";\nimport { useFormStatus } from \"react-dom\";\n\nfunction SendeKnopf() {\n  const { pending } = useFormStatus();\n  return <button disabled={pending}>{pending ? \"Sende ...\" : \"Abschicken\"}</button>;\n}\n\nexport function Kommentare({ kommentare, sendeKommentar }) {\n  const formular = useRef(null);\n  const [anzeige, fuegeOptimistischHinzu] = useOptimistic(\n    kommentare,\n    (bisher, neuerText) => [...bisher, { id: \"temp\", text: neuerText, schwebend: true }]\n  );\n\n  return (\n    <>\n      <ul>\n        {anzeige.map((k) => (\n          <li key={k.id} style={{ opacity: k.schwebend ? 0.5 : 1 }}>{k.text}</li>\n        ))}\n      </ul>\n      <form\n        ref={formular}\n        action={async (formData) => {\n          const text = formData.get(\"text\");\n          fuegeOptimistischHinzu(text);\n          formular.current.reset();\n          await sendeKommentar(text);\n        }}\n      >\n        <input name=\"text\" />\n        <SendeKnopf />\n      </form>\n    </>\n  );\n}",
+          "questions": [
+            {
+              "prompt": "sendeKommentar wirft einen Fehler. Was sieht die lernende Person danach in der Liste?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "Den vorgezogenen Eintrag nicht mehr, React faellt auf kommentare zurueck",
+                  "correct": true
+                },
+                {
+                  "text": "Den vorgezogenen Eintrag dauerhaft, halb durchsichtig"
+                },
+                {
+                  "text": "Eine leere Liste, weil der Stand verworfen wird"
+                },
+                {
+                  "text": "Den Eintrag ohne Transparenz, weil schwebend zurueckgesetzt wird"
+                }
+              ]
+            },
+            {
+              "prompt": "Warum steht der Absendeknopf in einem eigenen Bauteil statt direkt im Formular?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "Weil useFormStatus nur innerhalb des Formulars etwas meldet",
+                  "correct": true
+                },
+                {
+                  "text": "Weil ein button in JSX nicht direkt in einem form stehen darf"
+                },
+                {
+                  "text": "Damit useOptimistic den Knopf neu rendern kann"
+                },
+                {
+                  "text": "Aus Stilgruenden, technisch ist es gleichwertig"
+                }
+              ]
+            },
+            {
+              "prompt": "Welches Attribut gibt der li-Elementliste ihren Schluessel?",
+              "type": "free_text",
+              "accept": [
+                "key",
+                "key={k.id}",
+                "k.id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-reduzierer-mutation",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Der Reduzierer, der zu viel tut",
+      "exercise": {
+        "id": "ex-reduzierer-mutation",
+        "stable_id": "ex-mue1psnp00sen",
+        "type": "ext:al-error-correction",
+        "prompt": "Eine Marke in diesem Reduzierer ist falsch. Markiere sie und schreibe die richtige hin.",
+        "ext_payload": {
+          "tokens": [
+            "(bisher,",
+            "neuerText)",
+            "=>",
+            "bisher.push({ id: \"temp\", text: neuerText })"
+          ],
+          "error_index": 3,
+          "accept": [
+            "[...bisher, { id: \"temp\", text: neuerText }]",
+            "[...bisher, { id: \"temp\", text: neuerText, schwebend: true }]"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-pending-lesen",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Das Feld aus useFormStatus",
+      "exercise": {
+        "id": "ex-pending-lesen",
+        "stable_id": "ex-mue1psnp00t7c",
+        "type": "cloze",
+        "cloze_mode": "type",
+        "prompt": "Ergaenze das Feld, das der Knopf aus dem Formularstatus liest.",
+        "card_ids": [
+          "useformstatus-ort"
+        ],
+        "sentence": "const { ___ } = useFormStatus();",
+        "blanks": [
+          {
+            "accept": [
+              "pending"
+            ], "stable_id": "blank-mue1psnp00uvp"
+          }
+        ],
+        "hint": "Englisch fuer schwebend."
+      }
+    },
+    {
+      "id": "ex-action-zusammensetzen",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Die Action des Formulars",
+      "exercise": {
+        "id": "ex-action-zusammensetzen",
+        "stable_id": "ex-mue1psnp00vcd",
+        "type": "ext:al-parsons",
+        "prompt": "Bringe die Zeilen der Action in die Reihenfolge, die den Eintrag sofort zeigt und das Feld leert, bevor das Netz antwortet.",
+        "ext_payload": {
+          "language": "javascript",
+          "lines": [
+            {
+              "code": "async (formData) => {",
+              "indent": 0
+            },
+            {
+              "code": "const text = formData.get(\"text\");",
+              "indent": 1
+            },
+            {
+              "code": "fuegeOptimistischHinzu(text);",
+              "indent": 1
+            },
+            {
+              "code": "formular.current.reset();",
+              "indent": 1
+            },
+            {
+              "code": "await sendeKommentar(text);",
+              "indent": 1
+            },
+            {
+              "code": "}",
+              "indent": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-zustaendigkeiten",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Wer ist wofuer zustaendig",
+      "exercise": {
+        "id": "ex-zustaendigkeiten",
+        "stable_id": "ex-mue1psnp00wg8",
+        "type": "ext:al-categorization",
+        "prompt": "Ordne jede Aussage dem Hook zu, der sie leistet.",
+        "ext_payload": {
+          "categories": [
+            {
+              "name": "useFormStatus",
+              "items": [
+                "meldet, dass das umgebende Formular gerade absendet",
+                "braucht ein Bauteil innerhalb des form-Elements",
+                "schaltet den Absendeknopf ab"
+              ]
+            },
+            {
+              "name": "useOptimistic",
+              "items": [
+                "zeigt einen Eintrag, bevor der Server geantwortet hat",
+                "faellt nach der Action auf den echten Stand zurueck",
+                "braucht eine reine Funktion als zweiten Parameter"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-fehlerfall",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Der Fehlerfall",
+      "exercise": {
+        "id": "ex-fehlerfall",
+        "stable_id": "ex-mue1psnp00xxl",
+        "type": "multiple_choice",
+        "prompt": "Was unterscheidet useOptimistic von einem eigenen useState, in das man den neuen Eintrag schreibt?",
+        "card_ids": [
+          "useoptimistic-rueckfall"
+        ],
+        "options": [
+          {
+            "text": "Der vorgezogene Wert verschwindet nach der Action von selbst, ohne Aufraeumcode",
+            "correct": true, "stable_id": "opt-mue1psnp00ygs"
+          },
+          {
+            "text": "useOptimistic sendet die Daten selbst an den Server", "stable_id": "opt-mue1psnp00znx"
+          },
+          {
+            "text": "useOptimistic verhindert, dass die Action fehlschlaegt", "stable_id": "opt-mue1psnp010pm"
+          },
+          {
+            "text": "useState kann keine Arrays halten", "stable_id": "opt-mue1psnp011ui"
+          }
+        ],
+        "explanation": "Mit useState muesste man den vorgezogenen Eintrag im Erfolgsfall ersetzen und im Fehlerfall zuruecknehmen, also zwei Pfade von Hand pflegen. useOptimistic bindet den vorgezogenen Wert an die Laufzeit der Action und raeumt ihn danach selbst ab."
+      }
+    },
+    {
+      "id": "ex-reset-zeitpunkt",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Der Zeitpunkt des reset",
+      "exercise": {
+        "id": "ex-reset-zeitpunkt",
+        "stable_id": "ex-mue1psnp012cx",
+        "type": "multiple_choice",
+        "prompt": "Das reset() steht vor dem await. Was waere die Folge, wenn es dahinter stuende?",
+        "card_ids": [
+          "optimistic-reducer"
+        ],
+        "options": [
+          {
+            "text": "Der getippte Text bliebe waehrend des Absendens im Feld stehen und erschiene doppelt",
+            "correct": true, "stable_id": "opt-mue1psnp013p6"
+          },
+          {
+            "text": "Die Action wuerde gar nicht mehr ausgefuehrt", "stable_id": "opt-mue1psnp0143m"
+          },
+          {
+            "text": "useOptimistic wuerde den Eintrag nicht mehr anzeigen", "stable_id": "opt-mue1psnp015y8"
+          },
+          {
+            "text": "Das Formular wuerde zweimal abgesendet", "stable_id": "opt-mue1psnp016g4"
+          }
+        ],
+        "explanation": "Der vorgezogene Eintrag steht ab dem Aufruf von fuegeOptimistischHinzu in der Liste. Bliebe der Text gleichzeitig im Eingabefeld, saehe die Person ihn zweimal, bis der Server geantwortet hat."
+      }
+    },
+    {
+      "id": "ex-begriff-wirkung",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Begriff und Wirkung",
+      "exercise": {
+        "id": "ex-begriff-wirkung",
+        "stable_id": "ex-mue1psnp0176j",
+        "type": "matching",
+        "prompt": "Ordne jeder Stelle im Bauteil ihre Wirkung zu.",
+        "card_ids": [
+          "useformstatus-ort",
+          "useoptimistic-rueckfall"
+        ],
+        "pairs": [
+          {
+            "left": "pending aus useFormStatus",
+            "right": "schaltet den Knopf waehrend des Absendens ab", "stable_id": "pair-mue1psnp018vx"
+          },
+          {
+            "left": "fuegeOptimistischHinzu(text)",
+            "right": "zeigt den Eintrag vor der Antwort des Servers", "stable_id": "pair-mue1psnp019bj"
+          },
+          {
+            "left": "schwebend: true",
+            "right": "macht den vorgezogenen Eintrag halb durchsichtig", "stable_id": "pair-mue1psnp01ap3"
+          },
+          {
+            "left": "formular.current.reset()",
+            "right": "leert das Eingabefeld", "stable_id": "pair-mue1psnp01b96"
+          }
+        ]
+      }
+    }
+  ]
+}
