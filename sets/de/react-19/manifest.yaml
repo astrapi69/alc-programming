@@ -1,37 +1,37 @@
 # Set-Manifest: React 19 in der Praxis (Teil 3) - deutschsprachig.
 #
 # Dritter Teil der React-Reihe, und bewusst anders gebaut als Teil 1 und 2.
-# Dort pruefen die Uebungen Begriffe; hier haengt jede Uebung an einem
+# Dort prüfen die Übungen Begriffe; hier hängt jede Übung an einem
 # Code-Artefakt: pro Lektion eine Komponente, an der die Lektion arbeitet und
-# auf die sich alle acht Uebungen beziehen. Nicht "was macht X", sondern:
+# auf die sich alle acht Übungen beziehen. Nicht "was macht X", sondern:
 # hier steht Code, was passiert.
 #
 # Daraus folgt die Typenwahl. Kein cloze im select-Modus mit leerem
-# Traegersatz (das war in Teil 1 und 2 die Umgehung fuer Multiple-Choice, bevor
+# Trägersatz (das war in Teil 1 und 2 die Umgehung für Multiple-Choice, bevor
 # es den Kerntyp gab); echte Auswahlfragen sind multiple_choice. Pro Lektion
-# mindestens vier verschiedene Typen, hoechstens zwei desselben, und
+# mindestens vier verschiedene Typen, höchstens zwei desselben, und
 # mindestens zwei, die das Lesen von Code verlangen
 # (reading-comprehension, error-correction, parsons).
 #
 # Versionsstand: 19.0 (Dezember 2024), 19.2 (Oktober 2025) und 19.3
-# (9. September 2026), geprueft an react.dev am 2026-09-23. Der React
+# (9. September 2026), geprüft an react.dev am 2026-09-23. Der React
 # Compiler (1.0 seit Oktober 2025) hat keine eigene Lektion, sondern einen
 # Theorieblock in Lektion 07, wo sich die Frage stellt, wozu es noch useMemo
 # braucht.
 #
 # Kein evaluation-Block auf dem Set-Eintrag: die Engine validiert die
 # Deklaration, aber ziehen, rechnen und darstellen liegen beim Konsumenten,
-# und die App wertet den Block heute nicht aus. Die Abschlusspruefung in
-# Lektion 08 traegt ihre Schwelle deshalb im ext_payload des graded-quiz,
+# und die App wertet den Block heute nicht aus. Die Abschlussprüfung in
+# Lektion 08 trägt ihre Schwelle deshalb im ext_payload des graded-quiz,
 # wo sie ankommt.
 schema_version: '1.5'
 name: React 19 in der Praxis (Teil 3)
 description: >-
   Dritter Teil der React-Reihe (B2): acht Lektionen zu React 19.0, 19.2 und
   19.3, jede an einer durchgehenden Komponente. Actions und useActionState,
-  useFormStatus und useOptimistic, use fuer Promises und Context, ref als
+  useFormStatus und useOptimistic, use für Promises und Context, ref als
   Prop, Server Components, Suspense und Streaming, useEffectEvent und
-  Activity, ViewTransition und Fragment Refs samt Abschlusspruefung.
+  Activity, ViewTransition und Fragment Refs samt Abschlussprüfung.
 sets:
   - id: react-19-from-de
     title: React 19 in der Praxis (Teil 3)
@@ -44,14 +44,14 @@ sets:
     version: '1.0.0'
     lesson_count: 8
     description: >-
-      React 19 an lauffaehigem Code: pro Lektion eine Komponente, acht
-      Uebungen darauf. Deckt 19.0 (Actions, use, ref als Prop, Server
-      Components), 19.2 (gebuendelte Suspense-Enthuellung, useEffectEvent,
-      Activity) und 19.3 (ViewTransition, Fragment Refs) ab. Uebungstypen
+      React 19 an lauffähigem Code: pro Lektion eine Komponente, acht
+      Übungen darauf. Deckt 19.0 (Actions, use, ref als Prop, Server
+      Components), 19.2 (gebündelte Suspense-Enthüllung, useEffectEvent,
+      Activity) und 19.3 (ViewTransition, Fragment Refs) ab. Übungstypen
       mit Schwerpunkt auf Code lesen: reading-comprehension,
       error-correction, parsons, dazu ordering, categorization,
-      multiple_choice, matching, cloze mit echtem Traegersatz und eine
-      benotete Abschlusspruefung.
+      multiple_choice, matching, cloze mit echtem Trägersatz und eine
+      benotete Abschlussprüfung.
     tags:
       - programming
       - react

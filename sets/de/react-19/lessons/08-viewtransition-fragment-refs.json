@@ -1,7 +1,7 @@
 {
   "id": "08-viewtransition-fragment-refs",
-  "title": "ViewTransition, Fragment Refs und Abschlusspruefung",
-  "description": "Die beiden Neuerungen aus 19.3 an einer Galerie: animierte Uebergaenge fuer Aktualisierungen, die als Transition laufen, und eine ref auf eine Gruppe von Geschwisterknoten. Am Ende die Pruefung ueber das ganze Set.",
+  "title": "ViewTransition, Fragment Refs und Abschlussprüfung",
+  "description": "Die beiden Neuerungen aus 19.3 an einer Galerie: animierte Übergänge für Aktualisierungen, die als Transition laufen, und eine ref auf eine Gruppe von Geschwisterknoten. Am Ende die Prüfung über das ganze Set.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -18,7 +18,7 @@
       "id": "viewtransition-bedingung",
       "stable_id": "card-mue1psnt0487y",
       "front": "Wann ViewTransition animiert",
-      "back": "Nur bei Aktualisierungen, die als Transition laufen: startTransition, useDeferredValue oder eine Suspense-Enthuellung. Ein gewoehnliches setState animiert nichts.",
+      "back": "Nur bei Aktualisierungen, die als Transition laufen: startTransition, useDeferredValue oder eine Suspense-Enthüllung. Ein gewöhnliches setState animiert nichts.",
       "notes": "Stabil seit React 19.3.",
       "media_type": "text",
       "difficulty": 4,
@@ -31,7 +31,7 @@
       "id": "viewtransition-platz",
       "stable_id": "card-mue1psnt049fj",
       "front": "Wo ViewTransition stehen muss",
-      "back": "Als erstes im eigenen Teilbaum, vor jedem DOM-Knoten. Gemeinsam genutzte name-Attribute muessen in der ganzen Anwendung eindeutig sein.",
+      "back": "Als erstes im eigenen Teilbaum, vor jedem DOM-Knoten. Gemeinsam genutzte name-Attribute müssen in der ganzen Anwendung eindeutig sein.",
       "notes": "Nur im DOM, React Native ist in Arbeit.",
       "media_type": "text",
       "difficulty": 4,
@@ -44,8 +44,8 @@
       "id": "fragment-ref",
       "stable_id": "card-mue1psnt04alk",
       "front": "Fragment Refs",
-      "back": "Eine ref auf ein Fragment liefert eine FragmentInstance fuer die Gruppe der Geschwisterknoten: addEventListener, focus, observeUsing, getClientRects, scrollIntoView.",
-      "notes": "Ohne zusaetzliches Wrapper-Element im DOM.",
+      "back": "Eine ref auf ein Fragment liefert eine FragmentInstance für die Gruppe der Geschwisterknoten: addEventListener, focus, observeUsing, getClientRects, scrollIntoView.",
+      "notes": "Ohne zusätzliches Wrapper-Element im DOM.",
       "media_type": "text",
       "difficulty": 4,
       "tags": [
@@ -59,13 +59,19 @@
       "id": "intro",
       "type": "theory",
       "title": "Zwei Neuerungen aus 19.3",
-      "body": "# ViewTransition und Fragment Refs\n\n`<ViewTransition>` animiert Elemente beim Eintreten, Verlassen, Verschieben und Groessenaendern ueber die View-Transition-API des Browsers. Die Bedingung: die Aktualisierung muss als **Transition** laufen, also aus `startTransition`, `useDeferredValue` oder einer Suspense-Enthuellung kommen. Ein gewoehnliches `setState` animiert nichts.\n\n`addTransitionType(\"vor\")` sagt, **warum** die Aktualisierung geschieht; das Element waehlt danach seine Animation aus.\n\n**Fragment Refs**: ein `<Fragment ref={...}>` liefert eine Instanz fuer die ganze Gruppe der Geschwisterknoten, mit `addEventListener`, `focus`, `observeUsing`, `getClientRects` und `scrollIntoView` - ohne ein zusaetzliches `div` in den DOM zu setzen.\n\nBeides ist seit React 19.3 (9. September 2026) stabil."
+      "body": "# ViewTransition und Fragment Refs\n\n`<ViewTransition>` animiert Elemente beim Eintreten, Verlassen, Verschieben und Größenändern über die View-Transition-API des Browsers. Die Bedingung: die Aktualisierung muss als **Transition** laufen, sie muss also aus `startTransition`, aus `useDeferredValue` oder aus einer Suspense-Enthüllung stammen. Ein gewöhnliches `setState` animiert nichts.\n\n**Fragment Refs**: ein `<Fragment ref={...}>` liefert eine Instanz für die ganze Gruppe der Geschwisterknoten, mit `addEventListener`, `focus`, `observeUsing` und `getClientRects` - ohne ein zusätzliches `div` im DOM.\n\nBeides ist seit React 19.3 stabil."
     },
     {
       "id": "artefakt",
       "type": "theory",
       "title": "Die Galerie",
-      "body": "# Das Artefakt\n\n```jsx\nimport {\n  addTransitionType, Fragment, startTransition, useRef, useState, ViewTransition,\n} from \"react\";\n\nexport function Galerie({ bilder }) {\n  const [index, setIndex] = useState(0);\n  const leiste = useRef(null);\n\n  function weiter() {\n    startTransition(() => {\n      addTransitionType(\"vor\");\n      setIndex((i) => (i + 1) % bilder.length);\n    });\n  }\n\n  return (\n    <>\n      <ViewTransition enter={{ vor: \"von-rechts\" }} exit={{ vor: \"nach-links\" }}>\n        <img key={bilder[index].id} src={bilder[index].src} alt={bilder[index].alt} />\n      </ViewTransition>\n      <Fragment ref={leiste}>\n        <button onClick={weiter}>Weiter</button>\n        <button onClick={() => leiste.current.focus()}>Zum ersten Knopf</button>\n      </Fragment>\n    </>\n  );\n}\n```\n\n`weiter()` verpackt die Zustandsaenderung in `startTransition` und meldet mit `addTransitionType(\"vor\")` den Grund. Die `ViewTransition` waehlt darueber ihre Klassen: `von-rechts` beim Eintreten, `nach-links` beim Verlassen. Der `key` am Bild ist noetig, damit React das alte Bild als verlassend und das neue als eintretend behandelt.\n\nDie beiden Knoepfe liegen in einem `Fragment` mit `ref`. `leiste.current.focus()` setzt den Fokus auf den ersten fokussierbaren Knoten der Gruppe, ohne dass ein Wrapper-Element noetig waere."
+      "body": "# Das Artefakt\n\n```jsx\nimport {\n  addTransitionType, Fragment, startTransition, useRef, useState, ViewTransition,\n} from \"react\";\n\nexport function Galerie({ bilder }) {\n  const [index, setIndex] = useState(0);\n  const leiste = useRef(null);\n\n  function weiter() {\n    startTransition(() => {\n      addTransitionType(\"vor\");\n      setIndex((i) => (i + 1) % bilder.length);\n    });\n  }\n\n  return (\n    <>\n      <ViewTransition enter={{ vor: \"von-rechts\" }} exit={{ vor: \"nach-links\" }}>\n        <img key={bilder[index].id} src={bilder[index].src} alt={bilder[index].alt} />\n      </ViewTransition>\n      <Fragment ref={leiste}>\n        <button onClick={weiter}>Weiter</button>\n        <button onClick={() => leiste.current.focus()}>Zum ersten Knopf</button>\n      </Fragment>\n    </>\n  );\n}\n```\n\n`weiter()` verpackt die Zustandsänderung in `startTransition` und meldet mit `addTransitionType(\"vor\")` den Grund; die `ViewTransition` wählt darüber ihre Klassen. Der `key` am Bild ist nötig, damit React das alte als verlassend und das neue als eintretend behandelt.\n\nDie beiden Knöpfe liegen in einem `Fragment` mit `ref`: `leiste.current.focus()` fokussiert den ersten Knoten der Gruppe, ohne Wrapper-Element."
+    },
+    {
+      "id": "vertiefung",
+      "type": "theory",
+      "title": "Die CSS-Seite der Animation",
+      "body": "# Wer die Animation beschreibt\n\nReact entscheidet, **dass** animiert wird, und benennt die Fälle: eintreten, verlassen, aktualisieren, gemeinsam. **Wie** es aussieht, steht in CSS: die Klassen aus `enter` und `exit` landen als View-Transition-Klassen auf dem Element. Welche davon gilt, entscheidet der Grund der Aktualisierung: `addTransitionType` hängt ihn an die Transition, und `enter={{ vor: \"von-rechts\" }}` liest ihn als Schlüssel.\n\nZwei Auflagen: ein gemeinsam genutzter `name` muss in der ganzen Anwendung eindeutig sein, sonst weiß der Browser nicht, welches Element wohin wandert. Und wer lieber in JavaScript beschreibt, nimmt die Ereignis-Props `onEnter`, `onExit`, `onShare` und `onUpdate`."
     },
     {
       "id": "ex-galerie-lesen",
@@ -81,7 +87,7 @@
           "passage": "import {\n  addTransitionType, Fragment, startTransition, useRef, useState, ViewTransition,\n} from \"react\";\n\nexport function Galerie({ bilder }) {\n  const [index, setIndex] = useState(0);\n  const leiste = useRef(null);\n\n  function weiter() {\n    startTransition(() => {\n      addTransitionType(\"vor\");\n      setIndex((i) => (i + 1) % bilder.length);\n    });\n  }\n\n  return (\n    <>\n      <ViewTransition enter={{ vor: \"von-rechts\" }} exit={{ vor: \"nach-links\" }}>\n        <img key={bilder[index].id} src={bilder[index].src} alt={bilder[index].alt} />\n      </ViewTransition>\n      <Fragment ref={leiste}>\n        <button onClick={weiter}>Weiter</button>\n        <button onClick={() => leiste.current.focus()}>Zum ersten Knopf</button>\n      </Fragment>\n    </>\n  );\n}",
           "questions": [
             {
-              "prompt": "Jemand ersetzt startTransition durch einen direkten Aufruf von setIndex. Was aendert sich auf dem Schirm?",
+              "prompt": "Jemand ersetzt startTransition durch einen direkten Aufruf von setIndex. Was ändert sich auf dem Schirm?",
               "type": "multiple_choice",
               "options": [
                 {
@@ -92,7 +98,7 @@
                   "text": "Das Bild wechselt gar nicht mehr"
                 },
                 {
-                  "text": "Die Animation laeuft, aber ohne die Klassen aus enter und exit"
+                  "text": "Die Animation läuft, aber ohne die Klassen aus enter und exit"
                 },
                 {
                   "text": "React wirft einen Fehler, weil ViewTransition eine Transition verlangt"
@@ -108,13 +114,13 @@
                   "correct": true
                 },
                 {
-                  "text": "Er verhindert, dass React das Bild neu laedt"
+                  "text": "Er verhindert, dass React das Bild neu lädt"
                 },
                 {
-                  "text": "Er benennt die View Transition fuer die CSS-Regeln"
+                  "text": "Er benennt die View Transition für die CSS-Regeln"
                 },
                 {
-                  "text": "Er wird fuer die Fragment-ref gebraucht"
+                  "text": "Er wird für die Fragment-ref gebraucht"
                 }
               ]
             },
@@ -167,7 +173,7 @@
         "id": "ex-weiter-zusammensetzen",
         "stable_id": "ex-mue1psnt04dvb",
         "type": "ext:al-parsons",
-        "prompt": "Setze die Funktion so zusammen, dass der Grund der Aktualisierung vor der Aenderung feststeht.",
+        "prompt": "Setze die Funktion so zusammen, dass der Grund der Aktualisierung vor der Änderung feststeht.",
         "ext_payload": {
           "language": "javascript",
           "lines": [
@@ -215,9 +221,9 @@
               "name": "leistet eine Fragment-ref",
               "items": [
                 "den Fokus auf den ersten Knoten der Gruppe setzen",
-                "einen Ereignisbehandler fuer alle Knoten der Gruppe anmelden",
+                "einen Ereignisbehandler für alle Knoten der Gruppe anmelden",
                 "die Gruppe von einem IntersectionObserver beobachten lassen",
-                "die Ausmasse der Gruppe messen"
+                "die Ausmaße der Gruppe messen"
               ]
             },
             {
@@ -241,7 +247,7 @@
         "stable_id": "ex-mue1psnt04fq6",
         "type": "cloze",
         "cloze_mode": "type",
-        "prompt": "Ergaenze das Element, das die Animation des Bildwechsels uebernimmt.",
+        "prompt": "Ergänze das Element, das die Animation des Bildwechsels übernimmt.",
         "card_ids": [
           "viewtransition-platz"
         ],
@@ -250,7 +256,8 @@
           {
             "accept": [
               "ViewTransition"
-            ], "stable_id": "blank-mue1psnt04g1r"
+            ],
+            "stable_id": "blank-mue1psnt04g1r"
           }
         ],
         "hint": "Es steht als erstes im Teilbaum, vor jedem DOM-Knoten."
@@ -273,19 +280,23 @@
         "pairs": [
           {
             "left": "useActionState und ref als Prop",
-            "right": "React 19.0, Dezember 2024", "stable_id": "pair-mue1psnt04it3"
+            "right": "React 19.0, Dezember 2024",
+            "stable_id": "pair-mue1psnt04it3"
           },
           {
             "left": "useEffectEvent und Activity",
-            "right": "React 19.2, Oktober 2025", "stable_id": "pair-mue1psnt04ju5"
+            "right": "React 19.2, Oktober 2025",
+            "stable_id": "pair-mue1psnt04ju5"
           },
           {
             "left": "ViewTransition und Fragment Refs",
-            "right": "React 19.3, September 2026", "stable_id": "pair-mue1psnt04k5e"
+            "right": "React 19.3, September 2026",
+            "stable_id": "pair-mue1psnt04k5e"
           },
           {
             "left": "React Compiler 1.0",
-            "right": "eigenes Paket, stabil seit Oktober 2025", "stable_id": "pair-mue1psnt04lw4"
+            "right": "eigenes Paket, stabil seit Oktober 2025",
+            "stable_id": "pair-mue1psnt04lw4"
           }
         ]
       }
@@ -294,38 +305,42 @@
       "id": "ex-transitiontyp",
       "type": "exercise",
       "theory_ref": "intro",
-      "title": "Wozu der Uebergangstyp",
+      "title": "Wozu der Übergangstyp",
       "exercise": {
         "id": "ex-transitiontyp",
         "stable_id": "ex-mue1psnt04mjs",
         "type": "multiple_choice",
-        "prompt": "Die Galerie soll rueckwaerts anders animieren als vorwaerts. Was leistet addTransitionType dabei?",
+        "prompt": "Die Galerie soll rückwärts anders animieren als vorwärts. Was leistet addTransitionType dabei?",
         "card_ids": [
           "viewtransition-bedingung"
         ],
         "options": [
           {
-            "text": "Es benennt den Grund der Aktualisierung, und ViewTransition waehlt darueber die Klassen",
-            "correct": true, "stable_id": "opt-mue1psnt04nbg"
+            "text": "Es benennt den Grund der Aktualisierung, und ViewTransition wählt darüber die Klassen",
+            "correct": true,
+            "stable_id": "opt-mue1psnt04nbg"
           },
           {
-            "text": "Es legt die Dauer der Animation fest", "stable_id": "opt-mue1psnt04o6x"
+            "text": "Es legt die Dauer der Animation fest",
+            "stable_id": "opt-mue1psnt04o6x"
           },
           {
-            "text": "Es entscheidet, ob ueberhaupt animiert wird", "stable_id": "opt-mue1psnt04poc"
+            "text": "Es entscheidet, ob überhaupt animiert wird",
+            "stable_id": "opt-mue1psnt04poc"
           },
           {
-            "text": "Es gibt dem Element einen eindeutigen Namen fuer gemeinsame Uebergaenge", "stable_id": "opt-mue1psnt04qtv"
+            "text": "Es gibt dem Element einen eindeutigen Namen für gemeinsame Übergänge",
+            "stable_id": "opt-mue1psnt04qtv"
           }
         ],
-        "explanation": "Dieselbe Zustandsaenderung kann verschiedene Ursachen haben. Der Typ traegt diese Ursache bis zur Animation, sodass vorwaerts und rueckwaerts unterschiedliche Klassen bekommen."
+        "explanation": "Dieselbe Zustandsänderung kann verschiedene Ursachen haben. Der Typ trägt diese Ursache bis zur Animation, sodass vorwärts und rückwärts unterschiedliche Klassen bekommen."
       }
     },
     {
       "id": "ex-abschlusspruefung",
       "type": "exercise",
       "theory_ref": "intro",
-      "title": "Abschlusspruefung ueber das Set",
+      "title": "Abschlussprüfung über das Set",
       "exercise": {
         "id": "ex-abschlusspruefung",
         "stable_id": "ex-mue1psnt04r7t",
@@ -335,7 +350,7 @@
           "pass_threshold": 70,
           "questions": [
             {
-              "prompt": "Welche Parameter bekommt eine Action, die an useActionState uebergeben wird?",
+              "prompt": "Welche Parameter bekommt eine Action, die an useActionState übergeben wird?",
               "type": "multiple_choice",
               "options": [
                 {
@@ -375,21 +390,21 @@
               "points": 1
             },
             {
-              "prompt": "Was geschieht mit einem optimistisch gezeigten Eintrag, wenn die Action fehlschlaegt?",
+              "prompt": "Was geschieht mit einem optimistisch gezeigten Eintrag, wenn die Action fehlschlägt?",
               "type": "multiple_choice",
               "options": [
                 {
-                  "text": "Er verschwindet, React faellt auf den echten Stand zurueck",
+                  "text": "Er verschwindet, React fällt auf den echten Stand zurück",
                   "correct": true
                 },
                 {
                   "text": "Er bleibt stehen, bis man ihn von Hand entfernt"
                 },
                 {
-                  "text": "Er wird rot eingefaerbt"
+                  "text": "Er wird rot eingefärbt"
                 },
                 {
-                  "text": "Er wird beim naechsten Render erneut gesendet"
+                  "text": "Er wird beim nächsten Render erneut gesendet"
                 }
               ],
               "points": 1
@@ -415,15 +430,15 @@
               "points": 2
             },
             {
-              "prompt": "Welche Suspense-Grenze zeigt ihren fallback, wenn eine Komponente anhaelt?",
+              "prompt": "Welche Suspense-Grenze zeigt ihren fallback, wenn eine Komponente anhält?",
               "type": "multiple_choice",
               "options": [
                 {
-                  "text": "Die naechste oberhalb der angehaltenen Komponente",
+                  "text": "Die nächste oberhalb der angehaltenen Komponente",
                   "correct": true
                 },
                 {
-                  "text": "Die aeusserste der Seite"
+                  "text": "Die äußerste der Seite"
                 },
                 {
                   "text": "Alle Grenzen im Baum"
@@ -445,18 +460,18 @@
               "points": 1
             },
             {
-              "prompt": "Was aendert React 19.2 am Enthuellen von Suspense-Grenzen beim Server-Rendern?",
+              "prompt": "Was ändert React 19.2 am Enthüllen von Suspense-Grenzen beim Server-Rendern?",
               "type": "multiple_choice",
               "options": [
                 {
-                  "text": "Kurz nacheinander fertige Grenzen werden gebuendelt enthuellt",
+                  "text": "Kurz nacheinander fertige Grenzen werden gebündelt enthüllt",
                   "correct": true
                 },
                 {
-                  "text": "Grenzen werden erst nach dem vollstaendigen Laden enthuellt"
+                  "text": "Grenzen werden erst nach dem vollständigen Laden enthüllt"
                 },
                 {
-                  "text": "Jede Grenze schlaegt sofort einzeln durch"
+                  "text": "Jede Grenze schlägt sofort einzeln durch"
                 },
                 {
                   "text": "Grenzen werden auf dem Server gar nicht mehr gerendert"
@@ -465,15 +480,15 @@
               "points": 2
             },
             {
-              "prompt": "Welche zwei Regeln gelten fuer eine mit useEffectEvent umhuellte Funktion?",
+              "prompt": "Welche zwei Regeln gelten für eine mit useEffectEvent umhüllte Funktion?",
               "type": "multiple_choice",
               "options": [
                 {
-                  "text": "Im selben Bauteil wie der Effekt deklarieren und nicht in die Abhaengigkeitsliste setzen",
+                  "text": "Im selben Bauteil wie der Effekt deklarieren und nicht in die Abhängigkeitsliste setzen",
                   "correct": true
                 },
                 {
-                  "text": "Auf oberster Ebene deklarieren und in die Abhaengigkeitsliste setzen"
+                  "text": "Auf oberster Ebene deklarieren und in die Abhängigkeitsliste setzen"
                 },
                 {
                   "text": "In einem eigenen Modul deklarieren und importieren"
@@ -489,14 +504,14 @@
               "type": "multiple_choice",
               "options": [
                 {
-                  "text": "Er bleibt erhalten, die Effekte werden abgeraeumt",
+                  "text": "Er bleibt erhalten, die Effekte werden abgeräumt",
                   "correct": true
                 },
                 {
                   "text": "Er geht verloren, die Effekte laufen weiter"
                 },
                 {
-                  "text": "Beides bleibt unveraendert bestehen"
+                  "text": "Beides bleibt unverändert bestehen"
                 },
                 {
                   "text": "Beides wird verworfen"
@@ -509,11 +524,11 @@
               "type": "multiple_choice",
               "options": [
                 {
-                  "text": "Wenn die Aktualisierung als Transition laeuft, etwa aus startTransition",
+                  "text": "Wenn die Aktualisierung als Transition läuft, etwa aus startTransition",
                   "correct": true
                 },
                 {
-                  "text": "Bei jeder Zustandsaenderung im Teilbaum"
+                  "text": "Bei jeder Zustandsänderung im Teilbaum"
                 },
                 {
                   "text": "Nur beim ersten Rendern der Seite"

@@ -1,7 +1,7 @@
 {
   "id": "05-server-components",
-  "title": "Server Components: was wo laeuft",
-  "description": "Eine Seite aus zwei Dateien: die eine laeuft nur auf dem Server und darf await benutzen, die andere traegt use client und darf State halten. Die Grenze dazwischen ist die ganze Lektion.",
+  "title": "Server Components: was wo läuft",
+  "description": "Eine Seite aus zwei Dateien: die eine läuft nur auf dem Server und darf await benutzen, die andere trägt use client und darf State halten. Die Grenze dazwischen ist die ganze Lektion.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -18,7 +18,7 @@
       "id": "rsc-await",
       "stable_id": "card-mue1psnr02kc0",
       "front": "Server-Komponente und await",
-      "back": "Eine Server-Komponente darf async sein und im Rumpf await benutzen. Hooks und Ereignisbehandler hat sie nicht: sie laeuft einmal auf dem Server, nicht im Browser.",
+      "back": "Eine Server-Komponente darf async sein und im Rumpf await benutzen. Hooks und Ereignisbehandler hat sie nicht: sie läuft einmal auf dem Server, nicht im Browser.",
       "notes": "Kein useState, kein onClick.",
       "media_type": "text",
       "difficulty": 3,
@@ -43,9 +43,9 @@
     {
       "id": "props-serialisierbar",
       "stable_id": "card-mue1psnr02mli",
-      "front": "Props ueber die Grenze",
-      "back": "Von einer Server- zu einer Client-Komponente duerfen nur serialisierbare Werte fliessen: Zahlen, Strings, Arrays, Objekte, JSX. Funktionen nicht, ausser sie sind als Server-Action markiert.",
-      "notes": "Eine gewoehnliche Callback-Funktion ist ein Laufzeitfehler.",
+      "front": "Props über die Grenze",
+      "back": "Von einer Server- zu einer Client-Komponente dürfen nur serialisierbare Werte fließen: Zahlen, Strings, Arrays, Objekte, JSX. Funktionen nicht, außer sie sind als Server-Action markiert.",
+      "notes": "Eine gewöhnliche Callback-Funktion ist ein Laufzeitfehler.",
       "media_type": "text",
       "difficulty": 4,
       "tags": [
@@ -59,13 +59,19 @@
       "id": "intro",
       "type": "theory",
       "title": "Zwei Laufzeiten in einem Baum",
-      "body": "# Server Components\n\nEine **Server-Komponente** rendert auf dem Server. Sie darf `async` sein und im Rumpf `await` benutzen, greift direkt auf Datenbank oder Dateisystem zu, und ihr Code landet **nicht** im Bundle. Sie hat dafuer keinen State, keine Effekte und keine Ereignisbehandler.\n\nDie Direktive `\"use client\"` als erste Zeile einer Datei markiert die **Grenze**: dieses Modul und alles, was es importiert, laeuft im Browser. Dort gibt es `useState`, `onClick` und Effekte.\n\nUeber die Grenze duerfen nur **serialisierbare** Props fliessen. Eine gewoehnliche Funktion als Prop ist ein Laufzeitfehler, eine als Server-Action markierte Funktion ist erlaubt."
+      "body": "# Server Components\n\nEine **Server-Komponente** rendert auf dem Server. Sie darf `async` sein und im Rumpf `await` benutzen, greift direkt auf Datenbank oder Dateisystem zu, und ihr Code landet **nicht** im Bundle. Sie hat dafür keinen State, keine Effekte und keine Ereignisbehandler.\n\nDie Direktive `\"use client\"` als erste Zeile einer Datei markiert die **Grenze**: dieses Modul und alles, was es importiert, läuft im Browser. Dort gibt es `useState`, `onClick` und Effekte.\n\nÜber die Grenze dürfen nur **serialisierbare** Props fließen. Eine gewöhnliche Funktion als Prop ist ein Laufzeitfehler, eine als Server-Action markierte Funktion ist erlaubt."
     },
     {
       "id": "artefakt",
       "type": "theory",
       "title": "Die Berichtsseite",
-      "body": "# Das Artefakt\n\nZwei Dateien, eine Seite.\n\n```jsx\n// berichte/Seite.jsx - Server-Komponente, laeuft nur auf dem Server\nimport { db } from \"./db\";\nimport { Filter } from \"./Filter\";\n\nexport default async function BerichteSeite({ jahr }) {\n  const berichte = await db.berichte.liste(jahr);\n\n  return (\n    <section>\n      <title>Berichte {jahr}</title>\n      <Filter startJahr={jahr} />\n      <ul>\n        {berichte.map((b) => (\n          <li key={b.id}>{b.titel}</li>\n        ))}\n      </ul>\n    </section>\n  );\n}\n\n// berichte/Filter.jsx\n\"use client\";\nimport { useState } from \"react\";\n\nexport function Filter({ startJahr }) {\n  const [wert, setWert] = useState(startJahr);\n  return <input value={wert} onChange={(e) => setWert(e.target.value)} />;\n}\n```\n\nDas `<title>` mitten im JSX ist kein Versehen: seit React 19 hebt React `title`, `meta` und `link` selbsttaetig in den `head` des Dokuments. Seit 19.3 darf eine Server-Komponente ausserdem einen Context, der aus einem `\"use client\"`-Modul stammt, **direkt** rendern, ohne eigenes Provider-Bauteil."
+      "body": "# Das Artefakt\n\nZwei Dateien, eine Seite.\n\n```jsx\n// berichte/Seite.jsx - Server-Komponente, läuft nur auf dem Server\nimport { db } from \"./db\";\nimport { Filter } from \"./Filter\";\n\nexport default async function BerichteSeite({ jahr }) {\n  const berichte = await db.berichte.liste(jahr);\n\n  return (\n    <section>\n      <title>Berichte {jahr}</title>\n      <Filter startJahr={jahr} />\n      <ul>\n        {berichte.map((b) => (\n          <li key={b.id}>{b.titel}</li>\n        ))}\n      </ul>\n    </section>\n  );\n}\n\n// berichte/Filter.jsx\n\"use client\";\nimport { useState } from \"react\";\n\nexport function Filter({ startJahr }) {\n  const [wert, setWert] = useState(startJahr);\n  return <input value={wert} onChange={(e) => setWert(e.target.value)} />;\n}\n```\n\nDas `<title>` mitten im JSX ist kein Versehen: seit React 19 hebt React `title`, `meta` und `link` selbsttätig in den `head` des Dokuments. Seit 19.3 darf eine Server-Komponente außerdem einen Context, der aus einem `\"use client\"`-Modul stammt, **direkt** rendern, ohne eigenes Provider-Bauteil."
+    },
+    {
+      "id": "vertiefung",
+      "type": "theory",
+      "title": "Wo die Grenze im Dateisystem liegt",
+      "body": "# Die Direktive gilt pro Modul\n\n`\"use client\"` markiert nicht eine Komponente, sondern eine **Datei** und alles, was sie importiert. Ein Modul mit der Direktive zieht seine Importe mit in den Browser-Teil, auch wenn nur eine seiner Funktionen dort gebraucht wird.\n\nDaraus folgt eine nützliche Umkehrung: eine Client-Komponente darf serverseitig gerenderte Kinder anzeigen, wenn sie ihr als `children` hereingereicht werden. Das Kind bleibt dann Server-Komponente, obwohl sein Elternteil im Browser läuft - die Grenze verläuft entlang der Importe, nicht entlang des Baums."
     },
     {
       "id": "ex-seite-lesen",
@@ -78,7 +84,7 @@
         "type": "ext:al-reading-comprehension",
         "prompt": "Beantworte drei Fragen zu diesen beiden Dateien.",
         "ext_payload": {
-          "passage": "// berichte/Seite.jsx - Server-Komponente, laeuft nur auf dem Server\nimport { db } from \"./db\";\nimport { Filter } from \"./Filter\";\n\nexport default async function BerichteSeite({ jahr }) {\n  const berichte = await db.berichte.liste(jahr);\n\n  return (\n    <section>\n      <title>Berichte {jahr}</title>\n      <Filter startJahr={jahr} />\n      <ul>\n        {berichte.map((b) => (\n          <li key={b.id}>{b.titel}</li>\n        ))}\n      </ul>\n    </section>\n  );\n}\n\n// berichte/Filter.jsx\n\"use client\";\nimport { useState } from \"react\";\n\nexport function Filter({ startJahr }) {\n  const [wert, setWert] = useState(startJahr);\n  return <input value={wert} onChange={(e) => setWert(e.target.value)} />;\n}",
+          "passage": "// berichte/Seite.jsx - Server-Komponente, läuft nur auf dem Server\nimport { db } from \"./db\";\nimport { Filter } from \"./Filter\";\n\nexport default async function BerichteSeite({ jahr }) {\n  const berichte = await db.berichte.liste(jahr);\n\n  return (\n    <section>\n      <title>Berichte {jahr}</title>\n      <Filter startJahr={jahr} />\n      <ul>\n        {berichte.map((b) => (\n          <li key={b.id}>{b.titel}</li>\n        ))}\n      </ul>\n    </section>\n  );\n}\n\n// berichte/Filter.jsx\n\"use client\";\nimport { useState } from \"react\";\n\nexport function Filter({ startJahr }) {\n  const [wert, setWert] = useState(startJahr);\n  return <input value={wert} onChange={(e) => setWert(e.target.value)} />;\n}",
           "questions": [
             {
               "prompt": "Welcher Teil dieses Codes landet im Browser-Bundle?",
@@ -89,7 +95,7 @@
                   "correct": true
                 },
                 {
-                  "text": "Beide Dateien, sonst koennte React nicht hydrieren"
+                  "text": "Beide Dateien, sonst könnte React nicht hydrieren"
                 },
                 {
                   "text": "Nur der JSX-Teil beider Dateien, ohne die Importe"
@@ -100,7 +106,7 @@
               ]
             },
             {
-              "prompt": "Was passiert, wenn man in BerichteSeite ein useState ergaenzt?",
+              "prompt": "Was passiert, wenn man in BerichteSeite ein useState ergänzt?",
               "type": "multiple_choice",
               "options": [
                 {
@@ -136,12 +142,12 @@
       "id": "ex-wo-laeuft-was",
       "type": "exercise",
       "theory_ref": "intro",
-      "title": "Wo laeuft was",
+      "title": "Wo läuft was",
       "exercise": {
         "id": "ex-wo-laeuft-was",
         "stable_id": "ex-mue1psnr02odn",
         "type": "ext:al-categorization",
-        "prompt": "Ordne jede Faehigkeit der Seite zu, auf der sie verfuegbar ist.",
+        "prompt": "Ordne jede Fähigkeit der Seite zu, auf der sie verfügbar ist.",
         "ext_payload": {
           "categories": [
             {
@@ -155,7 +161,7 @@
             {
               "name": "Client-Komponente",
               "items": [
-                "useState fuer den Wert eines Eingabefelds",
+                "useState für den Wert eines Eingabefelds",
                 "onChange und andere Ereignisbehandler",
                 "Zugriff auf window und localStorage"
               ]
@@ -173,7 +179,7 @@
         "id": "ex-handler-auf-dem-server",
         "stable_id": "ex-mue1psnr02p2a",
         "type": "ext:al-error-correction",
-        "prompt": "Diese Zeile steht in der Server-Komponente. Eine Marke gehoert dort nicht hin. Markiere sie und schreibe hin, was stattdessen dort stehen muss.",
+        "prompt": "Diese Zeile steht in der Server-Komponente. Eine Marke gehört dort nicht hin. Markiere sie und schreibe hin, was stattdessen dort stehen muss.",
         "ext_payload": {
           "tokens": [
             "<button",
@@ -200,7 +206,7 @@
         "stable_id": "ex-mue1psnr02qy2",
         "type": "cloze",
         "cloze_mode": "type",
-        "prompt": "Ergaenze die Direktive, die diese Datei in den Browser-Teil des Baums verschiebt.",
+        "prompt": "Ergänze die Direktive, die diese Datei in den Browser-Teil des Baums verschiebt.",
         "card_ids": [
           "use-client-grenze",
           "rsc-await"
@@ -232,7 +238,7 @@
             "Der Server rendert BerichteSeite und wartet auf die Datenbank",
             "Der Server schickt die gerenderte Ausgabe an den Browser",
             "Der Browser zeigt die Liste, noch ohne Verhalten",
-            "Der Browser laedt das Bundle von Filter",
+            "Der Browser lädt das Bundle von Filter",
             "React hydriert Filter, das Eingabefeld reagiert auf Eingaben"
           ]
         }
@@ -291,35 +297,31 @@
       "id": "ex-props-grenze",
       "type": "exercise",
       "theory_ref": "intro",
-      "title": "Was ueber die Grenze darf",
+      "title": "Was über die Grenze darf",
       "exercise": {
         "id": "ex-props-grenze",
         "stable_id": "ex-mue1psnr02u0f",
         "type": "multiple_choice",
-        "prompt": "Welches Prop koennte BerichteSeite nicht an Filter weitergeben?",
+        "prompt": "Filter soll nach jeder Eingabe neu laden. Jemand gibt der Komponente dafür onAendern={(wert) => db.berichte.liste(wert)} aus BerichteSeite mit. Was passiert?",
         "card_ids": [
           "props-serialisierbar"
         ],
         "options": [
           {
-            "text": "onAendern={(wert) => db.berichte.liste(wert)}, eine gewoehnliche Funktion",
-            "correct": true,
-            "stable_id": "opt-mue1psnr02vdy"
+            "text": "Ein Laufzeitfehler: die Funktion lässt sich nicht über die Grenze serialisieren",
+            "correct": true, "stable_id": "opt-mue3efgw009js"
           },
           {
-            "text": "startJahr={2026}, eine Zahl",
-            "stable_id": "opt-mue1psnr02wrb"
+            "text": "Es funktioniert, die Abfrage läuft dann im Browser", "stable_id": "opt-mue3efgw00ao8"
           },
           {
-            "text": "titel={\"Berichte\"}, eine Zeichenkette",
-            "stable_id": "opt-mue1psnr02xcq"
+            "text": "Es funktioniert, die Abfrage läuft weiter auf dem Server", "stable_id": "opt-mue3efgw00bzl"
           },
           {
-            "text": "vorschau={<li>Erster Bericht</li>}, fertiges JSX",
-            "stable_id": "opt-mue1psnr02yzq"
+            "text": "Filter erhält undefined und rendert ohne Fehler weiter", "stable_id": "opt-mue3efgw00cjx"
           }
         ],
-        "explanation": "Ueber die Grenze geht nur, was sich serialisieren laesst. Eine gewoehnliche Funktion nicht: sie haengt am Server-Modul. Als Server-Action markiert waere sie erlaubt, dann schickt React einen Verweis statt des Codes."
+        "explanation": "Über die Grenze geht nur, was sich serialisieren lässt. Eine gewöhnliche Funktion hängt am Server-Modul. Als Server-Action markiert wäre sie erlaubt: dann schickt React einen Verweis statt des Codes."
       }
     },
     {
@@ -331,13 +333,13 @@
         "id": "ex-context-19-3",
         "stable_id": "ex-mue1psnr02zho",
         "type": "multiple_choice",
-        "prompt": "Was aendert React 19.3 daran, wie eine Server-Komponente einen Context aus einem use-client-Modul benutzt?",
+        "prompt": "Was ändert React 19.3 daran, wie eine Server-Komponente einen Context aus einem use-client-Modul benutzt?",
         "card_ids": [
           "use-client-grenze"
         ],
         "options": [
           {
-            "text": "Sie darf den Context direkt rendern, ein eigenes Provider-Bauteil entfaellt",
+            "text": "Sie darf den Context direkt rendern, ein eigenes Provider-Bauteil entfällt",
             "correct": true,
             "stable_id": "opt-mue1psnr030p2"
           },
@@ -346,15 +348,15 @@
             "stable_id": "opt-mue1psnr031mo"
           },
           {
-            "text": "Server-Komponenten koennen seither eigenen Context anlegen",
+            "text": "Server-Komponenten können seither eigenen Context anlegen",
             "stable_id": "opt-mue1psnr032k3"
           },
           {
-            "text": "Context funktioniert seither ueberhaupt erst ueber die Grenze hinweg",
+            "text": "Context funktioniert seither überhaupt erst über die Grenze hinweg",
             "stable_id": "opt-mue1psnr033qk"
           }
         ],
-        "explanation": "Vor 19.3 brauchte es ein zusaetzliches Bauteil mit use client, das nur den Provider rendert. Seit 19.3 kann die Server-Komponente den importierten Context selbst rendern und den Wert setzen. Lesen bleibt Sache der Client-Komponenten."
+        "explanation": "Vor 19.3 brauchte es ein zusätzliches Bauteil mit use client, das nur den Provider rendert. Seit 19.3 kann die Server-Komponente den importierten Context selbst rendern und den Wert setzen. Lesen bleibt Sache der Client-Komponenten."
       }
     }
   ]

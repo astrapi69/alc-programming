@@ -102,13 +102,13 @@ sets:
     lesson_count: 8
     description: >-
       Teil 3 der React-Reihe (B2): acht Lektionen zu React 19.0, 19.2 und
-      19.3, jede an einer durchgehenden Komponente. Jede Uebung haengt an
+      19.3, jede an einer durchgehenden Komponente. Jede Übung hängt an
       einem Code-Artefakt statt an einem Begriff, mit Schwerpunkt auf
-      Uebungen, die das Lesen von Code verlangen. Themen: Actions und
-      useActionState, useFormStatus und useOptimistic, use fuer Promises
+      Übungen, die das Lesen von Code verlangen. Themen: Actions und
+      useActionState, useFormStatus und useOptimistic, use für Promises
       und Context, ref als Prop, Server Components, Suspense und
       Streaming, useEffectEvent und Activity, ViewTransition und Fragment
-      Refs mit Abschlusspruefung.
+      Refs mit Abschlussprüfung.
     tags:
       - programming
       - react
