@@ -1,0 +1,363 @@
+{
+  "id": "01-actions-useactionstate",
+  "title": "Actions und useActionState",
+  "description": "Eine Action ist eine async Funktion, die ein Formular absendet. useActionState verdrahtet sie mit Stand und Ladezustand. Alle Übungen arbeiten an einem einzigen Formular.",
+  "target_language": "de",
+  "source_language": "de",
+  "domain": "programming",
+  "estimated_minutes": 14,
+  "requires_extensions": [
+    "ext:al-reading-comprehension@1",
+    "ext:al-parsons@1",
+    "ext:al-error-correction@1",
+    "ext:al-ordering@1"
+  ],
+  "cards": [
+    {
+      "id": "useactionstate-rueckgabe",
+      "stable_id": "card-mue1psno001rg",
+      "front": "useActionState: Rückgabe",
+      "back": "[stand, absenden, pending]: der letzte Rückgabewert der Action, die umhüllte Action für action={...}, und ein boolescher Ladezustand.",
+      "notes": "Die Reihenfolge ist fest. pending ist das dritte Element, nicht das zweite.",
+      "media_type": "text",
+      "difficulty": 2,
+      "tags": [
+        "react",
+        "actions"
+      ]
+    },
+    {
+      "id": "action-signatur",
+      "stable_id": "card-mue1psno002r7",
+      "front": "Signatur einer Action",
+      "back": "async (vorherigerStand, formData) => neuerStand. Der erste Parameter ist der bisherige Stand, nicht die Formulardaten.",
+      "notes": "Der Rückgabewert wird der neue Stand.",
+      "media_type": "text",
+      "difficulty": 3,
+      "tags": [
+        "react",
+        "actions"
+      ]
+    },
+    {
+      "id": "form-action-prop",
+      "stable_id": "card-mue1psno00390",
+      "front": "form action={...}",
+      "back": "Das action-Attribut nimmt die von useActionState umhüllte Funktion. React ruft sie mit den FormData des Formulars auf und setzt den Ladezustand.",
+      "notes": "Die rohe Action dort einzusetzen umgeht Stand und Ladezustand.",
+      "media_type": "text",
+      "difficulty": 3,
+      "tags": [
+        "react",
+        "actions"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "type": "theory",
+      "title": "Die Action und ihr Stand",
+      "body": "# Actions\n\nEine **Action** ist eine async Funktion, die React für ein Formular aufruft. Sie bekommt zwei Parameter, in dieser Reihenfolge: den **vorherigen Stand** und die **FormData**. Was sie zurückgibt, ist der **neue Stand**.\n\n`useActionState(action, startwert)` gibt drei Dinge zurück:\n\n1. `stand` - der letzte Rückgabewert der Action,\n2. `absenden` - die umhüllte Action, die ins `action`-Attribut gehört,\n3. `pending` - `true`, solange die Action noch arbeitet.\n\nDer Ladezustand kommt also gratis: kein eigenes `useState`, kein `try/finally`."
+    },
+    {
+      "id": "artefakt",
+      "type": "theory",
+      "title": "Das Formular, an dem diese Lektion arbeitet",
+      "body": "# Das Artefakt\n\nAlle Übungen dieser Lektion beziehen sich auf dieses Formular. Lies es einmal ganz.\n\n```jsx\nimport { useActionState } from \"react\";\n\nasync function anmelden(vorherigerStand, formData) {\n  const email = formData.get(\"email\");\n  if (!email.includes(\"@\")) {\n    return { fehler: \"Bitte eine gültige Adresse angeben.\", email };\n  }\n  await speichereAnmeldung(email);\n  return { fehler: null, email };\n}\n\nexport function NewsletterFormular() {\n  const [stand, absenden, pending] = useActionState(anmelden, { fehler: null, email: \"\" });\n\n  return (\n    <form action={absenden}>\n      <input name=\"email\" defaultValue={stand.email} />\n      <button disabled={pending}>{pending ? \"Sende ...\" : \"Anmelden\"}</button>\n      {stand.fehler ? <p role=\"alert\">{stand.fehler}</p> : null}\n    </form>\n  );\n}\n```\n\nZwei Stellen lohnen einen zweiten Blick: die Action gibt im Fehlerfall die eingegebene `email` **mit zurück**, und das Eingabefeld liest sie als `defaultValue`. So steht nach einem Fehlversuch wieder drin, was die Person getippt hat, obwohl das Feld unkontrolliert ist."
+    },
+    {
+      "id": "vertiefung",
+      "type": "theory",
+      "title": "Wo Actions sonst noch stehen",
+      "body": "# Nicht nur am Formular\n\nDas `action`-Attribut ist der häufigste, aber nicht der einzige Ort. Ein einzelner Knopf kann mit `formAction` eine **andere** Action für dasselbe Formular wählen, etwa Speichern gegen Verwerfen. Und eine Action lässt sich auch von Hand aus einem `startTransition` heraus aufrufen, ohne jedes Formular.\n\nWas dabei immer gilt: der Ladezustand gehört **einem** Vorgang. `useActionState` meldet den Zustand der Action, die es umhüllt, nicht den irgendeines anderen Formulars auf der Seite. Zwei Formulare nebeneinander haben zwei unabhängige Zustände."
+    },
+    {
+      "id": "ex-formular-lesen",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Das Formular lesen",
+      "exercise": {
+        "id": "ex-formular-lesen",
+        "stable_id": "ex-mue1psno004sr",
+        "type": "ext:al-reading-comprehension",
+        "prompt": "Beantworte drei Fragen zu diesem Formular.",
+        "ext_payload": {
+          "passage": "import { useActionState } from \"react\";\n\nasync function anmelden(vorherigerStand, formData) {\n  const email = formData.get(\"email\");\n  if (!email.includes(\"@\")) {\n    return { fehler: \"Bitte eine gültige Adresse angeben.\", email };\n  }\n  await speichereAnmeldung(email);\n  return { fehler: null, email };\n}\n\nexport function NewsletterFormular() {\n  const [stand, absenden, pending] = useActionState(anmelden, { fehler: null, email: \"\" });\n\n  return (\n    <form action={absenden}>\n      <input name=\"email\" defaultValue={stand.email} />\n      <button disabled={pending}>{pending ? \"Sende ...\" : \"Anmelden\"}</button>\n      {stand.fehler ? <p role=\"alert\">{stand.fehler}</p> : null}\n    </form>\n  );\n}",
+          "questions": [
+            {
+              "prompt": "Eine Person tippt 'anna' ohne At-Zeichen und sendet ab. Was steht danach im Eingabefeld?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "'anna', weil die Action die Eingabe im Stand zurückgibt und defaultValue sie liest",
+                  "correct": true
+                },
+                {
+                  "text": "Nichts, weil das Formular nach dem Absenden zurückgesetzt wird"
+                },
+                {
+                  "text": "'anna', weil unkontrollierte Felder ihren Wert immer behalten"
+                },
+                {
+                  "text": "Die zuletzt gespeicherte Adresse aus der Datenbank"
+                }
+              ]
+            },
+            {
+              "prompt": "Welchen Wert hat der erste Parameter von anmelden beim allerersten Absenden?",
+              "type": "multiple_choice",
+              "options": [
+                {
+                  "text": "{ fehler: null, email: \"\" }, der Startwert aus useActionState",
+                  "correct": true
+                },
+                {
+                  "text": "Die FormData des Formulars"
+                },
+                {
+                  "text": "undefined, weil es noch keinen vorherigen Stand gibt"
+                },
+                {
+                  "text": "Das Event-Objekt des Submit-Ereignisses"
+                }
+              ]
+            },
+            {
+              "prompt": "Welche Beschriftung trägt der Knopf, während die Action läuft?",
+              "type": "free_text",
+              "accept": [
+                "Sende ...",
+                "Sende"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-action-zusammensetzen",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Die Action zusammensetzen",
+      "exercise": {
+        "id": "ex-action-zusammensetzen",
+        "stable_id": "ex-mue1psno005pc",
+        "type": "ext:al-parsons",
+        "prompt": "Bringe die Zeilen der Action in die richtige Reihenfolge und Einrückung.",
+        "ext_payload": {
+          "language": "javascript",
+          "lines": [
+            {
+              "code": "async function anmelden(vorherigerStand, formData) {",
+              "indent": 0
+            },
+            {
+              "code": "const email = formData.get(\"email\");",
+              "indent": 1
+            },
+            {
+              "code": "if (!email.includes(\"@\")) {",
+              "indent": 1
+            },
+            {
+              "code": "return { fehler: \"Bitte eine gültige Adresse angeben.\", email };",
+              "indent": 2
+            },
+            {
+              "code": "}",
+              "indent": 1
+            },
+            {
+              "code": "await speichereAnmeldung(email);",
+              "indent": 1
+            },
+            {
+              "code": "return { fehler: null, email };",
+              "indent": 1
+            },
+            {
+              "code": "}",
+              "indent": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-defaultvalue",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "defaultValue statt value",
+      "exercise": {
+        "id": "ex-defaultvalue",
+        "stable_id": "ex-mue1psno0068d",
+        "type": "multiple_choice",
+        "prompt": "Was würde brechen, wenn im Eingabefeld value={stand.email} statt defaultValue={stand.email} stände?",
+        "card_ids": [
+          "form-action-prop"
+        ],
+        "options": [
+          {
+            "text": "Das Feld wäre kontrolliert und ohne onChange nicht mehr tippbar",
+            "correct": true,
+            "stable_id": "opt-mue1psno00722"
+          },
+          {
+            "text": "Die Action bekäme keine FormData mehr",
+            "stable_id": "opt-mue1psno0089v"
+          },
+          {
+            "text": "React würde das Formular bei jedem Tastendruck absenden",
+            "stable_id": "opt-mue1psno009nn"
+          },
+          {
+            "text": "pending bliebe dauerhaft true",
+            "stable_id": "opt-mue1psno00a4j"
+          }
+        ],
+        "hint": "Ein value ohne onChange friert ein Eingabefeld ein.",
+        "explanation": "value macht ein Feld kontrolliert: React schreibt bei jedem Render den Wert aus dem State hinein. Ohne onChange gibt es nichts, was diesen State beim Tippen ändert, also bleibt der alte Wert stehen. defaultValue setzt nur den Anfangswert und lässt das Feld danach in Ruhe."
+      }
+    },
+    {
+      "id": "ex-hook-zeile",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Die fehlende Hook-Zeile",
+      "exercise": {
+        "id": "ex-hook-zeile",
+        "stable_id": "ex-mue1psno00bpr",
+        "type": "cloze",
+        "cloze_mode": "type",
+        "prompt": "Ergänze den zweiten Parameter des Hook-Aufrufs aus dem Formular.",
+        "card_ids": [
+          "useactionstate-rueckgabe"
+        ],
+        "sentence": "const [stand, absenden, pending] = useActionState(anmelden, ___);",
+        "blanks": [
+          {
+            "accept": [
+              "{ fehler: null, email: \"\" }",
+              "{fehler: null, email: \"\"}"
+            ], "stable_id": "blank-mue3uavh001t7"
+          }
+        ],
+        "hint": "Es ist der Stand, mit dem die Action beim ersten Mal aufgerufen wird."
+      }
+    },
+    {
+      "id": "ex-drei-rueckgaben",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Die drei Rückgabewerte",
+      "exercise": {
+        "id": "ex-drei-rueckgaben",
+        "stable_id": "ex-mue1psno00dxj",
+        "type": "matching",
+        "prompt": "Ordne jedem Rückgabewert aus dem Formular zu, wofür er dort benutzt wird.",
+        "card_ids": [
+          "useactionstate-rueckgabe",
+          "action-signatur"
+        ],
+        "pairs": [
+          {
+            "left": "stand",
+            "right": "liefert defaultValue und die Fehlermeldung",
+            "stable_id": "pair-mue1psno00e46"
+          },
+          {
+            "left": "absenden",
+            "right": "steht im action-Attribut des Formulars",
+            "stable_id": "pair-mue1psno00fe2"
+          },
+          {
+            "left": "pending",
+            "right": "schaltet den Knopf ab und ändert seine Beschriftung",
+            "stable_id": "pair-mue1psno00gb8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ex-falsche-action",
+      "type": "exercise",
+      "theory_ref": "artefakt",
+      "title": "Die rohe Action im Formular",
+      "exercise": {
+        "id": "ex-falsche-action",
+        "stable_id": "ex-mue1psno00hx5",
+        "type": "ext:al-error-correction",
+        "prompt": "Eine Marke in dieser Zeile ist falsch. Markiere sie und schreibe die richtige hin.",
+        "ext_payload": {
+          "tokens": [
+            "<form",
+            "action={anmelden}>"
+          ],
+          "error_index": 1,
+          "accept": [
+            "action={absenden}>",
+            "action={absenden}",
+            "absenden"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-ablauf",
+      "type": "exercise",
+      "theory_ref": "intro",
+      "title": "Der Ablauf eines Absendens",
+      "exercise": {
+        "id": "ex-ablauf",
+        "stable_id": "ex-mue1psno00iub",
+        "type": "ext:al-ordering",
+        "prompt": "Bringe die Schritte in die Reihenfolge, in der sie bei einem Klick auf den Knopf passieren.",
+        "ext_payload": {
+          "items": [
+            "React sammelt die FormData des Formulars",
+            "pending wird true, der Knopf wird abgeschaltet",
+            "anmelden läuft mit vorherigem Stand und FormData",
+            "Der Rückgabewert der Action wird der neue stand",
+            "pending wird wieder false, die Oberfläche zeigt den neuen Stand"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ex-rueckgabewert",
+      "type": "exercise",
+      "theory_ref": "vertiefung",
+      "title": "Was mit dem Rückgabewert geschieht",
+      "exercise": {
+        "id": "ex-rueckgabewert",
+        "stable_id": "ex-mue1psno00juo",
+        "type": "multiple_choice",
+        "prompt": "Die Action gibt { fehler: null, email } zurück. Wo landet dieses Objekt?",
+        "card_ids": [
+          "action-signatur"
+        ],
+        "options": [
+          {
+            "text": "In stand, und beim nächsten Absenden als erster Parameter der Action",
+            "correct": true,
+            "stable_id": "opt-mue1psno00kir"
+          },
+          {
+            "text": "In den FormData des Formulars",
+            "stable_id": "opt-mue1psno00lt8"
+          },
+          {
+            "text": "Nirgends, der Rückgabewert einer Action wird verworfen",
+            "stable_id": "opt-mue1psno00myt"
+          },
+          {
+            "text": "In pending, das dadurch wieder false wird",
+            "stable_id": "opt-mue1psno00nea"
+          }
+        ],
+        "explanation": "Der Rückgabewert ist der neue Stand. Genau deshalb hat die Action einen ersten Parameter: beim nächsten Aufruf bekommt sie ihren eigenen letzten Rückgabewert hinein."
+      }
+    }
+  ]
+}
