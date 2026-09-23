@@ -229,7 +229,7 @@
       "title": "Aussagen über useEffect",
       "exercise": {
         "type": "cloze",
-        "prompt": "Welche Aussagen über useEffect treffen zu?",
+        "prompt": "Wähle alle zutreffenden Aussagen.",
         "card_ids": [
           "useeffect",
           "zeitpunkt",

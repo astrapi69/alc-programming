@@ -176,7 +176,7 @@
       "id": "ex-mc-customhook",
       "type": "exercise",
       "theory_ref": "step-hooks",
-      "title": "Was ist ein Custom Hook?",
+      "title": "Custom Hook",
       "exercise": {
         "type": "cloze",
         "prompt": "Was ist ein Custom Hook?",
@@ -238,7 +238,7 @@
       "title": "Aussagen zu Custom Hooks",
       "exercise": {
         "type": "cloze",
-        "prompt": "Welche Aussagen über Custom Hooks treffen zu?",
+        "prompt": "Wähle alle zutreffenden Aussagen.",
         "card_ids": [
           "custom-hook",
           "use-praefix"

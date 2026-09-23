@@ -30,7 +30,7 @@ sets:
     domain: programming
     level: B1
     path: sets/de/react-fortgeschritten
-    version: '1.0.0'
+    version: '1.0.1'
     lesson_count: 8
     description: >-
       Teil 2 der React-Reihe (Fortgeschritten, B1): acht Lektionen mit

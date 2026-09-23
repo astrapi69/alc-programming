@@ -53,7 +53,7 @@ sets:
     domain: programming
     level: A2
     path: sets/de/react-grundlagen
-    version: '1.0.0'
+    version: '1.0.1'
     lesson_count: 5
     description: >-
       React-Grundlagen auf Deutsch für Einsteiger: fünf Lektionen mit
@@ -74,7 +74,7 @@ sets:
     domain: programming
     level: B1
     path: sets/de/react-fortgeschritten
-    version: '1.0.0'
+    version: '1.0.1'
     lesson_count: 8
     description: >-
       Fortsetzung von „React-Grundlagen" (Teil 2, Fortgeschritten, B1): acht

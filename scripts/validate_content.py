@@ -75,6 +75,26 @@ HINT_LENGTH_PATTERN = re.compile(
 )
 
 
+# An exercise prompt that repeats its sentence or its step title
+# (alc-programming#26). The app's cloze renderer shows ``prompt`` as the
+# heading and ``sentence`` as the question box (with read-aloud); the step
+# ``title`` is the heading above the exercise. Identical text in two of these
+# slots puts the same question twice on one screen. Compared after stripping
+# surrounding whitespace only: a punctuation or wording difference is a
+# different text, a trailing space is not.
+def prompt_repeats(prompt: object, other: object) -> bool:
+    """True when ``prompt`` and ``other`` are the same non-empty text.
+
+    Both must be strings; surrounding whitespace is ignored, nothing else.
+    Used for ``exercise.prompt`` against ``exercise.sentence`` and against the
+    step ``title`` - see ``validate_lesson_quality``.
+    """
+    if not isinstance(prompt, str) or not isinstance(other, str):
+        return False
+    stripped = prompt.strip()
+    return bool(stripped) and stripped == other.strip()
+
+
 def hint_states_answer_length(hint: object) -> bool:
     """True when an authored hint states the answer's letter/character count.
 
@@ -271,6 +291,22 @@ def validate_lesson_quality(lesson: dict, source: str, label: str, errors: list[
         cid = card.get("id", "?")
         if back and not back_looks_like_source(back, source):
             errors.append(f"{label}: card '{cid}' back is not in {base_lang(source)}")
+
+    for step in steps:
+        ex = step.get("exercise") if step.get("type") == "exercise" else None
+        if not ex:
+            continue
+        eid = ex.get("id", "?")
+        if prompt_repeats(ex.get("prompt"), ex.get("sentence")):
+            errors.append(
+                f"{label}: exercise '{eid}' prompt repeats its sentence - make the "
+                "prompt an instruction and keep the question in the sentence"
+            )
+        if prompt_repeats(ex.get("prompt"), step.get("title")):
+            errors.append(
+                f"{label}: exercise '{eid}' prompt repeats the step title - give the "
+                "step a short heading so the prompt stays the question"
+            )
 
     for ex in exercises:
         eid = ex.get("id", "?")
