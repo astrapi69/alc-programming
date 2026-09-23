@@ -54,10 +54,10 @@ jobs:
           echo "ref=$ref" >> "$GITHUB_OUTPUT"
           node scripts/check_adopted_extensions.mjs --self-test
           set +e
-          APP_REF="$ref" node scripts/check_adopted_extensions.mjs > report.txt 2>&1
+          APP_REF="$ref" node scripts/check_adopted_extensions.mjs > /tmp/registry-report.txt 2>&1
           status=$?
           set -e
-          cat report.txt
+          cat /tmp/registry-report.txt
           # 0 = in sync, 1 = drift, anything else = the check itself is broken
           # (fetch failed, source shape changed) and must fail the job loudly.
           if [ "$status" -gt 1 ]; then exit "$status"; fi
@@ -66,7 +66,7 @@ jobs:
             echo "### Adopted extensions vs the app (\`$ref\`)"
             echo
             echo '```'
-            cat report.txt
+            cat /tmp/registry-report.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -85,7 +85,7 @@ jobs:
           \`SUPPORTED_EXTENSIONS\` disagree:
 
           \`\`\`
-          $(cat report.txt)
+          $(cat /tmp/registry-report.txt)
           \`\`\`
 
           A type the app renders but this gate refuses makes a valid lesson
