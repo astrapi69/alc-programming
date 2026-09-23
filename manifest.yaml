@@ -6,6 +6,7 @@
 #   python-basics          Python — Grundlagen             (A1, 15 Lektionen)
 #   react-grundlagen       React-Grundlagen (Einsteiger)   (A2,  5 Lektionen)
 #   react-fortgeschritten  React Fortgeschritten (Teil 2)  (B1,  8 Lektionen)
+#   react-19               React 19 in der Praxis (Teil 3)  (B2,  8 Lektionen)
 #
 # Vormals in astrapi69/adaptive-learner-content (python-basics) und
 # astrapi69/adaptive-learner-content-test (beide React-Sets); in dieses
@@ -89,3 +90,25 @@ sets:
       - frontend
       - fortgeschritten
       - multiple-choice
+  - id: react-19-from-de
+    title: React 19 in der Praxis (Teil 3)
+    title_native: React 19 in der Praxis (Teil 3)
+    target_language: de
+    source_language: de
+    domain: programming
+    level: B2
+    path: sets/de/react-19
+    version: '1.0.0'
+    lesson_count: 8
+    description: >-
+      Teil 3 der React-Reihe (B2): acht Lektionen zu React 19.0, 19.2 und
+      19.3, jede an einer durchgehenden Komponente. Jede Uebung haengt an
+      einem Code-Artefakt statt an einem Begriff, mit Schwerpunkt auf
+      Uebungen, die das Lesen von Code verlangen. Themen: Actions und
+      useActionState, useFormStatus und useOptimistic, use fuer Promises
+      und Context, ref als Prop, Server Components, Suspense und
+      Streaming, useEffectEvent und Activity, ViewTransition und Fragment
+      Refs mit Abschlusspruefung.
+    tags:
+      - programming
+      - react
