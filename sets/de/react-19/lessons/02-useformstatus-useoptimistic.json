@@ -17,8 +17,8 @@
       "id": "useformstatus-ort",
       "stable_id": "card-mue1psnp00op9",
       "front": "Wo useFormStatus steht",
-      "back": "In einer Komponente INNERHALB des Formulars. Im selben Bauteil, das <form> rendert, meldet es nichts: es liest das Formular oberhalb wie einen Context.",
-      "notes": "Deshalb ist der Absendeknopf ein eigenes Bauteil.",
+      "back": "In einer Komponente INNERHALB des Formulars. Im selben Komponente, die <form> rendert, meldet es nichts: es liest das Formular oberhalb wie einen Context.",
+      "notes": "Deshalb ist der Absendeknopf ein eigene Komponente.",
       "media_type": "text",
       "difficulty": 3,
       "tags": [
@@ -58,13 +58,13 @@
       "id": "intro",
       "type": "theory",
       "title": "Zwei Hooks, zwei Bedingungen",
-      "body": "# Zustand während des Absendens\n\n`useFormStatus()` liest das **umgebende** Formular, so wie `useContext` einen Context liest. Es gibt unter anderem `pending` zurück. Die Bedingung: der Hook muss in einer Komponente stehen, die **innerhalb** des `<form>` gerendert wird. Im selben Bauteil, das das Formular selbst rendert, meldet er nie `pending: true`.\n\n`useOptimistic(stand, reduzierer)` gibt zwei Dinge zurück: den anzuzeigenden Stand und eine Funktion, die den vorgezogenen Wert setzt. Im Artefakt heißen sie `anzeige` und `fuegeOptimistischHinzu`. Ruft man diese Funktion in einer Action auf, zeigt React sofort den vorgezogenen Stand und fällt automatisch auf den echten zurück, sobald die Action fertig ist - **auch im Fehlerfall**."
+      "body": "# Zustand während des Absendens\n\n`useFormStatus()` liest das **umgebende** Formular, so wie `useContext` einen Context liest. Es gibt unter anderem `pending` zurück. Die Bedingung: der Hook muss in einer Komponente stehen, die **innerhalb** des `<form>` gerendert wird. Im selben Komponente, die das Formular selbst rendert, meldet er nie `pending: true`.\n\n`useOptimistic(stand, reduzierer)` gibt zwei Dinge zurück: den anzuzeigenden Stand und eine Funktion, die den vorgezogenen Wert setzt. Im Artefakt heißen sie `anzeige` und `fuegeOptimistischHinzu`. Ruft man diese Funktion in einer Action auf, zeigt React sofort den vorgezogenen Stand und fällt automatisch auf den echten zurück, sobald die Action fertig ist - **auch im Fehlerfall**."
     },
     {
       "id": "artefakt",
       "type": "theory",
       "title": "Der Kommentarbereich",
-      "body": "# Das Artefakt\n\n```jsx\nimport { useOptimistic, useRef } from \"react\";\nimport { useFormStatus } from \"react-dom\";\n\nfunction SendeKnopf() {\n  const { pending } = useFormStatus();\n  return <button disabled={pending}>{pending ? \"Sende ...\" : \"Abschicken\"}</button>;\n}\n\nexport function Kommentare({ kommentare, sendeKommentar }) {\n  const formular = useRef(null);\n  const [anzeige, fuegeOptimistischHinzu] = useOptimistic(\n    kommentare,\n    (bisher, neuerText) => [...bisher, { id: \"temp\", text: neuerText, schwebend: true }]\n  );\n\n  return (\n    <>\n      <ul>\n        {anzeige.map((k) => (\n          <li key={k.id} style={{ opacity: k.schwebend ? 0.5 : 1 }}>{k.text}</li>\n        ))}\n      </ul>\n      <form\n        ref={formular}\n        action={async (formData) => {\n          const text = formData.get(\"text\");\n          fuegeOptimistischHinzu(text);\n          formular.current.reset();\n          await sendeKommentar(text);\n        }}\n      >\n        <input name=\"text\" />\n        <SendeKnopf />\n      </form>\n    </>\n  );\n}\n```\n\nDrei Details, die die Übungen aufgreifen: der Absendeknopf ist ein **eigenes Bauteil**, der Reduzierer baut ein **neues Array**, und `formular.current.reset()` leert das Feld, bevor das Netz antwortet."
+      "body": "# Das Artefakt\n\n```jsx\nimport { useOptimistic, useRef } from \"react\";\nimport { useFormStatus } from \"react-dom\";\n\nfunction SendeKnopf() {\n  const { pending } = useFormStatus();\n  return <button disabled={pending}>{pending ? \"Sende ...\" : \"Abschicken\"}</button>;\n}\n\nexport function Kommentare({ kommentare, sendeKommentar }) {\n  const formular = useRef(null);\n  const [anzeige, fuegeOptimistischHinzu] = useOptimistic(\n    kommentare,\n    (bisher, neuerText) => [...bisher, { id: \"temp\", text: neuerText, schwebend: true }]\n  );\n\n  return (\n    <>\n      <ul>\n        {anzeige.map((k) => (\n          <li key={k.id} style={{ opacity: k.schwebend ? 0.5 : 1 }}>{k.text}</li>\n        ))}\n      </ul>\n      <form\n        ref={formular}\n        action={async (formData) => {\n          const text = formData.get(\"text\");\n          fuegeOptimistischHinzu(text);\n          formular.current.reset();\n          await sendeKommentar(text);\n        }}\n      >\n        <input name=\"text\" />\n        <SendeKnopf />\n      </form>\n    </>\n  );\n}\n```\n\nDrei Details, die die Übungen aufgreifen: der Absendeknopf ist ein **eigene Komponente**, der Reduzierer baut ein **neues Array**, und `formular.current.reset()` leert das Feld, bevor das Netz antwortet."
     },
     {
       "id": "vertiefung",
@@ -81,7 +81,7 @@
         "id": "ex-kommentarbereich-lesen",
         "stable_id": "ex-mue1psnp00rjf",
         "type": "ext:al-reading-comprehension",
-        "prompt": "Beantworte drei Fragen zu diesem Bauteil.",
+        "prompt": "Beantworte drei Fragen zu dieser Komponente.",
         "ext_payload": {
           "passage": "import { useOptimistic, useRef } from \"react\";\nimport { useFormStatus } from \"react-dom\";\n\nfunction SendeKnopf() {\n  const { pending } = useFormStatus();\n  return <button disabled={pending}>{pending ? \"Sende ...\" : \"Abschicken\"}</button>;\n}\n\nexport function Kommentare({ kommentare, sendeKommentar }) {\n  const formular = useRef(null);\n  const [anzeige, fuegeOptimistischHinzu] = useOptimistic(\n    kommentare,\n    (bisher, neuerText) => [...bisher, { id: \"temp\", text: neuerText, schwebend: true }]\n  );\n\n  return (\n    <>\n      <ul>\n        {anzeige.map((k) => (\n          <li key={k.id} style={{ opacity: k.schwebend ? 0.5 : 1 }}>{k.text}</li>\n        ))}\n      </ul>\n      <form\n        ref={formular}\n        action={async (formData) => {\n          const text = formData.get(\"text\");\n          fuegeOptimistischHinzu(text);\n          formular.current.reset();\n          await sendeKommentar(text);\n        }}\n      >\n        <input name=\"text\" />\n        <SendeKnopf />\n      </form>\n    </>\n  );\n}",
           "questions": [
@@ -105,7 +105,7 @@
               ]
             },
             {
-              "prompt": "Warum steht der Absendeknopf in einem eigenen Bauteil statt direkt im Formular?",
+              "prompt": "Warum steht der Absendeknopf in einem eigenen Komponente statt direkt im Formular?",
               "type": "multiple_choice",
               "options": [
                 {
@@ -244,7 +244,7 @@
               "name": "useFormStatus",
               "items": [
                 "meldet, dass das umgebende Formular gerade absendet",
-                "braucht ein Bauteil innerhalb des form-Elements",
+                "braucht eine Komponente innerhalb des form-Elements",
                 "schaltet den Absendeknopf ab"
               ]
             },
@@ -263,7 +263,7 @@
     {
       "id": "ex-fehlerfall",
       "type": "exercise",
-      "theory_ref": "intro",
+      "theory_ref": "vertiefung",
       "title": "Der Fehlerfall",
       "exercise": {
         "id": "ex-fehlerfall",
@@ -339,7 +339,7 @@
         "id": "ex-begriff-wirkung",
         "stable_id": "ex-mue1psnp0176j",
         "type": "matching",
-        "prompt": "Ordne jeder Stelle im Bauteil ihre Wirkung zu.",
+        "prompt": "Ordne jeder Stelle im Komponente ihre Wirkung zu.",
         "card_ids": [
           "useformstatus-ort",
           "useoptimistic-rueckfall",

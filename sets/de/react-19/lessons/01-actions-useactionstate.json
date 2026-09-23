@@ -17,7 +17,7 @@
       "id": "useactionstate-rueckgabe",
       "stable_id": "card-mue1psno001rg",
       "front": "useActionState: Rückgabe",
-      "back": "[stand, absendeAction, pending]: der letzte Rückgabewert der Action, die umhüllte Action für action={...}, und ein boolescher Ladezustand.",
+      "back": "[stand, absenden, pending]: der letzte Rückgabewert der Action, die umhüllte Action für action={...}, und ein boolescher Ladezustand.",
       "notes": "Die Reihenfolge ist fest. pending ist das dritte Element, nicht das zweite.",
       "media_type": "text",
       "difficulty": 2,
@@ -223,33 +223,33 @@
     {
       "id": "ex-hook-zeile",
       "type": "exercise",
-      "theory_ref": "intro",
+      "theory_ref": "artefakt",
       "title": "Die fehlende Hook-Zeile",
       "exercise": {
         "id": "ex-hook-zeile",
         "stable_id": "ex-mue1psno00bpr",
         "type": "cloze",
         "cloze_mode": "type",
-        "prompt": "Ergänze den Hook-Aufruf in dieser Zeile aus dem Formular.",
+        "prompt": "Ergänze den zweiten Parameter des Hook-Aufrufs aus dem Formular.",
         "card_ids": [
           "useactionstate-rueckgabe"
         ],
-        "sentence": "const [stand, absenden, pending] = ___(anmelden, { fehler: null, email: \"\" });",
+        "sentence": "const [stand, absenden, pending] = useActionState(anmelden, ___);",
         "blanks": [
           {
             "accept": [
-              "useActionState"
-            ],
-            "stable_id": "blank-mue1psno00cxq"
+              "{ fehler: null, email: \"\" }",
+              "{fehler: null, email: \"\"}"
+            ], "stable_id": "blank-mue3uavh001t7"
           }
         ],
-        "hint": "Der Hook, der Action, Stand und Ladezustand verbindet."
+        "hint": "Es ist der Stand, mit dem die Action beim ersten Mal aufgerufen wird."
       }
     },
     {
       "id": "ex-drei-rueckgaben",
       "type": "exercise",
-      "theory_ref": "intro",
+      "theory_ref": "artefakt",
       "title": "Die drei Rückgabewerte",
       "exercise": {
         "id": "ex-drei-rueckgaben",
@@ -327,7 +327,7 @@
     {
       "id": "ex-rueckgabewert",
       "type": "exercise",
-      "theory_ref": "intro",
+      "theory_ref": "vertiefung",
       "title": "Was mit dem Rückgabewert geschieht",
       "exercise": {
         "id": "ex-rueckgabewert",

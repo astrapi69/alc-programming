@@ -232,8 +232,8 @@
               "name": "gilt seit React 19",
               "items": [
                 "Funktionskomponenten nehmen ref in den Props entgegen",
-                "Neue Bauteile brauchen forwardRef nicht mehr",
-                "Ein Codemod stellt bestehende Bauteile um"
+                "Neue Komponenten brauchen forwardRef nicht mehr",
+                "Ein Codemod stellt bestehende Komponenten um"
               ]
             },
             {
@@ -264,16 +264,20 @@
         "options": [
           {
             "text": "Es funktioniert weiter: die ref kommt dann als zweites Argument statt im Props-Objekt an",
-            "correct": true, "stable_id": "opt-mue3efgv005et"
+            "correct": true,
+            "stable_id": "opt-mue3efgv005et"
           },
           {
-            "text": "Es bricht, weil forwardRef in React 19 entfernt ist", "stable_id": "opt-mue3efgv006eg"
+            "text": "Es bricht, weil forwardRef in React 19 entfernt ist",
+            "stable_id": "opt-mue3efgv006eg"
           },
           {
-            "text": "Es bricht, weil die Suchleiste ref={feld} nicht mehr übergeben darf", "stable_id": "opt-mue3efgv007w4"
+            "text": "Es bricht, weil die Suchleiste ref={feld} nicht mehr übergeben darf",
+            "stable_id": "opt-mue3efgv007w4"
           },
           {
-            "text": "Es funktioniert, aber feld.current zeigt dann auf die Komponente statt auf den DOM-Knoten", "stable_id": "opt-mue3efgv0080z"
+            "text": "Es funktioniert, aber feld.current zeigt dann auf die Komponente statt auf den DOM-Knoten",
+            "stable_id": "opt-mue3efgv0080z"
           }
         ],
         "explanation": "forwardRef ist nicht entfernt, es ist nur nicht mehr nötig. Der Unterschied liegt allein darin, wo die ref ankommt: als zweites Argument oder als Prop."
@@ -282,7 +286,7 @@
     {
       "id": "ex-ref-oder-state",
       "type": "exercise",
-      "theory_ref": "intro",
+      "theory_ref": "vertiefung",
       "title": "ref oder State",
       "exercise": {
         "id": "ex-ref-oder-state",

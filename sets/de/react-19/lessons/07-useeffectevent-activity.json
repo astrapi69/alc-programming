@@ -18,7 +18,7 @@
       "id": "effectevent-regeln",
       "stable_id": "card-mue1psns03oqj",
       "front": "Regeln von useEffectEvent",
-      "back": "Im selben Bauteil oder Hook deklarieren wie der zugehörige Effekt, und NICHT in die Abhängigkeitsliste aufnehmen. Gedacht für Funktionen, die wie Ereignisse aus einem Effekt heraus ausgelöst werden.",
+      "back": "Im selben Komponente oder Hook deklarieren wie der zugehörige Effekt, und NICHT in die Abhängigkeitsliste aufnehmen. Gedacht für Funktionen, die wie Ereignisse aus einem Effekt heraus ausgelöst werden.",
       "notes": "Stabil seit React 19.2.",
       "media_type": "text",
       "difficulty": 4,
@@ -59,7 +59,7 @@
       "id": "intro",
       "type": "theory",
       "title": "Reaktiv oder ereignishaft",
-      "body": "# useEffectEvent\n\nEin Effekt läuft neu, wenn sich eine seiner Abhängigkeiten ändert. Genau das ist das Problem, wenn er etwas benutzt, das er nur **liest**: steht `thema` in der Liste, baut jeder Themenwechsel die Chatverbindung neu auf.\n\n`useEffectEvent` zieht diesen Teil heraus. Die umhüllte Funktion sieht immer die **neuesten** Werte, ist aber selbst **nicht reaktiv**. Zwei Regeln:\n\n1. Sie wird im selben Bauteil oder Hook deklariert wie ihr Effekt.\n2. Sie gehört **nicht** in die Abhängigkeitsliste.\n\nStabil seit React 19.2."
+      "body": "# useEffectEvent\n\nEin Effekt läuft neu, wenn sich eine seiner Abhängigkeiten ändert. Genau das ist das Problem, wenn er etwas benutzt, das er nur **liest**: steht `thema` in der Liste, baut jeder Themenwechsel die Chatverbindung neu auf.\n\n`useEffectEvent` zieht diesen Teil heraus. Die umhüllte Funktion sieht immer die **neuesten** Werte, ist aber selbst **nicht reaktiv**. Zwei Regeln:\n\n1. Sie wird im selben Komponente oder Hook deklariert wie ihr Effekt.\n2. Sie gehört **nicht** in die Abhängigkeitsliste.\n\nStabil seit React 19.2."
     },
     {
       "id": "artefakt",
@@ -82,7 +82,7 @@
         "id": "ex-chatraum-lesen",
         "stable_id": "ex-mue1psns03rnl",
         "type": "ext:al-reading-comprehension",
-        "prompt": "Beantworte drei Fragen zu diesem Bauteil.",
+        "prompt": "Beantworte drei Fragen zu dieser Komponente.",
         "ext_payload": {
           "passage": "import { Activity, useEffect, useEffectEvent, useState } from \"react\";\n\nfunction ChatRaum({ raumId, thema }) {\n  const [verbunden, setVerbunden] = useState(false);\n\n  const beiVerbindung = useEffectEvent(() => {\n    zeigeHinweis(\"Verbunden mit \" + raumId, thema);\n    setVerbunden(true);\n  });\n\n  useEffect(() => {\n    const verbindung = baueVerbindung(raumId);\n    verbindung.on(\"connected\", () => beiVerbindung());\n    verbindung.verbinde();\n    return () => verbindung.trenne();\n  }, [raumId]);\n\n  return <p>{verbunden ? \"verbunden\" : \"verbinde ...\"}</p>;\n}\n\nexport function Arbeitsflaeche({ raumId, thema, sichtbar }) {\n  return (\n    <Activity mode={sichtbar ? \"visible\" : \"hidden\"}>\n      <ChatRaum raumId={raumId} thema={thema} />\n    </Activity>\n  );\n}",
           "questions": [

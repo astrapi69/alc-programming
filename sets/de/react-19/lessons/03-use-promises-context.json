@@ -82,7 +82,7 @@
         "id": "ex-panel-lesen",
         "stable_id": "ex-mue1psnp01fzj",
         "type": "ext:al-reading-comprehension",
-        "prompt": "Beantworte drei Fragen zu diesem Bauteil.",
+        "prompt": "Beantworte drei Fragen zu dieser Komponente.",
         "ext_payload": {
           "passage": "import { use, Suspense, createContext } from \"react\";\n\nconst ThemaContext = createContext(\"hell\");\n\nfunction Profil({ nutzerPromise, kompakt }) {\n  const nutzer = use(nutzerPromise);\n  if (kompakt) {\n    return <span>{nutzer.name}</span>;\n  }\n  const thema = use(ThemaContext);\n  return <p className={thema}>{nutzer.name} ({nutzer.rolle})</p>;\n}\n\nexport function ProfilPanel({ nutzerPromise }) {\n  return (\n    <Suspense fallback={<p>Lädt ...</p>}>\n      <Profil nutzerPromise={nutzerPromise} kompakt={false} />\n    </Suspense>\n  );\n}",
           "questions": [
@@ -306,16 +306,20 @@
         "options": [
           {
             "text": "Der Ladehinweis ersetzt jetzt das ganze Layout statt nur das Panel",
-            "correct": true, "stable_id": "opt-mue3efgu001h8"
+            "correct": true,
+            "stable_id": "opt-mue3efgu001h8"
           },
           {
-            "text": "Nichts, die Grenze wirkt unabhängig von ihrer Höhe im Baum", "stable_id": "opt-mue3efgu002vm"
+            "text": "Nichts, die Grenze wirkt unabhängig von ihrer Höhe im Baum",
+            "stable_id": "opt-mue3efgu002vm"
           },
           {
-            "text": "Profil hält nicht mehr an, weil keine Grenze mehr direkt darüber liegt", "stable_id": "opt-mue3efgu003rx"
+            "text": "Profil hält nicht mehr an, weil keine Grenze mehr direkt darüber liegt",
+            "stable_id": "opt-mue3efgu003rx"
           },
           {
-            "text": "Der Context wird nicht mehr gelesen, weil use dann außerhalb der Grenze steht", "stable_id": "opt-mue3efgu004fa"
+            "text": "Der Context wird nicht mehr gelesen, weil use dann außerhalb der Grenze steht",
+            "stable_id": "opt-mue3efgu004fa"
           }
         ],
         "explanation": "Die Grenze bestimmt, welcher Teil des Baums durch den fallback ersetzt wird. Je höher sie sitzt, desto mehr verschwindet, während gewartet wird."
@@ -324,7 +328,7 @@
     {
       "id": "ex-use-vs-usecontext",
       "type": "exercise",
-      "theory_ref": "intro",
+      "theory_ref": "vertiefung",
       "title": "use gegen useContext",
       "exercise": {
         "id": "ex-use-vs-usecontext",

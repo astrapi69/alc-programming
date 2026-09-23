@@ -65,7 +65,7 @@
       "id": "artefakt",
       "type": "theory",
       "title": "Die Berichtsseite",
-      "body": "# Das Artefakt\n\nZwei Dateien, eine Seite.\n\n```jsx\n// berichte/Seite.jsx - Server-Komponente, läuft nur auf dem Server\nimport { db } from \"./db\";\nimport { Filter } from \"./Filter\";\n\nexport default async function BerichteSeite({ jahr }) {\n  const berichte = await db.berichte.liste(jahr);\n\n  return (\n    <section>\n      <title>Berichte {jahr}</title>\n      <Filter startJahr={jahr} />\n      <ul>\n        {berichte.map((b) => (\n          <li key={b.id}>{b.titel}</li>\n        ))}\n      </ul>\n    </section>\n  );\n}\n\n// berichte/Filter.jsx\n\"use client\";\nimport { useState } from \"react\";\n\nexport function Filter({ startJahr }) {\n  const [wert, setWert] = useState(startJahr);\n  return <input value={wert} onChange={(e) => setWert(e.target.value)} />;\n}\n```\n\nDas `<title>` mitten im JSX ist kein Versehen: seit React 19 hebt React `title`, `meta` und `link` selbsttätig in den `head` des Dokuments. Seit 19.3 darf eine Server-Komponente außerdem einen Context, der aus einem `\"use client\"`-Modul stammt, **direkt** rendern, ohne eigenes Provider-Bauteil."
+      "body": "# Das Artefakt\n\nZwei Dateien, eine Seite.\n\n```jsx\n// berichte/Seite.jsx - Server-Komponente, läuft nur auf dem Server\nimport { db } from \"./db\";\nimport { Filter } from \"./Filter\";\n\nexport default async function BerichteSeite({ jahr }) {\n  const berichte = await db.berichte.liste(jahr);\n\n  return (\n    <section>\n      <title>Berichte {jahr}</title>\n      <Filter startJahr={jahr} />\n      <ul>\n        {berichte.map((b) => (\n          <li key={b.id}>{b.titel}</li>\n        ))}\n      </ul>\n    </section>\n  );\n}\n\n// berichte/Filter.jsx\n\"use client\";\nimport { useState } from \"react\";\n\nexport function Filter({ startJahr }) {\n  const [wert, setWert] = useState(startJahr);\n  return <input value={wert} onChange={(e) => setWert(e.target.value)} />;\n}\n```\n\nDas `<title>` mitten im JSX ist kein Versehen: seit React 19 hebt React `title`, `meta` und `link` selbsttätig in den `head` des Dokuments. Seit 19.3 darf eine Server-Komponente außerdem einen Context, der aus einem `\"use client\"`-Modul stammt, **direkt** rendern, ohne eigenes Provider-Komponente."
     },
     {
       "id": "vertiefung",
@@ -309,16 +309,20 @@
         "options": [
           {
             "text": "Ein Laufzeitfehler: die Funktion lässt sich nicht über die Grenze serialisieren",
-            "correct": true, "stable_id": "opt-mue3efgw009js"
+            "correct": true,
+            "stable_id": "opt-mue3efgw009js"
           },
           {
-            "text": "Es funktioniert, die Abfrage läuft dann im Browser", "stable_id": "opt-mue3efgw00ao8"
+            "text": "Es funktioniert, die Abfrage läuft dann im Browser",
+            "stable_id": "opt-mue3efgw00ao8"
           },
           {
-            "text": "Es funktioniert, die Abfrage läuft weiter auf dem Server", "stable_id": "opt-mue3efgw00bzl"
+            "text": "Es funktioniert, die Abfrage läuft weiter auf dem Server",
+            "stable_id": "opt-mue3efgw00bzl"
           },
           {
-            "text": "Filter erhält undefined und rendert ohne Fehler weiter", "stable_id": "opt-mue3efgw00cjx"
+            "text": "Filter erhält undefined und rendert ohne Fehler weiter",
+            "stable_id": "opt-mue3efgw00cjx"
           }
         ],
         "explanation": "Über die Grenze geht nur, was sich serialisieren lässt. Eine gewöhnliche Funktion hängt am Server-Modul. Als Server-Action markiert wäre sie erlaubt: dann schickt React einen Verweis statt des Codes."
@@ -327,8 +331,8 @@
     {
       "id": "ex-context-19-3",
       "type": "exercise",
-      "theory_ref": "artefakt",
-      "title": "Context ohne Provider-Bauteil",
+      "theory_ref": "vertiefung",
+      "title": "Context ohne Provider-Komponente",
       "exercise": {
         "id": "ex-context-19-3",
         "stable_id": "ex-mue1psnr02zho",
@@ -339,7 +343,7 @@
         ],
         "options": [
           {
-            "text": "Sie darf den Context direkt rendern, ein eigenes Provider-Bauteil entfällt",
+            "text": "Sie darf den Context direkt rendern, ein eigenes Provider-Komponente entfällt",
             "correct": true,
             "stable_id": "opt-mue1psnr030p2"
           },
@@ -356,7 +360,7 @@
             "stable_id": "opt-mue1psnr033qk"
           }
         ],
-        "explanation": "Vor 19.3 brauchte es ein zusätzliches Bauteil mit use client, das nur den Provider rendert. Seit 19.3 kann die Server-Komponente den importierten Context selbst rendern und den Wert setzen. Lesen bleibt Sache der Client-Komponenten."
+        "explanation": "Vor 19.3 brauchte es ein zusätzliches Komponente mit use client, das nur den Provider rendert. Seit 19.3 kann die Server-Komponente den importierten Context selbst rendern und den Wert setzen. Lesen bleibt Sache der Client-Komponenten."
       }
     }
   ]
