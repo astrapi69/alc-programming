@@ -44,8 +44,8 @@ manifest.yaml            # root: lists every set
   "id": "01-greetings",            // kebab-case; match the filename (without .json)
   "title": "Greetings",            // shown in the app
   "description": "…",              // one or two sentences
-  "target_language": "es",         // ISO 639-1 — the language being LEARNED
-  "source_language": "en",         // ISO 639-1 — the explanation language
+  "target_language": "es",         // ISO 639-1, the language being LEARNED
+  "source_language": "en",         // ISO 639-1, the explanation language
   "domain": "language",            // "language" (default) | "psychology" | "programming" | …
   "estimated_minutes": 10,         // integer
   "cards": [ … ],                  // see below
@@ -248,7 +248,6 @@ marked *engine*) enforces, per lesson:
 | `multiple_choice` options | ≥ 2, no duplicate option texts (*engine*) |
 | `multiple_choice` correct count | exactly 1 (single) / ≥ 1 (`multiple: true`) (*engine*) |
 | cards | no empty `front`/`back` |
-| exercise `prompt` | not the same text as its `sentence` or as the step `title` (the app shows both, so the question would appear twice; #26) |
 
 …and, per set: a valid ISO 639-1 language pair, the correct `path` for the
 domain, and every lesson listed in the set manifest's `metadata.lessons`.
