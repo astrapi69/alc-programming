@@ -50,7 +50,7 @@
       "id": "single-source",
       "stable_id": "card-ms942h7r0a6k6",
       "front": "Einzige Quelle der Wahrheit",
-      "back": "Bei controlled Inputs kennt der State den aktuellen Wert — genau eine Stelle, nicht das DOM zusätzlich.",
+      "back": "Bei controlled Inputs kennt der State den aktuellen Wert, genau eine Stelle, nicht das DOM zusätzlich.",
       "notes": "Erleichtert Validierung und abhängige Felder.",
       "media_type": "text",
       "difficulty": 2,
@@ -97,7 +97,7 @@
       "id": "step-handling",
       "type": "theory",
       "title": "Gemeinsames State-Handling",
-      "body": "## State-Handling\n\nBei controlled Inputs macht das Paar **`value` + `onChange`** das Feld steuerbar:\n\n```jsx\n<input value={name} onChange={e => setName(e.target.value)} />\n```\n\nSo lassen sich mehrere Felder in einem gemeinsamen State bündeln, Eingaben validieren und abhängige Felder ableiten — alles aus **einer** Quelle der Wahrheit."
+      "body": "## State-Handling\n\nBei controlled Inputs macht das Paar **`value` + `onChange`** das Feld steuerbar:\n\n```jsx\n<input value={name} onChange={e => setName(e.target.value)} />\n```\n\nSo lassen sich mehrere Felder in einem gemeinsamen State bündeln, Eingaben validieren und abhängige Felder ableiten, alles aus **einer** Quelle der Wahrheit."
     },
     {
       "id": "ex-mc-controlled",

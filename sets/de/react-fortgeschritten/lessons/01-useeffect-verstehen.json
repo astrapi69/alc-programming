@@ -1,7 +1,7 @@
 {
   "id": "01-useeffect-verstehen",
   "title": "useEffect verstehen",
-  "description": "Fortsetzung von React-Grundlagen: der useEffect-Hook — Ausführungszeitpunkt nach dem Render, das Dependency-Array (leer, mit Deps, ohne) und die Cleanup-Funktion. Schwerpunkt Multiple-Choice.",
+  "description": "Fortsetzung von React-Grundlagen: der useEffect-Hook, Ausführungszeitpunkt nach dem Render, das Dependency-Array (leer, mit Deps, ohne) und die Cleanup-Funktion. Schwerpunkt Multiple-Choice.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -24,7 +24,7 @@
       "id": "zeitpunkt",
       "stable_id": "card-ms942h7o07rup",
       "front": "Ausführungszeitpunkt",
-      "back": "useEffect läuft NACH dem Render (nachdem der Bildschirm aktualisiert wurde) — nicht davor.",
+      "back": "useEffect läuft NACH dem Render (nachdem der Bildschirm aktualisiert wurde) - nicht davor.",
       "notes": "Ein häufiger Irrtum ist, useEffect laufe vor dem Render.",
       "media_type": "text",
       "difficulty": 2,
@@ -51,7 +51,7 @@
       "stable_id": "card-ms942h7o07tuo",
       "front": "Dependency-Array mit Werten",
       "back": "Der Effekt läuft erneut, wenn sich einer der aufgeführten Werte ändert.",
-      "notes": "z. B. [count] — läuft, wenn sich count ändert.",
+      "notes": "z. B. [count] - läuft, wenn sich count ändert.",
       "media_type": "text",
       "difficulty": 2,
       "tags": [
@@ -91,7 +91,7 @@
       "id": "intro",
       "type": "theory",
       "title": "Wann und warum useEffect läuft",
-      "body": "# useEffect verstehen\n\n**useEffect** ist der Hook für **Seiteneffekte** — Dinge außerhalb des reinen Renderns wie Daten laden, Timer oder Abos.\n\nKernpunkt: Ein Effekt läuft **nach dem Render** (nachdem der Bildschirm aktualisiert wurde), **nicht davor** und nicht währenddessen. So bleibt das Rendern schnell, und der Effekt sieht das fertige Ergebnis."
+      "body": "# useEffect verstehen\n\n**useEffect** ist der Hook für **Seiteneffekte**, Dinge außerhalb des reinen Renderns wie Daten laden, Timer oder Abos.\n\nKernpunkt: Ein Effekt läuft **nach dem Render** (nachdem der Bildschirm aktualisiert wurde), **nicht davor** und nicht währenddessen. So bleibt das Rendern schnell, und der Effekt sieht das fertige Ergebnis."
     },
     {
       "id": "step-deps",
@@ -103,7 +103,7 @@
       "id": "step-cleanup",
       "type": "theory",
       "title": "Die Cleanup-Funktion",
-      "body": "## Aufräumen mit Cleanup\n\nGibt ein Effekt eine **Funktion zurück**, ist das seine **Cleanup**-Funktion:\n\n```jsx\nuseEffect(() => {\n  const id = setInterval(tick, 1000)\n  return () => clearInterval(id) // Cleanup\n}, [])\n```\n\nSie läuft **vor dem nächsten** Effekt und beim **Unmount** — ideal, um Timer zu stoppen oder Abos abzumelden."
+      "body": "## Aufräumen mit Cleanup\n\nGibt ein Effekt eine **Funktion zurück**, ist das seine **Cleanup**-Funktion:\n\n```jsx\nuseEffect(() => {\n  const id = setInterval(tick, 1000)\n  return () => clearInterval(id) // Cleanup\n}, [])\n```\n\nSie läuft **vor dem nächsten** Effekt und beim **Unmount**, ideal, um Timer zu stoppen oder Abos abzumelden."
     },
     {
       "id": "ex-mc-zeitpunkt",

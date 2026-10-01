@@ -1,7 +1,7 @@
 {
   "id": "12-module-und-imports",
   "title": "Module und Imports",
-  "description": "import, from ... import, Aliase, Standardbibliothek mit math und random — auf Deutsch erklärt.",
+  "description": "import, from ... import, Aliase, Standardbibliothek mit math und random, auf Deutsch erklärt.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -34,7 +34,7 @@
       "id": "mod-from-import",
       "stable_id": "card-ms942h7l05p09",
       "front": "from modul import name",
-      "back": "Importiert einen einzelnen Namen direkt in den aktuellen Namensraum — kein Modulpräfix nötig.",
+      "back": "Importiert einen einzelnen Namen direkt in den aktuellen Namensraum, kein Modulpräfix nötig.",
       "code_snippet": "from math import sqrt\nprint(sqrt(25))",
       "code_language": "python",
       "expected_output": "5.0",
@@ -73,11 +73,11 @@
       "id": "mod-math-pi",
       "stable_id": "card-ms942h7l05sql",
       "front": "math.pi",
-      "back": "Die mathematische Konstante π (Pi) als float — ungefähr 3,14159.",
+      "back": "Die mathematische Konstante π (Pi) als float, ungefähr 3,14159.",
       "code_snippet": "import math\nprint(math.pi)",
       "code_language": "python",
       "expected_output": "3.141592653589793",
-      "hint": "pi ist eine Konstante, keine Funktion — kein () dahinter.",
+      "hint": "pi ist eine Konstante, keine Funktion, kein () dahinter.",
       "difficulty": 2,
       "tags": ["module", "math"],
       "media_type": "code"
@@ -96,7 +96,7 @@
       "id": "mod-standardbibliothek",
       "stable_id": "card-ms942h7l05ufh",
       "front": "Standardbibliothek (Standard Library)",
-      "back": "Eine umfangreiche Sammlung von Modulen, die mit Python ausgeliefert wird — kein separater Install nötig.",
+      "back": "Eine umfangreiche Sammlung von Modulen, die mit Python ausgeliefert wird, kein separater Install nötig.",
       "notes": "Beispiele: math, random, os, datetime, json, csv.",
       "media_type": "text",
       "difficulty": 2,
@@ -116,7 +116,7 @@
       "id": "mod-from-import-mehrere",
       "stable_id": "card-ms942h7l05wqo",
       "front": "from modul import name1, name2",
-      "back": "Mehrere Namen aus einem Modul auf einmal importieren — durch Kommas getrennt.",
+      "back": "Mehrere Namen aus einem Modul auf einmal importieren, durch Kommas getrennt.",
       "code_snippet": "from math import sqrt, pi\nprint(sqrt(4))\nprint(pi)",
       "code_language": "python",
       "expected_output": "2.0\n3.141592653589793",
@@ -140,14 +140,14 @@
     {
       "id": "theory-import-grundlagen",
       "type": "theory",
-      "title": "Module importieren — import und from ... import",
-      "body": "# Module und Imports\n\nEin **Modul (Module)** ist eine Python-Datei mit fertigem Code (Funktionen, Variablen, Klassen). Mit **import** bindet man es ein.\n\n## import modul\n\n```python\nimport math\nprint(math.pi)      # 3.141592653589793\nprint(math.sqrt(16))  # 4.0\n```\n\nNach dem Import greift man mit **modul.name** auf Inhalte zu.\n\n## from modul import name\n\nNur einen einzelnen Namen importieren — kein Präfix nötig:\n\n```python\nfrom math import sqrt\nprint(sqrt(25))   # 5.0\n```\n\nMehrere Namen auf einmal:\n\n```python\nfrom math import sqrt, pi\n```\n\n## import ... as (Alias)\n\nEinem Modul einen kürzeren Namen geben:\n\n```python\nimport math as m\nprint(m.sqrt(9))  # 3.0\n```\n\nAliase sind besonders nützlich bei Modulen mit langen Namen."
+      "title": "Module importieren - import und from ... import",
+      "body": "# Module und Imports\n\nEin **Modul (Module)** ist eine Python-Datei mit fertigem Code (Funktionen, Variablen, Klassen). Mit **import** bindet man es ein.\n\n## import modul\n\n```python\nimport math\nprint(math.pi)      # 3.141592653589793\nprint(math.sqrt(16))  # 4.0\n```\n\nNach dem Import greift man mit **modul.name** auf Inhalte zu.\n\n## from modul import name\n\nNur einen einzelnen Namen importieren, kein Präfix nötig:\n\n```python\nfrom math import sqrt\nprint(sqrt(25))   # 5.0\n```\n\nMehrere Namen auf einmal:\n\n```python\nfrom math import sqrt, pi\n```\n\n## import ... as (Alias)\n\nEinem Modul einen kürzeren Namen geben:\n\n```python\nimport math as m\nprint(m.sqrt(9))  # 3.0\n```\n\nAliase sind besonders nützlich bei Modulen mit langen Namen."
     },
     {
       "id": "theory-standardbibliothek",
       "type": "theory",
       "title": "Standardbibliothek: math und random",
-      "body": "## Die Standardbibliothek\n\nPython wird mit einer umfangreichen **Standardbibliothek (Standard Library)** ausgeliefert — viele Module sind sofort nutzbar ohne Installation.\n\n### math — Mathematische Funktionen\n\n| Name | Beschreibung |\n|------|--------------|\n| `math.sqrt(x)` | Quadratwurzel von x (immer float) |\n| `math.pi` | Konstante π ≈ 3,14159 |\n| `math.floor(x)` | Abrunden zur nächsten ganzen Zahl |\n| `math.ceil(x)` | Aufrunden |\n\n```python\nimport math\nprint(math.sqrt(16))   # 4.0\nprint(math.pi)         # 3.141592653589793\n```\n\n### random — Zufallszahlen\n\n```python\nimport random\nzahl = random.randint(1, 6)   # zufällige Zahl von 1 bis 6\nprint(zahl)                   # z. B. 3 (jedes Mal anders)\n```\n\n`random.randint(a, b)` gibt eine zufällige ganze Zahl zurück — **beide Grenzen eingeschlossen**.\n\n### Module und Pakete\n\nMehrere Module in einem Verzeichnis bilden ein **Paket (Package)**. Der Import funktioniert genauso: `import paket.modul`.\n\nJedes Modul hat seinen eigenen **Namensraum (Namespace)** — das verhindert Namenskonflikte."
+      "body": "## Die Standardbibliothek\n\nPython wird mit einer umfangreichen **Standardbibliothek (Standard Library)** ausgeliefert, viele Module sind sofort nutzbar ohne Installation.\n\n### math - Mathematische Funktionen\n\n| Name | Beschreibung |\n|------|--------------|\n| `math.sqrt(x)` | Quadratwurzel von x (immer float) |\n| `math.pi` | Konstante π ≈ 3,14159 |\n| `math.floor(x)` | Abrunden zur nächsten ganzen Zahl |\n| `math.ceil(x)` | Aufrunden |\n\n```python\nimport math\nprint(math.sqrt(16))   # 4.0\nprint(math.pi)         # 3.141592653589793\n```\n\n### random - Zufallszahlen\n\n```python\nimport random\nzahl = random.randint(1, 6)   # zufällige Zahl von 1 bis 6\nprint(zahl)                   # z. B. 3 (jedes Mal anders)\n```\n\n`random.randint(a, b)` gibt eine zufällige ganze Zahl zurück, **beide Grenzen eingeschlossen**.\n\n### Module und Pakete\n\nMehrere Module in einem Verzeichnis bilden ein **Paket (Package)**. Der Import funktioniert genauso: `import paket.modul`.\n\nJedes Modul hat seinen eigenen **Namensraum (Namespace)**, das verhindert Namenskonflikte."
     },
     {
       "id": "ex-cloze-import",
@@ -200,7 +200,7 @@
         "prompt": "Ordne jede Import-Form ihrer Beschreibung zu.",
         "card_ids": ["mod-import", "mod-from-import", "mod-alias"],
         "pairs": [
-          { "left": "import math", "right": "ganzes Modul — Zugriff mit math.name" },
+          { "left": "import math", "right": "ganzes Modul, Zugriff mit math.name" },
           { "left": "from math import sqrt", "right": "einzelner Name, kein Präfix nötig" },
           { "left": "import math as m", "right": "Modul unter Kurzname m verfügbar" }
         ],
@@ -219,7 +219,7 @@
         "prompt": "Welchen Wert gibt math.sqrt(16) zurück?",
         "card_ids": ["mod-math-sqrt"],
         "accept": ["4.0", "4", "vier"],
-        "hint": "Die Quadratwurzel von 16 ist 4 — als float.",
+        "hint": "Die Quadratwurzel von 16 ist 4, als float.",
         "distractors": ["2.0", "8.0", "16.0"],
         "direction": "target_to_source"
       }

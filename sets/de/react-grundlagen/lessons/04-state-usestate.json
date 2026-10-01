@@ -200,7 +200,7 @@
         "id": "ex-mc-keine-mutation",
         "stable_id": "ex-ms942h7u0c90t",
         "type": "cloze",
-        "prompt": "Du hast const [zaehler, setZaehler] = useState(0);. Wie erhöhst du den Zähler korrekt um 1?",
+        "prompt": "Du hast `const [zaehler, setZaehler] = useState(0);`. Wie erhöhst du den Zähler korrekt um 1?",
         "card_ids": [
           "card-setter",
           "card-keine-mutation"

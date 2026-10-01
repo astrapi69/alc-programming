@@ -270,7 +270,7 @@
           }
         ],
         "cloze_mode": "type",
-        "hint": "Wie in useState — der Anfang des Namens."
+        "hint": "Wie in useState, der Anfang des Namens."
       }
     },
     {

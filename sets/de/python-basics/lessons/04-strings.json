@@ -1,7 +1,7 @@
 {
   "id": "04-strings",
-  "title": "Strings — mit Text arbeiten",
-  "description": "String-Verkettung, f-Strings, len(), die Methoden upper/lower/replace, Indexing, Slicing und der in-Operator — auf Deutsch erklärt.",
+  "title": "Strings - mit Text arbeiten",
+  "description": "String-Verkettung, f-Strings, len(), die Methoden upper/lower/replace, Indexing, Slicing und der in-Operator, auf Deutsch erklärt.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -54,7 +54,7 @@
       "code_snippet": "s = 'Hallo Welt'\nprint(s.upper())\nprint(s.lower())",
       "code_language": "python",
       "expected_output": "HALLO WELT\nhallo welt",
-      "hint": "Diese Methoden verändern den ursprünglichen String nicht — sie geben einen neuen zurück.",
+      "hint": "Diese Methoden verändern den ursprünglichen String nicht, sie geben einen neuen zurück.",
       "difficulty": 2,
       "tags": ["strings", "methoden"],
       "media_type": "code"
@@ -93,7 +93,7 @@
       "code_snippet": "s = 'Python'\nprint(s[0:3])\nprint(s[2:5])",
       "code_language": "python",
       "expected_output": "Pyt\ntho",
-      "hint": "Der stop-Index ist ausschließend — s[0:3] liefert 3 Zeichen, nicht 4.",
+      "hint": "Der stop-Index ist ausschließend, s[0:3] liefert 3 Zeichen, nicht 4.",
       "difficulty": 3,
       "tags": ["strings", "slicing"],
       "media_type": "code"
@@ -106,7 +106,7 @@
       "code_snippet": "print('Py' in 'Python')\nprint('Java' in 'Python')",
       "code_language": "python",
       "expected_output": "True\nFalse",
-      "hint": "in gibt einen bool zurück — gut für Bedingungen.",
+      "hint": "in gibt einen bool zurück, gut für Bedingungen.",
       "difficulty": 2,
       "tags": ["strings", "operatoren"],
       "media_type": "code"
@@ -146,13 +146,13 @@
       "id": "intro-strings",
       "type": "theory",
       "title": "Strings verbinden und formatieren",
-      "body": "# Strings — mit Text arbeiten\n\nStrings sind Zeichenketten in Python. Mit `+` lassen sich zwei Strings **verketten**:\n\n```python\nvorname = 'Anna'\nnachname = 'Müller'\nprint(vorname + ' ' + nachname)\n```\n\nAusgabe:\n\n```\nAnna Müller\n```\n\n## f-Strings\n\nEine elegantere Alternative sind **f-Strings**. Man stellt dem Anführungszeichen ein `f` voran und setzt Variablen in `{}`:\n\n```python\nname = 'Lena'\nalter = 22\nprint(f'Ich heiße {name} und bin {alter} Jahre alt.')\n```\n\nAusgabe:\n\n```\nIch heiße Lena und bin 22 Jahre alt.\n```\n\n## Länge eines Strings\n\nMit `len()` erfährt man, wie viele Zeichen ein String hat:\n\n```python\nprint(len('Python'))   # 6\n```"
+      "body": "# Strings - mit Text arbeiten\n\nStrings sind Zeichenketten in Python. Mit `+` lassen sich zwei Strings **verketten**:\n\n```python\nvorname = 'Anna'\nnachname = 'Müller'\nprint(vorname + ' ' + nachname)\n```\n\nAusgabe:\n\n```\nAnna Müller\n```\n\n## f-Strings\n\nEine elegantere Alternative sind **f-Strings**. Man stellt dem Anführungszeichen ein `f` voran und setzt Variablen in `{}`:\n\n```python\nname = 'Lena'\nalter = 22\nprint(f'Ich heiße {name} und bin {alter} Jahre alt.')\n```\n\nAusgabe:\n\n```\nIch heiße Lena und bin 22 Jahre alt.\n```\n\n## Länge eines Strings\n\nMit `len()` erfährt man, wie viele Zeichen ein String hat:\n\n```python\nprint(len('Python'))   # 6\n```"
     },
     {
       "id": "step-methoden",
       "type": "theory",
       "title": "String-Methoden: upper, lower, replace",
-      "body": "## Methoden verändern Strings\n\nStrings besitzen eingebaute **Methoden**, die man mit einem Punkt aufruft. Wichtig: Strings sind **unveränderlich** — Methoden geben immer einen *neuen* String zurück.\n\n### `.upper()` und `.lower()`\n\n```python\ns = 'Hallo Welt'\nprint(s.upper())   # HALLO WELT\nprint(s.lower())   # hallo welt\n```\n\n### `.replace(alt, neu)`\n\nErsetzt jeden Treffer des ersten Arguments durch das zweite:\n\n```python\nsatz = 'Ich mag Katzen'\nprint(satz.replace('Katzen', 'Hunde'))   # Ich mag Hunde\n```"
+      "body": "## Methoden verändern Strings\n\nStrings besitzen eingebaute **Methoden**, die man mit einem Punkt aufruft. Wichtig: Strings sind **unveränderlich**, Methoden geben immer einen *neuen* String zurück.\n\n### `.upper()` und `.lower()`\n\n```python\ns = 'Hallo Welt'\nprint(s.upper())   # HALLO WELT\nprint(s.lower())   # hallo welt\n```\n\n### `.replace(alt, neu)`\n\nErsetzt jeden Treffer des ersten Arguments durch das zweite:\n\n```python\nsatz = 'Ich mag Katzen'\nprint(satz.replace('Katzen', 'Hunde'))   # Ich mag Hunde\n```"
     },
     {
       "id": "step-indexing-slicing",

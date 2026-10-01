@@ -1,7 +1,7 @@
 {
   "id": "11-fehler-und-ausnahmen",
   "title": "Fehler und Ausnahmen (try / except)",
-  "description": "try / except, häufige Ausnahmetypen, else und finally, eigene Fehler mit raise — auf Deutsch erklärt.",
+  "description": "try / except, häufige Ausnahmetypen, else und finally, eigene Fehler mit raise, auf Deutsch erklärt.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -34,7 +34,7 @@
       "id": "exc-valueerror",
       "stable_id": "card-ms942h7l05529",
       "front": "ValueError",
-      "back": "Wird ausgelöst, wenn ein Wert den richtigen Typ hat, aber einen unzulässigen Inhalt besitzt — z. B. int('abc').",
+      "back": "Wird ausgelöst, wenn ein Wert den richtigen Typ hat, aber einen unzulässigen Inhalt besitzt, z. B. int('abc').",
       "code_snippet": "try:\n    zahl = int('hallo')\nexcept ValueError:\n    print('Kein gültiger Zahlenwert')",
       "code_language": "python",
       "expected_output": "Kein gültiger Zahlenwert",
@@ -47,7 +47,7 @@
       "id": "exc-typeerror",
       "stable_id": "card-ms942h7l0560w",
       "front": "TypeError",
-      "back": "Wird ausgelöst, wenn eine Operation auf einem Objekt des falschen Typs angewendet wird — z. B. '2' + 2.",
+      "back": "Wird ausgelöst, wenn eine Operation auf einem Objekt des falschen Typs angewendet wird, z. B. '2' + 2.",
       "code_snippet": "try:\n    ergebnis = '2' + 2\nexcept TypeError:\n    print('Typen passen nicht zusammen')",
       "code_language": "python",
       "expected_output": "Typen passen nicht zusammen",
@@ -112,7 +112,7 @@
       "id": "exc-finally",
       "stable_id": "card-ms942h7l05bx6",
       "front": "finally",
-      "back": "Der finally-Block wird immer ausgeführt — egal ob ein Fehler aufgetreten ist oder nicht. Er eignet sich zum Aufräumen von Ressourcen.",
+      "back": "Der finally-Block wird immer ausgeführt, egal ob ein Fehler aufgetreten ist oder nicht. Er eignet sich zum Aufräumen von Ressourcen.",
       "code_snippet": "try:\n    x = 10 / 2\nexcept ZeroDivisionError:\n    print('Fehler')\nfinally:\n    print('Fertig')",
       "code_language": "python",
       "expected_output": "Fertig",
@@ -125,7 +125,7 @@
       "id": "exc-raise",
       "stable_id": "card-ms942h7l05c0k",
       "front": "raise",
-      "back": "Mit raise löst man bewusst eine Ausnahme aus — z. B. um ungültige Eingaben abzulehnen.",
+      "back": "Mit raise löst man bewusst eine Ausnahme aus, z. B. um ungültige Eingaben abzulehnen.",
       "code_snippet": "def nur_positiv(n):\n    if n <= 0:\n        raise ValueError('Zahl muss positiv sein')\n    return n\n\ntry:\n    nur_positiv(-3)\nexcept ValueError as e:\n    print(e)",
       "code_language": "python",
       "expected_output": "Zahl muss positiv sein",
@@ -169,13 +169,13 @@
       "id": "theory-ausnahmetypen",
       "type": "theory",
       "title": "Häufige Ausnahmetypen",
-      "body": "## Die wichtigsten Ausnahmetypen\n\n| Typ | Wann tritt er auf? |\n|-----|--------------------|\n| `ValueError` | Falscher Inhalt, richtiger Typ — z. B. `int('abc')` |\n| `TypeError` | Falscher Typ — z. B. `'2' + 2` |\n| `ZeroDivisionError` | Division durch null: `10 / 0` |\n| `KeyError` | Dictionary-Schlüssel nicht vorhanden |\n| `IndexError` | Listen-Index außerhalb des Bereichs |\n\nMan kann mehrere `except`-Blöcke kombinieren:\n\n```python\ntry:\n    wert = liste[index]\nexcept IndexError:\n    print('Index ungültig')\nexcept TypeError:\n    print('Falscher Typ')\n```"
+      "body": "## Die wichtigsten Ausnahmetypen\n\n| Typ | Wann tritt er auf? |\n|-----|--------------------|\n| `ValueError` | Falscher Inhalt, richtiger Typ, z. B. `int('abc')` |\n| `TypeError` | Falscher Typ, z. B. `'2' + 2` |\n| `ZeroDivisionError` | Division durch null: `10 / 0` |\n| `KeyError` | Dictionary-Schlüssel nicht vorhanden |\n| `IndexError` | Listen-Index außerhalb des Bereichs |\n\nMan kann mehrere `except`-Blöcke kombinieren:\n\n```python\ntry:\n    wert = liste[index]\nexcept IndexError:\n    print('Index ungültig')\nexcept TypeError:\n    print('Falscher Typ')\n```"
     },
     {
       "id": "theory-else-finally-raise",
       "type": "theory",
       "title": "else, finally und raise",
-      "body": "## else und finally\n\n```python\ntry:\n    x = int('42')\nexcept ValueError:\n    print('Fehler!')\nelse:\n    print('Kein Fehler — x ist', x)   # läuft nur ohne Fehler\nfinally:\n    print('Immer ausgeführt')          # läuft immer\n```\n\nAusgabe:\n\n```\nKein Fehler — x ist 42\nImmer ausgeführt\n```\n\n- **else** läuft, wenn *kein* Fehler aufgetreten ist.\n- **finally** läuft *immer* — ideal zum Schließen von Dateien oder Verbindungen.\n\n## Eigene Fehler auslösen mit raise\n\nMit `raise` kann man selbst eine Ausnahme werfen:\n\n```python\ndef nur_positiv(n):\n    if n <= 0:\n        raise ValueError('Zahl muss positiv sein')\n    return n\n```\n\nDas macht den Code robuster: falsche Eingaben werden sofort abgelehnt."
+      "body": "## else und finally\n\n```python\ntry:\n    x = int('42')\nexcept ValueError:\n    print('Fehler!')\nelse:\n    print('Kein Fehler, x ist', x)   # läuft nur ohne Fehler\nfinally:\n    print('Immer ausgeführt')          # läuft immer\n```\n\nAusgabe:\n\n```\nKein Fehler, x ist 42\nImmer ausgeführt\n```\n\n- **else** läuft, wenn *kein* Fehler aufgetreten ist.\n- **finally** läuft *immer*, ideal zum Schließen von Dateien oder Verbindungen.\n\n## Eigene Fehler auslösen mit raise\n\nMit `raise` kann man selbst eine Ausnahme werfen:\n\n```python\ndef nur_positiv(n):\n    if n <= 0:\n        raise ValueError('Zahl muss positiv sein')\n    return n\n```\n\nDas macht den Code robuster: falsche Eingaben werden sofort abgelehnt."
     },
     {
       "id": "ex-cloze-try",
@@ -209,9 +209,9 @@
         "prompt": "Ordne jeden Ausnahmetyp der Situation zu, in der er auftritt.",
         "card_ids": ["exc-valueerror", "exc-typeerror", "exc-zerodivision", "exc-keyerror", "exc-indexerror"],
         "pairs": [
-          { "left": "ValueError", "right": "int('abc') — falscher Inhalt" },
-          { "left": "TypeError", "right": "'2' + 2 — falscher Typ" },
-          { "left": "ZeroDivisionError", "right": "10 / 0 — Division durch null" },
+          { "left": "ValueError", "right": "int('abc') - falscher Inhalt" },
+          { "left": "TypeError", "right": "'2' + 2, falscher Typ" },
+          { "left": "ZeroDivisionError", "right": "10 / 0, Division durch null" },
           { "left": "KeyError", "right": "Dictionary-Schlüssel nicht vorhanden" },
           { "left": "IndexError", "right": "Listen-Index außerhalb des Bereichs" }
         ],

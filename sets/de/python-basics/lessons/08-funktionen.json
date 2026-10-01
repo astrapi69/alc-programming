@@ -1,7 +1,7 @@
 {
   "id": "08-funktionen",
   "title": "Funktionen (def)",
-  "description": "Eigene Funktionen mit def definieren, Parameter und Argumente, return-Werte, Default-Argumente, Docstrings und den Unterschied zwischen print und return — auf Deutsch erklärt.",
+  "description": "Eigene Funktionen mit def definieren, Parameter und Argumente, return-Werte, Default-Argumente, Docstrings und den Unterschied zwischen print und return, auf Deutsch erklärt.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -54,7 +54,7 @@
       "code_language": "python",
       "expected_output": "7",
       "notes": "Ohne return gibt die Funktion None zurück.",
-      "hint": "return gibt einen Wert zurück — print() zeigt ihn nur an.",
+      "hint": "return gibt einen Wert zurück, print() zeigt ihn nur an.",
       "difficulty": 2,
       "tags": ["funktionen", "return"],
       "media_type": "code"
@@ -139,7 +139,7 @@
       "id": "fn-scope",
       "stable_id": "card-ms942h7j03u41",
       "front": "Lokaler Geltungsbereich (Scope)",
-      "back": "Variablen, die innerhalb einer Funktion definiert werden, existieren nur dort — außerhalb sind sie nicht sichtbar.",
+      "back": "Variablen, die innerhalb einer Funktion definiert werden, existieren nur dort, außerhalb sind sie nicht sichtbar.",
       "notes": "Das verhindert, dass Hilfsvariablen in der Funktion globale Namen überschreiben.",
       "media_type": "text",
       "difficulty": 3,
@@ -151,13 +151,13 @@
       "id": "step-def-grundlagen",
       "type": "theory",
       "title": "Funktionen definieren mit def",
-      "body": "# Funktionen (def)\n\nEine **Funktion** ist ein wiederverwendbarer Code-Block, dem man einen Namen gibt. Mit dem Schlüsselwort **def** wird sie definiert:\n\n```python\ndef begruesse():\n    print('Hallo!')\n```\n\nDer Funktionskörper muss **eingerückt** sein (4 Leerzeichen). Aufgerufen wird die Funktion mit ihrem Namen und runden Klammern:\n\n```python\nbegruesse()   # Ausgabe: Hallo!\n```\n\n## Parameter und Argumente\n\n**Parameter** sind Platzhaltervariablen im Funktionskopf. Beim Aufruf übergibt man den konkreten Wert — das **Argument**:\n\n```python\ndef begruesse(name):\n    print('Hallo', name)\n\nbegruesse('Anna')   # Ausgabe: Hallo Anna\n```\n\nEine Funktion kann auch mehrere Parameter haben, getrennt durch Kommas:\n\n```python\ndef addiere(a, b):\n    return a + b\n```"
+      "body": "# Funktionen (def)\n\nEine **Funktion** ist ein wiederverwendbarer Code-Block, dem man einen Namen gibt. Mit dem Schlüsselwort **def** wird sie definiert:\n\n```python\ndef begruesse():\n    print('Hallo!')\n```\n\nDer Funktionskörper muss **eingerückt** sein (4 Leerzeichen). Aufgerufen wird die Funktion mit ihrem Namen und runden Klammern:\n\n```python\nbegruesse()   # Ausgabe: Hallo!\n```\n\n## Parameter und Argumente\n\n**Parameter** sind Platzhaltervariablen im Funktionskopf. Beim Aufruf übergibt man den konkreten Wert, das **Argument**:\n\n```python\ndef begruesse(name):\n    print('Hallo', name)\n\nbegruesse('Anna')   # Ausgabe: Hallo Anna\n```\n\nEine Funktion kann auch mehrere Parameter haben, getrennt durch Kommas:\n\n```python\ndef addiere(a, b):\n    return a + b\n```"
     },
     {
       "id": "step-return-default",
       "type": "theory",
       "title": "return, Default-Argumente und Docstrings",
-      "body": "## return\n\nMit **return** gibt eine Funktion einen Wert zurück:\n\n```python\ndef quadrat(x):\n    return x * x\n\nergebnis = quadrat(5)\nprint(ergebnis)   # 25\n```\n\nOhne `return` gibt die Funktion **None** zurück.\n\n## Default-Argumente\n\nParameter können einen **Standardwert** haben — er gilt, wenn kein Argument übergeben wird:\n\n```python\ndef begruesse(name='Welt'):\n    print('Hallo', name)\n\nbegruesse()        # Hallo Welt\nbegruesse('Max')   # Hallo Max\n```\n\n## Docstring\n\nEin **Docstring** ist ein kurzer Text direkt nach dem Funktionskopf, der die Funktion beschreibt:\n\n```python\ndef berechne(x):\n    \"\"\"Gibt das Doppelte von x zurueck.\"\"\"\n    return x * 2\n```\n\n## print() vs. return\n\n| | print() | return |\n|---|---|---|\n| Zeigt Wert an | ja | nein |\n| Gibt Wert zurück | nein | ja |\n\n`print()` ist nur für die Ausgabe; `return` gibt den Wert an den Aufrufer zurück, damit er weiterverwendet werden kann."
+      "body": "## return\n\nMit **return** gibt eine Funktion einen Wert zurück:\n\n```python\ndef quadrat(x):\n    return x * x\n\nergebnis = quadrat(5)\nprint(ergebnis)   # 25\n```\n\nOhne `return` gibt die Funktion **None** zurück.\n\n## Default-Argumente\n\nParameter können einen **Standardwert** haben, er gilt, wenn kein Argument übergeben wird:\n\n```python\ndef begruesse(name='Welt'):\n    print('Hallo', name)\n\nbegruesse()        # Hallo Welt\nbegruesse('Max')   # Hallo Max\n```\n\n## Docstring\n\nEin **Docstring** ist ein kurzer Text direkt nach dem Funktionskopf, der die Funktion beschreibt:\n\n```python\ndef berechne(x):\n    \"\"\"Gibt das Doppelte von x zurueck.\"\"\"\n    return x * 2\n```\n\n## print() vs. return\n\n| | print() | return |\n|---|---|---|\n| Zeigt Wert an | ja | nein |\n| Gibt Wert zurück | nein | ja |\n\n`print()` ist nur für die Ausgabe; `return` gibt den Wert an den Aufrufer zurück, damit er weiterverwendet werden kann."
     },
     {
       "id": "ex-cloze-def",

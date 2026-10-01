@@ -38,7 +38,7 @@
       "stable_id": "card-ms942h7o086ne",
       "front": "Fehlerzustand",
       "back": "Schlägt der Abruf fehl, zeigt man eine Fehlermeldung statt der Daten.",
-      "notes": "Fehler immer behandeln — Netzwerke sind unzuverlässig.",
+      "notes": "Fehler immer behandeln, Netzwerke sind unzuverlässig.",
       "media_type": "text",
       "difficulty": 2,
       "tags": [
@@ -104,13 +104,13 @@
       "id": "intro",
       "type": "theory",
       "title": "Daten laden mit useEffect",
-      "body": "# Datenfetching-Grundmuster\n\nIn einer Funktionskomponente startet man einen Datenabruf meist in **useEffect** und modelliert drei Zustände:\n\n- **loading** — der Abruf läuft (Spinner zeigen),\n- **error** — der Abruf schlug fehl (Meldung zeigen),\n- **success** — die Daten sind da (anzeigen).\n\nSo weiß die Oberfläche immer, was zu zeigen ist."
+      "body": "# Datenfetching-Grundmuster\n\nIn einer Funktionskomponente startet man einen Datenabruf meist in **useEffect** und modelliert drei Zustände:\n\n- **loading**: der Abruf läuft (Spinner zeigen),\n- **error**: der Abruf schlug fehl (Meldung zeigen),\n- **success**: die Daten sind da (anzeigen).\n\nSo weiß die Oberfläche immer, was zu zeigen ist."
     },
     {
       "id": "step-race",
       "type": "theory",
       "title": "Race-Conditions vermeiden",
-      "body": "## Race-Conditions\n\nÄndert sich z. B. ein Suchbegriff schnell, laufen mehrere Abrufe gleichzeitig. Eine **ältere** Antwort kann eine **neuere überschreiben** — das ist eine **Race-Condition**, die veraltete Daten zeigt.\n\nGegenmittel im **Cleanup**: das Ergebnis als **veraltet markieren** (ein `ignore`-Flag) oder den Abruf mit **AbortController abbrechen**. So gewinnt immer die neueste Anfrage."
+      "body": "## Race-Conditions\n\nÄndert sich z. B. ein Suchbegriff schnell, laufen mehrere Abrufe gleichzeitig. Eine **ältere** Antwort kann eine **neuere überschreiben**, das ist eine **Race-Condition**, die veraltete Daten zeigt.\n\nGegenmittel im **Cleanup**: das Ergebnis als **veraltet markieren** (ein `ignore`-Flag) oder den Abruf mit **AbortController abbrechen**. So gewinnt immer die neueste Anfrage."
     },
     {
       "id": "ex-mc-wo",

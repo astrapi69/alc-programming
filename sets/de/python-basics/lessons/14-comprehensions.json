@@ -1,7 +1,7 @@
 {
   "id": "14-comprehensions",
   "title": "List Comprehensions",
-  "description": "List Comprehensions kompakt erklärt: Syntax, Bedingungen, Vergleich mit der for-Schleife und ein Ausblick auf Dict Comprehensions — auf Deutsch erklärt.",
+  "description": "List Comprehensions kompakt erklärt: Syntax, Bedingungen, Vergleich mit der for-Schleife und ein Ausblick auf Dict Comprehensions, auf Deutsch erklärt.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -15,7 +15,7 @@
       "code_snippet": "zahlen = [1, 2, 3, 4]\ndoppelt = [x * 2 for x in zahlen]\nprint(doppelt)",
       "code_language": "python",
       "expected_output": "[2, 4, 6, 8]",
-      "hint": "Der Ausdruck steht links, die Schleife rechts — alles in eckigen Klammern.",
+      "hint": "Der Ausdruck steht links, die Schleife rechts, alles in eckigen Klammern.",
       "difficulty": 3,
       "tags": ["comprehensions", "listen"],
       "media_type": "code"
@@ -122,7 +122,7 @@
       "id": "py-comp-ergebnis-typ",
       "stable_id": "card-ms942h7m06yk1",
       "front": "Ergebnistyp einer List Comprehension",
-      "back": "Eine List Comprehension gibt immer eine neue Liste (list) zurück — unabhängig vom Typ des Iterables.",
+      "back": "Eine List Comprehension gibt immer eine neue Liste (list) zurück, unabhängig vom Typ des Iterables.",
       "code_snippet": "ergebnis = [c for c in 'abc']\nprint(ergebnis)\nprint(type(ergebnis))",
       "code_language": "python",
       "expected_output": "['a', 'b', 'c']\n<class 'list'>",
@@ -137,13 +137,13 @@
       "id": "theory-comp-grundform",
       "type": "theory",
       "title": "Was ist eine List Comprehension?",
-      "body": "# List Comprehensions\n\nEine **List Comprehension** ist eine kompakte Syntax, um aus einem Iterable eine neue Liste zu erzeugen.\n\n## Grundform\n\n```python\n[Ausdruck for Element in Iterable]\n```\n\nBeispiel — jede Zahl verdoppeln:\n\n```python\nzahlen = [1, 2, 3, 4]\ndoppelt = [x * 2 for x in zahlen]\nprint(doppelt)   # [2, 4, 6, 8]\n```\n\nDas ist gleichbedeutend mit dieser klassischen `for`-Schleife:\n\n```python\ndoppelt = []\nfor x in zahlen:\n    doppelt.append(x * 2)\n```\n\nDie Comprehension ist kürzer und oft gut lesbar — sie steht in **eckigen Klammern** und gibt immer eine **Liste** zurück."
+      "body": "# List Comprehensions\n\nEine **List Comprehension** ist eine kompakte Syntax, um aus einem Iterable eine neue Liste zu erzeugen.\n\n## Grundform\n\n```python\n[Ausdruck for Element in Iterable]\n```\n\nBeispiel, jede Zahl verdoppeln:\n\n```python\nzahlen = [1, 2, 3, 4]\ndoppelt = [x * 2 for x in zahlen]\nprint(doppelt)   # [2, 4, 6, 8]\n```\n\nDas ist gleichbedeutend mit dieser klassischen `for`-Schleife:\n\n```python\ndoppelt = []\nfor x in zahlen:\n    doppelt.append(x * 2)\n```\n\nDie Comprehension ist kürzer und oft gut lesbar, sie steht in **eckigen Klammern** und gibt immer eine **Liste** zurück."
     },
     {
       "id": "theory-comp-bedingung",
       "type": "theory",
       "title": "Bedingungen und Dict Comprehensions",
-      "body": "## Filtern mit if\n\nEin optionales `if` am Ende filtert die Elemente — nur Elemente, für die die Bedingung `True` ergibt, landen in der neuen Liste:\n\n```python\nzahlen = [1, 2, 3, 4, 5, 6]\ngerade = [x for x in zahlen if x % 2 == 0]\nprint(gerade)   # [2, 4, 6]\n```\n\n## Dict Comprehension\n\nMit **geschweiften Klammern** und einem Doppelpunkt entsteht statt einer Liste ein Dictionary:\n\n```python\nzahlen = [1, 2, 3]\nquadrate = {x: x ** 2 for x in zahlen}\nprint(quadrate)   # {1: 1, 2: 4, 3: 9}\n```\n\nDie Grundstruktur ist dieselbe — nur `[Ausdruck ...]` wird zu `{Schlüssel: Wert ...}`."
+      "body": "## Filtern mit if\n\nEin optionales `if` am Ende filtert die Elemente, nur Elemente, für die die Bedingung `True` ergibt, landen in der neuen Liste:\n\n```python\nzahlen = [1, 2, 3, 4, 5, 6]\ngerade = [x for x in zahlen if x % 2 == 0]\nprint(gerade)   # [2, 4, 6]\n```\n\n## Dict Comprehension\n\nMit **geschweiften Klammern** und einem Doppelpunkt entsteht statt einer Liste ein Dictionary:\n\n```python\nzahlen = [1, 2, 3]\nquadrate = {x: x ** 2 for x in zahlen}\nprint(quadrate)   # {1: 1, 2: 4, 3: 9}\n```\n\nDie Grundstruktur ist dieselbe, nur `[Ausdruck ...]` wird zu `{Schlüssel: Wert ...}`."
     },
     {
       "id": "ex-cloze-comp-basis",
@@ -195,7 +195,7 @@
         "prompt": "Welchen Datentyp gibt eine List Comprehension immer zurück?",
         "card_ids": ["py-comp-ergebnis-typ"],
         "accept": ["list", "Liste", "eine Liste", "list()"],
-        "hint": "Der Name steht zwischen den eckigen Klammern — nein, der Typ selbst.",
+        "hint": "Der Name steht zwischen den eckigen Klammern, nein, der Typ selbst.",
         "distractors": ["tuple", "dict", "set", "generator"],
         "direction": "target_to_source"
       }
@@ -229,7 +229,7 @@
         "prompt": "Setze die List Comprehension zusammen, die nur gerade Zahlen aus 'zahlen' auswählt.",
         "card_ids": ["py-list-comp-bedingung"],
         "tiles": ["[", "x", "for", "x", "in", "zahlen", "if", "x % 2 == 0", "]"],
-        "hint": "Ausdruck — for — Variable — in — Iterable — if — Bedingung.",
+        "hint": "Ausdruck, for, Variable, in, Iterable, if, Bedingung.",
         "direction": "target_to_source"
       }
     },
