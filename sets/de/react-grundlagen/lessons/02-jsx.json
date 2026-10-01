@@ -79,7 +79,7 @@
       "stable_id": "card-ms942h7s0bfc5",
       "front": "{} gegen Anführungszeichen",
       "back": "{ } werten einen JavaScript-Ausdruck aus; Anführungszeichen liefern einen festen Text-String.",
-      "notes": "title=\"Hallo\" ist fester Text, title={gruss} setzt den Wert der Variablen gruss ein.",
+      "notes": "title=\"Hallo\" ist fester Text, title={gruss} setzt den Wert dieser Variablen ein.",
       "media_type": "text",
       "difficulty": 2,
       "tags": [

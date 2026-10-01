@@ -112,7 +112,7 @@ def test_non_ascii_survives_as_real_utf8(tmp_path: Path) -> None:
     # substitution ("Oberfläche" appears throughout the lesson prose and
     # has no ASCII-substituted variant anywhere in the source).
     assert "Oberfläche" in raw_text
-    assert "Oberflaeche" not in raw_text
+    assert "Oberfläche".replace("ä", "ae") not in raw_text
 
 
 def test_yaml_reparse_content_equals_source_lessons(tmp_path: Path) -> None:

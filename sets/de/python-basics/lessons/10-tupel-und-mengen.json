@@ -1,7 +1,7 @@
 {
   "id": "10-tupel-und-mengen",
   "title": "Tupel und Mengen (tuple & set)",
-  "description": "Tupel als unveränderliche geordnete Folgen und Mengen als ungeordnete Sammlungen eindeutiger Elemente — Unterschiede zu Listen, Duplikate entfernen und Mengenoperationen.",
+  "description": "Tupel als unveränderliche geordnete Folgen und Mengen als ungeordnete Sammlungen eindeutiger Elemente, Unterschiede zu Listen, Duplikate entfernen und Mengenoperationen.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -11,7 +11,7 @@
       "id": "tuple-erstellen",
       "stable_id": "card-ms942h7k04llb",
       "front": "Tupel erstellen (tuple)",
-      "back": "Ein Tupel speichert mehrere Werte in runden Klammern. Es ist unveränderlich — nach der Erstellung können keine Elemente hinzugefügt oder entfernt werden.",
+      "back": "Ein Tupel speichert mehrere Werte in runden Klammern. Es ist unveränderlich, nach der Erstellung können keine Elemente hinzugefügt oder entfernt werden.",
       "code_snippet": "punkt = (3, 7)\nprint(punkt)",
       "code_language": "python",
       "expected_output": "(3, 7)",
@@ -94,12 +94,12 @@
     {
       "id": "set-vereinigung",
       "stable_id": "card-ms942h7k04s5q",
-      "front": "Vereinigung (|) — set union",
+      "front": "Vereinigung (|) - set union",
       "back": "Der Operator | gibt eine neue Menge zurück, die alle Elemente beider Mengen enthält.",
       "code_snippet": "a = {1, 2, 3}\nb = {3, 4, 5}\nprint(len(a | b))",
       "code_language": "python",
       "expected_output": "5",
-      "hint": "| steht für 'oder' — alle Elemente aus beiden Mengen, keine Doppelten.",
+      "hint": "| steht für 'oder' - alle Elemente aus beiden Mengen, keine Doppelten.",
       "difficulty": 3,
       "tags": ["menge", "operation"],
       "media_type": "code"
@@ -107,12 +107,12 @@
     {
       "id": "set-schnittmenge",
       "stable_id": "card-ms942h7k04tph",
-      "front": "Schnittmenge (&) — set intersection",
+      "front": "Schnittmenge (&) - set intersection",
       "back": "Der Operator & gibt eine Menge zurück, die nur die Elemente enthält, die in beiden Mengen vorkommen.",
       "code_snippet": "a = {1, 2, 3}\nb = {2, 3, 4}\nprint(a & b == {2, 3})",
       "code_language": "python",
       "expected_output": "True",
-      "hint": "& steht für 'und' — nur die gemeinsamen Elemente.",
+      "hint": "& steht für 'und' - nur die gemeinsamen Elemente.",
       "difficulty": 3,
       "tags": ["menge", "operation"],
       "media_type": "code"
@@ -122,7 +122,7 @@
       "stable_id": "card-ms942h7k04uy7",
       "front": "Mengen sind ungeordnet",
       "back": "Elemente in einer Menge haben keine feste Reihenfolge. Man kann nicht mit einem Index auf ein einzelnes Element zugreifen.",
-      "notes": "Deshalb sind Mengenelemente nicht über einen Index abrufbar — dafür gibt es keine Garantie für die Reihenfolge.",
+      "notes": "Deshalb sind Mengenelemente nicht über einen Index abrufbar, dafür gibt es keine Garantie für die Reihenfolge.",
       "media_type": "text",
       "difficulty": 3,
       "tags": ["menge", "eigenschaft"]
@@ -145,14 +145,14 @@
     {
       "id": "step-tupel",
       "type": "theory",
-      "title": "Tupel — geordnet und unveränderlich",
-      "body": "# Tupel und Mengen (tuple & set)\n\n## Tupel (tuple)\n\nEin **Tupel** ist wie eine Liste, aber **unveränderlich (immutable)**. Es steht in **runden Klammern** `()`:\n\n```python\npunkt = (3, 7)\nprint(punkt)     # (3, 7)\nprint(punkt[0])  # 3\n```\n\nNach der Erstellung können keine Elemente hinzugefügt, entfernt oder geändert werden. Der Versuch führt zu einem **TypeError**.\n\n## Tupel vs. Liste\n\n| Eigenschaft | Liste `[]` | Tupel `()` |\n|---|---|---|\n| Geordnet | ja | ja |\n| Doppelte Werte erlaubt | ja | ja |\n| Veränderlich | ja | **nein** |\n\nTupel eignen sich für Daten, die sich nicht ändern sollen — zum Beispiel Koordinaten oder feste Konfigurationen."
+      "title": "Tupel - geordnet und unveränderlich",
+      "body": "# Tupel und Mengen (tuple & set)\n\n## Tupel (tuple)\n\nEin **Tupel** ist wie eine Liste, aber **unveränderlich (immutable)**. Es steht in **runden Klammern** `()`:\n\n```python\npunkt = (3, 7)\nprint(punkt)     # (3, 7)\nprint(punkt[0])  # 3\n```\n\nNach der Erstellung können keine Elemente hinzugefügt, entfernt oder geändert werden. Der Versuch führt zu einem **TypeError**.\n\n## Tupel vs. Liste\n\n| Eigenschaft | Liste `[]` | Tupel `()` |\n|---|---|---|\n| Geordnet | ja | ja |\n| Doppelte Werte erlaubt | ja | ja |\n| Veränderlich | ja | **nein** |\n\nTupel eignen sich für Daten, die sich nicht ändern sollen, zum Beispiel Koordinaten oder feste Konfigurationen."
     },
     {
       "id": "step-mengen",
       "type": "theory",
-      "title": "Mengen — eindeutig und ungeordnet",
-      "body": "## Mengen (set)\n\nEine **Menge** speichert **eindeutige Elemente** ohne feste Reihenfolge. Sie steht in geschweiften Klammern `{}`:\n\n```python\nfarben = {'rot', 'gruen', 'blau'}\nprint(len(farben))  # 3\n```\n\n## Duplikate entfernen\n\n`set()` auf eine Liste angewendet entfernt alle doppelten Werte:\n\n```python\nzahlen = [1, 2, 2, 3, 3, 3]\nprint(len(set(zahlen)))  # 3\n```\n\n## Mengenoperationen\n\n```python\na = {1, 2, 3}\nb = {3, 4, 5}\n```\n\n- **Vereinigung** `|` — alle Elemente aus beiden Mengen: `a | b` → {1, 2, 3, 4, 5}\n- **Schnittmenge** `&` — nur gemeinsame Elemente: `a & b` → {3}\n\n## Wichtig: Mengen sind ungeordnet\n\nEs gibt keinen Index-Zugriff `menge[0]` — die Reihenfolge ist nicht garantiert. Für eine Mitgliedschaftsprüfung nutzt man **in**:\n\n```python\nprint('rot' in farben)  # True\n```"
+      "title": "Mengen - eindeutig und ungeordnet",
+      "body": "## Mengen (set)\n\nEine **Menge** speichert **eindeutige Elemente** ohne feste Reihenfolge. Sie steht in geschweiften Klammern `{}`:\n\n```python\nfarben = {'rot', 'gruen', 'blau'}\nprint(len(farben))  # 3\n```\n\n## Duplikate entfernen\n\n`set()` auf eine Liste angewendet entfernt alle doppelten Werte:\n\n```python\nzahlen = [1, 2, 2, 3, 3, 3]\nprint(len(set(zahlen)))  # 3\n```\n\n## Mengenoperationen\n\n```python\na = {1, 2, 3}\nb = {3, 4, 5}\n```\n\n- **Vereinigung** `|` - alle Elemente aus beiden Mengen: `a | b` → {1, 2, 3, 4, 5}\n- **Schnittmenge** `&` - nur gemeinsame Elemente: `a & b` → {3}\n\n## Wichtig: Mengen sind ungeordnet\n\nEs gibt keinen Index-Zugriff `menge[0]` - die Reihenfolge ist nicht garantiert. Für eine Mitgliedschaftsprüfung nutzt man **in**:\n\n```python\nprint('rot' in farben)  # True\n```"
     },
     {
       "id": "step-vergleich",
@@ -207,7 +207,7 @@
         "id": "ex-free-unveraenderlich",
         "stable_id": "ex-ms942h7k04y48",
         "type": "free_text",
-        "prompt": "Welche Eigenschaft unterscheidet ein Tupel von einer Liste — Tupel können nicht verändert werden?",
+        "prompt": "Welche Eigenschaft unterscheidet ein Tupel von einer Liste, Tupel können nicht verändert werden?",
         "card_ids": ["tuple-unveraenderlich", "tuple-vs-liste"],
         "accept": ["unveränderlich", "immutable", "nicht veränderbar", "nicht veränderlich"],
         "hint": "Das englische Fachwort lautet 'immutable'.",

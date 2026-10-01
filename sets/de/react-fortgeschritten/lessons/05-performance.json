@@ -91,13 +91,13 @@
       "id": "intro",
       "type": "theory",
       "title": "Was Re-Renders auslöst",
-      "body": "# Performance\n\nEine Komponente rendert neu, wenn sich ihr **State** oder ihre **Props** ändern — oder wenn ihr **Elternteil** neu rendert. Eine Änderung von `ref.current` löst **keinen** Re-Render aus.\n\nMeist ist Re-Rendern **billig**. Optimieren lohnt sich nur gezielt: **erst messen, dann handeln** (voreilige Optimierung schadet mehr, als sie nützt)."
+      "body": "# Performance\n\nEine Komponente rendert neu, wenn sich ihr **State** oder ihre **Props** ändern, oder wenn ihr **Elternteil** neu rendert. Eine Änderung von `ref.current` löst **keinen** Re-Render aus.\n\nMeist ist Re-Rendern **billig**. Optimieren lohnt sich nur gezielt: **erst messen, dann handeln** (voreilige Optimierung schadet mehr, als sie nützt)."
     },
     {
       "id": "step-memo",
       "type": "theory",
       "title": "useMemo, useCallback, React.memo",
-      "body": "## Drei Werkzeuge\n\n- **useMemo** cachet das **Ergebnis** einer **teuren Berechnung** (solange die Deps gleich sind).\n- **useCallback** cachet eine **Funktionsreferenz** (nützlich, wenn ein memoisiertes Kind eine stabile Funktion braucht).\n- **React.memo** lässt eine Komponente ihren Re-Render **überspringen**, solange ihre **Props gleich** bleiben.\n\nWichtig: `useMemo` cachet **nur zwischen Renders**, **nicht dauerhaft** über Unmounts. Und: nicht alles memoisieren — nur wo es messbar hilft."
+      "body": "## Drei Werkzeuge\n\n- **useMemo** cachet das **Ergebnis** einer **teuren Berechnung** (solange die Deps gleich sind).\n- **useCallback** cachet eine **Funktionsreferenz** (nützlich, wenn ein memoisiertes Kind eine stabile Funktion braucht).\n- **React.memo** lässt eine Komponente ihren Re-Render **überspringen**, solange ihre **Props gleich** bleiben.\n\nWichtig: `useMemo` cachet **nur zwischen Renders**, **nicht dauerhaft** über Unmounts. Und: nicht alles memoisieren, nur wo es messbar hilft."
     },
     {
       "id": "ex-mc-ausloeser",

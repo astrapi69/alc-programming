@@ -1,7 +1,7 @@
 {
   "id": "03-zahlen-und-operatoren",
   "title": "Zahlen und Operatoren",
-  "description": "Arithmetische Operatoren, Ganzzahldivision, Modulo, Potenz, Operatorrangfolge und der Unterschied zwischen int und float bei Division — auf Deutsch erklärt.",
+  "description": "Arithmetische Operatoren, Ganzzahldivision, Modulo, Potenz, Operatorrangfolge und der Unterschied zwischen int und float bei Division, auf Deutsch erklärt.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -54,7 +54,7 @@
       "code_snippet": "print(10 / 4)\nprint(8 / 2)",
       "code_language": "python",
       "expected_output": "2.5\n4.0",
-      "hint": "8 / 2 ergibt 4.0, nicht 4 — Python gibt immer einen float zurück.",
+      "hint": "8 / 2 ergibt 4.0, nicht 4, Python gibt immer einen float zurück.",
       "difficulty": 2,
       "tags": ["operatoren", "arithmetik", "float"],
       "media_type": "code"
@@ -93,7 +93,7 @@
       "code_snippet": "print(2 ** 8)\nprint(3 ** 2)",
       "code_language": "python",
       "expected_output": "256\n9",
-      "hint": "Zwei Sternchen ** — nicht verwechseln mit einem einfachen *.",
+      "hint": "Zwei Sternchen **, nicht verwechseln mit einem einfachen *.",
       "difficulty": 2,
       "tags": ["operatoren", "arithmetik"],
       "media_type": "code"
@@ -106,7 +106,7 @@
       "code_snippet": "print(2 + 3 * 4)\nprint((2 + 3) * 4)",
       "code_language": "python",
       "expected_output": "14\n20",
-      "hint": "Ohne Klammern gilt Punkt vor Strich — genau wie in der Mathematik.",
+      "hint": "Ohne Klammern gilt Punkt vor Strich, genau wie in der Mathematik.",
       "difficulty": 2,
       "tags": ["operatoren", "syntax"],
       "media_type": "code"
@@ -129,7 +129,7 @@
       "stable_id": "card-ms942h7g019gy",
       "front": "Klammern in Rechenausdrücken",
       "back": "Runde Klammern () erzwingen eine andere Berechnungsreihenfolge und machen den Code lesbarer.",
-      "notes": "Klammern sind in Python auch für Funktionsaufrufe zuständig — der Kontext macht den Unterschied.",
+      "notes": "Klammern sind in Python auch für Funktionsaufrufe zuständig, der Kontext macht den Unterschied.",
       "media_type": "text",
       "difficulty": 1,
       "tags": ["operatoren", "syntax"]
@@ -155,13 +155,13 @@
       "id": "step-erweiterte-operatoren",
       "type": "theory",
       "title": "Ganzzahldivision, Modulo und Potenz",
-      "body": "## Drei besondere Operatoren\n\n### Ganzzahldivision `//`\nSchneidet die Nachkommastellen ab — das Ergebnis ist ein `int`:\n\n```python\nprint(10 // 3)   # 3 (nicht 3.33...)\nprint(7 // 2)    # 3\n```\n\n### Modulo `%`\nGibt den **Rest** der Division zurück:\n\n```python\nprint(10 % 3)    # 1  (10 = 3 × 3 + 1)\nprint(8 % 2)     # 0  (8 ist gerade, kein Rest)\n```\n\n### Potenz `**`\n`a ** b` bedeutet 'a hoch b':\n\n```python\nprint(2 ** 8)    # 256\nprint(3 ** 2)    # 9\n```"
+      "body": "## Drei besondere Operatoren\n\n### Ganzzahldivision `//`\nSchneidet die Nachkommastellen ab, das Ergebnis ist ein `int`:\n\n```python\nprint(10 // 3)   # 3 (nicht 3.33...)\nprint(7 // 2)    # 3\n```\n\n### Modulo `%`\nGibt den **Rest** der Division zurück:\n\n```python\nprint(10 % 3)    # 1  (10 = 3 × 3 + 1)\nprint(8 % 2)     # 0  (8 ist gerade, kein Rest)\n```\n\n### Potenz `**`\n`a ** b` bedeutet 'a hoch b':\n\n```python\nprint(2 ** 8)    # 256\nprint(3 ** 2)    # 9\n```"
     },
     {
       "id": "step-rangfolge",
       "type": "theory",
       "title": "Operatorrangfolge und Klammern",
-      "body": "## Punkt vor Strich — auch in Python\n\nPython folgt den mathematischen Vorrangregeln: `**` bindet am stärksten, dann `* / // %`, dann `+ -`.\n\n```python\nprint(2 + 3 * 4)    # 14  (erst 3*4=12, dann 2+12)\nprint((2 + 3) * 4)  # 20  (Klammern zuerst: 5*4)\n```\n\n**Tipp:** Wenn du dir bei der Reihenfolge nicht sicher bist, setze einfach **Klammern** — das macht den Code auch lesbarer.\n\n## int vs. float bei Division\n\n```python\nprint(type(8 / 2))   # <class 'float'>\nprint(type(8 // 2))  # <class 'int'>\n```\n\nFaustregel: `/` → immer `float`; `//` mit ganzzahligen Operanden → `int`."
+      "body": "## Punkt vor Strich - auch in Python\n\nPython folgt den mathematischen Vorrangregeln: `**` bindet am stärksten, dann `* / // %`, dann `+ -`.\n\n```python\nprint(2 + 3 * 4)    # 14  (erst 3*4=12, dann 2+12)\nprint((2 + 3) * 4)  # 20  (Klammern zuerst: 5*4)\n```\n\n**Tipp:** Wenn du dir bei der Reihenfolge nicht sicher bist, setze einfach **Klammern**, das macht den Code auch lesbarer.\n\n## int vs. float bei Division\n\n```python\nprint(type(8 / 2))   # <class 'float'>\nprint(type(8 // 2))  # <class 'int'>\n```\n\nFaustregel: `/` → immer `float`; `//` mit ganzzahligen Operanden → `int`."
     },
     {
       "id": "ex-cloze-division",
@@ -198,7 +198,7 @@
           { "accept": ["%"] }
         ],
         "cloze_mode": "type",
-        "hint": "Das Prozentzeichen — aber es ist kein Prozent, sondern Modulo."
+        "hint": "Das Prozentzeichen, aber es ist kein Prozent, sondern Modulo."
       }
     },
     {
@@ -213,7 +213,7 @@
         "prompt": "Welches Ergebnis liefert 2 ** 8 in Python?",
         "card_ids": ["py-potenz"],
         "accept": ["256", "256.0"],
-        "hint": "2 hoch 8 — multipliziere 2 achtmal miteinander.",
+        "hint": "2 hoch 8, multipliziere 2 achtmal miteinander.",
         "distractors": ["16", "64", "512", "28"],
         "direction": "target_to_source"
       }
@@ -230,7 +230,7 @@
         "prompt": "Was gibt print(2 + 3 * 4) aus?",
         "card_ids": ["py-rangfolge"],
         "accept": ["14", "14.0"],
-        "hint": "Multiplikation hat Vorrang vor Addition — erst 3 * 4, dann + 2.",
+        "hint": "Multiplikation hat Vorrang vor Addition, erst 3 * 4, dann + 2.",
         "distractors": ["20", "24", "11"],
         "direction": "target_to_source"
       }

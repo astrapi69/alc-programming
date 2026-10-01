@@ -1,7 +1,7 @@
 {
   "id": "13-dateien",
   "title": "Dateien lesen und schreiben",
-  "description": "open(), Dateimodi, read/write-Methoden, das with-Statement als Context Manager, über Zeilen iterieren — auf Deutsch erklärt.",
+  "description": "open(), Dateimodi, read/write-Methoden, das with-Statement als Context Manager, über Zeilen iterieren, auf Deutsch erklärt.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -88,7 +88,7 @@
       "id": "dat-with",
       "stable_id": "card-ms942h7m06eml",
       "front": "with open(...) as f:",
-      "back": "Das with-Statement öffnet eine Datei als Context Manager. Die Datei wird automatisch geschlossen, sobald der with-Block endet — auch bei einem Fehler.",
+      "back": "Das with-Statement öffnet eine Datei als Context Manager. Die Datei wird automatisch geschlossen, sobald der with-Block endet, auch bei einem Fehler.",
       "code_snippet": "with open('notiz.txt', 'w') as f:\n    f.write('Hallo Datei')\nprint('Datei geschlossen')",
       "code_language": "python",
       "expected_output": "Datei geschlossen",
@@ -101,7 +101,7 @@
       "id": "dat-context-manager",
       "stable_id": "card-ms942h7m06fhi",
       "front": "Context Manager",
-      "back": "Ein Objekt, das mit dem with-Statement zusammenarbeitet und automatisch Auf- und Abbau-Aktionen ausführt — z. B. eine Datei sicher schließen.",
+      "back": "Ein Objekt, das mit dem with-Statement zusammenarbeitet und automatisch Auf- und Abbau-Aktionen ausführt, z. B. eine Datei sicher schließen.",
       "notes": "open() gibt einen Context Manager zurück. Eigene Context Manager kann man mit __enter__ und __exit__ erstellen.",
       "media_type": "text",
       "difficulty": 3,
@@ -111,7 +111,7 @@
       "id": "dat-iteration",
       "stable_id": "card-ms942h7m06glh",
       "front": "Über Zeilen einer Datei iterieren",
-      "back": "Mit einer for-Schleife kann man direkt über ein geöffnetes Datei-Objekt iterieren — Python liefert dabei Zeile für Zeile.",
+      "back": "Mit einer for-Schleife kann man direkt über ein geöffnetes Datei-Objekt iterieren, Python liefert dabei Zeile für Zeile.",
       "code_snippet": "with open('liste.txt', 'w') as f:\n    f.write('Apfel\\nBanane\\nKirsche')\n\nwith open('liste.txt', 'r') as f:\n    for zeile in f:\n        print(zeile.strip())",
       "code_language": "python",
       "expected_output": "Apfel\nBanane\nKirsche",
@@ -136,19 +136,19 @@
       "id": "theory-open-modi",
       "type": "theory",
       "title": "Dateien öffnen mit open() und Dateimodi",
-      "body": "# Dateien lesen und schreiben\n\nMit **open()** öffnet man eine Datei. Die Funktion gibt ein **Datei-Objekt** zurück, über das man liest oder schreibt.\n\n```python\ndatei = open('meine_datei.txt', 'r')  # zum Lesen öffnen\n```\n\n## Die drei wichtigsten Modi\n\n| Modus | Bedeutung | Datei existiert nicht? |\n|-------|-----------|------------------------|\n| `'r'` | lesen (read) | → FileNotFoundError |\n| `'w'` | schreiben (write) | → neue Datei anlegen |\n| `'a'` | anhängen (append) | → neue Datei anlegen |\n\nBeim Modus `'w'` wird eine vorhandene Datei **vollständig überschrieben**. Mit `'a'` bleibt der alte Inhalt erhalten.\n\n## Lesen und Schreiben\n\n```python\n# Schreiben\ndatei = open('gruss.txt', 'w')\ndatei.write('Hallo Welt\\n')\ndatei.close()   # nicht vergessen!\n\n# Lesen\ndatei = open('gruss.txt', 'r')\ninhalt = datei.read()   # gesamter Inhalt als String\ndatei.close()\n```\n\nNeben `.read()` gibt es:\n- **`.readline()`** — eine Zeile lesen\n- **`.readlines()`** — alle Zeilen als Liste"
+      "body": "# Dateien lesen und schreiben\n\nMit **open()** öffnet man eine Datei. Die Funktion gibt ein **Datei-Objekt** zurück, über das man liest oder schreibt.\n\n```python\ndatei = open('meine_datei.txt', 'r')  # zum Lesen öffnen\n```\n\n## Die drei wichtigsten Modi\n\n| Modus | Bedeutung | Datei existiert nicht? |\n|-------|-----------|------------------------|\n| `'r'` | lesen (read) | → FileNotFoundError |\n| `'w'` | schreiben (write) | → neue Datei anlegen |\n| `'a'` | anhängen (append) | → neue Datei anlegen |\n\nBeim Modus `'w'` wird eine vorhandene Datei **vollständig überschrieben**. Mit `'a'` bleibt der alte Inhalt erhalten.\n\n## Lesen und Schreiben\n\n```python\n# Schreiben\ndatei = open('gruss.txt', 'w')\ndatei.write('Hallo Welt\\n')\ndatei.close()   # nicht vergessen!\n\n# Lesen\ndatei = open('gruss.txt', 'r')\ninhalt = datei.read()   # gesamter Inhalt als String\ndatei.close()\n```\n\nNeben `.read()` gibt es:\n- **`.readline()`**: eine Zeile lesen\n- **`.readlines()`**: alle Zeilen als Liste"
     },
     {
       "id": "theory-with-statement",
       "type": "theory",
-      "title": "Das with-Statement — Dateien sicher schließen",
-      "body": "## Das with-Statement (Context Manager)\n\nOhne `with` muss man `.close()` manuell aufrufen — und vergisst es leicht. Das **with-Statement** sorgt dafür, dass die Datei **automatisch geschlossen** wird, sobald der Block endet — selbst bei einem Fehler:\n\n```python\nwith open('notiz.txt', 'w') as f:\n    f.write('Hallo Datei')\n# hier ist die Datei schon zu — kein .close() nötig\n```\n\n`open()` ist ein **Context Manager**: Es implementiert `__enter__` (öffnen) und `__exit__` (schließen), die das `with`-Statement automatisch aufruft.\n\n## Über Zeilen iterieren\n\nMit einer **for-Schleife** kann man direkt über das Datei-Objekt iterieren:\n\n```python\nwith open('liste.txt', 'r') as f:\n    for zeile in f:\n        print(zeile.strip())   # .strip() entfernt den \\n am Ende\n```\n\nDas ist effizienter als `.readlines()`, weil Python immer nur eine Zeile im Speicher hält."
+      "title": "Das with-Statement - Dateien sicher schließen",
+      "body": "## Das with-Statement (Context Manager)\n\nOhne `with` muss man `.close()` manuell aufrufen, und vergisst es leicht. Das **with-Statement** sorgt dafür, dass die Datei **automatisch geschlossen** wird, sobald der Block endet, selbst bei einem Fehler:\n\n```python\nwith open('notiz.txt', 'w') as f:\n    f.write('Hallo Datei')\n# hier ist die Datei schon zu - kein .close() nötig\n```\n\n`open()` ist ein **Context Manager**: Es implementiert `__enter__` (öffnen) und `__exit__` (schließen), die das `with`-Statement automatisch aufruft.\n\n## Über Zeilen iterieren\n\nMit einer **for-Schleife** kann man direkt über das Datei-Objekt iterieren:\n\n```python\nwith open('liste.txt', 'r') as f:\n    for zeile in f:\n        print(zeile.strip())   # .strip() entfernt den \\n am Ende\n```\n\nDas ist effizienter als `.readlines()`, weil Python immer nur eine Zeile im Speicher hält."
     },
     {
       "id": "theory-lese-methoden",
       "type": "theory",
       "title": "Lese-Methoden im Überblick",
-      "body": "## Drei Wege, eine Datei zu lesen\n\n```python\nwith open('text.txt', 'r') as f:\n    # Methode 1: gesamten Inhalt auf einmal\n    inhalt = f.read()          # ein einziger String\n\nwith open('text.txt', 'r') as f:\n    # Methode 2: Zeile für Zeile manuell\n    erste = f.readline()       # eine Zeile\n    zweite = f.readline()      # nächste Zeile\n\nwith open('text.txt', 'r') as f:\n    # Methode 3: alle Zeilen als Liste\n    zeilen = f.readlines()     # ['Zeile1\\n', 'Zeile2\\n', ...]\n```\n\n| Methode | Gibt zurück |\n|---------|-------------|\n| `.read()` | gesamter Inhalt als String |\n| `.readline()` | eine Zeile als String |\n| `.readlines()` | alle Zeilen als Liste |\n\nFür große Dateien empfiehlt sich die **for-Schleife** über das Datei-Objekt — sie hält immer nur eine Zeile im Speicher."
+      "body": "## Drei Wege, eine Datei zu lesen\n\n```python\nwith open('text.txt', 'r') as f:\n    # Methode 1: gesamten Inhalt auf einmal\n    inhalt = f.read()          # ein einziger String\n\nwith open('text.txt', 'r') as f:\n    # Methode 2: Zeile für Zeile manuell\n    erste = f.readline()       # eine Zeile\n    zweite = f.readline()      # nächste Zeile\n\nwith open('text.txt', 'r') as f:\n    # Methode 3: alle Zeilen als Liste\n    zeilen = f.readlines()     # ['Zeile1\\n', 'Zeile2\\n', ...]\n```\n\n| Methode | Gibt zurück |\n|---------|-------------|\n| `.read()` | gesamter Inhalt als String |\n| `.readline()` | eine Zeile als String |\n| `.readlines()` | alle Zeilen als Liste |\n\nFür große Dateien empfiehlt sich die **for-Schleife** über das Datei-Objekt, sie hält immer nur eine Zeile im Speicher."
     },
     {
       "id": "ex-match-modi",
@@ -162,9 +162,9 @@
         "prompt": "Ordne jeden Modus seiner Bedeutung zu.",
         "card_ids": ["dat-modus-r", "dat-modus-w", "dat-modus-a"],
         "pairs": [
-          { "left": "'r'", "right": "Datei lesen — muss existieren" },
-          { "left": "'w'", "right": "Datei schreiben — überschreibt vorhandenes" },
-          { "left": "'a'", "right": "Datei anhängen — alter Inhalt bleibt erhalten" }
+          { "left": "'r'", "right": "Datei lesen, muss existieren" },
+          { "left": "'w'", "right": "Datei schreiben, überschreibt vorhandenes" },
+          { "left": "'a'", "right": "Datei anhängen, alter Inhalt bleibt erhalten" }
         ],
         "direction": "target_to_source"
       }
@@ -185,7 +185,7 @@
           { "accept": ["with"] }
         ],
         "cloze_mode": "type",
-        "hint": "Englisch für 'mit' — leitet einen Context-Manager-Block ein."
+        "hint": "Englisch für 'mit' - leitet einen Context-Manager-Block ein."
       }
     },
     {

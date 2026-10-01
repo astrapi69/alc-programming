@@ -91,13 +91,13 @@
       "id": "intro",
       "type": "theory",
       "title": "Wozu Keys dienen",
-      "body": "# Listen und Keys\n\nRendert man eine Liste, gibt man jedem Element einen **Key**. Damit erkennt React ein Element **über Renders hinweg wieder** und ordnet alte und neue Elemente korrekt zu — so ändert es nur das Nötige.\n\nEin guter Key ist **stabil** und **eindeutig unter den Geschwistern** — meist eine **ID aus den Daten**, nicht der Zählindex."
+      "body": "# Listen und Keys\n\nRendert man eine Liste, gibt man jedem Element einen **Key**. Damit erkennt React ein Element **über Renders hinweg wieder** und ordnet alte und neue Elemente korrekt zu, so ändert es nur das Nötige.\n\nEin guter Key ist **stabil** und **eindeutig unter den Geschwistern**, meist eine **ID aus den Daten**, nicht der Zählindex."
     },
     {
       "id": "step-index",
       "type": "theory",
       "title": "Warum der Index heikel ist",
-      "body": "## Der Index als Key\n\nDer **Array-Index** als Key wirkt bequem, ist aber heikel: Wird die Liste **umsortiert**, **eingefügt** oder **gelöscht**, verschieben sich die Indizes — und React ordnet **State falsch** zu (z. B. bleibt ein Eingabefeld beim falschen Eintrag).\n\nDer Index ist nur **vertretbar**, wenn die Liste **statisch** ist. Sonst gilt: eine **stabile ID** verwenden. Und: Keys müssen nur **unter Geschwistern** eindeutig sein, nicht global."
+      "body": "## Der Index als Key\n\nDer **Array-Index** als Key wirkt bequem, ist aber heikel: Wird die Liste **umsortiert**, **eingefügt** oder **gelöscht**, verschieben sich die Indizes, und React ordnet **State falsch** zu (z. B. bleibt ein Eingabefeld beim falschen Eintrag).\n\nDer Index ist nur **vertretbar**, wenn die Liste **statisch** ist. Sonst gilt: eine **stabile ID** verwenden. Und: Keys müssen nur **unter Geschwistern** eindeutig sein, nicht global."
     },
     {
       "id": "ex-mc-wozu",

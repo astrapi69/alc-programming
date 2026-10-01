@@ -1,7 +1,7 @@
 {
   "id": "15-wiederholung",
   "title": "Wiederholung und Festigung",
-  "description": "Kompakte Wiederholung des gesamten Kurses: print(), Variablen, Datentypen, Operatoren, Strings, Listen, Bedingungen, Schleifen, Funktionen, Dictionaries, Fehlerbehandlung und Comprehensions — auf Deutsch erklärt.",
+  "description": "Kompakte Wiederholung des gesamten Kurses: print(), Variablen, Datentypen, Operatoren, Strings, Listen, Bedingungen, Schleifen, Funktionen, Dictionaries, Fehlerbehandlung und Comprehensions, auf Deutsch erklärt.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -244,7 +244,7 @@
         "type": "cloze",
         "prompt": "Ergänze das Schlüsselwort, mit dem man in Python eine Funktion definiert.",
         "card_ids": ["rep-funktionen"],
-        "sentence": "___ quadrat(x): return x ** 2 — so definiert man eine Funktion.",
+        "sentence": "___ quadrat(x): return x ** 2, so definiert man eine Funktion.",
         "blanks": [
           { "accept": ["def"] }
         ],
@@ -314,7 +314,7 @@
         "prompt": "Setze die List Comprehension zusammen, die jede Zahl aus 'zahlen' verdoppelt.",
         "card_ids": ["rep-comprehension"],
         "tiles": ["[", "x * 2", "for", "x", "in", "zahlen", "]"],
-        "hint": "Ausdruck — for — Variable — in — Iterable, alles in eckigen Klammern.",
+        "hint": "Ausdruck, for, Variable, in, Iterable, alles in eckigen Klammern.",
         "direction": "target_to_source"
       }
     }

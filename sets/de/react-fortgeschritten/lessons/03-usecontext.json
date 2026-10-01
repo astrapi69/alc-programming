@@ -91,13 +91,13 @@
       "id": "intro",
       "type": "theory",
       "title": "Context gegen Prop-Drilling",
-      "body": "# useContext\n\n**Prop-Drilling** heißt: Props durch viele Zwischenebenen reichen, nur um sie tief unten zu nutzen. Das wird schnell mühsam.\n\n**Context** löst das: Ein **Provider** stellt einen Wert für seinen Teilbaum bereit, und jede Komponente darunter liest ihn direkt mit **useContext** — ohne dass die Ebenen dazwischen die Prop weiterreichen müssen."
+      "body": "# useContext\n\n**Prop-Drilling** heißt: Props durch viele Zwischenebenen reichen, nur um sie tief unten zu nutzen. Das wird schnell mühsam.\n\n**Context** löst das: Ein **Provider** stellt einen Wert für seinen Teilbaum bereit, und jede Komponente darunter liest ihn direkt mit **useContext**, ohne dass die Ebenen dazwischen die Prop weiterreichen müssen."
     },
     {
       "id": "step-wann",
       "type": "theory",
       "title": "Wann Context sinnvoll ist",
-      "body": "## Wann Context?\n\nContext eignet sich für **globale, selten wechselnde** Daten, die **viele** Komponenten brauchen: **Theme**, **Sprache**, der **angemeldete Nutzer**.\n\nNicht sinnvoll ist Context für **rein lokalen** State einer einzelnen Komponente — dort bleibt `useState` einfacher. Wichtig: Ändert sich der Context-Wert, **rendern alle Konsumenten neu**."
+      "body": "## Wann Context?\n\nContext eignet sich für **globale, selten wechselnde** Daten, die **viele** Komponenten brauchen: **Theme**, **Sprache**, der **angemeldete Nutzer**.\n\nNicht sinnvoll ist Context für **rein lokalen** State einer einzelnen Komponente, dort bleibt `useState` einfacher. Wichtig: Ändert sich der Context-Wert, **rendern alle Konsumenten neu**."
     },
     {
       "id": "ex-mc-wogegen",

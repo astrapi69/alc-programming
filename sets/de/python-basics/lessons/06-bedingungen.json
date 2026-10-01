@@ -1,7 +1,7 @@
 {
   "id": "06-bedingungen",
   "title": "Bedingungen (if / elif / else)",
-  "description": "if, elif und else, Vergleichsoperatoren, boolesche Operatoren und die Bedeutung der Einrückung für Codeblöcke — auf Deutsch erklärt.",
+  "description": "if, elif und else, Vergleichsoperatoren, boolesche Operatoren und die Bedeutung der Einrückung für Codeblöcke, auf Deutsch erklärt.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -54,7 +54,7 @@
       "code_snippet": "print(3 == 3)\nprint(3 == 4)",
       "code_language": "python",
       "expected_output": "True\nFalse",
-      "hint": "Zwei Gleichheitszeichen — nicht zu verwechseln mit = (Zuweisung).",
+      "hint": "Zwei Gleichheitszeichen, nicht zu verwechseln mit = (Zuweisung).",
       "difficulty": 1,
       "tags": ["operatoren", "vergleich"],
       "media_type": "code"
@@ -137,7 +137,7 @@
     {
       "id": "py-if-elif-else-kette",
       "stable_id": "card-ms942h7i02tpa",
-      "front": "if / elif / else — komplette Kette",
+      "front": "if / elif / else - komplette Kette",
       "back": "Mit if, beliebig vielen elif und einem abschließenden else deckt man alle Fälle ab.",
       "code_snippet": "punkte = 75\nif punkte >= 90:\n    print('Sehr gut')\nelif punkte >= 60:\n    print('Bestanden')\nelse:\n    print('Nicht bestanden')",
       "code_language": "python",
@@ -151,7 +151,7 @@
       "id": "py-bool-ausdruck",
       "stable_id": "card-ms942h7i02uex",
       "front": "Boolescher Ausdruck (Boolean Expression)",
-      "back": "Ein Ausdruck, der True oder False ergibt — z. B. 5 > 3 oder alter >= 18.",
+      "back": "Ein Ausdruck, der True oder False ergibt, z. B. 5 > 3 oder alter >= 18.",
       "media_type": "text",
       "difficulty": 1,
       "tags": ["boolean", "grundlagen"]
@@ -161,7 +161,7 @@
     {
       "id": "step-if-else",
       "type": "theory",
-      "title": "if, elif und else — Entscheidungen treffen",
+      "title": "if, elif und else - Entscheidungen treffen",
       "body": "# Bedingungen (if / elif / else)\n\nMit **`if`** kann man Code nur dann ausführen lassen, wenn eine Bedingung erfüllt ist:\n\n```python\nalter = 18\nif alter >= 18:\n    print('Volljährig')\n```\n\nAusgabe:\n\n```\nVolljährig\n```\n\nMit **`elif`** (kurz für *else if*) prüft man weitere Fälle, und **`else`** fängt alles auf, was nicht gepasst hat:\n\n```python\npunkte = 75\nif punkte >= 90:\n    print('Sehr gut')\nelif punkte >= 60:\n    print('Bestanden')\nelse:\n    print('Nicht bestanden')\n```\n\nAusgabe:\n\n```\nBestanden\n```\n\n**Wichtig:** Nach `if`, `elif` und `else` steht immer ein **Doppelpunkt**, und der Codeblock darunter muss **eingerückt** sein (4 Leerzeichen)."
     },
     {
@@ -211,7 +211,7 @@
           { "accept": ["=="] }
         ],
         "cloze_mode": "type",
-        "hint": "Das Gleichheitszeichen verdoppelt — nicht das einfache der Zuweisung."
+        "hint": "Das Gleichheitszeichen verdoppelt, nicht das einfache der Zuweisung."
       }
     },
     {

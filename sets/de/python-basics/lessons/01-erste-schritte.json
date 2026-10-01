@@ -1,7 +1,7 @@
 {
   "id": "01-erste-schritte",
   "title": "Erste Schritte mit Python",
-  "description": "Was Python ist, dein erstes Programm, print(), Kommentare und typische Anfängerfehler — auf Deutsch erklärt.",
+  "description": "Was Python ist, dein erstes Programm, print(), Kommentare und typische Anfängerfehler, auf Deutsch erklärt.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -73,7 +73,7 @@
       "id": "py-string",
       "stable_id": "card-ms942h7d006vw",
       "front": "String (str)",
-      "back": "Eine Zeichenkette — Text, der in Anführungszeichen steht.",
+      "back": "Eine Zeichenkette, Text, der in Anführungszeichen steht.",
       "code_snippet": "name = 'Anna'\nprint(name)",
       "code_language": "python",
       "expected_output": "Anna",
@@ -87,7 +87,7 @@
       "id": "py-comment",
       "stable_id": "card-ms942h7d007vc",
       "front": "Kommentar (#)",
-      "back": "Text nach einem # wird vom Interpreter ignoriert — er dient nur dem Menschen.",
+      "back": "Text nach einem # wird vom Interpreter ignoriert, er dient nur dem Menschen.",
       "code_snippet": "# Das ist ein Kommentar\nprint('Hi')",
       "code_language": "python",
       "expected_output": "Hi",
@@ -101,7 +101,7 @@
       "id": "py-quotes",
       "stable_id": "card-ms942h7d008h1",
       "front": "Anführungszeichen",
-      "back": "Strings stehen in einfachen ' ' oder doppelten \" \" Anführungszeichen — Hauptsache, beide Seiten sind gleich.",
+      "back": "Strings stehen in einfachen ' ' oder doppelten \" \" Anführungszeichen, Hauptsache, beide Seiten sind gleich.",
       "code_snippet": "print(\"Tschüss\")",
       "code_language": "python",
       "expected_output": "Tschüss",
@@ -116,7 +116,7 @@
       "stable_id": "card-ms942h7d0098l",
       "front": "SyntaxError",
       "back": "Fehlermeldung, wenn der Code grammatikalisch falsch ist, z. B. bei einer fehlenden Klammer.",
-      "notes": "Python zeigt die Zeile mit dem Problem an — sehr hilfreich beim Suchen.",
+      "notes": "Python zeigt die Zeile mit dem Problem an, sehr hilfreich beim Suchen.",
       "media_type": "text",
       "difficulty": 2,
       "tags": ["fehler"]
@@ -136,20 +136,20 @@
     {
       "id": "intro",
       "type": "theory",
-      "title": "Was ist Python — und dein erstes Programm",
-      "body": "# Erste Schritte mit Python\n\n**Python** ist eine **Programmiersprache**: eine Sprache, in der wir einem Computer Anweisungen geben. Python gilt als besonders gut lesbar und einsteigerfreundlich — der Code sieht fast wie englischer Text aus.\n\nDas Programm, das deinen Code ausführt, heißt **Interpreter**. Er liest jede Zeile und führt sie sofort aus.\n\nDas klassische erste Programm gibt einen Gruß aus:\n\n```python\nprint('Hallo Welt')\n```\n\nAusgabe:\n\n```\nHallo Welt\n```\n\nHerzlichen Glückwunsch — das ist ein vollständiges Python-Programm."
+      "title": "Was ist Python - und dein erstes Programm",
+      "body": "# Erste Schritte mit Python\n\n**Python** ist eine **Programmiersprache**: eine Sprache, in der wir einem Computer Anweisungen geben. Python gilt als besonders gut lesbar und einsteigerfreundlich, der Code sieht fast wie englischer Text aus.\n\nDas Programm, das deinen Code ausführt, heißt **Interpreter**. Er liest jede Zeile und führt sie sofort aus.\n\nDas klassische erste Programm gibt einen Gruß aus:\n\n```python\nprint('Hallo Welt')\n```\n\nAusgabe:\n\n```\nHallo Welt\n```\n\nHerzlichen Glückwunsch, das ist ein vollständiges Python-Programm."
     },
     {
       "id": "step-print",
       "type": "theory",
       "title": "Text ausgeben mit print()",
-      "body": "## Die Funktion print()\n\n**print()** ist die wichtigste Funktion am Anfang: Sie gibt etwas auf der **Konsole** aus.\n\n- Der auszugebende Text steht in **Anführungszeichen** — einfach `' '` oder doppelt `\" \"`.\n- Mehrere Werte werden durch **Kommas** getrennt; Python setzt automatisch ein Leerzeichen dazwischen:\n\n```python\nprint('Hallo', 'Welt')\n```\n\nAusgabe:\n\n```\nHallo Welt\n```\n\nText in Anführungszeichen nennt man einen **String** (`str`)."
+      "body": "## Die Funktion print()\n\n**print()** ist die wichtigste Funktion am Anfang: Sie gibt etwas auf der **Konsole** aus.\n\n- Der auszugebende Text steht in **Anführungszeichen**, einfach `' '` oder doppelt `\" \"`.\n- Mehrere Werte werden durch **Kommas** getrennt; Python setzt automatisch ein Leerzeichen dazwischen:\n\n```python\nprint('Hallo', 'Welt')\n```\n\nAusgabe:\n\n```\nHallo Welt\n```\n\nText in Anführungszeichen nennt man einen **String** (`str`)."
     },
     {
       "id": "step-fehler",
       "type": "theory",
       "title": "Kommentare und typische Fehler",
-      "body": "## Kommentare\n\nMit dem Zeichen **#** schreibt man einen **Kommentar**. Alles nach `#` wird vom Interpreter ignoriert — Kommentare sind nur für Menschen da:\n\n```python\n# Das hier wird ignoriert\nprint('Hi')   # auch das nach dem Code\n```\n\n## Zwei häufige Anfängerfehler\n\n- **SyntaxError** — der Code ist grammatikalisch falsch, z. B. eine **Klammer** oder ein **Anführungszeichen** fehlt.\n- **Einrückung (Indentation)** — Python nutzt Leerzeichen am Zeilenanfang, um Blöcke zu strukturieren. In dieser Lektion reicht es zu wissen, dass Einrückung in Python eine Bedeutung hat."
+      "body": "## Kommentare\n\nMit dem Zeichen **#** schreibt man einen **Kommentar**. Alles nach `#` wird vom Interpreter ignoriert, Kommentare sind nur für Menschen da:\n\n```python\n# Das hier wird ignoriert\nprint('Hi')   # auch das nach dem Code\n```\n\n## Zwei häufige Anfängerfehler\n\n- **SyntaxError**: der Code ist grammatikalisch falsch, z. B. eine **Klammer** oder ein **Anführungszeichen** fehlt.\n- **Einrückung (Indentation)**: Python nutzt Leerzeichen am Zeilenanfang, um Blöcke zu strukturieren. In dieser Lektion reicht es zu wissen, dass Einrückung in Python eine Bedeutung hat."
     },
     {
       "id": "ex-cloze-print",

@@ -63,7 +63,7 @@
       "id": "komposition",
       "stable_id": "card-ms942h7s0alky",
       "front": "Komposition",
-      "back": "UI aus kleinen Bausteinen zusammensetzen — Inhalte per children verschachteln statt alles zu vererben.",
+      "back": "UI aus kleinen Bausteinen zusammensetzen, Inhalte per children verschachteln statt alles zu vererben.",
       "notes": "React bevorzugt Komposition.",
       "media_type": "text",
       "difficulty": 2,
@@ -104,7 +104,7 @@
       "id": "intro",
       "type": "theory",
       "title": "Bausteine zusammensetzen",
-      "body": "# Komposition und Patterns\n\nReact setzt Oberflächen aus **kleinen Bausteinen** zusammen. Zwei Grundwerkzeuge:\n\n- **children:** die Prop, über die eine Komponente den **verschachtelten Inhalt** erhält — `<Card>Inhalt</Card>`.\n- **Lifting State Up:** brauchen **mehrere Kinder** denselben State, verschiebt man ihn in ihr **gemeinsames Elternteil** — eine **einzige Quelle der Wahrheit**."
+      "body": "# Komposition und Patterns\n\nReact setzt Oberflächen aus **kleinen Bausteinen** zusammen. Zwei Grundwerkzeuge:\n\n- **children:** die Prop, über die eine Komponente den **verschachtelten Inhalt** erhält, `<Card>Inhalt</Card>`.\n- **Lifting State Up:** brauchen **mehrere Kinder** denselben State, verschiebt man ihn in ihr **gemeinsames Elternteil**, eine **einzige Quelle der Wahrheit**."
     },
     {
       "id": "step-hooks",

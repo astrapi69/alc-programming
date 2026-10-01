@@ -1,7 +1,7 @@
 {
   "id": "04-useref",
   "title": "useRef",
-  "description": "DOM-Referenzen und veränderliche Werte ohne Re-Render — und die Abgrenzung zu State. Schwerpunkt Multiple-Choice.",
+  "description": "DOM-Referenzen und veränderliche Werte ohne Re-Render, und die Abgrenzung zu State. Schwerpunkt Multiple-Choice.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",

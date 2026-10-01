@@ -1,9 +1,9 @@
-# Wurzel-Manifest von alc-programming — die Programmier-Reihe.
+# Wurzel-Manifest von alc-programming - die Programmier-Reihe.
 #
 # Adaptive-Learner-Content-Repo für Programmierung. Drei deutschsprachige
 # Sets (domain: programming) nach aufsteigendem Niveau:
 #
-#   python-basics          Python — Grundlagen             (A1, 15 Lektionen)
+#   python-basics          Python - Grundlagen             (A1, 15 Lektionen)
 #   react-grundlagen       React-Grundlagen (Einsteiger)   (A2,  5 Lektionen)
 #   react-fortgeschritten  React Fortgeschritten (Teil 2)  (B1,  8 Lektionen)
 #   react-19               React 19 in der Praxis (Teil 3)  (B2,  8 Lektionen)
@@ -18,15 +18,15 @@
 #
 # Anleitung: docs/GETTING-STARTED.md
 schema_version: '1.5'
-name: Adaptive Learner — Programmierung
+name: Adaptive Learner - Programmierung
 description: >-
   Programmier-Inhalte für Adaptive Learner: Python-Grundlagen für
   Einsteiger sowie eine zweiteilige React-Reihe (Grundlagen und
   Fortgeschritten), alle auf Deutsch erklärt.
 sets:
   - id: python-basics-from-de
-    title: Python — Grundlagen
-    title_native: Python — Basics
+    title: Python - Grundlagen
+    title_native: Python - Basics
     target_language: de
     source_language: de
     domain: programming
@@ -79,8 +79,8 @@ sets:
     lesson_count: 8
     description: >-
       Fortsetzung von „React-Grundlagen" (Teil 2, Fortgeschritten, B1): acht
-      Lektionen mit Schwerpunkt Multiple-Choice — Single-Answer als cloze
-      select-mode und „Wähle alle zutreffenden" als cloze multiselect — plus
+      Lektionen mit Schwerpunkt Multiple-Choice, Single-Answer als cloze
+      select-mode und „Wähle alle zutreffenden" als cloze multiselect, plus
       matching und kurze Lückentext-Items. Themen: useEffect, Datenfetching,
       useContext, useRef, Performance, Listen/Keys, Formulare, Komposition
       und Patterns. React-18, Hooks-first, konzeptuell.

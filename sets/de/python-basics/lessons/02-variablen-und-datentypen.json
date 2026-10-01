@@ -1,7 +1,7 @@
 {
   "id": "02-variablen-und-datentypen",
   "title": "Variablen und Datentypen",
-  "description": "Variablen anlegen und überschreiben, die Grundtypen int, float, str und bool, die Funktion type() und Namensregeln — auf Deutsch erklärt.",
+  "description": "Variablen anlegen und überschreiben, die Grundtypen int, float, str und bool, die Funktion type() und Namensregeln, auf Deutsch erklärt.",
   "target_language": "de",
   "source_language": "de",
   "domain": "programming",
@@ -12,7 +12,7 @@
       "stable_id": "card-ms942h7f00inq",
       "front": "Variable",
       "back": "Ein benannter Speicherplatz, der einen Wert enthält. Mit = wird ihr ein Wert zugewiesen.",
-      "notes": "Der Name einer Variablen ist frei wählbar — solange er den Namensregeln folgt.",
+      "notes": "Der Name einer Variablen ist frei wählbar, solange er den Namensregeln folgt.",
       "media_type": "text",
       "difficulty": 1,
       "tags": ["grundlagen", "variablen"]
@@ -147,7 +147,7 @@
       "id": "intro-variablen",
       "type": "theory",
       "title": "Variablen und Zuweisung",
-      "body": "# Variablen und Datentypen\n\nEine **Variable** ist ein benannter Speicherplatz. Mit dem **Zuweisungsoperator `=`** speichert man einen Wert unter einem Namen:\n\n```python\nname = 'Anna'\nalter = 25\n```\n\nDanach kann man den Namen überall im Code verwenden:\n\n```python\nprint(name)\nprint(alter)\n```\n\nAusgabe:\n\n```\nAnna\n25\n```\n\nMan kann einer Variablen jederzeit einen **neuen Wert zuweisen** — der alte wird dann ersetzt:\n\n```python\nx = 10\nx = 20\nprint(x)   # gibt 20 aus\n```"
+      "body": "# Variablen und Datentypen\n\nEine **Variable** ist ein benannter Speicherplatz. Mit dem **Zuweisungsoperator `=`** speichert man einen Wert unter einem Namen:\n\n```python\nname = 'Anna'\nalter = 25\n```\n\nDanach kann man den Namen überall im Code verwenden:\n\n```python\nprint(name)\nprint(alter)\n```\n\nAusgabe:\n\n```\nAnna\n25\n```\n\nMan kann einer Variablen jederzeit einen **neuen Wert zuweisen**, der alte wird dann ersetzt:\n\n```python\nx = 10\nx = 20\nprint(x)   # gibt 20 aus\n```"
     },
     {
       "id": "step-datentypen",
@@ -159,7 +159,7 @@
       "id": "step-namensregeln",
       "type": "theory",
       "title": "Namensregeln und Snake Case",
-      "body": "## Gültige Variablennamen\n\nFür Variablennamen gilt:\n\n- Nur **Buchstaben**, **Ziffern** und **Unterstrich** `_`.\n- **Kein Leerzeichen** — das würde Python verwirren.\n- Nicht mit einer **Ziffer beginnen**: `1name` ist ungültig, `name1` ist erlaubt.\n- Python unterscheidet **Groß- und Kleinschreibung**: `Alter` und `alter` sind zwei verschiedene Variablen.\n\nDer Python-Stilguide empfiehlt **Snake Case** für mehrteilige Namen:\n\n```python\nhoechste_punktzahl = 100\nmein_name = 'Lena'\n```\n\nUnzulässige Namen (verursachen einen `SyntaxError`):\n\n```python\n# 2wert = 5      → beginnt mit Ziffer\n# mein name = 5  → enthält Leerzeichen\n```"
+      "body": "## Gültige Variablennamen\n\nFür Variablennamen gilt:\n\n- Nur **Buchstaben**, **Ziffern** und **Unterstrich** `_`.\n- **Kein Leerzeichen**: das würde Python verwirren.\n- Nicht mit einer **Ziffer beginnen**: `1name` ist ungültig, `name1` ist erlaubt.\n- Python unterscheidet **Groß- und Kleinschreibung**: `Alter` und `alter` sind zwei verschiedene Variablen.\n\nDer Python-Stilguide empfiehlt **Snake Case** für mehrteilige Namen:\n\n```python\nhoechste_punktzahl = 100\nmein_name = 'Lena'\n```\n\nUnzulässige Namen (verursachen einen `SyntaxError`):\n\n```python\n# 2wert = 5      → beginnt mit Ziffer\n# mein name = 5  → enthält Leerzeichen\n```"
     },
     {
       "id": "ex-cloze-zuweisung",
@@ -177,7 +177,7 @@
           { "accept": ["="] }
         ],
         "cloze_mode": "type",
-        "hint": "Die Zuweisung — nicht der doppelte Vergleichsoperator =="
+        "hint": "Die Zuweisung, nicht der doppelte Vergleichsoperator =="
       }
     },
     {
