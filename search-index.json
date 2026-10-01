@@ -1,12 +1,12 @@
 {
   "repo": "astrapi69/alc-programming",
-  "generated": "2026-09-24T06:33:12Z",
+  "generated": "2026-10-01T11:14:08Z",
   "schema_version": "1.0",
   "sets": [
     {
       "id": "python-basics-from-de",
-      "name": "Python — Grundlagen",
-      "description": "Fünfzehn Einführungslektionen Python, auf Deutsch erklärt — vom ersten print() bis zu List Comprehensions, mit lauffähigen Code-Beispielen und erwarteter Ausgabe.",
+      "name": "Python - Grundlagen",
+      "description": "Fünfzehn Einführungslektionen Python, auf Deutsch erklärt, vom ersten print() bis zu List Comprehensions, mit lauffähigen Code-Beispielen und erwarteter Ausgabe.",
       "source_language": "de",
       "target_language": "de",
       "level": "a1",
@@ -23,7 +23,7 @@
       "ai_validated": false,
       "trust_level": 1,
       "book": null,
-      "updated_at": "2026-07-31T15:48:28Z"
+      "updated_at": "2026-10-01T11:13:29Z"
     },
     {
       "id": "react-grundlagen-from-de",
@@ -46,12 +46,12 @@
       "ai_validated": false,
       "trust_level": 1,
       "book": null,
-      "updated_at": "2026-09-23T05:25:21Z"
+      "updated_at": "2026-10-01T11:13:29Z"
     },
     {
       "id": "react-fortgeschritten-from-de",
       "name": "React Fortgeschritten (Teil 2)",
-      "description": "Teil 2 der React-Reihe (Fortgeschritten, B1): acht Lektionen mit überwiegend Multiple-Choice — Single-Answer als cloze select-mode und „Wähle alle zutreffenden\" als cloze multiselect — plus matching und kurze Lückentext-Items. Themen: useEffect, Datenfetching, useContext, useRef, Performance, Listen/Keys, Formulare, Komposition/Patterns. Distraktoren aus klassischen React-Irrtümern. React-18, Hooks-first.",
+      "description": "Teil 2 der React-Reihe (Fortgeschritten, B1): acht Lektionen mit überwiegend Multiple-Choice, Single-Answer als cloze select-mode und „Wähle alle zutreffenden\" als cloze multiselect, plus matching und kurze Lückentext-Items. Themen: useEffect, Datenfetching, useContext, useRef, Performance, Listen/Keys, Formulare, Komposition/Patterns. Distraktoren aus klassischen React-Irrtümern. React-18, Hooks-first.",
       "source_language": "de",
       "target_language": "de",
       "level": "b1",
@@ -70,7 +70,7 @@
       "ai_validated": false,
       "trust_level": 1,
       "book": null,
-      "updated_at": "2026-09-23T05:25:21Z"
+      "updated_at": "2026-10-01T11:13:29Z"
     },
     {
       "id": "react-19-from-de",
