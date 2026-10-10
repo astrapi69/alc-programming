@@ -43,15 +43,6 @@ sets:
     path: sets/de/react-19
     version: '1.0.0'
     lesson_count: 8
-    description: >-
-      React 19 an lauffähigem Code: pro Lektion eine Komponente, acht
-      Übungen darauf. Deckt 19.0 (Actions, use, ref als Prop, Server
-      Components), 19.2 (gebündelte Suspense-Enthüllung, useEffectEvent,
-      Activity) und 19.3 (ViewTransition, Fragment Refs) ab. Übungstypen
-      mit Schwerpunkt auf Code lesen: reading-comprehension,
-      error-correction, parsons, dazu ordering, categorization,
-      multiple_choice, matching, cloze mit echtem Trägersatz und eine
-      benotete Abschlussprüfung.
     tags:
       - programming
       - react
