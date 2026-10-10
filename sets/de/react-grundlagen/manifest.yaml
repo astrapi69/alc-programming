@@ -27,13 +27,6 @@ sets:
     path: sets/de/react-grundlagen
     version: '1.0.1'
     lesson_count: 5
-    description: >-
-      React-Grundlagen auf Deutsch für Einsteiger: fünf Lektionen mit
-      insgesamt 31 Karten, Theorieschritten und überwiegend
-      Multiple-Choice-Übungen (picture_choice mit plausiblen
-      Distraktoren) plus wenigen Lückentext-Items (cloze) zu React als
-      Library, Komponenten, JSX, Props, State/useState, Events und
-      Grundprinzipien.
     tags:
       - react
       - javascript

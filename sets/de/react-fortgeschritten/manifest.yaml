@@ -32,13 +32,6 @@ sets:
     path: sets/de/react-fortgeschritten
     version: '1.0.1'
     lesson_count: 8
-    description: >-
-      Teil 2 der React-Reihe (Fortgeschritten, B1): acht Lektionen mit
-      überwiegend Multiple-Choice, Single-Answer als cloze select-mode und
-      „Wähle alle zutreffenden" als cloze multiselect, plus matching und
-      kurze Lückentext-Items. Themen: useEffect, Datenfetching, useContext,
-      useRef, Performance, Listen/Keys, Formulare, Komposition/Patterns.
-      Distraktoren aus klassischen React-Irrtümern. React-18, Hooks-first.
     tags:
       - react
       - javascript
