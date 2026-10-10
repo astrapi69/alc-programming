@@ -1,12 +1,12 @@
 {
   "repo": "astrapi69/alc-programming",
-  "generated": "2026-10-01T11:14:08Z",
+  "generated": "2026-10-10T07:13:32Z",
   "schema_version": "1.0",
   "sets": [
     {
       "id": "python-basics-from-de",
       "name": "Python - Grundlagen",
-      "description": "Fünfzehn Einführungslektionen Python, auf Deutsch erklärt, vom ersten print() bis zu List Comprehensions, mit lauffähigen Code-Beispielen und erwarteter Ausgabe.",
+      "description": "Einführung in die Programmierung mit Python für Deutschsprachige (15 Lektionen): von print() und Variablen über Strings, Listen, Bedingungen und Schleifen bis zu Funktionen, Dictionaries, Fehlerbehandlung, Modulen, Dateien und Comprehensions. Erklärt auf Deutsch, mit lauffähigen Code-Beispielen und erwarteter Ausgabe. Erstes Programmier-Set (domain: programming, schema v1.3).",
       "source_language": "de",
       "target_language": "de",
       "level": "a1",
@@ -23,12 +23,12 @@
       "ai_validated": false,
       "trust_level": 1,
       "book": null,
-      "updated_at": "2026-10-01T11:13:29Z"
+      "updated_at": "2026-10-10T07:13:22Z"
     },
     {
       "id": "react-grundlagen-from-de",
       "name": "React-Grundlagen (Einsteiger)",
-      "description": "React-Grundlagen auf Deutsch für Einsteiger: fünf Lektionen mit insgesamt 31 Karten, Theorieschritten und überwiegend Multiple-Choice-Übungen (picture_choice mit plausiblen Distraktoren) plus wenigen Lückentext-Items (cloze) zu React als Library, Komponenten, JSX, Props, State/useState, Events und Grundprinzipien.",
+      "description": "React-Grundlagen auf Deutsch für Einsteiger: fünf Lektionen mit überwiegend Multiple-Choice-Übungen (picture_choice mit plausiblen Distraktoren) plus wenigen Lückentext-Items (cloze) zu React als Library, Komponenten, JSX, Props, State/useState, Events und Grundprinzipien.",
       "source_language": "de",
       "target_language": "de",
       "level": "a2",
@@ -46,12 +46,12 @@
       "ai_validated": false,
       "trust_level": 1,
       "book": null,
-      "updated_at": "2026-10-01T11:13:29Z"
+      "updated_at": "2026-10-10T07:13:22Z"
     },
     {
       "id": "react-fortgeschritten-from-de",
       "name": "React Fortgeschritten (Teil 2)",
-      "description": "Teil 2 der React-Reihe (Fortgeschritten, B1): acht Lektionen mit überwiegend Multiple-Choice, Single-Answer als cloze select-mode und „Wähle alle zutreffenden\" als cloze multiselect, plus matching und kurze Lückentext-Items. Themen: useEffect, Datenfetching, useContext, useRef, Performance, Listen/Keys, Formulare, Komposition/Patterns. Distraktoren aus klassischen React-Irrtümern. React-18, Hooks-first.",
+      "description": "Fortsetzung von „React-Grundlagen\" (Teil 2, Fortgeschritten, B1): acht Lektionen mit Schwerpunkt Multiple-Choice, Single-Answer als cloze select-mode und „Wähle alle zutreffenden\" als cloze multiselect, plus matching und kurze Lückentext-Items. Themen: useEffect, Datenfetching, useContext, useRef, Performance, Listen/Keys, Formulare, Komposition und Patterns. React-18, Hooks-first, konzeptuell.",
       "source_language": "de",
       "target_language": "de",
       "level": "b1",
@@ -70,12 +70,12 @@
       "ai_validated": false,
       "trust_level": 1,
       "book": null,
-      "updated_at": "2026-10-01T11:13:29Z"
+      "updated_at": "2026-10-10T07:13:22Z"
     },
     {
       "id": "react-19-from-de",
       "name": "React 19 in der Praxis (Teil 3)",
-      "description": "React 19 an lauffähigem Code: pro Lektion eine Komponente, acht Übungen darauf. Deckt 19.0 (Actions, use, ref als Prop, Server Components), 19.2 (gebündelte Suspense-Enthüllung, useEffectEvent, Activity) und 19.3 (ViewTransition, Fragment Refs) ab. Übungstypen mit Schwerpunkt auf Code lesen: reading-comprehension, error-correction, parsons, dazu ordering, categorization, multiple_choice, matching, cloze mit echtem Trägersatz und eine benotete Abschlussprüfung.",
+      "description": "Teil 3 der React-Reihe (B2): acht Lektionen zu React 19.0, 19.2 und 19.3, jede an einer durchgehenden Komponente. Jede Übung hängt an einem Code-Artefakt statt an einem Begriff, mit Schwerpunkt auf Übungen, die das Lesen von Code verlangen. Themen: Actions und useActionState, useFormStatus und useOptimistic, use für Promises und Context, ref als Prop, Server Components, Suspense und Streaming, useEffectEvent und Activity, ViewTransition und Fragment Refs mit Abschlussprüfung.",
       "source_language": "de",
       "target_language": "de",
       "level": "b2",
@@ -91,7 +91,7 @@
       "ai_validated": false,
       "trust_level": 1,
       "book": null,
-      "updated_at": "2026-09-23T12:59:29Z"
+      "updated_at": "2026-10-10T07:13:22Z"
     }
   ],
   "total_lessons": 36,
